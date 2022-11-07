@@ -2,16 +2,16 @@
 En cuanto al diseño se refiere, se va a tratar de simplificar y agrupar todos los bloques de tal forma que el usuario sea capaz de lanzar un comando y pueda correr dicha máquina local de forma simple. 
 
 Para el análisis se ha investigado distintas herramientas, tales como: 
-Nessus 
-Netcat
-Port Authority
-Advanced Port Scanner
-Network Scanner by MiTeC
-Nmap
-PortQryUI
-NetScanTools
-Angry IP Scanner
-MASSCAN
+ - Nessus 
+ - Netcat
+ - Port Authority
+ - Advanced Port Scanner
+ - Network Scanner by MiTeC
+ - Nmap
+ - PortQryUI
+ - NetScanTools
+ - Angry IP Scanner
+ - MASSCAN
 
 En cuanto al analisis de ips se refiere se quiere optar por utilizar la última versión de Nmap 7.93 ya que es de código abierto, contiene todas las configuraciones necesarias para el proyecto(analisis, host, vulnerabilidades y scripts para metaexploit):
 Nmap ( " Network Mapper " ) es una herramienta de código abierto para la exploración de redes y la auditoría de seguridad. Fue diseñado para escanear rápidamente grandes redes, aunque funciona bien contra hosts individuales. Nmap utiliza paquetes de IP sin procesar de formas novedosas para determinar qué hosts están disponibles en la red, qué servicios (nombre y versión de la aplicación) ofrecen esos hosts, qué sistemas operativos (y versiones de SO) están ejecutando, qué tipo de filtros de paquetes/cortafuegos están en uso, y docenas de otras características. Si bien Nmap se usa comúnmente para auditorías de seguridad, muchos administradores de sistemas y redes lo encuentran útil para tareas rutinarias como el inventario de redes, la administración de programas de actualización de servicios y el monitoreo del tiempo de actividad del host o del servicio.
