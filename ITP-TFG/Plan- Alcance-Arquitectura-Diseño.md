@@ -1,7 +1,19 @@
 # Plan - Diseño  
 En cuanto al diseño se refiere, se va a tratar de simplificar y agrupar todos los bloques de tal forma que el usuario sea capaz de lanzar un comando y pueda correr dicha máquina local de forma simple. 
 
-En cuanto al analisis de ips se refiere se utilizará la última versión de Nmap 7.93:
+Para el análisis se ha investigado distintas herramientas, tales como: 
+Nessus 
+Netcat
+Port Authority
+Advanced Port Scanner
+Network Scanner by MiTeC
+Nmap
+PortQryUI
+NetScanTools
+Angry IP Scanner
+MASSCAN
+
+En cuanto al analisis de ips se refiere se quiere optar por utilizar la última versión de Nmap 7.93 ya que es de código abierto, contiene todas las configuraciones necesarias para el proyecto(analisis, host, vulnerabilidades y scripts para metaexploit):
 Nmap ( " Network Mapper " ) es una herramienta de código abierto para la exploración de redes y la auditoría de seguridad. Fue diseñado para escanear rápidamente grandes redes, aunque funciona bien contra hosts individuales. Nmap utiliza paquetes de IP sin procesar de formas novedosas para determinar qué hosts están disponibles en la red, qué servicios (nombre y versión de la aplicación) ofrecen esos hosts, qué sistemas operativos (y versiones de SO) están ejecutando, qué tipo de filtros de paquetes/cortafuegos están en uso, y docenas de otras características. Si bien Nmap se usa comúnmente para auditorías de seguridad, muchos administradores de sistemas y redes lo encuentran útil para tareas rutinarias como el inventario de redes, la administración de programas de actualización de servicios y el monitoreo del tiempo de actividad del host o del servicio.
 
 El resultado de Nmap es una lista de objetivos escaneados, con información adicional sobre cada uno según las opciones utilizadas. La clave entre esa información es la " tabla de puertos interesantes " . Esa tabla enumera el número de puerto y el protocolo, el nombre del servicio y el estado. El estado es open, filtered, closedo unfiltered. Open significa que una aplicación en la máquina de destino está escuchando conexiones/paquetes en ese puerto. Filtered significa que un firewall, un filtro u otro obstáculo en la red está bloqueando el puerto para que Nmap no pueda saber si es openo closed. Closed los puertos no tienen ninguna aplicación que los escuche, aunque podrían abrirse en cualquier momento. Los puertos se clasifican como unfiltered cuando responden a las sondas de Nmap, pero Nmap no puede determinar si están abiertos o cerrados. Nmap informa las combinaciones de estado open|filtered yclosed|filtered cuando no puede determinar cuál de los dos estados describe un puerto. La tabla de puertos también puede incluir detalles de la versión del software cuando se ha solicitado la detección de la versión. Cuando se solicita un escaneo de protocolo IP ( -sO), Nmap proporciona información sobre los protocolos IP admitidos en lugar de los puertos de escucha.
