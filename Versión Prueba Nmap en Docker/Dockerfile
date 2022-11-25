@@ -9,6 +9,6 @@ RUN apt-get install -y nmap
 
 WORKDIR /usr/src/app
 COPY python-nmap.py .
-COPY /datos/ips.txt .
+COPY ips.txt .
 
 CMD [ "python", "./python-nmap.py" ]
