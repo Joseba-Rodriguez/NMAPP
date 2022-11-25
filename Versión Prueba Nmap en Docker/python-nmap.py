@@ -1,5 +1,10 @@
 import nmap
+import os
 #Aqui le indica las ips(editar para hacer un rango)
+#Descargas de las bases de datos
+os.system("cd /usr/share/nmap/scripts/ ; git clone https://github.com/vulnersCom/nmap-vulners.git ; git clone https://github.com/scipag/vulscan.git ; ls vulscan/*.csv ; cd vulscan/utilities/updater/ ; chmod +x updateFiles.sh ; ./updateFiles>
+
+
 with open ("ips.txt","r") as file:
         filecontents = file.read()
         lists = []
@@ -10,7 +15,7 @@ with open ("ips.txt","r") as file:
                 nm = nmap.PortScanner()
 #indica en una variable cual va a ser el inicio de los puertos
                 puertos_abiertos="-p "
-#con nm.scan(argumentos) se puede meter todos los argunmentos necesarios que queramos que ejecute nmap, así mismo con>
+#con nm.scan(argumentos) se puede meter todos los argunmentos necesarios que queramos que ejecute nmap, así mismo con -T1 tarda mucho, utiliza T4 (mucho más rápida)y no T5 porque da errores
                 results = nm.scan(hosts=ip,arguments="-sT -n -Pn -T4")
 #Inicializa un contador
                 count=0
@@ -32,5 +37,5 @@ with open ("ips.txt","r") as file:
                                         count=1
                                 else:
                                         puertos_abiertos=puertos_abiertos+","+str(port)
-
+                                os.system("nmap -sV --script nmap-vulners --script-args vulscandb=scipvuldb.csv -sV  -p"+ str(port) +" "+ str(ip))
                 print("\nPuertos abiertos: "+ puertos_abiertos +" "+str(ip))
