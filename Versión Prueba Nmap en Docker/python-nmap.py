@@ -2,7 +2,7 @@ import nmap
 import os
 #Aqui le indica las ips(editar para hacer un rango)
 #Descargas de las bases de datos
-os.system("cd /usr/share/nmap/scripts/ ; git clone https://github.com/vulnersCom/nmap-vulners.git ; git clone https://github.com/scipag/vulscan.git ; ls vulscan/*.csv ; cd vulscan/utilities/updater/ ; chmod +x updateFiles.sh ; ./updateFiles>
+os.system("cd /usr/share/nmap/scripts/ ; git clone https://github.com/vulnersCom/nmap-vulners.git ; git clone https://github.com/scipag/vulscan.git ; ls vulscan/*.csv ; cd vulscan/utilities/updater/ ; chmod +x updateFiles.sh ; ./updateFiles")
 
 
 with open ("ips.txt","r") as file:
