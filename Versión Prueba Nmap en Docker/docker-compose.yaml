@@ -5,6 +5,18 @@ services:
     container_name: app
     build: .
     volumes:
-      - ./:/datos/
+      - miVol:/usr/src/app
+  
+
+  web:
+    container_name: web
+    image: httpd:latest
     ports:
-      - "80:80"
+      - 80:80
+    depends_on:
+      - app
+    volumes:
+      - miVol:/usr/local/apache2/htdocs/
+
+volumes:
+  miVol:
