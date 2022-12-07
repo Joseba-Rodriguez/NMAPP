@@ -40,5 +40,3 @@ with open ("ips.txt","r") as file:
                                 os.system("nmap -sV --script nmap-vulners --script-args vulscandb=scipvuldb.csv -sV  -p"+ str(port) +" "+ str(ip) +" -oX datos.xml")
                 print("\nPuertos abiertos: "+ puertos_abiertos +" "+str(ip))
 os.system("xsltproc datos.xml -o index.html")
-os.system("sudo ufw allow 'Apache'")
-os.system("mv index.html /var/www/html/")
