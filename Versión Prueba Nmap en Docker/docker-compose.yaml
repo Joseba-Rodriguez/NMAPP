@@ -6,7 +6,8 @@ services:
     build: .
     volumes:
       - miVol:/usr/src/app
-  
+      - ./:/usr/src/app
+
 
   web:
     container_name: web
@@ -17,6 +18,6 @@ services:
       - app
     volumes:
       - miVol:/usr/local/apache2/htdocs/
-
+      - ./:/usr/local/apache2/htdocs/
 volumes:
   miVol:
