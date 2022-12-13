@@ -8,16 +8,41 @@ services:
       - miVol:/usr/src/app
       - ./:/usr/src/app
 
-
   web:
-    container_name: web
-    image: httpd:latest
+    build: web
+    environment:
+      - ALLOW_OVERRIDE=true
     ports:
-      - 80:80
-    depends_on:
-      - app
+      - "80:80"
+    links:
+      - db
     volumes:
-      - miVol:/usr/local/apache2/htdocs/
-      - ./:/usr/local/apache2/htdocs/
+      - ./web/html:/var/www/html/
+
+  db:
+    container_name: db
+    image: postgres
+    restart: always
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=nmap
+    ports:
+      - 5432:5432
+    volumes: 
+      - db:/var/lib/postgresql/data
+      - ./db/inicializar.sql:/docker-entrypoint-initdb.d/inicializar.sql
+  
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@admin.com
+      - PGADMIN_DEFAULT_PASSWORD=admin
+    ports:
+      - "8080:80"
+    depends_on:
+      - db
+
 volumes:
   miVol:
+  db:
