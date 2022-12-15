@@ -5,7 +5,6 @@ services:
     container_name: app
     build: .
     volumes:
-      - miVol:/usr/src/app
       - ./:/usr/src/app
 
   web:
