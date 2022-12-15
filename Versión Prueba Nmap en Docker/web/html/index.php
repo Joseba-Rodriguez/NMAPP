@@ -22,7 +22,7 @@
 
 $usuario="root";
 $pass="root";
-$host"db";
+$host="db";
 $db="nmap";
 
 $file = file('datos.xml');
