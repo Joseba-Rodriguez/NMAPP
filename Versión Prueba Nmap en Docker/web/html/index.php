@@ -24,29 +24,28 @@ $usuario="root";
 $pass="root";
 $host="db";
 $db="nmap";
+$port=5432;
 
 $file = file('datos.xml');
 
-function conectar_PostgreSQL( $usuario, $pass, $host, $bd )
-    {
-         $conexion = pg_connect( "user=".$usuario." ".
-                                "password=".$pass." ".
-                                "host=".$host." ".
-                                "dbname=".$bd
-                               ) or die( "Error al conectar: ".pg_last_error() );
-        return $conexion;
-    }
 
+$conexion = pg_connect("host=$host port=$port dbname=$db user=$usuario password=$pass");
+if($conexion)
+{
+    echo "conectado a la base de datos";
+}
 
 $ip;
 $mac;
 $vendor;
 $cve;
+$cveArray = array();
+$cveList;
 $hostname;
 $port;
 $portArray = array();
 $portList;
-$timestamp;
+$time;
 
 
 foreach ($file as $line){
@@ -101,22 +100,29 @@ foreach ($file as $line){
         $cve = ltrim($cve, 'key="id">');
         $cve = rtrim($cve, '"</elem');
         print "CVE: $cve https://vulners.com/cve/$cve<br>";
+        array_push($cveArray, $cve);
     }
 
     if (strpos($line, '/host>') == TRUE) {
-        $timestamp = time();
+        $time = time();
         $portList = implode(", ", $portArray);
-        $sql = "insert into nmapScan(ip,mac,vendor,hostname,ports,timestamp) values ('$ip','$mac','$vendor','$hostname','$portList','$timestamp')";
+        $cveList = implode(", ", $cveArray);
+        $sql = "delete from nmapScan" ;
+        pg_query($conexion, $sql);
+        $sql = "insert into nmapScan(ip,hostname,ports,cve,time) values ('$ip','$hostname','$portList','$cveList','$time')";
+        pg_query($conexion, $sql);
 
-    pg_query($conexion,$sql);
-
+        
+    
     $ip = " ";
-    $mac = " ";
-    $vendor = " ";
     $hostname = " ";
     unset($portArray);
     $portArray = array();
     $portList = " ";
+    unset($cveArray);
+    $cveArray = array();
+    $cveList = " ";
+    $time = " ";
     }
 }
 ?>
