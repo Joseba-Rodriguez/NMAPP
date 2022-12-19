@@ -1,4 +1,4 @@
-create table nmapScan (
+CREATE TABLE IF NOT EXISTS nmap(
     ip varchar(32) not null,
     hostname varchar(100),
     ports varchar(200),
@@ -6,3 +6,5 @@ create table nmapScan (
     time varchar(20) not null,
     primary key (ip)
 );
+
+

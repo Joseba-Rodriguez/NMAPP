@@ -75,21 +75,31 @@ foreach ($file as $line){
         print "MAC Address: $mac<br>";
     }
     //hostname
-    if (strpos($line, 'type="PTR"') == TRUE) {
+    if (strpos($line, 'type="PTR" ') == TRUE) {
         preg_match('/name=".*" type/',$line,$results);
         $hostname = implode (" ", $results);
         $hostname = ltrim($hostname, 'name="');
         $hostname = rtrim($hostname, ' type');
-        $hostname = rtrim($hostname, '"');
+        $hostname = rtrim($hostname, '" ');
         print "Hostname: $hostname<br>";
     }
+
+    //servicios
+
+    if (strpos($line, 'name="') == TRUE) {
+        preg_match('/name=".*" method=/',$line,$results);
+        $service = implode(" ", $results);
+        $service = ltrim($service, 'name="');
+        $service = rtrim($service, 'method=');
+    }
+
     //puertos
     if (strpos($line, 'portid="') == TRUE) {
         preg_match('/portid=".*><state/',$line,$results);
         $port = implode(" ", $results);
         $port = ltrim($port, 'portid="');
         $port = rtrim($port, '"><state');
-        print "Port: $port<br>";
+        print "Port: $port -->$service<br>";
         array_push($portArray, $port);
     }
 
@@ -107,23 +117,23 @@ foreach ($file as $line){
         $time = time();
         $portList = implode(", ", $portArray);
         $cveList = implode(", ", $cveArray);
-        $sql = "delete from nmapScan" ;
+        $sql = "DELETE FROM nmap";
         pg_query($conexion, $sql);
-        $sql = "insert into nmapScan(ip,hostname,ports,cve,time) values ('$ip','$hostname','$portList','$cveList','$time')";
+        $sql = "INSERT into nmap(ip,hostname,ports,cve,time) VALUES ('$ip','$hostname','$portList','$cveList','$time')";
         pg_query($conexion, $sql);
 
         
     
-    $ip = " ";
-    $hostname = " ";
-    unset($portArray);
-    $portArray = array();
-    $portList = " ";
-    unset($cveArray);
-    $cveArray = array();
-    $cveList = " ";
-    $time = " ";
-    }
+        $ip = " ";
+        $hostname = " ";
+        unset($portArray);
+        $portArray = array();
+        $portList = " ";
+        unset($cveArray);
+        $cveArray = array();
+        $cveList = " ";
+        $time = " ";
+        }
 }
 ?>
         </form>
