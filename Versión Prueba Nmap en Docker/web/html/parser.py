@@ -53,7 +53,6 @@ def main(argv):
 				if port.find('service').get('name') is not None:
 					service = port.find('service').get('name')
 			vuln = ""
-			vuln2 = ""
 			if port.find('script') is not None:
 				if port.find('script').get('output') is not None:
 					vuln = port.find('script').get('output')
@@ -72,7 +71,7 @@ def main(argv):
 					extrainfo = port.find('service').get('extrainfo')
 					versioning = versioning + ' (' + extrainfo + ')'
 					
-			out = ip + ',' + hostname + ',' + portnum + ',' + protocol + ',' + service + ',' + versioning +',' + vuln2 + '\n'
+			out = ip + ',' + hostname + ',' + portnum + ',' + protocol + ',' + service + ',' + versioning +',' + vuln + '\n'
 			fo.write (out)
 
 		#conexion a la base de datos
