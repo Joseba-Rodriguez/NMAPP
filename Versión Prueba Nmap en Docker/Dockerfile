@@ -6,11 +6,13 @@ RUN pip install --upgrade pip
 RUN apt-get install python3
 RUN pip install python-nmap
 RUN apt-get install -y nmap
-RUN apt-get install -y xsltproc
-RUN apt-get install -y  apache2
+RUN apt-get install -y apache2
+RUN pip install pandas
+RUN pip install psycopg2
 
 WORKDIR /usr/src/app
 COPY python-nmap.py .
+COPY ./web/html/parser.py .
 COPY ips.txt .
 
 CMD [ "python", "./python-nmap.py" ]

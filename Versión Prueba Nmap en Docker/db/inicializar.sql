@@ -1,9 +1,11 @@
 CREATE TABLE IF NOT EXISTS nmap(
     ip varchar(32) not null,
     hostname varchar(100),
-    ports varchar(200),
-    cve text,
-    time varchar(20) not null,
+    port varchar(200),
+    protocol text,
+    service text,
+    version text,
+    vuln text,
     primary key (ip)
 );
 
