@@ -78,7 +78,7 @@ def main(argv):
 			conn = psycopg2.connect(host="db",database="nmapScan", user="root", password="root")
 			conn.autocommit = True
 			cursor = conn.cursor()
-			cursor.execute("INSERT INTO nmapScan(ip, hostname, port, protocol,service, version , vuln) VALUES ("+ ip + "," + hostname + ", " + portnum + ", " + protocol + ", "+ service + ", " + versioning + ", " + vuln2 + " )")
+			cursor.execute("INSERT INTO nmapScan(ip, hostname, port, protocol,service, version , vuln) VALUES ("+ ip + "," + hostname + ", " + portnum + ", " + protocol + ", "+ service + ", " + versioning + ", " + vuln + " )")
 			conn.commit()
 			print("Dato insertado........")
 			conn.close()
