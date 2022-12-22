@@ -4,6 +4,7 @@
 import sys
 import argparse
 import xml.etree.ElementTree as ET
+import psycopg2
 
 def main(argv):
 	inputfile = ''
@@ -73,8 +74,17 @@ def main(argv):
 					
 			out = ip + ',' + hostname + ',' + portnum + ',' + protocol + ',' + service + ',' + versioning +',' + vuln2 + '\n'
 			fo.write (out)
-	
+
+		#conexion a la base de datos
+			conn = psycopg2.connect(host="db",database="nmapScan", user="root", password="root")
+			conn.autocommit = True
+			cursor = conn.cursor()
+			cursor.execute("INSERT INTO nmapScan(ip, hostname, port, protocol,service, version , vuln) VALUES ("+ ip + "," + hostname + ", " + portnum + ", " + protocol + ", "+ service + ", " + versioning + ", " + vuln2 + " )")
+			conn.commit()
+			print("Dato insertado........")
+			conn.close()
+
 	fo.close()
-	
+		
 if __name__ == "__main__":
    main(sys.argv)
