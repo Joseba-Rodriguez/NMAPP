@@ -1,12 +1,4 @@
-ip,hostname,port,protocol,service,version,vuln 
-8.8.8.8,,21,tcp,tcpwrapped,,
-8.8.8.8,,53,tcp,tcpwrapped,,
-8.8.8.8,,80,tcp,http,Apache httpd (2.4.54) ((Debian)),
-8.8.8.8,,443,tcp,https,,
-35.206.71.198,,21,tcp,tcpwrapped,,
-35.206.71.198,,22,tcp,tcpwrapped,,
-35.206.71.198,,80,tcp,http,Apache httpd (2.4.54) ((Debian)),
-35.206.71.198,,443,tcp,https,,
-212.55.11.78,euskadi.eus,21,tcp,tcpwrapped,,
-212.55.11.78,euskadi.eus,80,tcp,http,Apache httpd (2.4.54) ((Debian)),
-212.55.11.78,euskadi.eus,443,tcp,https,,
+ip,hostname,port,protocol,service,version
+192.168.0.1,,53,tcp,domain,dnsmasq (2.78)
+192.168.0.1,,80,tcp,http,Apache httpd (2.4.54) ((Debian))
+192.168.0.1,,443,tcp,https,

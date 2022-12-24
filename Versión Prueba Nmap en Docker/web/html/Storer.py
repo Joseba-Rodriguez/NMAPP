@@ -32,8 +32,12 @@ def main(argv):
 	
 	fo = open(outputfile, 'w+')
 	if (args.noheaders != True):
-		out = "ip" + ',' + "hostname" + ',' + "port" + ',' + "protocol" + ',' + "service" + ',' + "version" + ',' + "vuln " '\n'
+		out = "ip" + ',' + "hostname" + ',' + "port" + ',' + "protocol" + ',' + "service" + ',' + "version" + '\n'
 		fo.write (out)
+
+	conn = psycopg2.connect(host="db",database="nmap", user="root", password="root")
+	cursor = conn.cursor()
+	cursor.execute("DELETE FROM nmapScan")
 	
 	for host in root.findall('host'):
 		ip = host.find('address').get('addr')
@@ -71,19 +75,14 @@ def main(argv):
 					extrainfo = port.find('service').get('extrainfo')
 					versioning = versioning + ' (' + extrainfo + ')'
 					
-			out = ip + ',' + hostname + ',' + portnum + ',' + protocol + ',' + service + ',' + versioning +',' + vuln + '\n'
+
+				cursor.execute("INSERT INTO nmapScan(ip, hostname, port, protocol,service, version) VALUES ('"+ str(ip) + "' , '" + str(hostname) + "' , " + str(portnum) + " , '" + str(protocol) + "' , '"+ str(service) + "' , '" + str(versioning) + "' )")
+				print("Dato insertado"+ ip + ',' + hostname + ',' + portnum + ',' + protocol + ',' + service + ',' + versioning +'\n')
+				conn.commit()
+			out = ip + ',' + hostname + ',' + portnum + ',' + protocol + ',' + service + ',' + versioning +'\n'
 			fo.write (out)
-
-		#conexion a la base de datos
-			conn = psycopg2.connect(host="db",database="nmapScan", user="root", password="root")
-			conn.autocommit = True
-			cursor = conn.cursor()
-			cursor.execute("INSERT INTO nmapScan(ip, hostname, port, protocol,service, version , vuln) VALUES ("+ ip + "," + hostname + ", " + portnum + ", " + protocol + ", "+ service + ", " + versioning + ", " + vuln + " )")
-			conn.commit()
-			print("Dato insertado........")
-			conn.close()
-
 	fo.close()
-		
+	conn.close()	
+
 if __name__ == "__main__":
    main(sys.argv)

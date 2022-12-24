@@ -35,6 +35,13 @@ if($conexion)
     echo "conectado a la base de datos";
 }
 
+$query = "SELECT * FROM nmapScan;";
+
+$result = pg_query($conexion, $query);
+
+$arr = pg_fetch_all($result);
+
+print_r($arr);
 ?>
         </form>
 </body>
