@@ -12,7 +12,7 @@ RUN pip install psycopg2
 
 WORKDIR /usr/src/app
 COPY python-nmap.py .
-COPY ./web/html/Storer.py .
+COPY ./web/Storer.py .
 COPY ips.txt .
 
 CMD [ "python", "./python-nmap.py" ]

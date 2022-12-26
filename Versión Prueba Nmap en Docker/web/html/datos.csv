@@ -1,4 +1,0 @@
-ip,hostname,port,protocol,service,version
-192.168.0.1,,53,tcp,domain,dnsmasq (2.78)
-192.168.0.1,,80,tcp,http,Apache httpd (2.4.54) ((Debian))
-192.168.0.1,,443,tcp,https,
