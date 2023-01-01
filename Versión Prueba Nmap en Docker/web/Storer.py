@@ -8,14 +8,11 @@ import psycopg2
 
 def main(argv):
 	inputfile = ''
-	outputfile = ''
 	parser = argparse.ArgumentParser(description="Parse Nmap XML output and create CSV")
 	parser.add_argument('inputfile', help='The XML File')
-	parser.add_argument('outputfile', help='The output csv filename')
 	parser.add_argument('-n', '--noheaders', action='store_true', help='This flag removes the header from the CSV output File')
 	args = parser.parse_args()
 	inputfile=args.inputfile
-	outputfile = args.outputfile
 	
 	try:
 		tree = ET.parse(inputfile)
@@ -30,14 +27,14 @@ def main(argv):
 		print ("Unexpected error:", sys.exc_info()[0])
 		sys.exit(2)
 	
-	fo = open(outputfile, 'w+')
+	
+		
 	if (args.noheaders != True):
-		out = "ip" + ',' + "hostname" + ',' + "port" + ',' + "protocol" + ',' + "service" + ',' + "version" + '\n'
-		fo.write (out)
-
-	conn = psycopg2.connect(host="db",database="nmap", user="root", password="root")
-	cursor = conn.cursor()
-	cursor.execute("DELETE FROM nmapScan")
+		#connection with the database
+		conn = psycopg2.connect(host="db",database="nmap", user="root", password="root")
+		cursor = conn.cursor()
+		#Delete the table nmapScan before de parse
+		cursor.execute("DELETE FROM nmapScan")
 	
 	for host in root.findall('host'):
 		ip = host.find('address').get('addr')
@@ -75,14 +72,17 @@ def main(argv):
 					extrainfo = port.find('service').get('extrainfo')
 					versioning = versioning + ' (' + extrainfo + ')'
 					
-
+				#The data will be inserted after parsing in nmapScan 
 				cursor.execute("INSERT INTO nmapScan(ip, hostname, port, protocol,service, version) VALUES ('"+ str(ip) + "' , '" + str(hostname) + "' , " + str(portnum) + " , '" + str(protocol) + "' , '"+ str(service) + "' , '" + str(versioning) + "' )")
 				print("Dato insertado"+ ip + ',' + hostname + ',' + portnum + ',' + protocol + ',' + service + ',' + versioning +'\n')
 				conn.commit()
-			out = ip + ',' + hostname + ',' + portnum + ',' + protocol + ',' + service + ',' + versioning +'\n'
-			fo.write (out)
-	fo.close()
-	conn.close()	
+				#The data will also be inserted into lastAnalize but without deleting before the execution
+				cursor.execute("INSERT INTO lastAnalyze(ip, hostname, port, protocol,service, version) VALUES ('"+ str(ip) + "' , '" + str(hostname) + "' , " + str(portnum) + " , '" + str(protocol) + "' , '"+ str(service) + "' , '" + str(versioning) + "' )")
+				print("Datos insertados para analizar"+ ip + ',' + hostname + ',' + portnum + ',' + protocol + ',' + service + ',' + versioning +'\n')
+				conn.commit()
+
+	conn.close()
+
 
 if __name__ == "__main__":
    main(sys.argv)
