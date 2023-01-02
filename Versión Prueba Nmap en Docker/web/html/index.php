@@ -23,7 +23,7 @@
     <div class="" id="home">
         <nav class="navbar navbar-expand-xl">
             <div class="container h-100">
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="index.php">
                     <h1 class="tm-site-title mb-0"> ITP Aero - TFG </h1>
                 </a>
                 <button class="navbar-toggler ml-auto mr-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -33,35 +33,7 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mx-auto h-100">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="#">
-                                <i class="fas fa-tachometer-alt"></i>
-                                Dashboard
-                                <span class="sr-only">(current)</span>
-                            </a>
-                        </li>
-                        <li class="nav-item dropdown">
 
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                                <i class="far fa-file-alt"></i>
-                                <span>
-                                    Reports <i class="fas fa-angle-down"></i>
-                                </span>
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Daily Report</a>
-                                <a class="dropdown-item" href="#">Weekly Report</a>
-                                <a class="dropdown-item" href="#">Yearly Report</a>
-                            </div>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="accounts.html">
-                                <i class="far fa-user"></i>
-                                Accounts
-                            </a>
-                        </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false">
@@ -70,11 +42,6 @@
                                     Settings <i class="fas fa-angle-down"></i>
                                 </span>
                             </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Profile</a>
-                                <a class="dropdown-item" href="#">Billing</a>
-                                <a class="dropdown-item" href="#">Customize</a>
-                            </div>
                         </li>
                     </ul>
                     <ul class="navbar-nav">
@@ -99,58 +66,50 @@
                 <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 tm-block-col">
                     <div class="tm-bg-primary-dark tm-block">
                         <?php
-
-                        $usuario="root";
-                        $pass="root";
-                        $host="db";
-                        $db="nmap";
-                        $port=5432;
-                        
-                        $conexion = pg_connect("host=$host port=$port dbname=$db user=$usuario password=$pass");
-                        if($conexion)
-                        {
-                            echo "conectado a la base de datos";
-                        }
+                        include('Connection.php');
                    #All the data from the last execution    
                         $query = "SELECT * FROM nmapScan;";
                         
                         $result = pg_query($conexion, $query);
                         
                         $arr = pg_fetch_all($result);
-                        echo '<b>';
-                        var_dump($arr);
-                        echo  '</b>';
+                        echo'<table>
+                                <tr>
+                                 <th>ip</th>
+                                 <th>hostname</th>
+                                 <th>port</th>
+                                 <th>protocol</th>
+                                 <th>service</th>
+                                 <th>version</th>
+                                </tr>';
+                        foreach($arr as $array)
+                            {
+                                echo'<tr>
+                                    <td>'. $array['ip'].'</td>
+                                    <td>'. $array['hostname'].'</td>
+                                    <td>'. $array['port'].'</td>
+                                    <td>'. $array['protocol'].'</td>
+                                    <td>'. $array['service'].'</td>
+                                    <td>'. $array['version'].'</td>
+                                    </tr>';
+                            }
+                            echo'</table>';
                         
                         ?>
                     </div>
                 </div>
                 <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 tm-block-col">
                     <div class="tm-bg-primary-dark tm-block">
-                        <?php
-                #Comparison between the two tables to obtain 3 types of data: Appear, Lost and Stay
-				#Appear: data that is in nmapScan but not in lastAnalyze 
-                        $query = "SELECT * FROM nmapScan where not exists (select * FROM lastAnalyze where nmapScan.ip = lastAnalyze.ip)";
-                        $result = pg_query($conexion, $query);
-                        $arr = pg_fetch_all($result);
-                        echo '<b>';
-                        print_r($arr);
-                        echo  '</b>';
-                #Lost :data that is in LastAnalyze but not in nmapScan 
-                        $query = "SELECT * FROM nmapScan except select * FROM lastAnalyze;";
-                        $result = pg_query($conexion, $query);
-                        $arr = pg_fetch_all($result);
-                        echo '<b>';
-                        print_r($arr);
-                        echo  '</b>';
-                #Stay:
-                        $query = "SELECT * FROM nmapScan as n natural join lastAnalyze as l;";
-                        $result = pg_query($conexion, $query);
-                        $arr = pg_fetch_all($result);
-                        echo '<b>';
-                        print_r($arr);
-                        echo  '</b>';
-                        
-                        ?>
+                        <a href="Discovery.php"><button>Descubrimientos</button></a>
+                        <h2>Introduce las ips o rangos de ips</h2>
+                            <input type="text" name="IPs" required><p>
+                            <input type="submit" value="Enviar">
+                                <?php 
+                                #insert the ips introducded in the web form
+                                    $ip = $_POST['IPs'];
+                                    $query = "INSERT INTO inspect values ('$ip');";    
+                                    $result = pg_query($conexion, $query);
+                                ?>
                     </div>
                 </div>
             </div>
@@ -179,7 +138,7 @@
         Chart.defaults.global.defaultFontColor = 'white';
         let ctxLine,
             ctxBar,
-            ctxPie,
+            ctxPie, 
             optionsLine,
             optionsBar,
             optionsPie,
