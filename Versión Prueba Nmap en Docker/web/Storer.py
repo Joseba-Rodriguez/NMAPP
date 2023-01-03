@@ -74,6 +74,7 @@ def main(argv):
 				if port.find('service').get('extrainfo') is not None:
 					extrainfo = port.find('service').get('extrainfo')
 					versioning = versioning + ' (' + extrainfo + ')'
+					versioning = product.replace("'", "")
 				
 				#The data will be inserted after parsing in nmapScan 
 				cursor.execute("INSERT INTO nmapScan(ip, hostname, port, protocol,service, version) VALUES ('"+ str(ip) + "' , '" + str(hostname) + "' , " + str(portnum) + " , '" + str(protocol) + "' , '"+ str(service) + "' , '" + str(versioning) + "' )")
