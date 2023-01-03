@@ -102,13 +102,14 @@
                     <div class="tm-bg-primary-dark tm-block">
                         <a href="Discovery.php"><button>Descubrimientos</button></a>
                         <h2>Introduce las ips o rangos de ips</h2>
-                            <input type="text" name="IPs" required><p>
+                            <input type="text" name="ips" required placeholder="p.e 192.168.0.1 o www.ehu.es"><p>
                             <input type="submit" value="Enviar">
                                 <?php 
                                 #insert the ips introducded in the web form
-                                    $ip = $_POST['IPs'];
-                                    $query = "INSERT INTO inspect values ('$ip');";    
+                                    $ip = $_POST["ips"];    
+                                    $query = "INSERT INTO inspect (ip) values ('$ip');";    
                                     $result = pg_query($conexion, $query);
+                                    echo"'$result' <br>";
                                 ?>
                     </div>
                 </div>

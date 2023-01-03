@@ -34,8 +34,11 @@ def main(argv):
 		conn = psycopg2.connect(host="db",database="nmap", user="root", password="root")
 		cursor = conn.cursor()
 		#Delete the table nmapScan before de parse
+		cursor.execute("INSERT INTO lastAnalyze SELECT * FROM nmapScan")
+		conn.commit()					
 		cursor.execute("DELETE FROM nmapScan")
-	
+		conn.commit()
+
 	for host in root.findall('host'):
 		ip = host.find('address').get('addr')
 		hostname = ""
@@ -71,15 +74,13 @@ def main(argv):
 				if port.find('service').get('extrainfo') is not None:
 					extrainfo = port.find('service').get('extrainfo')
 					versioning = versioning + ' (' + extrainfo + ')'
-					
+				
 				#The data will be inserted after parsing in nmapScan 
 				cursor.execute("INSERT INTO nmapScan(ip, hostname, port, protocol,service, version) VALUES ('"+ str(ip) + "' , '" + str(hostname) + "' , " + str(portnum) + " , '" + str(protocol) + "' , '"+ str(service) + "' , '" + str(versioning) + "' )")
 				print("Dato insertado"+ ip + ',' + hostname + ',' + portnum + ',' + protocol + ',' + service + ',' + versioning +'\n')
 				conn.commit()
 				#The data will also be inserted into lastAnalize but without deleting before the execution
-				cursor.execute("INSERT INTO lastAnalyze(ip, hostname, port, protocol,service, version) VALUES ('"+ str(ip) + "' , '" + str(hostname) + "' , " + str(portnum) + " , '" + str(protocol) + "' , '"+ str(service) + "' , '" + str(versioning) + "' )")
-				print("Datos insertados para analizar"+ ip + ',' + hostname + ',' + portnum + ',' + protocol + ',' + service + ',' + versioning +'\n')
-				conn.commit()
+				#cursor.execute("INSERT INTO lastAnalyze(ip, hostname, port, protocol,service, version) VALUES ('"+ str(ip) + "' , '" + str(hostname) + "' , " + str(portnum) + " , '" + str(protocol) + "' , '"+ str(service) + "' , '" + str(versioning) + "' )")
 
 	conn.close()
 
