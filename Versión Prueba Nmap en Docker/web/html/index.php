@@ -108,8 +108,9 @@
                                     }
                                     echo'</table>';?>
                         </form><br>
-
-                            
+                        <form action="ejecucionNMAP.php" method="post" name="formulario2">
+                            <input type="submit" value="Ejecutar">
+                        </form><br>      
                     </div>
                 </div>
             </div>
