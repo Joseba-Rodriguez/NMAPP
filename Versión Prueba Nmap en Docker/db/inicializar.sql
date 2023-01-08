@@ -23,7 +23,7 @@ CREATE TABLE IF NOT EXISTS inspect(
 
 CREATE TABLE IF NOT EXISTS users(
     userID VARCHAR(40),
-    password varchar(100),
+    password varchar(100)
 );
 
 

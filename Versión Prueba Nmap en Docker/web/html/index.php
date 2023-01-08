@@ -32,18 +32,6 @@
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mx-auto h-100">
-
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-cog"></i>
-                                <span>
-                                    Settings <i class="fas fa-angle-down"></i>
-                                </span>
-                            </a>
-                        </li>
-                    </ul>
                     <ul class="navbar-nav">
                         <li class="nav-item">
                             <a class="nav-link d-block" href="login.html">
@@ -102,9 +90,26 @@
                     <div class="tm-bg-primary-dark tm-block">
                         <a href="Discovery.php"><button>Descubrimientos</button></a>
                         <h2>Introduce las ips o rangos de ips</h2>
-                            <?php include('envioIPs.php'); ?>
-                            <input type="text" name="ips" required placeholder="p.e 192.168.0.1 o www.ehu.es"><p>
-                            <input type="submit" value="Enviar" href="envioIPs.php">
+                            
+                        <form action="envioIPs.php" method="$_POST" name="formulario">
+                            <input type="text" name="ip" placeholder="p.e 192.168.0.1 o www.ehu.es">
+                            <input type="submit" value="Enviar">
+                        <?php   $query = "SELECT * FROM inspect;";
+                                $result = pg_query($conexion, $query);
+                                $arr = pg_fetch_all($result);
+                                echo'<table>
+                                        <tr>
+                                        <th>ip</th>
+                                        </tr>';
+                                foreach($arr as $array){
+                                        echo'<tr>
+                                            <td>'. $array['ip'].'</td>
+                                            </tr>';
+                                    }
+                                    echo'</table>';?>
+                        </form><br>
+
+                            
                     </div>
                 </div>
             </div>
