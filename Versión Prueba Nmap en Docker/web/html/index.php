@@ -91,7 +91,7 @@
                         <a href="Discovery.php"><button>Descubrimientos</button></a>
                         <h2>Introduce las ips o rangos de ips</h2>
                             
-                        <form action="envioIPs.php" method="$_POST" name="formulario">
+                        <form action="envioIPs.php" method="post" name="formulario">
                             <input type="text" name="ip" placeholder="p.e 192.168.0.1 o www.ehu.es">
                             <input type="submit" value="Enviar">
                         <?php   $query = "SELECT * FROM inspect;";
