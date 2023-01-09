@@ -82,7 +82,7 @@ def main(argv):
 				conn.commit()
 				#The data will also be inserted into lastAnalize but without deleting before the execution
 				#cursor.execute("INSERT INTO lastAnalyze(ip, hostname, port, protocol,service, version) VALUES ('"+ str(ip) + "' , '" + str(hostname) + "' , " + str(portnum) + " , '" + str(protocol) + "' , '"+ str(service) + "' , '" + str(versioning) + "' )")
-
+				
 	conn.close()
 
 

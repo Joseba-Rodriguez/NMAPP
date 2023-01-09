@@ -108,9 +108,14 @@
                                     }
                                     echo'</table>';?>
                         </form><br>
-                        <form action="ejecucionNMAP.php" method="post" name="formulario2">
-                            <input type="submit" value="Ejecutar">
-                        </form><br>      
+                        <form method="post" name="formulario2">
+                            <input type="submit" value="Ejecutar" name="nmapExecute">
+                        </form><br>
+                        <?php 	if(isset($_POST['nmapExecute']))
+                                {
+                                    shell_exec("python3 python-nmap2.py");
+                                    echo"success";
+                                }?> 
                     </div>
                 </div>
             </div>
