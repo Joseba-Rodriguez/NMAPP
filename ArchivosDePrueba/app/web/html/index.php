@@ -113,7 +113,7 @@
                         </form><br>
                         <?php 	if(isset($_POST['nmapExecute']))
                                 {
-                                    shell_exec("");
+                                    shell_exec("docker run -v miVol:/usr/src/app nmap_itp_php-app:latest");
                                     echo"success";
                                 }?> 
                     </div>
