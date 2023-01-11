@@ -6,7 +6,6 @@ services:
     build: .
     volumes:
       - ./:/usr/src/app
-      - ./app/:/usr/src/app
 
   web:
     container_name: web

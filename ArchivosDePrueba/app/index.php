@@ -50,9 +50,6 @@
                 </div>
             </div>
             <!-- row -->
-            <div class="row tm-content-row">
-                <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 tm-block-col">
-                    <div class="tm-bg-primary-dark tm-block">
                         <?php
                         include('Connection.php');
                    #All the data from the last execution    
@@ -61,14 +58,18 @@
                         $result = pg_query($conexion, $query);
                         
                         $arr = pg_fetch_all($result);
-                        echo'<table>
+                        echo'
+                        <div class="col-12 tm-block-col">
+                        <div class="tm-bg-primary-dark tm-block tm-block-taller tm-block-scroll">
+                        <h2 class="tm-block-title">Último escaneo realizado</h2>
+                            <table class="table">
                                 <tr>
-                                 <th>ip</th>
-                                 <th>hostname</th>
-                                 <th>port</th>
-                                 <th>protocol</th>
-                                 <th>service</th>
-                                 <th>version</th>
+                                 <th>IP</th>
+                                 <th>HOSTNAME</th>
+                                 <th>PORT</th>
+                                 <th>PROTOCOL</th>
+                                 <th>SERVICE</th>
+                                 <th>VERSION</th>
                                 </tr>';
                         foreach($arr as $array)
                             {
@@ -86,35 +87,43 @@
                         ?>
                     </div>
                 </div>
-                <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 tm-block-col">
-                    <div class="tm-bg-primary-dark tm-block">
-                        <a href="Discovery.php"><button>Descubrimientos</button></a>
-                        <h2>Introduce las ips o rangos de ips</h2>
-                            
+                <div class="col-12 tm-block-col">
+                    <div class="tm-bg-primary-dark tm-block tm-block-taller tm-block-scroll">
+                        <h2 class="tm-block-title">Introduce IPs o rangos de IPs</h2>
+                            <div class="media tm-notification-item">
+                                <div class="media-body">
+                                <a href="Discovery.php">
+                                    <button            
+                                    class="btn btn-primary btn-block text-uppercase"></i>Descubrimientos</button></a> 
+                                    <p class="text-center text-white mb-0 px-4 tm-small">Pulsa para comparar los escaneos</p>
+                                </div>
+                            </div>
+
                         <form action="envioIPs.php" method="post" name="formulario">
-                            <input type="text" name="ip" placeholder="p.e 192.168.0.1 o www.ehu.es">
-                            <input type="submit" value="Enviar">
+                            <input class="form-control validate" type="text" name="ip" placeholder="p.e 192.168.0.1 o www.ehu.es">
+                            <input class="btn btn-primary text-uppercase" type="submit" value="Enviar">
+
                         <?php   $query = "SELECT * FROM inspect;";
                                 $result = pg_query($conexion, $query);
                                 $arr = pg_fetch_all($result);
-                                echo'<table>
-                                        <tr>
-                                        <th>ip</th>
-                                        </tr>';
+                                echo'
+                                <h2 class="tm-block-title">Lista de ips</h2>
+                                
+                                <table class="table tm-table-small tm-product-table">';
                                 foreach($arr as $array){
                                         echo'<tr>
-                                            <td>'. $array['ip'].'</td>
+                                            <td  class="tm-product-name" >'. $array['ip'].'</td>
                                             </tr>';
                                     }
                                     echo'</table>';?>
                         </form><br>
                         <form method="post" name="formulario2">
-                            <input type="submit" value="Ejecutar" name="nmapExecute">
+                            <input class="btn btn-primary btn-block text-uppercase" type="submit" value="Ejecutar" name="nmapExecute">
                         </form><br>
                         <?php 	if(isset($_POST['nmapExecute']))
                                 {
-                                    shell_exec("docker run -v miVol:/usr/src/app nmap_itp_php-app:latest");
-                                    echo"success";
+                                    shell_exec('nmap -sV --script nmap-vulners --script-args vulscandb=scipvuldb.csv -sV -stats-every 2s -iL ./ips.txt -oX ./datos.xml');
+                                    shell_exec('python3 ./Storer.py ./datos.xml');
                                 }?> 
                     </div>
                 </div>
