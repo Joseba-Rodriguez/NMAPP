@@ -5,7 +5,7 @@ import time
 import os
 
 
-os.system("cd /usr/share/nmap/scripts/ ;git clone https://github.com/vulnersCom/nmap-vulners.git ; git clone https:/>
+os.system("cd /usr/share/nmap/scripts/ ; git clone https://github.com/vulnersCom/nmap-vulners.git ; git clone https://github.com/scipag/vulscan.git ; cd vulscan/utilities/updater/ ; chmod +x updateFiles.sh ; ./updateFiles")
 os.system("chmod 777 ./app/ips.txt ; chmod 777 ./app/datos.xml ")
 
 def DBVulners():
