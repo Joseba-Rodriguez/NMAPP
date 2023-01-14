@@ -14,3 +14,4 @@ RUN apt-get install python3
 RUN apt-get install -y nmap
 RUN apt-get install -y apache2
 RUN pip install psycopg2
+RUN apt-get install -y git

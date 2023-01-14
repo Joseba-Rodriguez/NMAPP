@@ -122,7 +122,7 @@
                         </form><br>
                         <?php 	if(isset($_POST['nmapExecute']))
                                 {
-                                    shell_exec('nmap -sV --script nmap-vulners --script-args vulscandb=scipvuldb.csv -sV -stats-every 2s -iL ./ips.txt -oX ./datos.xml');
+                                    shell_exec('nmap -sV -stats-every 2s -iL ./ips.txt -oX ./datos.xml');
                                     shell_exec('python3 ./Storer.py ./datos.xml');
                                 }?> 
                     </div>
