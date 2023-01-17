@@ -122,8 +122,9 @@
                         </form><br>
                         <?php 	if(isset($_POST['nmapExecute']))
                                 {
-                                    shell_exec('nmap -sV -stats-every 2s -iL ./ips.txt -oX ./datos.xml');
-                                    shell_exec('python3 ./Storer.py ./datos.xml');
+                                    $command = escapeshellcmd('python3 python-nmap.py');
+                                    shell_exec($command);
+
                                 }?> 
                     </div>
                 </div>

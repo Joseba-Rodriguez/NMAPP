@@ -11,6 +11,7 @@ RUN pip install schedule
 
 WORKDIR /usr/src/app
 COPY ./app/programmer.py .
+COPY ./app/python-nmap.py .
 COPY ./app/Storer.py .
 COPY ./app/ips.txt .
 
