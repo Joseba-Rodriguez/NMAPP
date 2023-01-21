@@ -89,7 +89,6 @@
                 </div>
                 <div class="col-12 tm-block-col">
                     <div class="tm-bg-primary-dark tm-block tm-block-taller tm-block-scroll">
-                        <h2 class="tm-block-title">Introduce IPs o rangos de IPs</h2>
                             <div class="media tm-notification-item">
                                 <div class="media-body">
                                 <a href="Discovery.php">
@@ -100,7 +99,7 @@
                             </div>
 
                         <form action="envioIPs.php" method="post" name="formulario">
-                            <input class="form-control validate" type="text" name="ip" placeholder="p.e 192.168.0.1 o www.ehu.es">
+                            <input class="form-control validate" type="text" name="ip" placeholder=" Introduce IP o rangos de IPs. p.e 192.168.0.1 o www.ehu.es">
                             <input class="btn btn-primary text-uppercase" type="submit" value="Enviar">
 
                         <?php   $query = "SELECT * FROM inspect;";
@@ -121,9 +120,8 @@
                             <input class="btn btn-primary btn-block text-uppercase" type="submit" value="Ejecutar" name="nmapExecute">
                         </form><br>
                         <?php 	if(isset($_POST['nmapExecute']))
-                                {
-                                    shell_exec('nmap -sV -stats-every 2s -iL ./ips.txt -oX ./datos.xml');
-                                    shell_exec('python3 ./Storer.py ./datos.xml');
+                                {   
+                                    shell_exec("nmap -sV -sV -stats-every 2s -iL ./ips.txt -oX ./datos.xml");
                                 }?> 
                     </div>
                 </div>

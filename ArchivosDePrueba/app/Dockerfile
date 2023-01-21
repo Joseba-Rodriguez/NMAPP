@@ -2,7 +2,6 @@ FROM php:8-apache
 
 RUN apt-get update
 COPY . /var/www/html/
-RUN chmod 777 . /var/www/html/
 
 RUN apt-get install -y libpq-dev \ 
   && docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql \
@@ -15,3 +14,4 @@ RUN apt-get install -y nmap
 RUN apt-get install -y apache2
 RUN pip install psycopg2
 RUN apt-get install -y git
+run pip install schedule
