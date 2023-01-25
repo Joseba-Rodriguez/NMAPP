@@ -1,4 +1,3 @@
-import schedule
 import time
 import os ,sys, stat
 
