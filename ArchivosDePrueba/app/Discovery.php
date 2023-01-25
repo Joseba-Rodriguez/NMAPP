@@ -26,31 +26,32 @@
                 <a class="navbar-brand" href="index.php">
                     <h1 class="tm-site-title mb-0"> ITP Aero - TFG </h1>
                 </a>
-                <button class="navbar-toggler ml-auto mr-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler ml-auto mr-0" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
                     <i class="fas fa-bars tm-nav-icon"></i>
                 </button>
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link d-block" href="login.html">
-                                Admin, <b>Logout</b>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link d-block" href="login.html">
+                            Admin, <b>Logout</b>
+                        </a>
+                    </li>
+                </ul>
             </div>
+    </div>
 
-        </nav>
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <p class="text-white mt-5 mb-5">Welcome back, <b>Admin</b></p>
-                </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <p class="text-white mt-5 mb-5">Welcome back, <b>Admin</b></p>
             </div>
-            <!-- row -->
-            <div class="row tm-content-row">
-               
-                        <?php
+        </div>
+        <!-- row -->
+        <div class="row tm-content-row">
+
+            <?php
                         include('Connection.php');
                         #Appear: data that is in nmapScan but not in lastAnalyze 
                         $query = "SELECT * FROM nmapScan as n WHERE NOT EXISTS(SELECT * FROM lastAnalyze AS L WHERE n.ip = L.ip)";
@@ -68,6 +69,7 @@
                                  <th>protocol</th>
                                  <th>service</th>
                                  <th>version</th>
+                                 <th>vulnerabilities</th>
                                 </tr>';
                         foreach($arr as $array)
                             {
@@ -78,15 +80,16 @@
                                     <td>'. $array['protocol'].'</td>
                                     <td>'. $array['service'].'</td>
                                     <td>'. $array['version'].'</td>
+                                    <td>'. $array['vuln'].'</td>
                                     </tr>';
                             }
                             echo'</table>';
                             ?>
-                    </div>
-                </div>
-            </div>
-                <div class="row tm-content-row">
-                            <?php
+        </div>
+    </div>
+    </div>
+    <div class="row tm-content-row">
+        <?php
                             #Lost :data that is in LastAnalyze but not in nmapScan 
                             $query = "SELECT * FROM lastanalyze as n WHERE NOT EXISTS(SELECT * FROM nmapscan AS L WHERE n.ip = L.ip)";
                             $result = pg_query($conexion, $query);
@@ -103,6 +106,7 @@
                                     <th>protocol</th>
                                     <th>service</th>
                                     <th>version</th>
+                                    <th>vulnerabilities</th>
                                     </tr>';
                             foreach($arr as $array)
                                 {
@@ -113,15 +117,16 @@
                                         <td>'. $array['protocol'].'</td>
                                         <td>'. $array['service'].'</td>
                                         <td>'. $array['version'].'</td>
+                                        <td>'. $array['vuln'].'</td>
                                         </tr>';
                                 }
                                 echo'</table>';
                                 ?>
-                        </div>                    
-                    </div>
-                </div>
-                <div class="row tm-content-row">
-                                <?php
+    </div>
+    </div>
+    </div>
+    <div class="row tm-content-row">
+        <?php
                                 #Stay:
                                 $query = "SELECT * FROM nmapScan INTERSECT  SELECT * from lastanalyze";
                                 $result = pg_query($conexion, $query);
@@ -137,6 +142,7 @@
                                         <th>protocol</th>
                                         <th>service</th>
                                         <th>version</th>
+                                        <th>vulnerabilities</th>
                                         </tr>';
                                 foreach($arr as $array)
                                     {
@@ -146,25 +152,25 @@
                                             <td>'. $array['port'].'</td>
                                             <td>'. $array['protocol'].'</td>
                                             <td>'. $array['service'].'</td>
-                                            <td>'. $array['version'].'</td>
+                                            <td>'. $array['vuln'].'</td>
                                             </tr>';
                                     }
                                     echo'</table>';
-                            ?>     
-                        </div>
-                    </div>
-                </div>
-            </div>
+                            ?>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <footer class="tm-footer row tm-mt-small">
+        <div class="col-12 font-weight-light">
+            <p class="text-center text-white mb-0 px-4 small">
+                Copyright &copy; <b>2023</b> All rights reserved.
+
+                Design: <a rel="nofollow noopener" href="https://templatemo.com" class="tm-footer-link">Template Mo</a>
+            </p>
         </div>
-        <footer class="tm-footer row tm-mt-small">
-            <div class="col-12 font-weight-light">
-                <p class="text-center text-white mb-0 px-4 small">
-                    Copyright &copy; <b>2023</b> All rights reserved. 
-                    
-                    Design: <a rel="nofollow noopener" href="https://templatemo.com" class="tm-footer-link">Template Mo</a>
-                </p>
-            </div>
-        </footer>
+    </footer>
     </div>
 
     <script src="js/jquery-3.3.1.min.js"></script>
@@ -177,29 +183,29 @@
     <!-- https://getbootstrap.com/ -->
     <script src="js/tooplate-scripts.js"></script>
     <script>
-        Chart.defaults.global.defaultFontColor = 'white';
-        let ctxLine,
-            ctxBar,
-            ctxPie,
-            optionsLine,
-            optionsBar,
-            optionsPie,
-            configLine,
-            configBar,
-            configPie,
-            lineChart;
-        barChart, pieChart;
-        // DOM is ready
-        $(function () {
-            drawLineChart(); // Line Chart
-            drawBarChart(); // Bar Chart
-            drawPieChart(); // Pie Chart
+    Chart.defaults.global.defaultFontColor = 'white';
+    let ctxLine,
+        ctxBar,
+        ctxPie,
+        optionsLine,
+        optionsBar,
+        optionsPie,
+        configLine,
+        configBar,
+        configPie,
+        lineChart;
+    barChart, pieChart;
+    // DOM is ready
+    $(function() {
+        drawLineChart(); // Line Chart
+        drawBarChart(); // Bar Chart
+        drawPieChart(); // Pie Chart
 
-            $(window).resize(function () {
-                updateLineChart();
-                updateBarChart();                
-            });
-        })
+        $(window).resize(function() {
+            updateLineChart();
+            updateBarChart();
+        });
+    })
     </script>
 </body>
 

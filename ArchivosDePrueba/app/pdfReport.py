@@ -21,7 +21,7 @@ cursor.execute("SELECT * FROM nmapScan as n WHERE NOT EXISTS(SELECT * FROM lastA
 results = cursor.fetchall()
 
 # Convertir los resultados en un DataFrame de Pandas
-df = pd.DataFrame(results, columns=["ip", "hostname", "port", "protocol", "service", "version"])
+df = pd.DataFrame(results, columns=["ip", "hostname", "port", "protocol", "service", "version", "vuln"])
 
 # Crear una instancia de la clase FPDF
 pdf = FPDF()
@@ -41,6 +41,7 @@ for i, row in df.iterrows():
     pdf.cell(200, 10, txt=row["protocol"], ln=i, align="C")
     pdf.cell(200, 10, txt=row["service"], ln=i, align="C")
     pdf.cell(200, 10, txt=row["version"], ln=i, align="C")
+    pdf.cell(200, 10, txt=row["vuln"], ln=i, align="C")
 
 # Guardar el archivo PDF
 pdf.output("./app/resources/data.pdf")

@@ -4,7 +4,8 @@ CREATE TABLE IF NOT EXISTS nmapScan(
     port varchar(200),
     protocol text,
     service text,
-    version text
+    version text,
+    vuln text
 );
 
 
@@ -14,7 +15,8 @@ CREATE TABLE IF NOT EXISTS lastAnalyze(
     port varchar(200),
     protocol text,
     service text,
-    version text
+    version text,
+    vuln text
 );
 
 CREATE TABLE IF NOT EXISTS inspect(

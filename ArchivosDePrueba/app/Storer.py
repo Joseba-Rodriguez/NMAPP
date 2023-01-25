@@ -45,21 +45,28 @@ def main(argv):
 		if host.find('hostnames') is not None:
 			if host.find('hostnames').find('hostname') is not None:
 				hostname = host.find('hostnames').find('hostname').get('name')
+
 		for port in host.find('ports').findall('port'):
 			protocol = port.get('protocol')
 			if protocol is None:
 				protocol = ""
+
 			portnum = port.get('portid')
 			if portnum is None:
 				portnum = ""
+
 			service = ""
 			if port.find('service') is not None:
 				if port.find('service').get('name') is not None:
 					service = port.find('service').get('name')
+
 			vuln = ""
 			if port.find('script') is not None:
 				if port.find('script').get('output') is not None:
-					vuln = port.find('script').get('output')
+					vuln2 = port.find('script').get('output')
+					vuln = vuln2.replace("'", "")
+			
+
 			product = ""
 			version = ""
 			versioning = ""
@@ -77,11 +84,9 @@ def main(argv):
 					versioning = product.replace("'", "")
 				
 				#The data will be inserted after parsing in nmapScan 
-				cursor.execute("INSERT INTO nmapScan(ip, hostname, port, protocol,service, version) VALUES ('"+ str(ip) + "' , '" + str(hostname) + "' , " + str(portnum) + " , '" + str(protocol) + "' , '"+ str(service) + "' , '" + str(versioning) + "' )")
-				print("Dato insertado"+ ip + ',' + hostname + ',' + portnum + ',' + protocol + ',' + service + ',' + versioning +'\n')
+				cursor.execute("INSERT INTO nmapScan(ip, hostname, port, protocol,service, version, vuln) VALUES ('"+ str(ip) + "' , '" + str(hostname) + "' , " + str(portnum) + " , '" + str(protocol) + "' , '"+ str(service) + "' , '" + str(versioning) + "', '" + str(vuln) + "' )")
+				print("Dato insertado"+ ip + ',' + hostname + ',' + portnum + ',' + protocol + ',' + service + ',' + versioning + ',' + vuln + '\n')
 				conn.commit()
-				#The data will also be inserted into lastAnalize but without deleting before the execution
-				#cursor.execute("INSERT INTO lastAnalyze(ip, hostname, port, protocol,service, version) VALUES ('"+ str(ip) + "' , '" + str(hostname) + "' , " + str(portnum) + " , '" + str(protocol) + "' , '"+ str(service) + "' , '" + str(versioning) + "' )")
 				
 	conn.close()
 

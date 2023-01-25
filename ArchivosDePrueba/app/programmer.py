@@ -24,7 +24,7 @@ def pdfReport():
 #programadores horarios     
 schedule.every(10).minutes.do(DBVulners)
 schedule.every().minute.do(Analyzer)
-schedule.every(1).minutes.do(pdfReport)
+#schedule.every(1).minutes.do(pdfReport)
 
 while True:
     schedule.run_pending()

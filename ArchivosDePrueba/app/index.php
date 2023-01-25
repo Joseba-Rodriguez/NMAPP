@@ -26,8 +26,9 @@
                 <a class="navbar-brand" href="index.php">
                     <h1 class="tm-site-title mb-0"> ITP Aero - TFG </h1>
                 </a>
-                <button class="navbar-toggler ml-auto mr-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler ml-auto mr-0" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
                     <i class="fas fa-bars tm-nav-icon"></i>
                 </button>
 
@@ -50,7 +51,7 @@
                 </div>
             </div>
             <!-- row -->
-                        <?php
+            <?php
                         include('Connection.php');
                    #All the data from the last execution    
                         $query = "SELECT * FROM nmapScan;";
@@ -70,6 +71,7 @@
                                  <th>PROTOCOL</th>
                                  <th>SERVICE</th>
                                  <th>VERSION</th>
+                                 <th>VULNERABILITIES</th>
                                 </tr>';
                         foreach($arr as $array)
                             {
@@ -80,32 +82,34 @@
                                     <td>'. $array['protocol'].'</td>
                                     <td>'. $array['service'].'</td>
                                     <td>'. $array['version'].'</td>
+                                    <td>'. $array['vuln'].'</td>
                                     </tr>';
                             }
                             echo'</table>';
                         
                         ?>
-                    </div>
+        </div>
+    </div>
+    <div class="col-12 tm-block-col">
+        <div class="tm-bg-primary-dark tm-block tm-block-taller tm-block-scroll">
+            <div class="media tm-notification-item">
+                <div class="media-body">
+                    <a href="Discovery.php">
+                        <button class="btn btn-primary btn-block text-uppercase"></i>Descubrimientos</button></a>
+                    <p class="text-center text-white mb-0 px-4 tm-small">Pulsa para comparar los escaneos</p>
                 </div>
-                <div class="col-12 tm-block-col">
-                    <div class="tm-bg-primary-dark tm-block tm-block-taller tm-block-scroll">
-                            <div class="media tm-notification-item">
-                                <div class="media-body">
-                                <a href="Discovery.php">
-                                    <button            
-                                    class="btn btn-primary btn-block text-uppercase"></i>Descubrimientos</button></a> 
-                                    <p class="text-center text-white mb-0 px-4 tm-small">Pulsa para comparar los escaneos</p>
-                                </div>
-                            </div>
+            </div>
 
-                        <form action="envioIPs.php" method="post" name="formulario">
-                            <input class="form-control validate" type="text" name="ip" placeholder=" Introduce IP o rangos de IPs. p.e 192.168.0.1 o www.ehu.es">
-                            <input class="btn btn-primary text-uppercase" type="submit" value="Enviar">
-
-                        <?php   $query = "SELECT * FROM inspect;";
+            <form action="envioIPs.php" method="post" name="formulario">
+                <input class="form-control validate" type="text" name="ip"
+                    placeholder=" Introduce IP o rangos de IPs. p.e 192.168.0.1 o www.ehu.es">
+                <input class="btn btn-primary text-uppercase" type="submit" value="Enviar">
+                <input class="btn btn-primary text-uppercase" type="submit" value="Eliminar">
+                <?php   $query = "SELECT * FROM inspect;";
                                 $result = pg_query($conexion, $query);
                                 $arr = pg_fetch_all($result);
                                 echo'
+                                
                                 <h2 class="tm-block-title">Lista de ips</h2>
                                 
                                 <table class="table tm-table-small tm-product-table">';
@@ -115,27 +119,28 @@
                                             </tr>';
                                     }
                                     echo'</table>';?>
-                        </form><br>
-                        <form method="post" name="formulario2">
-                            <input class="btn btn-primary btn-block text-uppercase" type="submit" value="Ejecutar" name="nmapExecute">
-                        </form><br>
-                        <?php 	if(isset($_POST['nmapExecute']))
+            </form><br>
+            <form method="post" name="formulario2">
+                <input class="btn btn-primary btn-block text-uppercase" type="submit" value="Ejecutar"
+                    name="nmapExecute">
+            </form><br>
+            <?php 	if(isset($_POST['nmapExecute']))
                                 {   
-                                    shell_exec("nmap -sV -sV -stats-every 2s -iL ./ips.txt -oX ./datos.xml");
-                                }?> 
-                    </div>
-                </div>
-            </div>
+                                    shell_exec("nmap -sV --script vulners --script-args mincvss=5.0 -sV -stats-every 2s -iL ./ips.txt -oX ./datos.xml");
+                                }?>
         </div>
-        <footer class="tm-footer row tm-mt-small">
-            <div class="col-12 font-weight-light">
-                <p class="text-center text-white mb-0 px-4 small">
-                    Copyright &copy; <b>2023</b> All rights reserved. 
-                    
-                    Design: <a rel="nofollow noopener" href="https://templatemo.com" class="tm-footer-link">Template Mo</a>
-                </p>
-            </div>
-        </footer>
+    </div>
+    </div>
+    </div>
+    <footer class="tm-footer row tm-mt-small">
+        <div class="col-12 font-weight-light">
+            <p class="text-center text-white mb-0 px-4 small">
+                Copyright &copy; <b>2023</b> All rights reserved.
+
+                Design: <a rel="nofollow noopener" href="https://templatemo.com" class="tm-footer-link">Template Mo</a>
+            </p>
+        </div>
+    </footer>
     </div>
 
     <script src="js/jquery-3.3.1.min.js"></script>
@@ -148,29 +153,29 @@
     <!-- https://getbootstrap.com/ -->
     <script src="js/tooplate-scripts.js"></script>
     <script>
-        Chart.defaults.global.defaultFontColor = 'white';
-        let ctxLine,
-            ctxBar,
-            ctxPie, 
-            optionsLine,
-            optionsBar,
-            optionsPie,
-            configLine,
-            configBar,
-            configPie,
-            lineChart;
-        barChart, pieChart;
-        // DOM is ready
-        $(function () {
-            drawLineChart(); // Line Chart
-            drawBarChart(); // Bar Chart
-            drawPieChart(); // Pie Chart
+    Chart.defaults.global.defaultFontColor = 'white';
+    let ctxLine,
+        ctxBar,
+        ctxPie,
+        optionsLine,
+        optionsBar,
+        optionsPie,
+        configLine,
+        configBar,
+        configPie,
+        lineChart;
+    barChart, pieChart;
+    // DOM is ready
+    $(function() {
+        drawLineChart(); // Line Chart
+        drawBarChart(); // Bar Chart
+        drawPieChart(); // Pie Chart
 
-            $(window).resize(function () {
-                updateLineChart();
-                updateBarChart();                
-            });
-        })
+        $(window).resize(function() {
+            updateLineChart();
+            updateBarChart();
+        });
+    })
     </script>
 </body>
 
