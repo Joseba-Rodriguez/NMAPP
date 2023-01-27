@@ -34,10 +34,10 @@ def main(argv):
 		conn = psycopg2.connect(host="db",database="nmap", user="root", password="root")
 		cursor = conn.cursor()
 		#Delete the table nmapScan before de parse
-		cursor.execute("INSERT INTO lastAnalyze SELECT * FROM nmapIndividual")
+		cursor.execute("INSERT INTO lastAnalyze SELECT * FROM nmapScan")
 		conn.commit()
 		#Habria que añaadir aqui los datos de stay y appear dentro de ipsIndividual			
-		cursor.execute("DELETE FROM nmapIndividual")
+		cursor.execute("DELETE FROM nmapScan")
 		conn.commit()
 
 	for host in root.findall('host'):
@@ -85,7 +85,7 @@ def main(argv):
 					versioning = product.replace("'", "")
 				
 				#The data will be inserted after parsing in nmapScan 
-				cursor.execute("INSERT INTO nmapIndividual(ip, hostname, port, protocol,service, version, vuln) VALUES ('"+ str(ip) + "' , '" + str(hostname) + "' , " + str(portnum) + " , '" + str(protocol) + "' , '"+ str(service) + "' , '" + str(versioning) + "', '" + str(vuln) + "' )")
+				cursor.execute("INSERT INTO nmapScan(ip, hostname, port, protocol,service, version, vuln) VALUES ('"+ str(ip) + "' , '" + str(hostname) + "' , " + str(portnum) + " , '" + str(protocol) + "' , '"+ str(service) + "' , '" + str(versioning) + "', '" + str(vuln) + "' )")
 				print("Dato insertado"+ ip + ',' + hostname + ',' + portnum + ',' + protocol + ',' + service + ',' + versioning + ',' + vuln + '\n')
 				conn.commit()
 				

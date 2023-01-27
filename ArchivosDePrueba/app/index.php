@@ -44,11 +44,90 @@
             </div>
 
         </nav>
+        <div class="col-12 tm-block-col">
+            <div class="col">
+                <h1 class="tm-site-title mb-0"> Escaneos diarios</h1>
+                <p class="text-white mt-5 mb-5">Aquí podrás realizar escaneos y personalizar el reporte<b> PRUÉBALO!</b>
+                </p>
+            </div>
+            <div class="container">
+                <div class="row">
+                </div>
+                <!-- row -->
+                <?php
+                        include('Connection.php');
+                   #All the data from the last execution    
+                        $query = "SELECT * FROM nmapIndividual;";
+                        
+                        $result = pg_query($conexion, $query);
+                        
+                        $arr = pg_fetch_all($result);
+                        echo'
+                        <div class="col-12 tm-block-col">
+                        <div class="tm-bg-primary-dark tm-block tm-block-taller tm-block-scroll">
+                        <h2 class="tm-block-title">Último escaneo realizado</h2>
+                            <table class="table">
+                                <tr>
+                                 <th>IP</th>
+                                 <th>HOSTNAME</th>
+                                 <th>PORT</th>
+                                 <th>PROTOCOL</th>
+                                 <th>SERVICE</th>
+                                 <th>VERSION</th>
+                                 <th>VULNERABILITIES</th>
+                                </tr>';
+                        foreach($arr as $array)
+                            {
+                                echo'<tr>
+                                    <td>'. $array['ip'].'</td>
+                                    <td>'. $array['hostname'].'</td>
+                                    <td>'. $array['port'].'</td>
+                                    <td>'. $array['protocol'].'</td>
+                                    <td>'. $array['service'].'</td>
+                                    <td>'. $array['version'].'</td>
+                                    <td><div class="media tm-notification-item"><span>'. $array['vuln'] .'</span></div></td>
+                                    </tr>';    
+                            }
+                            echo'</table>';
+                        ?>
+            </div>
+            <div class="tm-bg-primary-dark tm-block tm-block-taller tm-block-scroll">
+                <div class="media-body">
+                    <a href="Discovery.php">
+                        <button class="btn btn-primary btn-block text-uppercase"></i>Descubrimientos</button></a>
+                    <p class="text-center text-white mb-0 px-4 tm-small">Pulsa para comparar los escaneos</p>
+                </div>
+                <form action="envioIPs.php" method="post" name="formulario">
+                    <input class="form-control validate" type="text" name="ipIndividual"
+                        placeholder=" Introduce IP o rangos de IPs. p.e 192.168.0.1 o www.ehu.es">
+                    <input class="btn btn-primary text-uppercase" type="submit" value="Enviar">
+                    <input class="btn btn-primary text-uppercase" type="submit" value="Eliminar">
+                    <?php   $query = "SELECT * FROM inspectIndividual;";
+                                $result = pg_query($conexion, $query);
+                                $arr = pg_fetch_all($result);
+                                echo'
+                                
+                                <h2 class="tm-block-title">Historial de ips</h2>
+                                
+                                <table class="table tm-table-small tm-product-table">';
+                                foreach($arr as $array){
+                                        echo'<tr>
+                                            <td  class="tm-product-name" >'. $array['ip'].'</td>
+                                            </tr>';
+                                    }
+                                    echo'</table>';?>
+                </form><br>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12 tm-block-col">
+        <div class="col">
+            <h1 class="tm-site-title mb-0"> Escaneos individuales</h1>
+            <p class="text-white mt-5 mb-5">Aquí podrás realizar escaneos individuales<b> PRUÉBALO!</b></p>
+        </div>
         <div class="container">
             <div class="row">
-                <div class="col">
-                    <p class="text-white mt-5 mb-5">Welcome back, <b>Admin</b></p>
-                </div>
             </div>
             <!-- row -->
             <?php
@@ -82,24 +161,13 @@
                                     <td>'. $array['protocol'].'</td>
                                     <td>'. $array['service'].'</td>
                                     <td>'. $array['version'].'</td>
-                                    <td>'. $array['vuln'].'</td>
+                                    <td><div class="media tm-notification-item"><span>'. $array['vuln'] .'</span></div></td>
                                     </tr>';
                             }
                             echo'</table>';
-                        
                         ?>
         </div>
-    </div>
-    <div class="col-12 tm-block-col">
         <div class="tm-bg-primary-dark tm-block tm-block-taller tm-block-scroll">
-            <div class="media tm-notification-item">
-                <div class="media-body">
-                    <a href="Discovery.php">
-                        <button class="btn btn-primary btn-block text-uppercase"></i>Descubrimientos</button></a>
-                    <p class="text-center text-white mb-0 px-4 tm-small">Pulsa para comparar los escaneos</p>
-                </div>
-            </div>
-
             <form action="envioIPs.php" method="post" name="formulario">
                 <input class="form-control validate" type="text" name="ip"
                     placeholder=" Introduce IP o rangos de IPs. p.e 192.168.0.1 o www.ehu.es">
@@ -127,6 +195,7 @@
             <?php 	if(isset($_POST['nmapExecute']))
                                 {   
                                     shell_exec("nmap -sV --script vulners --script-args mincvss=5.0 -sV -stats-every 2s -iL ./ips.txt -oX ./datos.xml");
+                                    shell_exec(" python3 ./StorerIndividual.py ./datos.xml ");
                                 }?>
         </div>
     </div>

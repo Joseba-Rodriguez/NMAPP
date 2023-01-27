@@ -15,7 +15,7 @@ conn = psycopg2.connect(
 cursor = conn.cursor()
 
 # Ejecutar una consulta SQL
-cursor.execute("SELECT * FROM nmapScan as n WHERE NOT EXISTS(SELECT * FROM lastAnalyze AS L WHERE n.ip = L.ip)")
+cursor.execute("SELECT * FROM nmapIndividual as n WHERE NOT EXISTS(SELECT * FROM lastAnalyze AS L WHERE n.ip = L.ip)")
 
 # Recoger los resultados de la consulta
 results = cursor.fetchall()

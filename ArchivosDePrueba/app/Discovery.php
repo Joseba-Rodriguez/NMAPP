@@ -54,7 +54,7 @@
             <?php
                         include('Connection.php');
                         #Appear: data that is in nmapScan but not in lastAnalyze 
-                        $query = "SELECT * FROM nmapScan as n WHERE NOT EXISTS(SELECT * FROM lastAnalyze AS L WHERE n.ip = L.ip)";
+                        $query = "SELECT * FROM nmapIndividual as n WHERE NOT EXISTS(SELECT * FROM lastAnalyze AS L WHERE n.ip = L.ip)";
                         $result = pg_query($conexion, $query);
                         $arr = pg_fetch_all($result);
                         echo'
@@ -91,7 +91,7 @@
     <div class="row tm-content-row">
         <?php
                             #Lost :data that is in LastAnalyze but not in nmapScan 
-                            $query = "SELECT * FROM lastanalyze as n WHERE NOT EXISTS(SELECT * FROM nmapscan AS L WHERE n.ip = L.ip)";
+                            $query = "SELECT * FROM lastanalyze as n WHERE NOT EXISTS(SELECT * FROM nmapIndividual AS L WHERE n.ip = L.ip)";
                             $result = pg_query($conexion, $query);
                             $arr = pg_fetch_all($result);
                             echo'
@@ -128,7 +128,7 @@
     <div class="row tm-content-row">
         <?php
                                 #Stay:
-                                $query = "SELECT * FROM nmapScan INTERSECT  SELECT * from lastanalyze";
+                                $query = "SELECT * FROM nmapIndividual INTERSECT  SELECT * from lastanalyze";
                                 $result = pg_query($conexion, $query);
                                 $arr = pg_fetch_all($result);
                                 echo'<div class="col-12 tm-block-col">
