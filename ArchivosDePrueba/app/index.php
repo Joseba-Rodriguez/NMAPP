@@ -31,7 +31,6 @@
                     aria-label="Toggle navigation">
                     <i class="fas fa-bars tm-nav-icon"></i>
                 </button>
-
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav">
                         <li class="nav-item">
@@ -46,9 +45,6 @@
         </nav>
         <div class="col-12 tm-block-col">
             <div class="col">
-                <h1 class="tm-site-title mb-0"> Escaneos diarios</h1>
-                <p class="text-white mt-5 mb-5">Aquí podrás realizar escaneos y personalizar el reporte<b> PRUÉBALO!</b>
-                </p>
             </div>
             <div class="container">
                 <div class="row">
@@ -58,14 +54,15 @@
                         include('Connection.php');
                    #All the data from the last execution    
                         $query = "SELECT * FROM nmapIndividual;";
-                        
                         $result = pg_query($conexion, $query);
-                        
                         $arr = pg_fetch_all($result);
                         echo'
                         <div class="col-12 tm-block-col">
                         <div class="tm-bg-primary-dark tm-block tm-block-taller tm-block-scroll">
-                        <h2 class="tm-block-title">Último escaneo realizado</h2>
+                        <div class="col">
+                        <h2 class="tm-block-title mb-4">Último reporte</h2>
+                        <p class="text-white mt-5 mb-5">Aquí podrás ver el último reporte completo realizado</p>
+                    </div>    
                             <table class="table">
                                 <tr>
                                  <th>IP</th>
@@ -86,7 +83,8 @@
                                     <td>'. $array['service'].'</td>
                                     <td>'. $array['version'].'</td>
                                     <td><div class="media tm-notification-item"><span>'. $array['vuln'] .'</span></div></td>
-                                    </tr>';    
+                                    </tr>'
+                                    ;    
                             }
                             echo'</table>';
                         ?>
@@ -94,8 +92,10 @@
             <div class="tm-bg-primary-dark tm-block tm-block-taller tm-block-scroll">
                 <div class="media-body">
                     <a href="Discovery.php">
-                        <button class="btn btn-primary btn-block text-uppercase"></i>Descubrimientos</button></a>
-                    <p class="text-center text-white mb-0 px-4 tm-small">Pulsa para comparar los escaneos</p>
+                        <p class="text-center text-white mb-0 px-4 tm-small">Pulsa para comparar los escaneos</p>
+                        <button class="btn btn-primary btn-block text-uppercase"></i>Descubrimientos</button>
+                    </a>
+
                 </div>
                 <form action="envioIPs.php" method="post" name="formulario">
                     <input class="form-control validate" type="text" name="ipIndividual"
@@ -105,10 +105,7 @@
                     <?php   $query = "SELECT * FROM inspectIndividual;";
                                 $result = pg_query($conexion, $query);
                                 $arr = pg_fetch_all($result);
-                                echo'
-                                
-                                <h2 class="tm-block-title">Historial de ips</h2>
-                                
+                                echo'<h2 class="tm-block-title">Historial de ips</h2>
                                 <table class="table tm-table-small tm-product-table">';
                                 foreach($arr as $array){
                                         echo'<tr>
@@ -122,10 +119,6 @@
     </div>
 
     <div class="col-12 tm-block-col">
-        <div class="col">
-            <h1 class="tm-site-title mb-0"> Escaneos individuales</h1>
-            <p class="text-white mt-5 mb-5">Aquí podrás realizar escaneos individuales<b> PRUÉBALO!</b></p>
-        </div>
         <div class="container">
             <div class="row">
             </div>
@@ -134,14 +127,15 @@
                         include('Connection.php');
                    #All the data from the last execution    
                         $query = "SELECT * FROM nmapScan;";
-                        
                         $result = pg_query($conexion, $query);
-                        
                         $arr = pg_fetch_all($result);
                         echo'
                         <div class="col-12 tm-block-col">
                         <div class="tm-bg-primary-dark tm-block tm-block-taller tm-block-scroll">
-                        <h2 class="tm-block-title">Último escaneo realizado</h2>
+                        <div class="col">
+                        <h2 class="tm-block-title mb-4">Escaneos individuales</h2>
+                        <p class="text-white mt-5 mb-5">Aquí podrás realizar escaneos individuales<b> PRUÉBALO!</b></p>
+                    </div>
                             <table class="table">
                                 <tr>
                                  <th>IP</th>
@@ -171,14 +165,14 @@
             <form action="envioIPs.php" method="post" name="formulario">
                 <input class="form-control validate" type="text" name="ip"
                     placeholder=" Introduce IP o rangos de IPs. p.e 192.168.0.1 o www.ehu.es">
-                <input class="btn btn-primary text-uppercase" type="submit" value="Enviar">
+                <input class="btn btn-primary text-uppercase" onclick="refreshPage()" type="submit" value="Enviar">
                 <input class="btn btn-primary text-uppercase" type="submit" value="Eliminar">
-                <?php   $query = "SELECT * FROM inspect;";
+                <?php           $query = "SELECT * FROM inspect;";
                                 $result = pg_query($conexion, $query);
                                 $arr = pg_fetch_all($result);
                                 echo'
                                 
-                                <h2 class="tm-block-title">Lista de ips</h2>
+                                <h2 class="tm-block-title">Historial de ips</h2>
                                 
                                 <table class="table tm-table-small tm-product-table">';
                                 foreach($arr as $array){
@@ -189,7 +183,25 @@
                                     echo'</table>';?>
             </form><br>
             <form method="post" name="formulario2">
-                <input class="btn btn-primary btn-block text-uppercase" type="submit" value="Ejecutar"
+                <input class="btn btn-primary btn-block text-uppercase" type="submit" value="Ejecución rápida"
+                    name="nmapExecute">
+            </form><br>
+            <?php 	if(isset($_POST['nmapExecute']))
+                                {   
+                                    shell_exec("nmap -sV -stats-every 2s -iL ./ips.txt -oX ./datos.xml");
+                                    shell_exec(" python3 ./StorerIndividual.py ./datos.xml ");
+                                }?>
+            <form method="post" name="formulario2">
+                <input class="btn btn-primary btn-block text-uppercase" type="submit"
+                    value="Ejecución todos los puertos" name="nmapExecute">
+            </form><br>
+            <?php 	if(isset($_POST['nmapExecute']))
+                                {   
+                                    shell_exec("nmap -p- -sV --script vulners --script-args mincvss=5.0 -sV -stats-every 2s -iL ./ips.txt -oX ./datos.xml");
+                                    shell_exec(" python3 ./StorerIndividual.py ./datos.xml ");
+                                }?>
+            <form method="post" name="formulario2">
+                <input class="btn btn-primary btn-block text-uppercase" type="submit" value="Ejecución total"
                     name="nmapExecute">
             </form><br>
             <?php 	if(isset($_POST['nmapExecute']))
@@ -245,6 +257,11 @@
             updateBarChart();
         });
     })
+    </script>
+    <script>
+    function refreshPage() {
+        window.location.reload();
+    }
     </script>
 </body>
 
