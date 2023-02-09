@@ -6,6 +6,7 @@ import argparse
 import xml.etree.ElementTree as ET
 import psycopg2
 
+#we input the file 
 def main(argv):
 	inputfile = ''
 	parser = argparse.ArgumentParser(description="Parse Nmap XML output and create CSV")
@@ -33,20 +34,21 @@ def main(argv):
 		#connection with the database
 		conn = psycopg2.connect(host="db",database="nmap", user="root", password="root")
 		cursor = conn.cursor()
-		#Delete the table nmapScan before de parse
+		
 		cursor.execute("INSERT INTO lastAnalyze SELECT * FROM nmapIndividual")
 		conn.commit()
-		#Habria que añaadir aqui los datos de stay y appear dentro de ipsIndividual			
+		#Delete the table nmapScan before de parse, just to have the table empty
 		cursor.execute("DELETE FROM nmapIndividual")
 		conn.commit()
-
+	#Firstly we search all the host
 	for host in root.findall('host'):
 		ip = host.find('address').get('addr')
 		hostname = ""
 		if host.find('hostnames') is not None:
 			if host.find('hostnames').find('hostname') is not None:
+				#We get that hosts and we storage in hostname variable
 				hostname = host.find('hostnames').find('hostname').get('name')
-
+		#With all the host, we find all the ports inside thar host and we obtain; port, portid, services, vulnerabilities, products, version and extra info that is in the xml output
 		for port in host.find('ports').findall('port'):
 			protocol = port.get('protocol')
 			if protocol is None:
