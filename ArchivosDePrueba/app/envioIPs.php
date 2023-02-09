@@ -1,4 +1,5 @@
 <?php  
+//connection with the general ip scan and export to ips.txt file
 include "Connection.php";
 if (isset($_POST["ip"])){
     $ip = $_POST["ip"];
@@ -9,10 +10,12 @@ $archivoIPs = "./ips.txt";
 $archivo = fopen($archivoIPs, "w+");
 fwrite($archivo, $ip );
 fclose($archivo);
+//we move to main location
 header('Location: index.php');
 }
 ?>
 <?php  
+//connection with the individual ip scan and export to ipsReporte.txt file
 include "Connection.php";
 if (isset($_POST["ipIndividual"])){
     $ip = $_POST["ipIndividual"];
@@ -23,6 +26,7 @@ $archivoIPs = "./ipsReporte.txt";
 $archivo = fopen($archivoIPs, "w+");
 fwrite($archivo, $ip );
 fclose($archivo);
+//we move to main location
 header('Location: index.php');
 }
 ?>
