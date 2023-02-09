@@ -182,12 +182,15 @@
                                     }
                                     echo'</table>';?>
             </form><br>
+		<!-- In this form we have 3 types of execution, in which we can choose diffetent types of executions-->
+		<!-- The executions are executed inside the php directly-->
             <form method="post" name="formulario2">
                 <input class="btn btn-primary btn-block text-uppercase" type="submit" value="Ejecución rápida"
                     name="nmapExecute">
             </form><br>
             <?php 	if(isset($_POST['nmapExecute']))
                                 {   
+				    //To execute "Ejecución rápida" with any script and most common ports
                                     shell_exec("nmap -sV -stats-every 2s -iL ./ips.txt -oX ./datos.xml");
                                     shell_exec(" python3 ./StorerIndividual.py ./datos.xml ");
                                 }?>
@@ -197,7 +200,8 @@
             </form><br>
             <?php 	if(isset($_POST['nmapExecute']))
                                 {   
-                                    shell_exec("nmap -p- -sV --script vulners --script-args mincvss=5.0 -sV -stats-every 2s -iL ./ips.txt -oX ./datos.xml");
+				    //To execute "Ejecución todos los puertos" with no script and most common ports
+                                    shell_exec("nmap -p- -sV -stats-every 2s -iL ./ips.txt -oX ./datos.xml");
                                     shell_exec(" python3 ./StorerIndividual.py ./datos.xml ");
                                 }?>
             <form method="post" name="formulario2">
@@ -206,7 +210,8 @@
             </form><br>
             <?php 	if(isset($_POST['nmapExecute']))
                                 {   
-                                    shell_exec("nmap -sV --script vulners --script-args mincvss=5.0 -sV -stats-every 2s -iL ./ips.txt -oX ./datos.xml");
+				    //To execute "Ejecución total" with the vulners script and most common ports
+                                    shell_exec("nmap -p- -sV --script vulners --script-args mincvss=5.0 -sV -stats-every 2s -iL ./ips.txt -oX ./datos.xml");
                                     shell_exec(" python3 ./StorerIndividual.py ./datos.xml ");
                                 }?>
         </div>
