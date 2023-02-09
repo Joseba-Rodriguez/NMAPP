@@ -4,14 +4,15 @@ import schedule
 import time
 import os ,sys, stat
 
+#Function to execute the Analyzer scheduledly
 def Analyzer():
      os.system("python3 ./app/Analyzer.py")
-
+     
+#Function to execute the pdfReport scheduledly
 def pdfReport():
      os.system("python3 ./app/pdfReport.py")
-
-#programadores horarios     
-
+  
+#This is a test
 schedule.every(10).minutes.do(Analyzer)
 
 #schedule.every().day.at("00:00").do(Analyzer)
