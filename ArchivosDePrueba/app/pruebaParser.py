@@ -2,10 +2,8 @@
 
 import sys
 import xml.etree.ElementTree as ET
-
+import psycopg2
 inputfile = './datos.xml'
-
-
 
 def rawParser(inputfile):
 	try:
@@ -23,35 +21,23 @@ def rawParser(inputfile):
 	
 	for host in root.findall('host'):
 		ip = host.find('address').get('addr')
-		hostname = ""
 		if host.find('hostnames') is not None:
 			if host.find('hostnames').find('hostname') is not None:
 				hostname = host.find('hostnames').find('hostname').get('name')
-
 		for port in host.find('ports').findall('port'):
 			protocol = port.get('protocol')
 			if protocol is None:
 				protocol = ""
-
 			portnum = port.get('portid')
 			if portnum is None:
 				portnum = ""
-
-			service = ""
 			if port.find('service') is not None:
 				if port.find('service').get('name') is not None:
 					service = port.find('service').get('name')
-
-			vuln = ""
 			if port.find('script') is not None:
 				if port.find('script').get('output') is not None:
 					vuln2 = port.find('script').get('output')
 					vuln = vuln2.replace("'", "")
-			
-			product = ""
-			version = ""
-			versioning = ""
-			extrainfo = ""
 			if port.find('service') is not None:
 				if port.find('service').get('product') is not None:
 					product = port.find('service').get('product')
@@ -64,42 +50,50 @@ def rawParser(inputfile):
 					versioning = versioning + ' (' + extrainfo + ')'
 					versioning = product.replace("'", "")
 			print("Dato insertado"+ ip + ',' + hostname + ',' + portnum + ',' + protocol + ',' + service + ',' + versioning + ',' + vuln + '\n')
+		ip= str(ip)
+		hostname = str(hostname)
+		protocol = str(protocol)
+		portnum = str(portnum)
+		service= str(service)
+		vuln = str(vuln)
+		product = str(product)
+		versioning = str(versioning)
 				
 
 #we input the file 
-def parseForReport(inputfile):
-	#conn = psycopg2.connect(host="db",database="nmap", user="root", password="root")
-	#cursor = conn.cursor()
+def parseForReport(inputfile, ip, hostname, protocol, portnum, service, vuln, versioning):
+	conn = psycopg2.connect(host="db",database="nmap", user="root", password="root")
+	cursor = conn.cursor()
 		
-	#cursor.execute("INSERT INTO lastAnalyze SELECT * FROM nmapIndividual")
-	#conn.commit()
+	cursor.execute("INSERT INTO lastAnalyze SELECT * FROM nmapIndividual")
+	conn.commit()
 		#Delete the table nmapScan before de parse, just to have the table empty
-	#cursor.execute("DELETE FROM nmapIndividual")
-	#conn.commit()
+	cursor.execute("DELETE FROM nmapIndividual")
+	conn.commit()
 
 	#Firstly we search all the host
 	rawParser(inputfile)
 				#The data will be inserted after parsing in nmapScan 
-				#cursor.execute("INSERT INTO nmapIndividual(ip, hostname, port, protocol,service, version, vuln) VALUES ('"+ str(ip) + "' , '" + str(hostname) + "' , " + str(portnum) + " , '" + str(protocol) + "' , '"+ str(service) + "' , '" + str(versioning) + "', '" + str(vuln) + "' )")
-				#conn.commit()
+	cursor.execute("INSERT INTO nmapIndividual(ip, hostname, port, protocol,service, version, vuln) VALUES ('"+ ip + "' , '" + hostname + "' , " + portnum + " , '" + protocol + "' , '"+ service + "' , '" + versioning + "', '" + vuln + "' )")
+	conn.commit()
 				
-	#conn.close()
+	conn.close()
 
 def parseForIndividual(inputfile):
 	#connection with the database
-	#conn = psycopg2.connect(host="db",database="nmap", user="root", password="root")
-	#cursor = conn.cursor()
+	conn = psycopg2.connect(host="db",database="nmap", user="root", password="root")
+	cursor = conn.cursor()
 	#Delete the table nmapScan before de parse
-	#cursor.execute("INSERT INTO lastAnalyze SELECT * FROM nmapScan")
-	#conn.commit()		
-	#cursor.execute("DELETE FROM nmapScan")
-	#conn.commit()
+	cursor.execute("INSERT INTO lastAnalyze SELECT * FROM nmapScan")
+	conn.commit()		
+	cursor.execute("DELETE FROM nmapScan")
+	conn.commit()
 	rawParser(inputfile)
-				#The data will be inserted after parsing in nmapScan 
-				#cursor.execute("INSERT INTO nmapScan(ip, hostname, port, protocol,service, version, vuln) VALUES ('"+ str(ip) + "' , '" + str(hostname) + "' , " + str(portnum) + " , '" + str(protocol) + "' , '"+ str(service) + "' , '" + str(versioning) + "', '" + str(vuln) + "' )")
-				#conn.commit()
+	#The data will be inserted after parsing in nmapScan 
+	cursor.execute("INSERT INTO nmapScan(ip, hostname, port, protocol,service, version, vuln) VALUES ('"+ str(ip) + "' , '" + str(hostname) + "' , " + str(portnum) + " , '" + str(protocol) + "' , '"+ str(service) + "' , '" + str(versioning) + "', '" + str(vuln) + "' )")
+	conn.commit()
 				
-	#conn.close()
+	conn.close()
 
 def pedirNumero(num):
     if num == 1:
