@@ -21,18 +21,29 @@
         echo "The passwords do not match.";
         exit;
       }
-    
+
       // Hash the password
       $password_hash = password_hash($password, PASSWORD_BCRYPT);
-    
-      // Insert the data into the users table
-      $result = pg_query($conexion, "INSERT INTO users (userID, password) VALUES ('$username', '$password_hash')");
-    
+
+      $query = "SELECT * FROM users WHERE userID='$username'";
+      $result = pg_query($conexion, $query);
+      if (pg_num_rows($result) > 0) {
+        // El usuario ya existe, mostrar un error
+        echo "El usuario ya existe, por favor elige otro nombre de usuario.";
+      } else {
+        // El usuario no existe, registrar el usuario
+        $result = pg_query($conexion, "INSERT INTO users (userID, password) VALUES ('$username', '$password_hash')");
+        $result = pg_query($conexion, $query);
+
+        if ($result) {
+            // El usuario se registró correctamente
+            header('Location: index.php');
+        } else {
+            // Ocurrió un error al registrar el usuario
+            echo "Ocurrió un error al registrar el usuario.";
+        }
+       }
       // Check if the insert was successful
-      if (!$result) {
-        echo "An error occurred while registering the user.";
-        exit;
-      }
-      header('Location: index.php');
+      pg_close($conexion);
     }
 ?>
