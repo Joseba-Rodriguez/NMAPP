@@ -1,216 +1,244 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE nmaprun>
 <?xml-stylesheet href="file:///usr/bin/../share/nmap/nmap.xsl" type="text/xsl"?>
-<!-- Nmap 7.80 scan initiated Sun Jan 29 18:31:59 2023 as: nmap -sV -&#45;script vulners -&#45;script-args mincvss=5.0 -sV -stats-every 2s -iL ./app/ipsReporte.txt -oX ./app/datos.xml -->
-<nmaprun scanner="nmap" args="nmap -sV -&#45;script vulners -&#45;script-args mincvss=5.0 -sV -stats-every 2s -iL ./app/ipsReporte.txt -oX ./app/datos.xml" start="1675017119" startstr="Sun Jan 29 18:31:59 2023" version="7.80" xmloutputversion="1.04">
+<!-- Nmap 7.80 scan initiated Thu Feb  9 15:10:04 2023 as: nmap -sV -&#45;script vulners -&#45;script-args mincvss=5.0 -sV -stats-every 2s -iL ./app/ipsReporte.txt -oX ./app/datos.xml -->
+<nmaprun scanner="nmap" args="nmap -sV -&#45;script vulners -&#45;script-args mincvss=5.0 -sV -stats-every 2s -iL ./app/ipsReporte.txt -oX ./app/datos.xml" start="1675955404" startstr="Thu Feb  9 15:10:04 2023" version="7.80" xmloutputversion="1.04">
 <scaninfo type="syn" protocol="tcp" numservices="1000" services="1,3-4,6-7,9,13,17,19-26,30,32-33,37,42-43,49,53,70,79-85,88-90,99-100,106,109-111,113,119,125,135,139,143-144,146,161,163,179,199,211-212,222,254-256,259,264,280,301,306,311,340,366,389,406-407,416-417,425,427,443-445,458,464-465,481,497,500,512-515,524,541,543-545,548,554-555,563,587,593,616-617,625,631,636,646,648,666-668,683,687,691,700,705,711,714,720,722,726,749,765,777,783,787,800-801,808,843,873,880,888,898,900-903,911-912,981,987,990,992-993,995,999-1002,1007,1009-1011,1021-1100,1102,1104-1108,1110-1114,1117,1119,1121-1124,1126,1130-1132,1137-1138,1141,1145,1147-1149,1151-1152,1154,1163-1166,1169,1174-1175,1183,1185-1187,1192,1198-1199,1201,1213,1216-1218,1233-1234,1236,1244,1247-1248,1259,1271-1272,1277,1287,1296,1300-1301,1309-1311,1322,1328,1334,1352,1417,1433-1434,1443,1455,1461,1494,1500-1501,1503,1521,1524,1533,1556,1580,1583,1594,1600,1641,1658,1666,1687-1688,1700,1717-1721,1723,1755,1761,1782-1783,1801,1805,1812,1839-1840,1862-1864,1875,1900,1914,1935,1947,1971-1972,1974,1984,1998-2010,2013,2020-2022,2030,2033-2035,2038,2040-2043,2045-2049,2065,2068,2099-2100,2103,2105-2107,2111,2119,2121,2126,2135,2144,2160-2161,2170,2179,2190-2191,2196,2200,2222,2251,2260,2288,2301,2323,2366,2381-2383,2393-2394,2399,2401,2492,2500,2522,2525,2557,2601-2602,2604-2605,2607-2608,2638,2701-2702,2710,2717-2718,2725,2800,2809,2811,2869,2875,2909-2910,2920,2967-2968,2998,3000-3001,3003,3005-3007,3011,3013,3017,3030-3031,3052,3071,3077,3128,3168,3211,3221,3260-3261,3268-3269,3283,3300-3301,3306,3322-3325,3333,3351,3367,3369-3372,3389-3390,3404,3476,3493,3517,3527,3546,3551,3580,3659,3689-3690,3703,3737,3766,3784,3800-3801,3809,3814,3826-3828,3851,3869,3871,3878,3880,3889,3905,3914,3918,3920,3945,3971,3986,3995,3998,4000-4006,4045,4111,4125-4126,4129,4224,4242,4279,4321,4343,4443-4446,4449,4550,4567,4662,4848,4899-4900,4998,5000-5004,5009,5030,5033,5050-5051,5054,5060-5061,5080,5087,5100-5102,5120,5190,5200,5214,5221-5222,5225-5226,5269,5280,5298,5357,5405,5414,5431-5432,5440,5500,5510,5544,5550,5555,5560,5566,5631,5633,5666,5678-5679,5718,5730,5800-5802,5810-5811,5815,5822,5825,5850,5859,5862,5877,5900-5904,5906-5907,5910-5911,5915,5922,5925,5950,5952,5959-5963,5987-5989,5998-6007,6009,6025,6059,6100-6101,6106,6112,6123,6129,6156,6346,6389,6502,6510,6543,6547,6565-6567,6580,6646,6666-6669,6689,6692,6699,6779,6788-6789,6792,6839,6881,6901,6969,7000-7002,7004,7007,7019,7025,7070,7100,7103,7106,7200-7201,7402,7435,7443,7496,7512,7625,7627,7676,7741,7777-7778,7800,7911,7920-7921,7937-7938,7999-8002,8007-8011,8021-8022,8031,8042,8045,8080-8090,8093,8099-8100,8180-8181,8192-8194,8200,8222,8254,8290-8292,8300,8333,8383,8400,8402,8443,8500,8600,8649,8651-8652,8654,8701,8800,8873,8888,8899,8994,9000-9003,9009-9011,9040,9050,9071,9080-9081,9090-9091,9099-9103,9110-9111,9200,9207,9220,9290,9415,9418,9485,9500,9502-9503,9535,9575,9593-9595,9618,9666,9876-9878,9898,9900,9917,9929,9943-9944,9968,9998-10004,10009-10010,10012,10024-10025,10082,10180,10215,10243,10566,10616-10617,10621,10626,10628-10629,10778,11110-11111,11967,12000,12174,12265,12345,13456,13722,13782-13783,14000,14238,14441-14442,15000,15002-15004,15660,15742,16000-16001,16012,16016,16018,16080,16113,16992-16993,17877,17988,18040,18101,18988,19101,19283,19315,19350,19780,19801,19842,20000,20005,20031,20221-20222,20828,21571,22939,23502,24444,24800,25734-25735,26214,27000,27352-27353,27355-27356,27715,28201,30000,30718,30951,31038,31337,32768-32785,33354,33899,34571-34573,35500,38292,40193,40911,41511,42510,44176,44442-44443,44501,45100,48080,49152-49161,49163,49165,49167,49175-49176,49400,49999-50003,50006,50300,50389,50500,50636,50800,51103,51493,52673,52822,52848,52869,54045,54328,55055-55056,55555,55600,56737-56738,57294,57797,58080,60020,60443,61532,61900,62078,63331,64623,64680,65000,65129,65389"/>
 <verbose level="0"/>
 <debugging level="0"/>
-<taskprogress task="Parallel DNS resolution of 10 hosts." time="1675017121" percent="40.00" remaining="2" etc="1675017123"/>
-<taskprogress task="Parallel DNS resolution of 10 hosts." time="1675017123" percent="70.00" remaining="2" etc="1675017124"/>
-<taskprogress task="Parallel DNS resolution of 10 hosts." time="1675017125" percent="70.00" remaining="3" etc="1675017127"/>
-<taskprogress task="Parallel DNS resolution of 10 hosts." time="1675017127" percent="80.00" remaining="2" etc="1675017129"/>
-<taskprogress task="Parallel DNS resolution of 10 hosts." time="1675017129" percent="80.00" remaining="3" etc="1675017131"/>
-<taskprogress task="SYN Stealth Scan" time="1675017132" percent="0.22"/>
-<taskprogress task="SYN Stealth Scan" time="1675017133" percent="4.91" remaining="39" etc="1675017172"/>
-<taskprogress task="SYN Stealth Scan" time="1675017135" percent="13.98" remaining="25" etc="1675017160"/>
-<taskprogress task="SYN Stealth Scan" time="1675017137" percent="25.05" remaining="18" etc="1675017155"/>
-<taskprogress task="SYN Stealth Scan" time="1675017139" percent="38.12" remaining="13" etc="1675017152"/>
-<taskprogress task="SYN Stealth Scan" time="1675017141" percent="35.32" remaining="19" etc="1675017159"/>
-<taskprogress task="SYN Stealth Scan" time="1675017143" percent="35.96" remaining="22" etc="1675017164"/>
-<taskprogress task="SYN Stealth Scan" time="1675017145" percent="36.93" remaining="24" etc="1675017169"/>
-<taskprogress task="SYN Stealth Scan" time="1675017147" percent="37.00" remaining="28" etc="1675017174"/>
-<taskprogress task="SYN Stealth Scan" time="1675017149" percent="37.07" remaining="31" etc="1675017180"/>
-<taskprogress task="SYN Stealth Scan" time="1675017151" percent="37.12" remaining="34" etc="1675017185"/>
-<taskprogress task="SYN Stealth Scan" time="1675017153" percent="37.19" remaining="38" etc="1675017190"/>
-<taskprogress task="SYN Stealth Scan" time="1675017155" percent="37.25" remaining="41" etc="1675017195"/>
-<taskprogress task="SYN Stealth Scan" time="1675017157" percent="37.31" remaining="44" etc="1675017201"/>
-<taskprogress task="SYN Stealth Scan" time="1675017159" percent="37.36" remaining="47" etc="1675017206"/>
-<taskprogress task="SYN Stealth Scan" time="1675017161" percent="37.43" remaining="51" etc="1675017211"/>
-<taskprogress task="SYN Stealth Scan" time="1675017163" percent="37.52" remaining="54" etc="1675017216"/>
-<taskprogress task="SYN Stealth Scan" time="1675017165" percent="37.60" remaining="57" etc="1675017221"/>
-<taskprogress task="SYN Stealth Scan" time="1675017167" percent="37.65" remaining="60" etc="1675017227"/>
-<taskprogress task="SYN Stealth Scan" time="1675017169" percent="37.71" remaining="63" etc="1675017232"/>
-<taskprogress task="SYN Stealth Scan" time="1675017171" percent="37.76" remaining="66" etc="1675017237"/>
-<taskprogress task="SYN Stealth Scan" time="1675017173" percent="37.85" remaining="69" etc="1675017242"/>
-<taskprogress task="SYN Stealth Scan" time="1675017175" percent="37.93" remaining="73" etc="1675017247"/>
-<taskprogress task="SYN Stealth Scan" time="1675017177" percent="38.01" remaining="76" etc="1675017252"/>
-<taskprogress task="SYN Stealth Scan" time="1675017179" percent="38.07" remaining="79" etc="1675017257"/>
-<taskprogress task="SYN Stealth Scan" time="1675017181" percent="38.15" remaining="82" etc="1675017262"/>
-<taskprogress task="SYN Stealth Scan" time="1675017183" percent="38.22" remaining="85" etc="1675017267"/>
-<taskprogress task="SYN Stealth Scan" time="1675017185" percent="38.28" remaining="88" etc="1675017272"/>
-<taskprogress task="SYN Stealth Scan" time="1675017187" percent="38.34" remaining="91" etc="1675017277"/>
-<taskprogress task="SYN Stealth Scan" time="1675017189" percent="38.40" remaining="94" etc="1675017282"/>
-<taskprogress task="SYN Stealth Scan" time="1675017191" percent="38.46" remaining="97" etc="1675017287"/>
-<taskprogress task="SYN Stealth Scan" time="1675017193" percent="38.52" remaining="99" etc="1675017292"/>
-<taskprogress task="SYN Stealth Scan" time="1675017195" percent="38.58" remaining="102" etc="1675017297"/>
-<taskprogress task="SYN Stealth Scan" time="1675017197" percent="38.63" remaining="105" etc="1675017302"/>
-<taskprogress task="SYN Stealth Scan" time="1675017199" percent="38.70" remaining="108" etc="1675017307"/>
-<taskprogress task="SYN Stealth Scan" time="1675017201" percent="38.75" remaining="111" etc="1675017312"/>
-<taskprogress task="SYN Stealth Scan" time="1675017203" percent="38.82" remaining="114" etc="1675017316"/>
-<taskprogress task="SYN Stealth Scan" time="1675017205" percent="38.88" remaining="117" etc="1675017321"/>
-<taskprogress task="SYN Stealth Scan" time="1675017207" percent="38.94" remaining="120" etc="1675017326"/>
-<taskprogress task="SYN Stealth Scan" time="1675017209" percent="39.00" remaining="123" etc="1675017331"/>
-<taskprogress task="SYN Stealth Scan" time="1675017211" percent="39.06" remaining="125" etc="1675017336"/>
-<taskprogress task="SYN Stealth Scan" time="1675017213" percent="39.12" remaining="128" etc="1675017341"/>
-<taskprogress task="SYN Stealth Scan" time="1675017215" percent="39.18" remaining="131" etc="1675017345"/>
-<taskprogress task="SYN Stealth Scan" time="1675017217" percent="39.24" remaining="134" etc="1675017350"/>
-<taskprogress task="SYN Stealth Scan" time="1675017219" percent="39.31" remaining="136" etc="1675017355"/>
-<taskprogress task="SYN Stealth Scan" time="1675017221" percent="39.36" remaining="139" etc="1675017360"/>
-<taskprogress task="SYN Stealth Scan" time="1675017223" percent="39.42" remaining="142" etc="1675017364"/>
-<taskprogress task="SYN Stealth Scan" time="1675017225" percent="39.48" remaining="145" etc="1675017369"/>
-<taskprogress task="SYN Stealth Scan" time="1675017227" percent="39.54" remaining="147" etc="1675017374"/>
-<taskprogress task="SYN Stealth Scan" time="1675017229" percent="39.61" remaining="150" etc="1675017378"/>
-<taskprogress task="SYN Stealth Scan" time="1675017231" percent="39.67" remaining="153" etc="1675017383"/>
-<taskprogress task="SYN Stealth Scan" time="1675017233" percent="39.73" remaining="155" etc="1675017388"/>
-<taskprogress task="SYN Stealth Scan" time="1675017235" percent="39.79" remaining="158" etc="1675017392"/>
-<taskprogress task="SYN Stealth Scan" time="1675017237" percent="39.85" remaining="161" etc="1675017397"/>
-<taskprogress task="SYN Stealth Scan" time="1675017239" percent="39.91" remaining="163" etc="1675017402"/>
-<taskprogress task="SYN Stealth Scan" time="1675017241" percent="39.97" remaining="166" etc="1675017406"/>
-<taskprogress task="SYN Stealth Scan" time="1675017243" percent="40.03" remaining="168" etc="1675017411"/>
-<taskprogress task="SYN Stealth Scan" time="1675017245" percent="40.09" remaining="171" etc="1675017415"/>
-<taskprogress task="SYN Stealth Scan" time="1675017247" percent="40.15" remaining="173" etc="1675017420"/>
-<taskprogress task="SYN Stealth Scan" time="1675017249" percent="40.21" remaining="176" etc="1675017424"/>
-<taskprogress task="SYN Stealth Scan" time="1675017251" percent="40.27" remaining="178" etc="1675017429"/>
-<taskprogress task="SYN Stealth Scan" time="1675017253" percent="40.33" remaining="181" etc="1675017434"/>
-<taskprogress task="SYN Stealth Scan" time="1675017255" percent="40.39" remaining="183" etc="1675017438"/>
-<taskprogress task="SYN Stealth Scan" time="1675017257" percent="40.45" remaining="186" etc="1675017443"/>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          <taskprogress task="Connect Scan" time="1675017121" percent="35.96" remaining="636" etc="1675017757"/>
-<taskprogress task="Connect Scan" time="1675017123" percent="36.17" remaining="634" etc="1675017757"/>
-<taskprogress task="Connect Scan" time="1675017125" percent="36.37" remaining="632" etc="1675017757"/>
-<taskprogress task="Connect Scan" time="1675017127" percent="36.57" remaining="630" etc="1675017757"/>
-<taskprogress task="Connect Scan" time="1675017129" percent="36.77" remaining="628" etc="1675017757"/>
-<taskprogress task="Connect Scan" time="1675017131" percent="36.98" remaining="626" etc="1675017757"/>
-<taskprogress task="Connect Scan" time="1675017133" percent="37.18" remaining="624" etc="1675017756"/>
-<taskprogress task="Connect Scan" time="1675017135" percent="37.38" remaining="622" etc="1675017756"/>
-<taskprogress task="Connect Scan" time="1675017137" percent="37.58" remaining="620" etc="1675017756"/>
-<taskprogress task="Connect Scan" time="1675017139" percent="37.79" remaining="618" etc="1675017756"/>
-<taskprogress task="Connect Scan" time="1675017141" percent="28.43" remaining="950" etc="1675018090"/>
-<taskprogress task="Connect Scan" time="1675017143" percent="22.82" remaining="1282" etc="1675018425"/>
-<taskprogress task="Connect Scan" time="1675017145" percent="22.93" remaining="1281" etc="1675018426"/>
-<taskprogress task="Connect Scan" time="1675017147" percent="23.05" remaining="1279" etc="1675018425"/>
-<taskprogress task="Connect Scan" time="1675017149" percent="23.17" remaining="1277" etc="1675018425"/>
-<taskprogress task="Connect Scan" time="1675017151" percent="23.30" remaining="1275" etc="1675018425"/>
-<taskprogress task="Connect Scan" time="1675017153" percent="23.42" remaining="1273" etc="1675018425"/>
-<taskprogress task="Connect Scan" time="1675017155" percent="23.54" remaining="1271" etc="1675018425"/>
-<taskprogress task="Connect Scan" time="1675017157" percent="23.66" remaining="1269" etc="1675018425"/>
-<taskprogress task="Connect Scan" time="1675017159" percent="23.78" remaining="1266" etc="1675018425"/>
-<taskprogress task="Connect Scan" time="1675017161" percent="23.90" remaining="1264" etc="1675018425"/>
-<taskprogress task="Connect Scan" time="1675017163" percent="24.02" remaining="1262" etc="1675018425"/>
-<taskprogress task="Connect Scan" time="1675017165" percent="24.15" remaining="1260" etc="1675018425"/>
-<taskprogress task="Connect Scan" time="1675017167" percent="24.27" remaining="1258" etc="1675018425"/>
-<taskprogress task="Connect Scan" time="1675017169" percent="24.39" remaining="1256" etc="1675018425"/>
-<taskprogress task="Connect Scan" time="1675017171" percent="24.51" remaining="1254" etc="1675018425"/>
-<taskprogress task="Connect Scan" time="1675017173" percent="24.63" remaining="1252" etc="1675018424"/>
-<taskprogress task="Connect Scan" time="1675017175" percent="24.75" remaining="1250" etc="1675018424"/>
-<taskprogress task="Connect Scan" time="1675017177" percent="24.87" remaining="1248" etc="1675018424"/>
-<taskprogress task="Connect Scan" time="1675017179" percent="25.00" remaining="1246" etc="1675018424"/>
-<taskprogress task="Connect Scan" time="1675017181" percent="25.12" remaining="1244" etc="1675018424"/>
-<taskprogress task="Connect Scan" time="1675017183" percent="25.24" remaining="1242" etc="1675018424"/>
-<taskprogress task="Connect Scan" time="1675017185" percent="25.36" remaining="1240" etc="1675018424"/>
-<taskprogress task="Connect Scan" time="1675017187" percent="25.48" remaining="1237" etc="1675018424"/>
-<taskprogress task="Connect Scan" time="1675017189" percent="25.60" remaining="1235" etc="1675018424"/>
-<taskprogress task="Connect Scan" time="1675017191" percent="25.73" remaining="1233" etc="1675018424"/>
-<taskprogress task="Connect Scan" time="1675017193" percent="25.85" remaining="1231" etc="1675018424"/>
-<taskprogress task="Connect Scan" time="1675017195" percent="25.97" remaining="1229" etc="1675018424"/>
-<taskprogress task="Connect Scan" time="1675017197" percent="26.09" remaining="1227" etc="1675018424"/>
-<taskprogress task="Connect Scan" time="1675017199" percent="26.21" remaining="1225" etc="1675018424"/>
-<taskprogress task="Connect Scan" time="1675017201" percent="26.33" remaining="1223" etc="1675018424"/>
-<taskprogress task="Connect Scan" time="1675017203" percent="26.45" remaining="1221" etc="1675018423"/>
-<taskprogress task="Connect Scan" time="1675017205" percent="26.58" remaining="1219" etc="1675018423"/>
-<taskprogress task="Connect Scan" time="1675017207" percent="26.70" remaining="1217" etc="1675018423"/>
-<taskprogress task="Connect Scan" time="1675017209" percent="26.82" remaining="1215" etc="1675018423"/>
-<taskprogress task="Connect Scan" time="1675017211" percent="26.94" remaining="1213" etc="1675018423"/>
-<taskprogress task="Connect Scan" time="1675017213" percent="27.06" remaining="1211" etc="1675018423"/>
-<taskprogress task="Connect Scan" time="1675017215" percent="27.18" remaining="1209" etc="1675018423"/>
-<taskprogress task="Connect Scan" time="1675017217" percent="27.30" remaining="1207" etc="1675018423"/>
-<taskprogress task="Connect Scan" time="1675017219" percent="27.43" remaining="1205" etc="1675018423"/>
-<taskprogress task="Connect Scan" time="1675017221" percent="27.55" remaining="1202" etc="1675018423"/>
-<taskprogress task="Connect Scan" time="1675017223" percent="27.67" remaining="1200" etc="1675018423"/>
-<taskprogress task="Connect Scan" time="1675017225" percent="27.79" remaining="1198" etc="1675018423"/>
-<taskprogress task="Connect Scan" time="1675017227" percent="27.91" remaining="1196" etc="1675018423"/>
-<taskprogress task="Connect Scan" time="1675017229" percent="28.03" remaining="1194" etc="1675018423"/>
-<taskprogress task="Connect Scan" time="1675017231" percent="28.15" remaining="1192" etc="1675018423"/>
-<taskprogress task="Connect Scan" time="1675017233" percent="28.28" remaining="1190" etc="1675018423"/>
-<taskprogress task="Connect Scan" time="1675017235" percent="28.40" remaining="1188" etc="1675018423"/>
-<taskprogress task="Connect Scan" time="1675017237" percent="28.52" remaining="1186" etc="1675018423"/>
-<taskprogress task="Connect Scan" time="1675017239" percent="28.64" remaining="1184" etc="1675018422"/>
-<taskprogress task="Connect Scan" time="1675017241" percent="28.76" remaining="1182" etc="1675018422"/>
-<taskprogress task="Connect Scan" time="1675017243" percent="28.88" remaining="1180" etc="1675018422"/>
-<taskprogress task="Connect Scan" time="1675017245" percent="29.01" remaining="1178" etc="1675018422"/>
-<taskprogress task="Connect Scan" time="1675017247" percent="29.13" remaining="1176" etc="1675018422"/>
-<taskprogress task="Connect Scan" time="1675017249" percent="29.25" remaining="1174" etc="1675018422"/>
-<taskprogress task="Connect Scan" time="1675017251" percent="29.37" remaining="1172" etc="1675018422"/>
-<taskprogress task="Connect Scan" time="1675017253" percent="29.49" remaining="1170" etc="1675018422"/>
-<taskprogress task="Connect Scan" time="1675017255" percent="29.61" remaining="1168" etc="1675018422"/>
-<taskprogress task="Connect Scan" time="1675017257" percent="29.73" remaining="1166" etc="1675018422"/>
-<taskprogress task="Connect Scan" time="1675017259" percent="29.85" remaining="1164" etc="1675018422"/>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <taskprogress task="Connect Scan" time="1675017121" percent="62.59" remaining="312" etc="1675017432"/>
-<taskprogress task="Connect Scan" time="1675017123" percent="62.69" remaining="312" etc="1675017434"/>
-<taskprogress task="Connect Scan" time="1675017125" percent="62.79" remaining="312" etc="1675017436"/>
-<taskprogress task="Connect Scan" time="1675017127" percent="62.90" remaining="311" etc="1675017438"/>
-<taskprogress task="Connect Scan" time="1675017129" percent="63.00" remaining="311" etc="1675017440"/>
-<taskprogress task="Connect Scan" time="1675017131" percent="63.10" remaining="311" etc="1675017442"/>
-<taskprogress task="Connect Scan" time="1675017133" percent="63.20" remaining="311" etc="1675017443"/>
-<taskprogress task="Connect Scan" time="1675017135" percent="63.30" remaining="311" etc="1675017445"/>
-<taskprogress task="Connect Scan" time="1675017137" percent="63.40" remaining="310" etc="1675017447"/>
-<taskprogress task="Connect Scan" time="1675017139" percent="63.50" remaining="310" etc="1675017449"/>
-<taskprogress task="Connect Scan" time="1675017141" percent="57.38" remaining="402" etc="1675017543"/>
-<taskprogress task="Connect Scan" time="1675017143" percent="57.42" remaining="403" etc="1675017546"/>
-<taskprogress task="Connect Scan" time="1675017145" percent="57.47" remaining="404" etc="1675017548"/>
-<taskprogress task="Connect Scan" time="1675017147" percent="57.51" remaining="405" etc="1675017551"/>
-<taskprogress task="Connect Scan" time="1675017149" percent="57.55" remaining="405" etc="1675017554"/>
-<taskprogress task="Connect Scan" time="1675017151" percent="57.60" remaining="406" etc="1675017557"/>
-<taskprogress task="Connect Scan" time="1675017153" percent="57.64" remaining="407" etc="1675017559"/>
-<taskprogress task="Connect Scan" time="1675017155" percent="57.68" remaining="408" etc="1675017562"/>
-<taskprogress task="Connect Scan" time="1675017157" percent="57.73" remaining="408" etc="1675017565"/>
-<taskprogress task="Connect Scan" time="1675017159" percent="57.77" remaining="409" etc="1675017568"/>
-<taskprogress task="Connect Scan" time="1675017161" percent="57.81" remaining="410" etc="1675017570"/>
-<taskprogress task="Connect Scan" time="1675017163" percent="57.86" remaining="411" etc="1675017573"/>
-<taskprogress task="Connect Scan" time="1675017165" percent="57.90" remaining="411" etc="1675017576"/>
-<taskprogress task="Connect Scan" time="1675017167" percent="57.94" remaining="412" etc="1675017579"/>
-<taskprogress task="Connect Scan" time="1675017169" percent="57.99" remaining="413" etc="1675017581"/>
-<taskprogress task="Connect Scan" time="1675017171" percent="58.03" remaining="413" etc="1675017584"/>
-<taskprogress task="Connect Scan" time="1675017173" percent="58.07" remaining="414" etc="1675017587"/>
-<taskprogress task="Connect Scan" time="1675017175" percent="58.12" remaining="415" etc="1675017589"/>
-<taskprogress task="Connect Scan" time="1675017177" percent="58.16" remaining="416" etc="1675017592"/>
-<taskprogress task="Connect Scan" time="1675017179" percent="58.20" remaining="416" etc="1675017595"/>
-<taskprogress task="Connect Scan" time="1675017181" percent="58.25" remaining="417" etc="1675017597"/>
-<taskprogress task="Connect Scan" time="1675017183" percent="58.29" remaining="418" etc="1675017600"/>
-<taskprogress task="Connect Scan" time="1675017185" percent="58.33" remaining="418" etc="1675017603"/>
-<taskprogress task="Connect Scan" time="1675017187" percent="58.38" remaining="419" etc="1675017606"/>
-<taskprogress task="Connect Scan" time="1675017189" percent="58.42" remaining="420" etc="1675017608"/>
-<taskprogress task="Connect Scan" time="1675017191" percent="58.46" remaining="420" etc="1675017611"/>
-<taskprogress task="Connect Scan" time="1675017193" percent="58.51" remaining="421" etc="1675017614"/>
-<taskprogress task="Connect Scan" time="1675017195" percent="58.55" remaining="422" etc="1675017616"/>
-<taskprogress task="Connect Scan" time="1675017197" percent="58.59" remaining="422" etc="1675017619"/>
-<taskprogress task="Connect Scan" time="1675017199" percent="58.63" remaining="423" etc="1675017622"/>
-<taskprogress task="Connect Scan" time="1675017201" percent="58.68" remaining="424" etc="1675017624"/>
-<taskprogress task="Connect Scan" time="1675017203" percent="58.72" remaining="424" etc="1675017627"/>
-<taskprogress task="Connect Scan" time="1675017205" percent="58.76" remaining="425" etc="1675017630"/>
-<taskprogress task="Connect Scan" time="1675017207" percent="58.81" remaining="426" etc="1675017632"/>
-<taskprogress task="Connect Scan" time="1675017209" percent="58.85" remaining="426" etc="1675017635"/>
-<taskprogress task="Connect Scan" time="1675017211" percent="58.89" remaining="427" etc="1675017637"/>
-<taskprogress task="Connect Scan" time="1675017213" percent="58.94" remaining="428" etc="1675017640"/>
-<taskprogress task="Connect Scan" time="1675017215" percent="58.98" remaining="428" etc="1675017643"/>
-<taskprogress task="Connect Scan" time="1675017217" percent="59.02" remaining="429" etc="1675017645"/>
-<taskprogress task="Connect Scan" time="1675017219" percent="59.07" remaining="429" etc="1675017648"/>
-<taskprogress task="Connect Scan" time="1675017221" percent="59.11" remaining="430" etc="1675017651"/>
-<taskprogress task="Connect Scan" time="1675017223" percent="59.15" remaining="431" etc="1675017653"/>
-<taskprogress task="Connect Scan" time="1675017225" percent="59.20" remaining="431" etc="1675017656"/>
-<taskprogress task="Connect Scan" time="1675017227" percent="59.24" remaining="432" etc="1675017658"/>
-<taskprogress task="Connect Scan" time="1675017229" percent="59.28" remaining="433" etc="1675017661"/>
-<taskprogress task="Connect Scan" time="1675017231" percent="59.33" remaining="433" etc="1675017664"/>
-<taskprogress task="Connect Scan" time="1675017233" percent="59.37" remaining="434" etc="1675017666"/>
-<taskprogress task="Connect Scan" time="1675017235" percent="59.41" remaining="434" etc="1675017669"/>
-<taskprogress task="Connect Scan" time="1675017237" percent="59.46" remaining="435" etc="1675017671"/>
-<taskprogress task="Connect Scan" time="1675017239" percent="59.50" remaining="435" etc="1675017674"/>
-<taskprogress task="Connect Scan" time="1675017241" percent="59.54" remaining="436" etc="1675017677"/>
-<taskprogress task="Connect Scan" time="1675017243" percent="59.59" remaining="437" etc="1675017679"/>
-<taskprogress task="Connect Scan" time="1675017245" percent="59.63" remaining="437" etc="1675017682"/>
-<taskprogress task="Connect Scan" time="1675017247" percent="59.67" remaining="438" etc="1675017684"/>
-<taskprogress task="Connect Scan" time="1675017249" percent="59.72" remaining="438" etc="1675017687"/>
-<taskprogress task="Connect Scan" time="1675017251" percent="59.76" remaining="439" etc="1675017689"/>
-<taskprogress task="Connect Scan" time="1675017253" percent="59.80" remaining="439" etc="1675017692"/>
-<taskprogress task="Connect Scan" time="1675017255" percent="59.85" remaining="440" etc="1675017694"/>
-<taskprogress task="Connect Scan" time="1675017257" percent="59.89" remaining="441" etc="1675017697"/>
+<taskprogress task="Parallel DNS resolution of 10 hosts." time="1675955406" percent="30.00" remaining="3" etc="1675955408"/>
+<taskprogress task="Parallel DNS resolution of 10 hosts." time="1675955408" percent="30.00" remaining="8" etc="1675955415"/>
+<taskprogress task="Parallel DNS resolution of 10 hosts." time="1675955410" percent="30.00" remaining="12" etc="1675955422"/>
+<taskprogress task="Parallel DNS resolution of 10 hosts." time="1675955412" percent="30.00" remaining="17" etc="1675955428"/>
+<taskprogress task="Parallel DNS resolution of 10 hosts." time="1675955414" percent="30.00" remaining="22" etc="1675955435"/>
+<taskprogress task="Parallel DNS resolution of 10 hosts." time="1675955416" percent="30.00" remaining="26" etc="1675955442"/>
+<taskprogress task="SYN Stealth Scan" time="1675955418" percent="0.73"/>
+<taskprogress task="SYN Stealth Scan" time="1675955420" percent="9.29" remaining="40" etc="1675955459"/>
+<taskprogress task="SYN Stealth Scan" time="1675955422" percent="20.11" remaining="24" etc="1675955446"/>
+<taskprogress task="SYN Stealth Scan" time="1675955424" percent="32.73" remaining="17" etc="1675955440"/>
+<taskprogress task="SYN Stealth Scan" time="1675955426" percent="47.18" remaining="12" etc="1675955437"/>
+<taskprogress task="SYN Stealth Scan" time="1675955428" percent="63.11" remaining="8" etc="1675955435"/>
+<taskprogress task="SYN Stealth Scan" time="1675955430" percent="80.44" remaining="4" etc="1675955433"/>
+<taskprogress task="SYN Stealth Scan" time="1675955432" percent="62.40" remaining="10" etc="1675955442"/>
+<taskprogress task="SYN Stealth Scan" time="1675955434" percent="49.68" remaining="19" etc="1675955452"/>
+<taskprogress task="SYN Stealth Scan" time="1675955436" percent="36.30" remaining="36" etc="1675955471"/>
+<taskprogress task="SYN Stealth Scan" time="1675955438" percent="37.78" remaining="37" etc="1675955474"/>
+<taskprogress task="SYN Stealth Scan" time="1675955440" percent="42.24" remaining="33" etc="1675955473"/>
+<taskprogress task="SYN Stealth Scan" time="1675955442" percent="42.71" remaining="35" etc="1675955477"/>
+<taskprogress task="SYN Stealth Scan" time="1675955444" percent="43.16" remaining="37" etc="1675955481"/>
+<taskprogress task="SYN Stealth Scan" time="1675955446" percent="43.65" remaining="39" etc="1675955485"/>
+<taskprogress task="SYN Stealth Scan" time="1675955448" percent="44.06" remaining="41" etc="1675955489"/>
+<taskprogress task="SYN Stealth Scan" time="1675955450" percent="44.57" remaining="43" etc="1675955492"/>
+<taskprogress task="SYN Stealth Scan" time="1675955452" percent="45.22" remaining="44" etc="1675955496"/>
+<taskprogress task="SYN Stealth Scan" time="1675955454" percent="45.97" remaining="45" etc="1675955499"/>
+<taskprogress task="SYN Stealth Scan" time="1675955456" percent="46.58" remaining="46" etc="1675955502"/>
+<taskprogress task="SYN Stealth Scan" time="1675955458" percent="47.23" remaining="47" etc="1675955505"/>
+<taskprogress task="SYN Stealth Scan" time="1675955460" percent="47.97" remaining="48" etc="1675955508"/>
+<taskprogress task="SYN Stealth Scan" time="1675955462" percent="48.71" remaining="49" etc="1675955510"/>
+<taskprogress task="SYN Stealth Scan" time="1675955464" percent="49.52" remaining="49" etc="1675955513"/>
+<taskprogress task="SYN Stealth Scan" time="1675955466" percent="50.28" remaining="50" etc="1675955515"/>
+<taskprogress task="SYN Stealth Scan" time="1675955468" percent="51.07" remaining="50" etc="1675955518"/>
+<taskprogress task="SYN Stealth Scan" time="1675955470" percent="51.68" remaining="51" etc="1675955520"/>
+<taskprogress task="SYN Stealth Scan" time="1675955472" percent="52.38" remaining="51" etc="1675955523"/>
+<taskprogress task="SYN Stealth Scan" time="1675955474" percent="53.10" remaining="52" etc="1675955525"/>
+<taskprogress task="SYN Stealth Scan" time="1675955476" percent="53.65" remaining="52" etc="1675955528"/>
+<taskprogress task="SYN Stealth Scan" time="1675955478" percent="53.98" remaining="53" etc="1675955531"/>
+<taskprogress task="SYN Stealth Scan" time="1675955480" percent="54.37" remaining="54" etc="1675955534"/>
+<taskprogress task="SYN Stealth Scan" time="1675955482" percent="54.87" remaining="55" etc="1675955536"/>
+<taskprogress task="SYN Stealth Scan" time="1675955484" percent="55.34" remaining="55" etc="1675955539"/>
+<taskprogress task="SYN Stealth Scan" time="1675955486" percent="55.76" remaining="56" etc="1675955542"/>
+<taskprogress task="SYN Stealth Scan" time="1675955488" percent="56.21" remaining="57" etc="1675955544"/>
+<taskprogress task="SYN Stealth Scan" time="1675955490" percent="56.65" remaining="57" etc="1675955547"/>
+<taskprogress task="SYN Stealth Scan" time="1675955492" percent="57.26" remaining="57" etc="1675955549"/>
+<taskprogress task="SYN Stealth Scan" time="1675955494" percent="57.94" remaining="57" etc="1675955551"/>
+<taskprogress task="SYN Stealth Scan" time="1675955496" percent="58.61" remaining="57" etc="1675955552"/>
+<taskprogress task="SYN Stealth Scan" time="1675955498" percent="59.36" remaining="57" etc="1675955554"/>
+<taskprogress task="SYN Stealth Scan" time="1675955500" percent="59.95" remaining="57" etc="1675955556"/>
+<taskprogress task="SYN Stealth Scan" time="1675955502" percent="60.56" remaining="57" etc="1675955558"/>
+<taskprogress task="SYN Stealth Scan" time="1675955504" percent="61.07" remaining="57" etc="1675955560"/>
+<taskprogress task="SYN Stealth Scan" time="1675955506" percent="61.51" remaining="57" etc="1675955562"/>
+<taskprogress task="SYN Stealth Scan" time="1675955508" percent="62.01" remaining="57" etc="1675955564"/>
+<taskprogress task="SYN Stealth Scan" time="1675955510" percent="62.58" remaining="57" etc="1675955566"/>
+<taskprogress task="SYN Stealth Scan" time="1675955512" percent="63.06" remaining="57" etc="1675955568"/>
+<taskprogress task="SYN Stealth Scan" time="1675955514" percent="63.45" remaining="57" etc="1675955570"/>
+<taskprogress task="SYN Stealth Scan" time="1675955516" percent="64.03" remaining="57" etc="1675955572"/>
+<taskprogress task="SYN Stealth Scan" time="1675955518" percent="64.63" remaining="56" etc="1675955574"/>
+<taskprogress task="SYN Stealth Scan" time="1675955520" percent="65.25" remaining="56" etc="1675955575"/>
+<taskprogress task="SYN Stealth Scan" time="1675955522" percent="65.82" remaining="56" etc="1675955577"/>
+<taskprogress task="SYN Stealth Scan" time="1675955524" percent="66.52" remaining="55" etc="1675955578"/>
+<taskprogress task="SYN Stealth Scan" time="1675955526" percent="67.00" remaining="55" etc="1675955580"/>
+<taskprogress task="SYN Stealth Scan" time="1675955528" percent="67.37" remaining="55" etc="1675955582"/>
+<taskprogress task="SYN Stealth Scan" time="1675955530" percent="67.89" remaining="54" etc="1675955584"/>
+<taskprogress task="SYN Stealth Scan" time="1675955532" percent="68.50" remaining="54" etc="1675955585"/>
+<taskprogress task="SYN Stealth Scan" time="1675955534" percent="69.14" remaining="53" etc="1675955587"/>
+<taskprogress task="SYN Stealth Scan" time="1675955536" percent="69.66" remaining="53" etc="1675955588"/>
+<taskprogress task="SYN Stealth Scan" time="1675955538" percent="70.16" remaining="52" etc="1675955590"/>
+<taskprogress task="SYN Stealth Scan" time="1675955540" percent="70.72" remaining="52" etc="1675955591"/>
+<taskprogress task="SYN Stealth Scan" time="1675955542" percent="71.07" remaining="52" etc="1675955593"/>
+<taskprogress task="SYN Stealth Scan" time="1675955544" percent="71.55" remaining="51" etc="1675955595"/>
+<taskprogress task="SYN Stealth Scan" time="1675955546" percent="71.89" remaining="51" etc="1675955597"/>
+<taskprogress task="SYN Stealth Scan" time="1675955548" percent="72.35" remaining="51" etc="1675955598"/>
+<taskprogress task="SYN Stealth Scan" time="1675955550" percent="72.74" remaining="51" etc="1675955600"/>
+<taskprogress task="SYN Stealth Scan" time="1675955552" percent="73.28" remaining="50" etc="1675955602"/>
+<taskprogress task="SYN Stealth Scan" time="1675955554" percent="73.71" remaining="50" etc="1675955603"/>
+<taskprogress task="SYN Stealth Scan" time="1675955556" percent="74.23" remaining="49" etc="1675955605"/>
+<taskprogress task="SYN Stealth Scan" time="1675955558" percent="74.73" remaining="49" etc="1675955606"/>
+<taskprogress task="SYN Stealth Scan" time="1675955560" percent="75.37" remaining="48" etc="1675955607"/>
+<taskprogress task="SYN Stealth Scan" time="1675955562" percent="75.91" remaining="47" etc="1675955608"/>
+<taskprogress task="SYN Stealth Scan" time="1675955564" percent="76.54" remaining="46" etc="1675955609"/>
+<taskprogress task="SYN Stealth Scan" time="1675955566" percent="77.08" remaining="45" etc="1675955611"/>
+<taskprogress task="SYN Stealth Scan" time="1675955568" percent="77.55" remaining="44" etc="1675955612"/>
+<taskprogress task="SYN Stealth Scan" time="1675955570" percent="78.18" remaining="43" etc="1675955613"/>
+<taskprogress task="SYN Stealth Scan" time="1675955572" percent="78.66" remaining="43" etc="1675955614"/>
+<taskprogress task="SYN Stealth Scan" time="1675955574" percent="79.14" remaining="42" etc="1675955616"/>
+<taskprogress task="SYN Stealth Scan" time="1675955576" percent="79.54" remaining="42" etc="1675955617"/>
+<taskprogress task="SYN Stealth Scan" time="1675955578" percent="80.06" remaining="41" etc="1675955618"/>
+<taskprogress task="SYN Stealth Scan" time="1675955580" percent="80.59" remaining="40" etc="1675955620"/>
+<taskprogress task="SYN Stealth Scan" time="1675955582" percent="81.16" remaining="39" etc="1675955621"/>
+<taskprogress task="SYN Stealth Scan" time="1675955584" percent="81.67" remaining="38" etc="1675955622"/>
+<taskprogress task="SYN Stealth Scan" time="1675955586" percent="82.27" remaining="37" etc="1675955623"/>
+<taskprogress task="SYN Stealth Scan" time="1675955588" percent="82.83" remaining="36" etc="1675955624"/>
+<taskprogress task="SYN Stealth Scan" time="1675955590" percent="83.40" remaining="35" etc="1675955625"/>
+<taskprogress task="SYN Stealth Scan" time="1675955592" percent="83.85" remaining="34" etc="1675955626"/>
+<taskprogress task="SYN Stealth Scan" time="1675955594" percent="84.41" remaining="33" etc="1675955627"/>
+<taskprogress task="SYN Stealth Scan" time="1675955596" percent="85.06" remaining="32" etc="1675955628"/>
+<taskprogress task="SYN Stealth Scan" time="1675955598" percent="85.65" remaining="31" etc="1675955628"/>
+<taskprogress task="SYN Stealth Scan" time="1675955600" percent="86.31" remaining="30" etc="1675955629"/>
+<taskprogress task="SYN Stealth Scan" time="1675955602" percent="86.91" remaining="29" etc="1675955630"/>
+<taskprogress task="SYN Stealth Scan" time="1675955604" percent="87.56" remaining="27" etc="1675955631"/>
+<taskprogress task="SYN Stealth Scan" time="1675955606" percent="88.04" remaining="26" etc="1675955632"/>
+<taskprogress task="SYN Stealth Scan" time="1675955608" percent="88.69" remaining="25" etc="1675955632"/>
+<taskprogress task="SYN Stealth Scan" time="1675955610" percent="89.37" remaining="24" etc="1675955633"/>
+<taskprogress task="SYN Stealth Scan" time="1675955612" percent="90.02" remaining="22" etc="1675955634"/>
+<taskprogress task="SYN Stealth Scan" time="1675955614" percent="90.68" remaining="21" etc="1675955634"/>
+<taskprogress task="SYN Stealth Scan" time="1675955616" percent="91.23" remaining="20" etc="1675955635"/>
+<taskprogress task="SYN Stealth Scan" time="1675955618" percent="91.72" remaining="19" etc="1675955636"/>
+<taskprogress task="SYN Stealth Scan" time="1675955620" percent="92.08" remaining="18" etc="1675955638"/>
+<taskprogress task="SYN Stealth Scan" time="1675955622" percent="92.46" remaining="17" etc="1675955639"/>
+<taskprogress task="SYN Stealth Scan" time="1675955624" percent="92.75" remaining="17" etc="1675955640"/>
+<taskprogress task="SYN Stealth Scan" time="1675955626" percent="93.00" remaining="16" etc="1675955642"/>
+<taskprogress task="SYN Stealth Scan" time="1675955628" percent="93.16" remaining="16" etc="1675955644"/>
+<taskprogress task="SYN Stealth Scan" time="1675955630" percent="93.36" remaining="16" etc="1675955645"/>
+<taskprogress task="SYN Stealth Scan" time="1675955632" percent="93.52" remaining="15" etc="1675955647"/>
+<taskprogress task="SYN Stealth Scan" time="1675955634" percent="93.61" remaining="15" etc="1675955649"/>
+<taskprogress task="SYN Stealth Scan" time="1675955636" percent="93.71" remaining="15" etc="1675955651"/>
+<taskprogress task="SYN Stealth Scan" time="1675955638" percent="93.80" remaining="15" etc="1675955653"/>
+<taskprogress task="SYN Stealth Scan" time="1675955640" percent="93.90" remaining="15" etc="1675955655"/>
+<taskprogress task="SYN Stealth Scan" time="1675955642" percent="93.99" remaining="15" etc="1675955656"/>
+<taskprogress task="SYN Stealth Scan" time="1675955644" percent="94.09" remaining="15" etc="1675955658"/>
+<taskprogress task="SYN Stealth Scan" time="1675955646" percent="94.18" remaining="15" etc="1675955660"/>
+<taskprogress task="SYN Stealth Scan" time="1675955648" percent="94.28" remaining="15" etc="1675955662"/>
+<taskprogress task="SYN Stealth Scan" time="1675955650" percent="94.37" remaining="14" etc="1675955664"/>
+<taskprogress task="SYN Stealth Scan" time="1675955652" percent="94.44" remaining="14" etc="1675955666"/>
+<taskprogress task="SYN Stealth Scan" time="1675955654" percent="94.51" remaining="14" etc="1675955668"/>
+<taskprogress task="SYN Stealth Scan" time="1675955656" percent="94.57" remaining="14" etc="1675955670"/>
+<taskprogress task="SYN Stealth Scan" time="1675955658" percent="94.63" remaining="14" etc="1675955672"/>
+<taskprogress task="SYN Stealth Scan" time="1675955660" percent="94.70" remaining="14" etc="1675955674"/>
+<taskprogress task="SYN Stealth Scan" time="1675955662" percent="94.76" remaining="14" etc="1675955676"/>
+<taskprogress task="SYN Stealth Scan" time="1675955664" percent="94.82" remaining="14" etc="1675955678"/>
+<taskprogress task="SYN Stealth Scan" time="1675955666" percent="94.89" remaining="14" etc="1675955679"/>
+<taskprogress task="SYN Stealth Scan" time="1675955668" percent="94.95" remaining="14" etc="1675955681"/>
+<taskprogress task="SYN Stealth Scan" time="1675955670" percent="95.01" remaining="14" etc="1675955683"/>
+<taskprogress task="SYN Stealth Scan" time="1675955672" percent="95.08" remaining="14" etc="1675955685"/>
+<taskprogress task="SYN Stealth Scan" time="1675955674" percent="95.14" remaining="14" etc="1675955687"/>
+<taskprogress task="SYN Stealth Scan" time="1675955676" percent="95.20" remaining="14" etc="1675955689"/>
+<taskprogress task="SYN Stealth Scan" time="1675955678" percent="95.26" remaining="14" etc="1675955691"/>
+<taskprogress task="SYN Stealth Scan" time="1675955680" percent="95.33" remaining="13" etc="1675955693"/>
+<taskprogress task="SYN Stealth Scan" time="1675955682" percent="95.39" remaining="13" etc="1675955695"/>
+<taskprogress task="SYN Stealth Scan" time="1675955684" percent="95.45" remaining="13" etc="1675955697"/>
+<taskprogress task="SYN Stealth Scan" time="1675955686" percent="95.51" remaining="13" etc="1675955699"/>
+<taskprogress task="SYN Stealth Scan" time="1675955688" percent="95.58" remaining="13" etc="1675955701"/>
+<taskprogress task="SYN Stealth Scan" time="1675955690" percent="95.64" remaining="13" etc="1675955702"/>
+<taskprogress task="SYN Stealth Scan" time="1675955692" percent="95.70" remaining="13" etc="1675955704"/>
+<taskprogress task="SYN Stealth Scan" time="1675955694" percent="95.77" remaining="13" etc="1675955706"/>
+<taskprogress task="SYN Stealth Scan" time="1675955696" percent="95.83" remaining="13" etc="1675955708"/>
+<taskprogress task="SYN Stealth Scan" time="1675955698" percent="95.89" remaining="13" etc="1675955710"/>
+<taskprogress task="SYN Stealth Scan" time="1675955700" percent="95.95" remaining="12" etc="1675955712"/>
+<taskprogress task="SYN Stealth Scan" time="1675955702" percent="96.02" remaining="12" etc="1675955714"/>
+<taskprogress task="SYN Stealth Scan" time="1675955704" percent="96.08" remaining="12" etc="1675955716"/>
+<taskprogress task="SYN Stealth Scan" time="1675955706" percent="96.14" remaining="12" etc="1675955718"/>
+<taskprogress task="SYN Stealth Scan" time="1675955708" percent="96.20" remaining="12" etc="1675955720"/>
+<taskprogress task="SYN Stealth Scan" time="1675955710" percent="96.27" remaining="12" etc="1675955721"/>
+<taskprogress task="SYN Stealth Scan" time="1675955712" percent="96.33" remaining="12" etc="1675955723"/>
+<taskprogress task="SYN Stealth Scan" time="1675955714" percent="96.39" remaining="12" etc="1675955725"/>
+<taskprogress task="SYN Stealth Scan" time="1675955716" percent="96.42" remaining="12" etc="1675955727"/>
+<taskprogress task="SYN Stealth Scan" time="1675955718" percent="96.42" remaining="12" etc="1675955729"/>
+<taskprogress task="SYN Stealth Scan" time="1675955720" percent="96.42" remaining="12" etc="1675955731"/>
+<taskprogress task="SYN Stealth Scan" time="1675955722" percent="96.42" remaining="12" etc="1675955733"/>
+<taskprogress task="SYN Stealth Scan" time="1675955724" percent="96.43" remaining="12" etc="1675955735"/>
+<taskprogress task="SYN Stealth Scan" time="1675955726" percent="96.43" remaining="12" etc="1675955737"/>
+<taskprogress task="SYN Stealth Scan" time="1675955728" percent="96.43" remaining="12" etc="1675955740"/>
+<taskprogress task="SYN Stealth Scan" time="1675955730" percent="96.44" remaining="12" etc="1675955742"/>
+<taskprogress task="SYN Stealth Scan" time="1675955732" percent="96.44" remaining="12" etc="1675955744"/>
+<taskprogress task="SYN Stealth Scan" time="1675955734" percent="96.45" remaining="12" etc="1675955746"/>
+<taskprogress task="SYN Stealth Scan" time="1675955736" percent="96.45" remaining="12" etc="1675955748"/>
+<taskprogress task="SYN Stealth Scan" time="1675955738" percent="96.45" remaining="12" etc="1675955750"/>
+<taskprogress task="SYN Stealth Scan" time="1675955740" percent="96.46" remaining="12" etc="1675955752"/>
+<taskprogress task="SYN Stealth Scan" time="1675955742" percent="96.47" remaining="12" etc="1675955754"/>
+<taskprogress task="SYN Stealth Scan" time="1675955744" percent="96.47" remaining="13" etc="1675955756"/>
+<taskprogress task="SYN Stealth Scan" time="1675955746" percent="96.47" remaining="13" etc="1675955758"/>
+<taskprogress task="SYN Stealth Scan" time="1675955748" percent="96.47" remaining="13" etc="1675955760"/>
+<taskprogress task="SYN Stealth Scan" time="1675955750" percent="96.48" remaining="13" etc="1675955762"/>
+<taskprogress task="SYN Stealth Scan" time="1675955752" percent="96.49" remaining="13" etc="1675955764"/>
+<taskprogress task="SYN Stealth Scan" time="1675955754" percent="96.49" remaining="13" etc="1675955766"/>
+<taskprogress task="SYN Stealth Scan" time="1675955756" percent="96.49" remaining="13" etc="1675955768"/>
+<taskprogress task="SYN Stealth Scan" time="1675955758" percent="96.50" remaining="13" etc="1675955770"/>
+<taskprogress task="SYN Stealth Scan" time="1675955760" percent="96.50" remaining="13" etc="1675955772"/>
+<taskprogress task="SYN Stealth Scan" time="1675955762" percent="96.51" remaining="13" etc="1675955775"/>
+<taskprogress task="SYN Stealth Scan" time="1675955764" percent="96.51" remaining="13" etc="1675955777"/>
+<taskprogress task="SYN Stealth Scan" time="1675955766" percent="96.51" remaining="13" etc="1675955779"/>
+<taskprogress task="SYN Stealth Scan" time="1675955768" percent="96.52" remaining="13" etc="1675955781"/>
+<taskprogress task="SYN Stealth Scan" time="1675955770" percent="96.52" remaining="13" etc="1675955783"/>
+<taskprogress task="SYN Stealth Scan" time="1675955772" percent="96.52" remaining="13" etc="1675955785"/>
+<taskprogress task="SYN Stealth Scan" time="1675955774" percent="96.53" remaining="13" etc="1675955787"/>
+<taskprogress task="SYN Stealth Scan" time="1675955776" percent="96.54" remaining="13" etc="1675955789"/>
+<taskprogress task="SYN Stealth Scan" time="1675955778" percent="96.54" remaining="13" etc="1675955791"/>
+<taskprogress task="SYN Stealth Scan" time="1675955780" percent="96.54" remaining="14" etc="1675955793"/>
+<taskprogress task="SYN Stealth Scan" time="1675955782" percent="96.54" remaining="14" etc="1675955795"/>
+<taskprogress task="SYN Stealth Scan" time="1675955784" percent="96.55" remaining="14" etc="1675955797"/>
+<taskprogress task="SYN Stealth Scan" time="1675955786" percent="96.56" remaining="14" etc="1675955799"/>
+<taskprogress task="SYN Stealth Scan" time="1675955788" percent="96.56" remaining="14" etc="1675955801"/>
+<taskprogress task="SYN Stealth Scan" time="1675955790" percent="96.56" remaining="14" etc="1675955803"/>
+<taskprogress task="SYN Stealth Scan" time="1675955792" percent="96.57" remaining="14" etc="1675955805"/>
+<taskprogress task="SYN Stealth Scan" time="1675955794" percent="96.57" remaining="14" etc="1675955807"/>
+<taskprogress task="SYN Stealth Scan" time="1675955796" percent="96.58" remaining="14" etc="1675955809"/>
+<taskprogress task="SYN Stealth Scan" time="1675955798" percent="96.58" remaining="14" etc="1675955812"/>
+<taskprogress task="SYN Stealth Scan" time="1675955800" percent="96.58" remaining="14" etc="1675955814"/>
+<taskprogress task="SYN Stealth Scan" time="1675955802" percent="96.59" remaining="14" etc="1675955816"/>
+<taskprogress task="SYN Stealth Scan" time="1675955804" percent="96.59" remaining="14" etc="1675955818"/>
+<taskprogress task="SYN Stealth Scan" time="1675955806" percent="96.60" remaining="14" etc="1675955820"/>
+<taskprogress task="SYN Stealth Scan" time="1675955808" percent="96.60" remaining="14" etc="1675955822"/>
+<taskprogress task="SYN Stealth Scan" time="1675955810" percent="96.61" remaining="14" etc="1675955824"/>
+<taskprogress task="SYN Stealth Scan" time="1675955812" percent="96.61" remaining="14" etc="1675955826"/>
+<taskprogress task="SYN Stealth Scan" time="1675955814" percent="96.61" remaining="14" etc="1675955828"/>
+<taskprogress task="SYN Stealth Scan" time="1675955816" percent="96.61" remaining="15" etc="1675955830"/>
+<taskprogress task="SYN Stealth Scan" time="1675955818" percent="96.62" remaining="15" etc="1675955832"/>
+<taskprogress task="SYN Stealth Scan" time="1675955820" percent="96.63" remaining="15" etc="1675955834"/>
+<taskprogress task="SYN Stealth Scan" time="1675955822" percent="96.63" remaining="15" etc="1675955836"/>
+<taskprogress task="SYN Stealth Scan" time="1675955824" percent="96.63" remaining="15" etc="1675955838"/>
+<taskprogress task="SYN Stealth Scan" time="1675955826" percent="96.64" remaining="15" etc="1675955840"/>
+<taskprogress task="SYN Stealth Scan" time="1675955828" percent="96.65" remaining="15" etc="1675955842"/>
+<taskprogress task="SYN Stealth Scan" time="1675955830" percent="96.65" remaining="15" etc="1675955844"/>
+<taskprogress task="SYN Stealth Scan" time="1675955832" percent="96.65" remaining="15" etc="1675955846"/>
+<taskprogress task="SYN Stealth Scan" time="1675955834" percent="96.65" remaining="15" etc="1675955848"/>
+<taskprogress task="SYN Stealth Scan" time="1675955836" percent="96.66" remaining="15" etc="1675955851"/>
+<taskprogress task="SYN Stealth Scan" time="1675955838" percent="96.66" remaining="15" etc="1675955853"/>
+<taskprogress task="SYN Stealth Scan" time="1675955840" percent="96.67" remaining="15" etc="1675955855"/>
+<taskprogress task="SYN Stealth Scan" time="1675955842" percent="96.67" remaining="15" etc="1675955857"/>
+<taskprogress task="SYN Stealth Scan" time="1675955844" percent="96.68" remaining="15" etc="1675955859"/>
+<taskprogress task="SYN Stealth Scan" time="1675955846" percent="96.68" remaining="15" etc="1675955861"/>
+<taskprogress task="SYN Stealth Scan" time="1675955848" percent="96.68" remaining="15" etc="1675955863"/>
+<taskprogress task="SYN Stealth Scan" time="1675955850" percent="96.69" remaining="15" etc="1675955865"/>
+<taskprogress task="SYN Stealth Scan" time="1675955852" percent="96.69" remaining="15" etc="1675955867"/>
+<taskprogress task="SYN Stealth Scan" time="1675955854" percent="96.70" remaining="15" etc="1675955869"/>
+<taskprogress task="SYN Stealth Scan" time="1675955856" percent="96.70" remaining="16" etc="1675955871"/>
+<taskprogress task="SYN Stealth Scan" time="1675955858" percent="96.70" remaining="16" etc="1675955873"/>
+<taskprogress task="SYN Stealth Scan" time="1675955860" percent="96.70" remaining="16" etc="1675955875"/>
+<taskprogress task="SYN Stealth Scan" time="1675955862" percent="96.72" remaining="16" etc="1675955877"/>
+<taskprogress task="SYN Stealth Scan" time="1675955864" percent="96.72" remaining="16" etc="1675955879"/>
+<taskprogress task="SYN Stealth Scan" time="1675955866" percent="96.72" remaining="16" etc="1675955881"/>
+<taskprogress task="SYN Stealth Scan" time="1675955868" percent="96.72" remaining="16" etc="1675955883"/>
+<taskprogress task="SYN Stealth Scan" time="1675955870" percent="96.73" remaining="16" etc="1675955885"/>
+<taskprogress task="SYN Stealth Scan" time="1675955872" percent="96.74" remaining="16" etc="1675955887"/>
+<taskprogress task="SYN Stealth Scan" time="1675955874" percent="96.74" remaining="16" etc="1675955889"/>
+<taskprogress task="SYN Stealth Scan" time="1675955876" percent="96.74" remaining="16" etc="1675955891"/>
