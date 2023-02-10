@@ -79,15 +79,13 @@ def parseForReport(inputfile):
 				#conn.commit()
 				
 	#conn.close()
-parseForReport(inputfile)
 
 def parseForIndividual(inputfile):
-	inputfile = ''
 	try:
 		tree = ET.parse(inputfile)
 		root = tree.getroot()
 	except ET.ParseError as e:
-		print ("Parse error({0}): {1}".format(e.errno, e.strerror))
+		print("Parse error: {}".format(str(e)))
 		sys.exit(2)
 	except IOError as e:
 		print ("IO error({0}): {1}".format(e.errno, e.strerror))
@@ -155,4 +153,11 @@ def parseForIndividual(inputfile):
 				
 	#conn.close()
 
-
+def pedirNumero(num):
+    if num == 1:
+        parseForReport(inputfile)
+    else:
+        parseForIndividual(inputfile)
+ 
+num = int(sys.argv[1])
+pedirNumero(num)
