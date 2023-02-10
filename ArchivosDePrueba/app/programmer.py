@@ -13,7 +13,7 @@ def pdfReport():
      os.system("python3 ./app/pdfReport.py")
   
 #This is a test
-schedule.every(10).minutes.do(Analyzer)
+schedule.every(1).minutes.do(Analyzer)
 
 #schedule.every().day.at("00:00").do(Analyzer)
 #schedule.every().day.at("06:00").do(pdfReport)

@@ -15,7 +15,7 @@ RUN pip install mime
 
 WORKDIR /usr/src/app
 COPY ./app/programmer.py .
-COPY ./app/Storer.py .
+COPY ./app/storer.py .
 COPY ./app/ips.txt .
 
 #puerto para enviar el reporte del pdf

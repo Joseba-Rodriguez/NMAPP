@@ -63,9 +63,9 @@
                                         value="" required />
                                 </div>
                                 <div class="form-group mt-3">
-                                    <label for="password2">Repeat password</label>
-                                    <input name="password2" type="password" class="form-control validate" id="password2"
-                                        value="" required />
+                                    <label for="confirm_password">Repeat password</label>
+                                    <input name="confirm_password" type="password" class="form-control validate"
+                                        id="confirm_password" value="" required />
                                 </div>
                                 <div class="form-group mt-4">
                                     <button type="submit" class="btn btn-primary btn-block text-uppercase">
