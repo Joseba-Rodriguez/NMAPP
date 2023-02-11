@@ -1,9 +1,9 @@
-import time
-import os ,sys, stat
+import os, stat
 
-os.chmod("./ips.txt", stat.S_IRWXO) #permissios for ips.txt
-os.chmod("./datos.xml", stat.S_IRWXO) #permissios for datos.txt
-os.chmod("./storer.py", stat.S_IRWXO) #permissios for Storer.py
-os.chmod("./programmer.py", stat.S_IRWXO) #permissios for programmer.py
-os.chmod("./DBVulners.py", stat.S_IRWXO) #permissios for programmer.py
-os.chmod("./Analyzer.py", stat.S_IRWXO) #permissios for programmer.py
+def set_permissions(file_list, permissions):
+    for file in file_list:
+        os.chmod(file, permissions)
+
+file_list = ["./ips.txt", "./datos.xml", "./storer.py", "./programmer.py", "./DBVulners.py", "./Analyzer.py"]
+permissions = stat.S_IRWXO
+set_permissions(file_list, permissions)

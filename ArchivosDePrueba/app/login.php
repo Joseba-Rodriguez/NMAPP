@@ -23,7 +23,7 @@
     <div>
         <nav class="navbar navbar-expand-xl">
             <div class="container h-100">
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="login.php">
                     <h1 class="tm-site-title mb-0">NMAPP</h1>
                 </a>
                 <button class="navbar-toggler ml-auto mr-0" type="button" data-toggle="collapse"
@@ -33,20 +33,7 @@
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mx-auto h-100">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-cog"></i>
-                                <span> Settings <i class="fas fa-angle-down"></i> </span>
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Profile</a>
-                                <a class="dropdown-item" href="#">Billing</a>
-                                <a class="dropdown-item" href="#">Customize</a>
-                            </div>
-                        </li>
-                    </ul>
+
                 </div>
             </div>
         </nav>
@@ -58,7 +45,7 @@
                 <div class="tm-bg-primary-dark tm-block tm-block-h-auto">
                     <div class="row">
                         <div class="col-12 text-center">
-                            <h2 class="tm-block-title mb-4">Welcome to Dashboard, Login</h2>
+                            <h2 class="tm-block-title mb-4">Welcome to NMAPP, Login</h2>
                         </div>
                     </div>
                     <div class="row mt-2">

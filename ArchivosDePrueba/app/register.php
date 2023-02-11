@@ -23,7 +23,7 @@
     <div>
         <nav class="navbar navbar-expand-xl">
             <div class="container h-100">
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="login.php">
                     <h1 class="tm-site-title mb-0">NMAPP</h1>
                 </a>
                 <button class="navbar-toggler ml-auto mr-0" type="button" data-toggle="collapse"
@@ -80,7 +80,7 @@
             </div>
         </div>
     </div>
-    <footer class="tm-footer row tm-mt-small">
+    <footer class=" tm-footer row tm-mt-small">
         <div class="col-12 font-weight-light">
             <p class="text-center text-white mb-0 px-4 small">
                 Copyright &copy; <b>2022</b> All rights reserved.
