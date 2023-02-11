@@ -20,7 +20,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
   // Verifica si el usuario existe en la base de datos
   if (pg_num_rows($result) == 0) {
-    echo "<script>alert('EL nombre de usuario no existe');</script>";
+    echo "<script>";
+    echo "alert('El nombre de usuario no existe');";
+    echo "window.location.href='login.php';";
+    echo "</script>";
     exit;
   }
 
