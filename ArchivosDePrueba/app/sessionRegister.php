@@ -1,4 +1,5 @@
 <?php
+session_start();
     // Connect to the PostgreSQL database
     require 'Connection.php';
     // Connect to the PostgreSQL database
@@ -18,7 +19,7 @@
     
       // Check if the passwords match
       if ($password !== $confirm_password) {
-        echo "The passwords do not match.";
+        echo "<script>alert('Las contraseñas no coinciden');</script>";
         exit;
       }
 
@@ -29,7 +30,7 @@
       $result = pg_query($conexion, $query);
       if (pg_num_rows($result) > 0) {
         // El usuario ya existe, mostrar un error
-        echo "El usuario ya existe, por favor elige otro nombre de usuario.";
+        echo "<script>alert('El usuario ya existe por favor utiliza otro nombre de usuario');</script>";
       } else {
         // El usuario no existe, registrar el usuario
         $result = pg_query($conexion, "INSERT INTO users (userID, password) VALUES ('$username', '$password_hash')");
@@ -37,13 +38,14 @@
 
         if ($result) {
             // El usuario se registró correctamente
-            header('Location: index.php');
+            header('Location: login.php');
         } else {
             // Ocurrió un error al registrar el usuario
-            echo "Ocurrió un error al registrar el usuario.";
+            echo "<script>alert('Ocurrió un error al crear el usuario');</script>";
         }
        }
       // Check if the insert was successful
       pg_close($conexion);
     }
+session_destroy();
 ?>

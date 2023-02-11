@@ -34,6 +34,18 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mx-auto h-100">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-cog"></i>
+                                <span> Settings <i class="fas fa-angle-down"></i> </span>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">Profile</a>
+                                <a class="dropdown-item" href="#">Billing</a>
+                                <a class="dropdown-item" href="#">Customize</a>
+                            </div>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -46,12 +58,12 @@
                 <div class="tm-bg-primary-dark tm-block tm-block-h-auto">
                     <div class="row">
                         <div class="col-12 text-center">
-                            <h2 class="tm-block-title mb-4">Welcome to NMAPP, register</h2>
+                            <h2 class="tm-block-title mb-4">Welcome to Dashboard, Login</h2>
                         </div>
                     </div>
                     <div class="row mt-2">
                         <div class="col-12">
-                            <form action="sessionRegister.php" method="post" class="tm-login-form">
+                            <form action="loginSession.php" method="post" class="tm-login-form">
                                 <div class="form-group">
                                     <label for="username">Username</label>
                                     <input name="username" type="text" class="form-control validate" id="username"
@@ -60,19 +72,18 @@
                                 <div class="form-group mt-3">
                                     <label for="password">Password</label>
                                     <input name="password" type="password" class="form-control validate" id="password"
-                                        value="" pattern="(?=^.{8,12}$)(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"
-                                        required />
-                                </div>
-                                <div class="form-group mt-3">
-                                    <label for="confirm_password">Repeat password</label>
-                                    <input name="confirm_password" type="password" class="form-control validate"
-                                        id="confirm_password" value="" required />
+                                        value="" required />
                                 </div>
                                 <div class="form-group mt-4">
                                     <button type="submit" class="btn btn-primary btn-block text-uppercase">
-                                        Register
+                                        Login
                                     </button>
                                 </div>
+                            </form>
+                            <form action="register.php" class="tm-login-form">
+                                <button class="mt-5 btn btn-primary btn-block text-uppercase">
+                                    Click here if you don't have an account
+                                </button>
                             </form>
                         </div>
                     </div>
@@ -83,7 +94,7 @@
     <footer class="tm-footer row tm-mt-small">
         <div class="col-12 font-weight-light">
             <p class="text-center text-white mb-0 px-4 small">
-                Copyright &copy; <b>2022</b> All rights reserved.
+                Copyright &copy; <b>2020</b> All rights reserved.
 
                 Design: <a rel="nofollow noopener" href="https://templatemo.com" class="tm-footer-link">Template Mo</a>
             </p>
