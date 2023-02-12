@@ -49,11 +49,19 @@
                             </a>
                         </li>
                     </ul>
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <form>
+                                <input type="button" value="Cambiar contraseña"
+                                    onclick="location.href='changePassword.php'">
+                            </form>
+                        </li>
+                    </ul>
                 </div>
             </div>
 
         </nav>
-        <div class="col-12 tm-block-col">
+        <div class=" col-12 tm-block-col">
             <div class="col">
             </div>
             <div class="container">
@@ -102,7 +110,8 @@
             <div class="tm-bg-primary-dark tm-block tm-block-taller tm-block-scroll">
                 <div class="media-body">
                     <a href="Discovery.php">
-                        <p class="text-center text-white mb-0 px-4 tm-small">Pulsa para comparar los escaneos</p>
+                        <p class="text-center text-white mb-0 px-4 tm-small">Pulsa para comparar los
+                            escaneos</p>
                         <button class="btn btn-primary btn-block text-uppercase"></i>Descubrimientos</button>
                     </a>
 

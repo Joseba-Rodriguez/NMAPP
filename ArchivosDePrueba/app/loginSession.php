@@ -39,14 +39,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     exit;
     
   }
-
   // Inicio de sesión exitoso
   $_SESSION['logged_in'] = true;
+  $_SESSION['userID'] = $username;
   header('Location: index.php');
   exit;
 }
 
 pg_close($conexion);
-session_destroy();
 
 ?>
