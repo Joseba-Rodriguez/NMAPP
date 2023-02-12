@@ -32,7 +32,7 @@
     <div>
         <nav class="navbar navbar-expand-xl">
             <div class="container h-100">
-                <a class="navbar-brand" href="login.php">
+                <a class="navbar-brand" href="index.php">
                     <h1 class="tm-site-title mb-0">NMAPP</h1>
                 </a>
 
@@ -56,8 +56,10 @@
                     <div class="row mt-2">
                         <div class="col-12">
                             <form action="changePasswordSession.php" method="post">
-                                <input type="password" name="password" placeholder="Nueva contraseña">
-                                <input type="submit" name="reset-password" value="Cambiar contraseña">
+                                <input class="form-control validate" type="text" type="password" name="password"
+                                    placeholder="Nueva contraseña">
+                                <input class="btn btn-primary text-uppercase" type="text" type="submit"
+                                    name="reset-password" value="Cambiar contraseña">
                             </form>
                         </div>
                     </div>

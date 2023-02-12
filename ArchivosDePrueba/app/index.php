@@ -45,15 +45,16 @@
                     <ul class="navbar-nav">
                         <li class="nav-item">
                             <a class="nav-link d-block" href="logout.php">
-                                Admin, <b>Logout</b>
+                                <?php echo $_SESSION['userID']; ?>, <b>Logout</b>
                             </a>
                         </li>
                     </ul>
                     <ul class="navbar-nav">
                         <li class="nav-item">
                             <form>
-                                <input type="button" value="Cambiar contraseña"
-                                    onclick="location.href='changePassword.php'">
+                                <a class="nav-link d-block" href="changePassword.php">
+                                    <b>Cambia la contraseña</b>
+                                </a>
                             </form>
                         </li>
                     </ul>
