@@ -19,6 +19,18 @@ def parseForIndividual(inputfile):
 	conn.close()
 	pass
 
+def parseForReport(inputfile):
+	#connection with the database
+	conn = psycopg2.connect(host="db",database="nmap", user="root", password="root")
+	cursor = conn.cursor()
+	#Delete the table nmapScan before de parse
+	cursor.execute("INSERT INTO lastAnalyze SELECT * FROM nmapScan")
+	conn.commit()		
+	#The data will be inserted after parsing in nmapScan 
+	cursor.execute("INSERT INTO nmapScan(ip, hostname, port, protocol,service, version, vuln) VALUES ('"+ str(ip) + "' , '" + str(hostname) + "' , " + str(portnum) + " , '" + str(protocol) + "' , '"+ str(service) + "' , '" + str(versioning) + "', '" + str(vuln) + "' )")
+	conn.commit()		
+	conn.close()
+	pass
 
 def rawParser(inputfile, num):
 	global ip, hostname, protocol, portnum, service, vuln, product, versioning
@@ -85,9 +97,11 @@ def rawParser(inputfile, num):
 					versioning = versioning + ' (' + extrainfo + ')'
 					versioning = product.replace("'", "")
 			print("Dato insertado"+ ip + ',' + hostname + ',' + portnum + ',' + protocol + ',' + service + ',' + versioning + ',' + vuln + '\n')
-			if num != 1:
+			if num == 1:
+				parseForReport(inputfile)
+			else:
 				parseForIndividual(inputfile)
-				
 					
+ 
 num = int(sys.argv[1])
 rawParser(inputfile, num)

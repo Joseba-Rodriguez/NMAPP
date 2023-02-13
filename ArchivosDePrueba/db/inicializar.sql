@@ -18,8 +18,6 @@ CREATE TABLE IF NOT EXISTS nmapIndividual(
     vuln text
 );
 
-
-
 CREATE TABLE IF NOT EXISTS lastAnalyze(
     ip VARCHAR(40),
     hostname varchar(100),
@@ -45,5 +43,10 @@ CREATE TABLE IF NOT EXISTS users(
     password varchar(100)
 );
 
+CREATE TABLE buttons (
+    id SERIAL PRIMARY KEY,
+    selection TEXT NOT NULL
+);
 
 
+INSERT INTO buttons (selection) VALUES ('daily');

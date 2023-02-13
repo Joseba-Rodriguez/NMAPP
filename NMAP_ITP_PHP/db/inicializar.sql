@@ -4,8 +4,20 @@ CREATE TABLE IF NOT EXISTS nmapScan(
     port varchar(200),
     protocol text,
     service text,
-    version text
+    version text,
+    vuln text
 );
+
+CREATE TABLE IF NOT EXISTS nmapIndividual(
+    ip VARCHAR(40),
+    hostname varchar(100),
+    port varchar(200),
+    protocol text,
+    service text,
+    version text,
+    vuln text
+);
+
 
 
 CREATE TABLE IF NOT EXISTS lastAnalyze(
@@ -14,12 +26,19 @@ CREATE TABLE IF NOT EXISTS lastAnalyze(
     port varchar(200),
     protocol text,
     service text,
-    version text
+    version text,
+    vuln text
 );
+
 
 CREATE TABLE IF NOT EXISTS inspect(
     ip text
 );
+
+CREATE TABLE IF NOT EXISTS inspectIndividual(
+    ip text
+);
+
 
 CREATE TABLE IF NOT EXISTS users(
     userID VARCHAR(40),

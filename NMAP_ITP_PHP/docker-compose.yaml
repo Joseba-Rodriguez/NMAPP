@@ -8,7 +8,8 @@ services:
       - ./:/usr/src/app
 
   web:
-    build: ./web/html/
+    container_name: web
+    build: ./app/
     environment:
       - ALLOW_OVERRIDE=true
     ports:
@@ -16,7 +17,7 @@ services:
     links:
       - db
     volumes:
-      - ./web/html:/var/www/html/
+      - ./app/:/var/www/html/
   db:
     container_name: db
     image: postgres:latest

@@ -1,12 +1,3 @@
-<?php 
-  session_start();
-
-  // Verifica si el usuario ya ha iniciado sesión
-  if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
-    header('Location: login.php');
-    exit;
-  }
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,10 +23,14 @@
     <div>
         <nav class="navbar navbar-expand-xl">
             <div class="container h-100">
-                <a class="navbar-brand" href="index.php">
+                <a class="navbar-brand" href="login.php">
                     <h1 class="tm-site-title mb-0">NMAPP</h1>
                 </a>
-
+                <button class="navbar-toggler ml-auto mr-0" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <i class="fas fa-bars tm-nav-icon"></i>
+                </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
@@ -55,12 +50,27 @@
                     </div>
                     <div class="row mt-2">
                         <div class="col-12">
-                            <form action="changePasswordSession.php" method="post">
-                                <input class="form-control validate" type="password" name="password"
-                                    placeholder="Nueva contraseña">
-                                <input class="btn btn-primary text-uppercase" type="submit" name="reset-password"
-                                    pattern="(?=^.{8,12}$)(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"
-                                    value="Cambiar contraseña" required>
+                            <form action="loginSession.php" method="post" class="tm-login-form">
+                                <div class="form-group">
+                                    <label for="username">Username</label>
+                                    <input name="username" type="text" class="form-control validate" id="username"
+                                        value="" required />
+                                </div>
+                                <div class="form-group mt-3">
+                                    <label for="password">Password</label>
+                                    <input name="password" type="password" class="form-control validate" id="password"
+                                        value="" required />
+                                </div>
+                                <div class="form-group mt-4">
+                                    <button type="submit" class="btn btn-primary btn-block text-uppercase">
+                                        Login
+                                    </button>
+                                </div>
+                            </form>
+                            <form action="register.php" class="tm-login-form">
+                                <button class="mt-5 btn btn-primary btn-block text-uppercase">
+                                    Click here if you don't have an account
+                                </button>
                             </form>
                         </div>
                     </div>
@@ -71,7 +81,7 @@
     <footer class="tm-footer row tm-mt-small">
         <div class="col-12 font-weight-light">
             <p class="text-center text-white mb-0 px-4 small">
-                Copyright &copy; <b>2023</b> All rights reserved.
+                Copyright &copy; <b>2020</b> All rights reserved.
 
                 Design: <a rel="nofollow noopener" href="https://templatemo.com" class="tm-footer-link">Template Mo</a>
             </p>

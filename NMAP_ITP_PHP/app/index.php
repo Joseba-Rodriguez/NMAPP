@@ -110,10 +110,30 @@
             </div>
             <div class="tm-bg-primary-dark tm-block tm-block-taller tm-block-scroll">
                 <div class="media-body">
-                    <form action="insert_button.php" method="post">
-                        <input type="submit" class="btn btn-primary text-uppercase" name="selection" value="daily">
-                        <input type="submit" class="btn btn-primary text-uppercase" name="selection" value="monthly">
-                        <input type="submit" class="btn btn-primary text-uppercase" name="selection" value="minutely">
+                    <?php
+                    // Read config file
+                    $config_file = fopen("config.txt", "r");
+                    $frequency = fgets($config_file);
+                    fclose($config_file);
+                    
+                    if ($frequency == "daily") {
+                      echo "<p class='text-white mt-5 mb-5'>Daily selected</p>";
+                    } elseif ($frequency == "weekly") {
+                      echo "<p class='text-white mt-5 mb-5'>Weekly selected</p>";
+                    } elseif ($frequency == "monthly") {
+                      echo "<p class='text-white mt-5 mb-5'>Monthly selected</p>";
+                    } elseif ($frequency == "minutely") {
+                        echo "<p class='text-white mt-5 mb-5'>Minutely selected</p>";
+                    }
+
+                    
+                    ?>
+                    <form action="update_config.php" method="post">
+                        <input type="submit" class="btn btn-primary text-uppercase" name="minutely"
+                            value="Run Minutely">
+                        <input type="submit" class="btn btn-primary text-uppercase" name="daily" value="Run Daily">
+                        <input type="submit" class="btn btn-primary text-uppercase" name="weekly" value="Run Weekly">
+                        <input type="submit" class="btn btn-primary text-uppercase" name="monthly" value="Run Monthly">
                     </form>
 
                     <a href="Discovery.php">
@@ -143,7 +163,104 @@
             </div>
         </div>
     </div>
-    <!-- row -->
+
+    <div class="col-12 tm-block-col">
+        <div class="container">
+            <div class="row">
+            </div>
+            <!-- row -->
+            <?php
+                        include('Connection.php');
+                   #All the data from the last execution    
+                        $query = "SELECT * FROM nmapScan;";
+                        $result = pg_query($conexion, $query);
+                        $arr = pg_fetch_all($result);
+                        echo'
+                        <div class="col-12 tm-block-col">
+                        <div class="tm-bg-primary-dark tm-block tm-block-taller tm-block-scroll">
+                        <div class="col">
+                        <h2 class="tm-block-title mb-4">Escaneos individuales</h2>
+                        <p class="text-white mt-5 mb-5">Aquí podrás realizar escaneos individuales<b> PRUÉBALO!</b></p>
+                    </div>
+                            <table class="table">
+                                <tr>
+                                 <th>IP</th>
+                                 <th>HOSTNAME</th>
+                                 <th>PORT</th>
+                                 <th>PROTOCOL</th>
+                                 <th>SERVICE</th>
+                                 <th>VERSION</th>
+                                 <th>VULNERABILITIES</th>
+                                </tr>';
+                        foreach($arr as $array)
+                            {
+                                echo'<tr>
+                                    <td>'. $array['ip'].'</td>
+                                    <td>'. $array['hostname'].'</td>
+                                    <td>'. $array['port'].'</td>
+                                    <td>'. $array['protocol'].'</td>
+                                    <td>'. $array['service'].'</td>
+                                    <td>'. $array['version'].'</td>
+                                    <td><div class="media tm-notification-item"><span>'. $array['vuln'] .'</span></div></td>
+                                    </tr>';
+                            }
+                            echo'</table>';
+                        ?>
+        </div>
+        <div class="tm-bg-primary-dark tm-block tm-block-taller tm-block-scroll">
+            <form action="envioIPs.php" method="post" name="formulario">
+                <input class="form-control validate" type="text" name="ip"
+                    placeholder=" Introduce IP o rangos de IPs. p.e 192.168.0.1 o www.ehu.es">
+                <input class="btn btn-primary text-uppercase" onclick="refreshPage()" type="submit" value="Enviar">
+                <input class="btn btn-primary text-uppercase" type="submit" value="Eliminar">
+                <?php           $query = "SELECT * FROM inspect;";
+                                $result = pg_query($conexion, $query);
+                                $arr = pg_fetch_all($result);
+                                echo'
+                                
+                                <h2 class="tm-block-title">Historial de ips</h2>
+                                
+                                <table class="table tm-table-small tm-product-table">';
+                                foreach($arr as $array){
+                                        echo'<tr>
+                                            <td  class="tm-product-name" >'. $array['ip'].'</td>
+                                            </tr>';
+                                    }
+                                    echo'</table>';?>
+            </form><br>
+            <!-- In this form we have 3 types of execution, in which we can choose diffetent types of executions-->
+            <!-- The executions are executed inside the php directly-->
+            <form method="post" name="formulario2">
+                <input class="btn btn-primary btn-block text-uppercase" type="submit" value="Ejecución rápida"
+                    name="nmapExecute1">
+            </form><br>
+            <?php 	if(isset($_POST['nmapExecute1']))
+                                {   
+                                        //To execute "Ejecución rápida" with any script and most common ports
+                                    shell_exec("nmap -sV -stats-every 2s -iL ./ips.txt -oX ./datos.xml");
+                                    shell_exec("python3 ./storer.py 2 ");
+                                }?>
+            <form method="post" name="formulario2">
+                <input class="btn btn-primary btn-block text-uppercase" type="submit"
+                    value="Ejecución todos los puertos" name="nmapExecute2">
+            </form><br>
+            <?php 	if(isset($_POST['nmapExecute2']))
+                                {   
+				    //To execute "Ejecución todos los puertos" with no script and most common ports
+                                    shell_exec("nmap -p- -sV -stats-every 2s -iL ./ips.txt -oX ./datos.xml");
+                                    shell_exec("python3 ./storer.py 1 ");
+                                }?>
+            <form method="post" name="formulario2">
+                <input class="btn btn-primary btn-block text-uppercase" type="submit" value="Ejecución total"
+                    name="nmapExecute3">
+            </form><br>
+            <?php 	if(isset($_POST['nmapExecute3']))
+                                {   
+				    //To execute "Ejecución total" with the vulners script and most common ports
+                                    shell_exec("nmap -p- -sV --script vulners --script-args mincvss=5.0 -sV -stats-every 2s -iL ./ips.txt -oX ./datos.xml");
+                                    shell_exec("python3 ./storer.py 1 ");
+                                }?>
+        </div>
     </div>
     </div>
     </div>

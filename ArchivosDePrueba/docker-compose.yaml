@@ -6,7 +6,8 @@ services:
     build: .
     volumes:
       - ./:/usr/src/app
-
+    depends_on:
+      - db
   web:
     container_name: web
     build: ./app/
