@@ -108,27 +108,53 @@
                             echo'</table>';
                         ?>
             </div>
-            <div class="tm-bg-primary-dark tm-block tm-block-taller tm-block-scroll">
+            <p class="text-white mb-0 px-4 small">Tiempo restante hasta el siguiente escaneo: <span id="timer"></span>
+                <?php
+                        $query = "SELECT selection FROM buttons ORDER BY id DESC LIMIT 1";
+                        $result = pg_query($conexion, $query) or die('Query failed: ' . pg_last_error());
+                        // Obtenemos los resultados
+                        $row = pg_fetch_array($result, null, PGSQL_ASSOC);
+                        // Mostramos el resultado
+                        $selected = $row['selection'];
+                        echo $selected . " selected";
+                        ?>
+            </p>
+            </p>
+            <div class="d-flex justify-content-center">
                 <div class="media-body">
                     <form action="insert_button.php" method="post">
-                        <input type="submit" class="btn btn-primary text-uppercase" name="selection" value="daily">
-                        <input type="submit" class="btn btn-primary text-uppercase" name="selection" value="monthly">
-                        <input type="submit" class="btn btn-primary text-uppercase" name="selection" value="minutely">
+
+                        <p class=" text-white mb-0 px-4 small">
+                            <input type="submit" class="btn  text-uppercase" name="selection" value="daily">
+                            <input type="submit" class="btn  text-uppercase" name="selection" value="monthly">
+                            <input type="submit" class="btn  text-uppercase" name="selection" value="minutely">
                     </form>
+                    <div id="timer">
+                        <?php
+                        if ($selected == "daily") {
+                        $time = 24 * 60 * 60; // 24 horas en segundos
+                        } else if ($selected == "monthly") {
+                        $time = 30 * 24 * 60 * 60; // 30 días en segundos
+                        } else if ($selected == "minutely") {
+                        $time = 60; // 1 minuto en segundos
+                        }
+                        ?>
+                        </p>
+                    </div>
+                    <div class="media-body">
+                        <a href="Discovery.php">
+                            <p class="text-center text-white mb-0 px-4 tm-small">Pulsa para comparar los
+                                escaneos</p>
+                            <button class="btn btn-primary btn-block text-uppercase"></i>Descubrimientos</button>
+                        </a>
 
-                    <a href="Discovery.php">
-                        <p class="text-center text-white mb-0 px-4 tm-small">Pulsa para comparar los
-                            escaneos</p>
-                        <button class="btn btn-primary btn-block text-uppercase"></i>Descubrimientos</button>
-                    </a>
-
-                </div>
-                <form action="envioIPs.php" method="post" name="formulario">
-                    <input class="form-control validate" type="text" name="ipIndividual"
-                        placeholder=" Introduce IP o rangos de IPs. p.e 192.168.0.1 o www.ehu.es">
-                    <input class="btn btn-primary text-uppercase" type="submit" value="Enviar">
-                    <input class="btn btn-primary text-uppercase" type="submit" value="Eliminar">
-                    <?php   $query = "SELECT * FROM inspectIndividual;";
+                    </div>
+                    <form action="envioIPs.php" method="post" name="formulario">
+                        <input class="form-control validate" type="text" name="ipIndividual"
+                            placeholder=" Introduce IP o rangos de IPs. p.e 192.168.0.1 o www.ehu.es">
+                        <input class="btn btn-primary text-uppercase" type="submit" value="Enviar">
+                        <input class="btn btn-primary text-uppercase" type="submit" value="Eliminar">
+                        <?php   $query = "SELECT * FROM inspectIndividual;";
                                 $result = pg_query($conexion, $query);
                                 $arr = pg_fetch_all($result);
                                 echo'<h2 class="tm-block-title">Historial de ips</h2>
@@ -139,11 +165,11 @@
                                             </tr>';
                                     }
                                     echo'</table>';?>
-                </form><br>
+                    </form><br>
+                </div>
             </div>
         </div>
-    </div>
-    <!-- row -->
+        <!-- row -->
     </div>
     </div>
     </div>
@@ -196,6 +222,19 @@
     function refreshPage() {
         window.location.reload();
     }
+    </script>
+    <script>
+    const timer = document.querySelector("#timer");
+    let time =
+        <?php echo $time; ?>;
+
+    setInterval(() => {
+        time--;
+        const hours = Math.floor(time / 3600);
+        const minutes = Math.floor((time % 3600) / 60);
+        const seconds = time % 60;
+        timer.innerHTML = `${hours}:${minutes}:${seconds}`;
+    }, 1000);
     </script>
 </body>
 
