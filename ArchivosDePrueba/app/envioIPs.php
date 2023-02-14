@@ -2,7 +2,7 @@
 include "Connection.php";
 
 // Chequea si se ha enviado el parámetro "ip" o "ipIndividual"
-if (isset($_POST["ip"]) || isset($_POST["ipIndividual"])) {
+if (isset($_POST["ipIndividual"])) {
     $ip = isset($_POST["ip"]) ? $_POST["ip"] : $_POST["ipIndividual"];
     $archivoIPs = isset($_POST["ip"]) ? "./ips.txt" : "./ipsReporte.txt";
     $tabla = isset($_POST["ip"]) ? "inspect" : "inspectIndividual";

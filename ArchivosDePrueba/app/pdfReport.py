@@ -2,14 +2,20 @@ import pandas as pd
 from fpdf import FPDF
 import psycopg2
 import smtplib
+import os
+
+with open('./app/postgresConfiguration.txt') as f:
+    for line in f:
+        name, value = line.strip().split('=')
+        os.environ[name] = value
+
+user = os.environ['DB_USER']
+password = os.environ['DB_PASS']
+hostdb = os.environ['DB_HOST']
+database = os.environ['DB_DB']
 
 # Connect to the database
-conn = psycopg2.connect(
-     host="db",
-     database="nmap",
-     user="root",
-     password="root"
-     )
+conn = psycopg2.connect(host=hostdb,database=database,user=user,password=password)
 
 # Create a cursor
 cursor = conn.cursor()

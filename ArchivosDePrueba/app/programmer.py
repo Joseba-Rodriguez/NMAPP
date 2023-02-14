@@ -3,10 +3,23 @@ import schedule
 import time
 import os
 
+
+#Abrir el fichero con los datos para conectarse a la base de datos
+with open('./app/postgresConfiguration.txt') as f:
+    for line in f:
+        name, value = line.strip().split('=')
+        os.environ[name] = value
+
+user = os.environ['DB_USER']
+password = os.environ['DB_PASS']
+hostdb = os.environ['DB_HOST']
+database = os.environ['DB_DB']
+
+
 def get_last_selection():
     # Conectar a la base de datos
-    conn = psycopg2.connect(host="db",database="nmap", user="root", password="root")
-    cursor = conn.cursor()
+    conexion = psycopg2.connect(host=hostdb,database=database, user=user, password=password)
+    cursor = conexion.cursor()
 
     # Obtener la última selección del botón
     cursor.execute("SELECT selection FROM buttons ORDER BY id DESC LIMIT 1")
@@ -14,7 +27,7 @@ def get_last_selection():
 
     # Cerrar la conexión a la base de datos
     cursor.close()
-    conn.close()
+    conexion.close()
 
     return last_selection
 

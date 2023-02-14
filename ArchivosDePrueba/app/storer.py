@@ -3,12 +3,22 @@
 import sys
 import xml.etree.ElementTree as ET
 import psycopg2
+import os
 inputfile = './app/datos.xml'
 
+with open('./app/postgresConfiguration.txt') as f:
+    for line in f:
+        name, value = line.strip().split('=')
+        os.environ[name] = value
+
+user = os.environ['DB_USER']
+password = os.environ['DB_PASS']
+hostdb = os.environ['DB_HOST']
+database = os.environ['DB_DB']
 
 #we input the file 
 def parseForIndividual(inputfile):
-	conn = psycopg2.connect(host="db",database="nmap", user="root", password="root")
+	conn = psycopg2.connect(host=hostdb,database=database, user=user, password=password)
 	cursor = conn.cursor()	
 	cursor.execute("INSERT INTO lastAnalyze SELECT * FROM nmapIndividual")
 	conn.commit()
@@ -22,7 +32,7 @@ def parseForIndividual(inputfile):
 
 def rawParser(inputfile, num):
 	global ip, hostname, protocol, portnum, service, vuln, product, versioning
-	conn = psycopg2.connect(host="db",database="nmap", user="root", password="root")
+	conn = psycopg2.connect(host=hostdb, database=database, user=user, password=password)
 	cursor = conn.cursor()	
 	cursor.execute("DELETE FROM nmapIndividual")
 	conn.commit()
