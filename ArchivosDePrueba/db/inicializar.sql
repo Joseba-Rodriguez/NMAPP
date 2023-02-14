@@ -34,6 +34,7 @@ CREATE TABLE IF NOT EXISTS inspect(
 );
 
 CREATE TABLE IF NOT EXISTS inspectIndividual(
+    idIpIndividual SERIAL PRIMARY KEY,
     ip text
 );
 

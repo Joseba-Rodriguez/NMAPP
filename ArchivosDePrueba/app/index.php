@@ -148,18 +148,20 @@
                         placeholder=" Introduce IP o rangos de IPs. p.e 192.168.0.1 o www.ehu.es">
                     <input class="btn btn-primary text-uppercase" type="submit" value="Enviar">
                     <input class="btn btn-primary text-uppercase" type="submit" value="Eliminar">
-                    <?php   $query = "SELECT * FROM inspectIndividual;";
+                    <?php  $query = "SELECT * FROM inspectIndividual ORDER BY idIpIndividual DESC LIMIT 1;";
                                 $result = pg_query($conexion, $query);
                                 $arr = pg_fetch_all($result);
                                 echo'<h2 class="tm-block-title">Historial de ips</h2>
                                 <table class="table tm-table-small tm-product-table">';
                                 foreach($arr as $array){
-                                        echo'<tr>
+                                    echo'<tr>
                                             <td  class="tm-product-name" >'. $array['ip'].'</td>
-                                            </tr>';
+                                        </tr>';
+                                  break;
                                     }
                                     echo'</table>';?>
                 </form><br>
+
             </div>
         </div>
     </div>
@@ -213,14 +215,8 @@
     })
     </script>
     <script>
-    function refreshPage() {
-        window.location.reload();
-    }
-    </script>
-    <script>
     const timer = document.querySelector("#timer");
-    let time =
-        <?php echo $time; ?>;
+    let time = <?php echo $time; ?>;
 
     setInterval(() => {
         time--;
@@ -228,8 +224,12 @@
         const minutes = Math.floor((time % 3600) / 60);
         const seconds = time % 60;
         timer.innerHTML = `${hours}:${minutes}:${seconds}`;
+        if (time === 0) {
+            window.location.reload();
+        }
     }, 1000);
     </script>
+
 </body>
 
 </html>
