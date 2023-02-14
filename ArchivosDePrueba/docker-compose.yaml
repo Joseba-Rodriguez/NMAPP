@@ -1,13 +1,5 @@
 version: "3"
-
 services:
-  app:
-    container_name: app
-    build: .
-    volumes:
-      - ./:/usr/src/app
-    depends_on:
-      - db
   web:
     container_name: web
     build: ./app/
@@ -32,7 +24,13 @@ services:
     volumes:
       - db:/var/lib/postgresql/data
       - ./db/inicializar.sql:/docker-entrypoint-initdb.d/inicializar.sql
-
+  app:
+    container_name: app
+    build: .
+    volumes:
+      - ./:/usr/src/app
+    depends_on:
+      - db
   pgadmin:
     image: dpage/pgadmin4
     environment:
