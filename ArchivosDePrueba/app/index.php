@@ -75,6 +75,10 @@
                         <div class="col">
                         <h2 class="tm-block-title mb-4">Último reporte</h2>
                         <p class="text-white mt-5 mb-5">Aquí podrás ver el último reporte completo realizado</p>
+                        <form action="csv.php" method="post">
+                        <input type="hidden" name="download_data" value="nmapIndividual">
+                        <input type="submit"  class=" btn-primary text-uppercase" value="Descargar datos">
+                    </form>
                     </div>    
                             <table class="table">
                                 <tr>
