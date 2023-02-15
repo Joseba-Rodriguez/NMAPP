@@ -14,7 +14,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Product Admin - Dashboard HTML Template</title>
+    <title>NMAPP - Discovery</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700">
     <!-- https://fonts.google.com/specimen/Roboto -->
     <link rel="stylesheet" href="css/fontawesome.min.css">
@@ -33,7 +33,7 @@
         <nav class="navbar navbar-expand-xl">
             <div class="container h-100">
                 <a class="navbar-brand" href="index.php">
-                    <h1 class="tm-site-title mb-0"> ITP Aero - TFG </h1>
+                    <h1 class="tm-site-title mb-0"> NMAPP </h1>
                 </a>
                 <button class="navbar-toggler ml-auto mr-0" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -42,8 +42,8 @@
                 </button>
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link d-block" href="login.html">
-                            Admin, <b>Logout</b>
+                        <a class="nav-link d-block" href="logout.php">
+                            <?php echo $_SESSION['userID']; ?>, <b>Logout</b>
                         </a>
                     </li>
                 </ul>
@@ -52,11 +52,6 @@
 
     </nav>
     <div class="container">
-        <div class="row">
-            <div class="col">
-                <p class="text-white mt-5 mb-5">Welcome back, <b>Admin</b></p>
-            </div>
-        </div>
         <!-- row -->
         <div class="row tm-content-row">
 
@@ -174,9 +169,9 @@
     <footer class="tm-footer row tm-mt-small">
         <div class="col-12 font-weight-light">
             <p class="text-center text-white mb-0 px-4 small">
-                Copyright &copy; <b>2023</b> All rights reserved.
+                Copyright &copy; <b>2023</b> All rights reserved by Joseba Rodríguez.
 
-                Design: <a rel="nofollow noopener" href="https://templatemo.com" class="tm-footer-link">Template Mo</a>
+                <!-- row  Design: <a rel="nofollow noopener" href="https://templatemo.com" class="tm-footer-link">Template Mo</a>-->
             </p>
         </div>
     </footer>
