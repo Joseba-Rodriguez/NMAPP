@@ -4,7 +4,7 @@ import psycopg2
 import smtplib
 import os
 
-with open('./app/postgresConfiguration.txt') as f:
+with open('./app/postgresConfiguration.txt', encoding='utf-8') as f:
     for line in f:
         name, value = line.strip().split('=')
         os.environ[name] = value
@@ -79,7 +79,7 @@ server = smtplib.SMTP('smtp.gmail.com', 587)
 server.starttls()
 server.login("nmappreporte@gmail.com", "nynyncvglafjihct")
 
-# Send the email 
+# Send the email
 server.sendmail(msg['From'], msg['To'], msg.as_string())
 
 # Close the connection with the server

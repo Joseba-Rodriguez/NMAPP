@@ -1,24 +1,23 @@
 <?php
 session_start();
 
-// Verificar si el usuario está en sesión
+// Verify if the user is logged in
 if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
     header("Location: login.php");
     exit;
 }
 
-// Conexión a la base de datos
+// Connect to the database
 require("Connection.php");
 
-// Comprobar si se ha enviado el formulario
+// Check if the form has been submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $userID = $_SESSION['userID'];
     $password = $_POST['password'];
     $passwordHash = password_hash($password, PASSWORD_DEFAULT);
 
-        // Actualizar la contraseña en la base de datos
-        $query = "UPDATE users SET password = '$passwordHash' WHERE userID = '$userID'";
-        $result = pg_query($conexion, $query);
-            header("Location: index.php");
-        
-
-?>
+    // Update the password in the database
+    $query = "UPDATE users SET password = '$passwordHash' WHERE userID = '$userID'";
+    $result = pg_query($conexion, $query);
+    header("Location: index.php");
+}

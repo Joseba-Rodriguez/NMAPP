@@ -1,16 +1,5 @@
 version: "3"
 services:
-  web:
-    container_name: web
-    build: ./app/
-    environment:
-      - ALLOW_OVERRIDE=true
-    ports:
-      - "80:80"
-    links:
-      - db
-    volumes:
-      - ./app/:/var/www/html/
   db:
     container_name: db
     image: postgres:latest
@@ -24,6 +13,18 @@ services:
     volumes:
       - db:/var/lib/postgresql/data
       - ./db/inicializar.sql:/docker-entrypoint-initdb.d/inicializar.sql
+  web:
+    container_name: web
+    build: ./app/
+    environment:
+      - ALLOW_OVERRIDE=true
+    ports:
+      - "80:80"
+    links:
+      - db
+    volumes:
+      - ./app/:/var/www/html/
+
   app:
     container_name: app
     build: .
@@ -31,6 +32,7 @@ services:
       - ./:/usr/src/app
     depends_on:
       - db
+
   pgadmin:
     image: dpage/pgadmin4
     environment:

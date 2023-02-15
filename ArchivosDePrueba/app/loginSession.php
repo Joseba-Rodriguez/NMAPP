@@ -1,24 +1,24 @@
 <?php
 session_start();
-// Conexión a la base de datos PostgreSQL
+// Establish a connection to the PostgreSQL database
 require 'Connection.php';
 
-// Verifica si la conexión a la base de datos fue exitosa
+// Verify if the connection to the database was successful
 if (!$conexion) {
   echo "Ocurrió un error en la conexión con la base de datos.\n";
   exit;
 }
 
-// Verifica si el formulario de inicio de sesión fue enviado
+// Check if the login form was submitted
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   // Obtiene los valores del formulario
   $username = $_POST['username'];
   $password = $_POST['password'];
 
-  // Consulta a la base de datos para verificar si el usuario existe
+ // Query the database to verify if the user exists
   $result = pg_query($conexion, "SELECT * FROM users WHERE userID='$username'");
 
-  // Verifica si el usuario existe en la base de datos
+  // Check if the user exists in the database
   if (pg_num_rows($result) == 0) {
     echo "<script>";
     echo "alert('El nombre de usuario no existe');";
@@ -27,10 +27,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     exit;
   }
 
-  // Obtiene la información del usuario desde la base de datos
+  // Get the user information from the database
   $user = pg_fetch_assoc($result);
 
-  // Verifica si la contraseña ingresada coincide con la almacenada en la base de datos
+  // Check if the entered password matches the one stored in the database
   if (!password_verify($password, $user['password'])) {
     echo "<script>";
     echo "alert('Contraseña incorrecta');";
@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     exit;
     
   }
-  // Inicio de sesión exitoso
+  // Successful login
   $_SESSION['logged_in'] = true;
   $_SESSION['userID'] = $username;
   header('Location: index.php');
