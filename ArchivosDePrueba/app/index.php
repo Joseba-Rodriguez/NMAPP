@@ -124,7 +124,7 @@
                     <p class=" text-white mb-0 px-4 small">
                         <input type="submit" class="btn  text-uppercase" name="selection" value="2Weeks">
                         <input type="submit" class="btn  text-uppercase" name="selection" value="monthly">
-                        <input type="submit" class="btn  text-uppercase" name="selection" value="minutely">
+                        <input type="submit" class="btn  text-uppercase" name="selection" value="now">
                 </form>
                 <div id="timer">
                     <?php
@@ -132,7 +132,7 @@
                         $time = 24 * 60 * 60 * 7 * 2; // 24 horas en segundos
                         } else if ($selected == "monthly") {
                         $time = 30 * 24 * 60 * 60; // 30 días en segundos
-                        } else if ($selected == "minutely") {
+                        } else if ($selected == "now") {
                         $time = 60; // 1 minuto en segundos
                         }
                         ?>

@@ -62,8 +62,8 @@ while True:
             schedule.every(14).days.at("00:00").do(main_task)
         elif new_selection == "monthly":
             schedule.every(30).days.at("00:00").do(main_task)
-        elif new_selection == "minutely":
-            schedule.every().minute.do(main_task)
+        elif new_selection == "now":
+            main_task()
         last_selection = new_selection
 
     # Run any pending scheduled tasks
