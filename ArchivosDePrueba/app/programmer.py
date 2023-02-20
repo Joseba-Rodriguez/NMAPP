@@ -40,6 +40,9 @@ def get_last_selection():
 
     return last_selection
 
+last_selection = None
+
+
 def main_task():
     """
     This is the main task that will be executed.
@@ -50,18 +53,22 @@ def main_task():
 # Infinite loop
 while True:
     # Check the last selection of the button every 2 seconds
-    last_selection = get_last_selection()
+    new_selection = get_last_selection()
 
-    # Schedule the main task based on the last selection of the button
-    if last_selection == "daily":
-        schedule.every().day.at("00:00").do(main_task)
-    elif last_selection == "monthly":
-        schedule.every(30).days.at("00:00").do(main_task)
-    elif last_selection == "minutely":
-        schedule.every(1).minute.do(main_task)
+    # If the selection has changed, cancel the current scheduled task and schedule a new one
+    if new_selection != last_selection:
+        schedule.clear()
+        if new_selection == "2Weeks":
+            schedule.every(14).days.at("00:00").do(main_task)
+        elif new_selection == "monthly":
+            schedule.every(30).days.at("00:00").do(main_task)
+        elif new_selection == "minutely":
+            schedule.every().minute.do(main_task)
+        last_selection = new_selection
 
     # Run any pending scheduled tasks
     schedule.run_pending()
 
     # Sleep for 2 seconds before checking the last selection of the button again
     time.sleep(2)
+    

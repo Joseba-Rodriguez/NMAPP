@@ -5,6 +5,7 @@ $selection = $_POST["selection"];
 // Connect to the database
 require "Connection.php";
 
+
 // Build the SQL query to insert the selection into the "buttons" table
 $query = "INSERT INTO buttons (selection) VALUES ('$selection')";
 

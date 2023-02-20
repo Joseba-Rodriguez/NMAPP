@@ -24,9 +24,9 @@
     <!-- https://getbootstrap.com/ -->
     <link rel="stylesheet" href="css/templatemo-style.css">
     <!--
-	Product Admin CSS Template
-	https://templatemo.com/tm-524-product-admin
-	-->
+        Product Admin CSS Template
+        https://templatemo.com/tm-524-product-admin
+    -->
 </head>
 
 <body id="reportsPage">
@@ -117,20 +117,19 @@
                         echo $selected . " selected";
                         ?>
         </p>
-        </p>
         <div class="d-flex justify-content-center">
             <div class="media-body">
                 <form action="insert_button.php" method="post">
 
                     <p class=" text-white mb-0 px-4 small">
-                        <input type="submit" class="btn  text-uppercase" name="selection" value="daily">
+                        <input type="submit" class="btn  text-uppercase" name="selection" value="2Weeks">
                         <input type="submit" class="btn  text-uppercase" name="selection" value="monthly">
                         <input type="submit" class="btn  text-uppercase" name="selection" value="minutely">
                 </form>
                 <div id="timer">
                     <?php
-                        if ($selected == "daily") {
-                        $time = 24 * 60 * 60; // 24 horas en segundos
+                        if ($selected == "2Weeks") {
+                        $time = 24 * 60 * 60 * 7 * 2; // 24 horas en segundos
                         } else if ($selected == "monthly") {
                         $time = 30 * 24 * 60 * 60; // 30 días en segundos
                         } else if ($selected == "minutely") {
