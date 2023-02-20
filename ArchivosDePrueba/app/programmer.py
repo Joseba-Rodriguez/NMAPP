@@ -19,6 +19,7 @@ password = os.environ['DB_PASS']
 hostdb = os.environ['DB_HOST']
 database = os.environ['DB_DB']
 
+
 def get_last_selection():
     """
     This function retrieves the last selection of the button from the database.
@@ -27,7 +28,8 @@ def get_last_selection():
         The last selection of the button.
     """
     # Connect to the database
-    conexion = psycopg2.connect(host=hostdb,database=database, user=user, password=password)
+    conexion = psycopg2.connect(
+        host=hostdb, database=database, user=user, password=password)
     cursor = conexion.cursor()
 
     # Get the last selection of the button
@@ -40,6 +42,7 @@ def get_last_selection():
 
     return last_selection
 
+
 last_selection = None
 
 
@@ -49,6 +52,7 @@ def main_task():
     """
     # Execute the main task here
     os.system("python3 ./app/Analyzer.py")
+
 
 # Infinite loop
 while True:
@@ -71,4 +75,3 @@ while True:
 
     # Sleep for 2 seconds before checking the last selection of the button again
     time.sleep(2)
-    
