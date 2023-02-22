@@ -1,46 +1,47 @@
 version: "3"
-
 services:
-  app:
-    container_name: app
-    build: .
-    volumes:
-      - ./:/usr/src/app
-
-  web:
-    build: ./web/
-    environment:
-      - ALLOW_OVERRIDE=true
-    ports:
-      - "80:80"
-    links:
-      - db
-    volumes:
-      - ./web/:/var/www/html/
   db:
     container_name: db
     image: postgres:latest
     restart: always
     environment:
-      - POSTGRES_USER=root
-      - POSTGRES_PASSWORD=root
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=#TFGD3J0s3b4#
       - POSTGRES_DB=nmap
     ports:
       - 5432:5432
     volumes:
       - db:/var/lib/postgresql/data
       - ./db/inicializar.sql:/docker-entrypoint-initdb.d/inicializar.sql
+  web:
+    container_name: web
+    build: ./app/
+    environment:
+      - ALLOW_OVERRIDE=true
+    ports:
+      - "443:80"
+    links:
+      - db
+    volumes:
+      - ./app/:/var/www/html/
+
+  app:
+    container_name: app
+    build: .
+    volumes:
+      - ./:/usr/src/app
+    depends_on:
+      - db
 
   pgadmin:
     image: dpage/pgadmin4
     environment:
       - PGADMIN_DEFAULT_EMAIL=admin@admin.com
-      - PGADMIN_DEFAULT_PASSWORD=admin
+      - PGADMIN_DEFAULT_PASSWORD=#TFGD3#
     ports:
       - "8080:80"
     depends_on:
       - db
 
 volumes:
-  miVol:
   db:
