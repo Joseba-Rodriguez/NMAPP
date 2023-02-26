@@ -94,7 +94,6 @@
                                  <th>PROTOCOL</th>
                                  <th>SERVICE</th>
                                  <th>VERSION</th>
-                                 <th>VULNERABILITIES</th>
                                 </tr>';
                         foreach($arr as $array)
                             {
@@ -105,7 +104,6 @@
                                     <td>'. $array['protocol'].'</td>
                                     <td>'. $array['service'].'</td>
                                     <td>'. $array['version'].'</td>
-                                    <td><div class="media tm-notification-item"><span>'. $array['vuln'] .'</span></div></td>
                                     </tr>'
                                     ;    
                             }
@@ -138,8 +136,6 @@
                         $time = 24 * 60 * 60 * 7 * 2; // 24 horas en segundos
                         } else if ($selected == "monthly") {
                         $time = 30 * 24 * 60 * 60; // 30 días en segundos
-                        } else if ($selected == "now") {
-                        $time = 60; // 1 minuto en segundos
                         }
                         ?>
                     </p>

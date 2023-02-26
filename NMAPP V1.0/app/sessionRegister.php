@@ -14,8 +14,8 @@ session_start();
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       // Retrieve the form data
       $username = $_POST['username'];
-      $password = md5($_POST['password']);
-      $confirm_password = md5($_POST['confirm_password']);
+      $password = $_POST['password'];
+      $confirm_password = $_POST['confirm_password'];
     
       // Check if the passwords match
       if ($password !== $confirm_password) {
@@ -25,6 +25,9 @@ session_start();
         echo "</script>";
         exit;
       }
+
+      // Hash the password
+      $password_hash = password_hash($password, PASSWORD_BCRYPT);
 
       $query = "SELECT * FROM users WHERE userID='$username'";
       $result = pg_query($conexion, $query);
@@ -36,7 +39,7 @@ session_start();
         echo "</script>";
       } else {
         // El usuario no existe, registrar el usuario
-        $result = pg_query($conexion, "INSERT INTO users (userID, password) VALUES ('$username', '$password')");
+        $result = pg_query($conexion, "INSERT INTO users (userID, password) VALUES ('$username', '$password_hash')");
         $result = pg_query($conexion, $query);
 
         if ($result) {
@@ -53,4 +56,5 @@ session_start();
       // Check if the insert was successful
       pg_close($conexion);
     }
+session_destroy();
 ?>

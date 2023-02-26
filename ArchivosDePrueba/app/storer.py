@@ -24,7 +24,7 @@ database = os.environ['DB_DB']
 # we input the file
 
 
-def parse_for_individual(ip, hostname, portnum, protocol, service, versioning, vuln):
+def parse_for_individual(ip, hostname, portnum, protocol, service, versioning):
     """
     Inserts individual nmap scan results into a PostgreSQL database.
 
@@ -46,8 +46,8 @@ def parse_for_individual(ip, hostname, portnum, protocol, service, versioning, v
     # Insert data into lastAnalyze table
     cursor.execute("INSERT INTO lastAnalyze SELECT * FROM nmapIndividual")
     # Insert data into nmapIndividual table
-    cursor.execute("INSERT INTO nmapIndividual(ip, hostname, port, protocol,service, version, vuln) VALUES (%s, %s, %s, %s, %s, %s, %s)",
-                   (ip, hostname, portnum, protocol, service, versioning, vuln))
+    cursor.execute("INSERT INTO nmapIndividual(ip, hostname, port, protocol,service, version) VALUES (%s, %s, %s, %s, %s, %s, %s)",
+                   (ip, hostname, portnum, protocol, service, versioning))
     conn.commit()
 
 
@@ -104,10 +104,10 @@ def raw_parser(NUM):
                 versioning += ' (' + extrainfo + ')' if extrainfo else ''
                 versioning = product.replace("'", "")
             print(
-                f"Dato insertado {ip}, {hostname}, {portnum}, {protocol}, {service}, {versioning}, {vuln}\n")
+                f"Dato insertado {ip}, {hostname}, {portnum}, {protocol}, {service}, {versioning}\n")
             if NUM != 1:
                 parse_for_individual(ip, hostname, portnum,
-                                     protocol, service, versioning, vuln)
+                                     protocol, service, versioning)
 
 
 NUM = int(sys.argv[1])

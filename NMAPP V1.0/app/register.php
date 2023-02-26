@@ -15,7 +15,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Register</title>
+    <title>Login Page - Product Admin Template</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700" />
     <!-- https://fonts.google.com/specimen/Open+Sans -->
     <link rel="stylesheet" href="css/fontawesome.min.css" />
@@ -78,8 +78,6 @@
                                     <input name="confirm_password" type="password" class="form-control validate"
                                         id="confirm_password" value="" required />
                                 </div>
-                                La contraseña debe contener entre 8-12 carácteres, con al menos una mayúscula y un
-                                número
                                 <div class="form-group mt-4">
                                     <button type="submit" class="btn btn-primary btn-block text-uppercase">
                                         Register

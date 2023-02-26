@@ -54,14 +54,6 @@ def main_task():
     os.system("python3 ./app/Analyzer.py")
 
 
-def updateDBVulners():
-    """
-    This is the function that executes the updates of the database.
-    """
-    # Execute the main task here
-    os.system("python3 ./app/DBVulners.py")
-
-
 # Infinite loop
 while True:
     # Check the last selection of the button every 2 seconds
@@ -72,14 +64,16 @@ while True:
         schedule.clear()
         if new_selection == "2Weeks":
             schedule.every(14).days.at("00:00").do(main_task)
+            os.system("python3 ./app/excelReport.py")
         elif new_selection == "monthly":
             schedule.every(30).days.at("00:00").do(main_task)
+            os.system("python3 ./app/excelReport.py")
         elif new_selection == "now":
             main_task()
+            os.system("python3 ./app/excelReport.py")
+
         last_selection = new_selection
 
-    # Run the DBVulners script to update the databases of the vulnerabilites
-    schedule.every(6).weeks.do(updateDBVulners)
     # Run any pending scheduled tasks
     schedule.run_pending()
 

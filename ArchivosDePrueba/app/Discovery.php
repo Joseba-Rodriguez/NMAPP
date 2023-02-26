@@ -73,7 +73,6 @@
                                  <th>protocol</th>
                                  <th>service</th>
                                  <th>version</th>
-                                 <th>vulnerabilities</th>
                                 </tr>';
                         foreach($arr as $array)
                             {
@@ -84,7 +83,6 @@
                                     <td>'. $array['protocol'].'</td>
                                     <td>'. $array['service'].'</td>
                                     <td>'. $array['version'].'</td>
-                                    <td>'. $array['vuln'].'</td>
                                     </tr>';
                             }
                             echo'</table>';
@@ -110,7 +108,6 @@
                                     <th>protocol</th>
                                     <th>service</th>
                                     <th>version</th>
-                                    <th>vulnerabilities</th>
                                     </tr>';
                             foreach($arr as $array)
                                 {
@@ -121,7 +118,6 @@
                                         <td>'. $array['protocol'].'</td>
                                         <td>'. $array['service'].'</td>
                                         <td>'. $array['version'].'</td>
-                                        <td>'. $array['vuln'].'</td>
                                         </tr>';
                                 }
                                 echo'</table>';
@@ -146,7 +142,6 @@
                                         <th>protocol</th>
                                         <th>service</th>
                                         <th>version</th>
-                                        <th>vulnerabilities</th>
                                         </tr>';
                                 foreach($arr as $array)
                                     {
@@ -156,7 +151,6 @@
                                             <td>'. $array['port'].'</td>
                                             <td>'. $array['protocol'].'</td>
                                             <td>'. $array['service'].'</td>
-                                            <td>'. $array['vuln'].'</td>
                                             </tr>';
                                     }
                                     echo'</table>';
