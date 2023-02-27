@@ -19,11 +19,17 @@ services:
     environment:
       - ALLOW_OVERRIDE=true
     ports:
-      - "443:80"
+      - "443:443"
     links:
       - db
     volumes:
       - ./app/:/var/www/html/
+      - ./certs:/etc/ssl/certs
+      - ./certs:/etc/ssl/private
+    environment:
+      - ALLOW_OVERRIDE=true
+      - APACHE_SSL_CERT_FILE=/etc/ssl/certs/server.crt
+      - APACHE_SSL_KEY_FILE=/etc/ssl/private/server.key
 
   app:
     container_name: app
