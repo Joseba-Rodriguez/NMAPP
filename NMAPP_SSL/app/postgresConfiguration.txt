@@ -1,0 +1,5 @@
+DB_USER=admin
+DB_PASS=#TFGD3J0s3b4#
+DB_DB=nmap
+DB_PORT=5432
+DB_HOST=db
