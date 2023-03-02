@@ -184,16 +184,6 @@
         </div>
     </footer>
     </div>
-
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <!-- https://jquery.com/download/ -->
-    <script src="js/moment.min.js"></script>
-    <!-- https://momentjs.com/ -->
-    <script src="js/Chart.min.js"></script>
-    <!-- http://www.chartjs.org/docs/latest/ -->
-    <script src="js/bootstrap.min.js"></script>
-    <!-- https://getbootstrap.com/ -->
-    <script src="js/tooplate-scripts.js"></script>
     <script>
     Chart.defaults.global.defaultFontColor = 'white';
     let ctxLine,
