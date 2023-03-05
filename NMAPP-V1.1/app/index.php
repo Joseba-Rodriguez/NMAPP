@@ -109,6 +109,7 @@
                             }
                             echo'</table>';
                         ?>
+
         </div>
         <p class="text-white mb-0 px-4 small">Tiempo restante hasta el siguiente escaneo: <span id="timer"></span>
             <?php
@@ -150,7 +151,7 @@
                 </div>
                 <form action="envioIPs.php" method="post" name="formulario">
                     <input class="form-control validate" type="text" name="ipIndividual"
-                        placeholder=" Introduce IP o rangos de IPs. p.e 192.168.0.1 ehu.es 127.0.0.1/24">
+                        placeholder=" Introduce IP o rangos de IPs. p.e 192.168.0.1 o www.ehu.es">
                     <input class="btn btn-primary text-uppercase" type="submit" value="Enviar">
                     <input class="btn btn-primary text-uppercase" type="submit" value="Eliminar">
                     <?php  $query = "SELECT * FROM inspectIndividual ORDER BY idIpIndividual DESC LIMIT 1;";

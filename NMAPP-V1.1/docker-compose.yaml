@@ -16,8 +16,6 @@ services:
   web:
     container_name: web
     build: ./app/
-    environment:
-      - ALLOW_OVERRIDE=true
     ports:
       - "443:443"
     links:
