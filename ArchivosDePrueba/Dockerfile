@@ -12,7 +12,7 @@ RUN pip install pandas
 RUN pip install FPDF
 RUN pip install secure-smtplib
 RUN pip install mime
-
+RUN pip install openpyxl
 WORKDIR /usr/src/app
 COPY ./app/programmer.py .
 COPY ./app/storer.py .

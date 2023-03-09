@@ -1,0 +1,107 @@
+
+html {
+  font-size: 16px;
+  overflow-x: hidden;
+}
+body {
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  background-color: #4e657a;
+  overflow-x: hidden;
+}
+a {
+  transition: all 0.3s ease;
+}
+a:focus,
+a:hover {
+  text-decoration: none;
+}
+button:focus {
+  outline: 0;
+}
+.navbar-brand {
+  display: flex;
+  align-items: center;
+}
+.tm-site-title {
+  display: inline-block;
+  text-transform: uppercase;
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: #fff;
+}
+.tm-site-subtitle {
+  display: inline-block;
+  text-transform: uppercase;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #fff;
+}
+.navbar {
+  height: 100px;
+  background-color: #567086;
+  padding: 0;
+}
+.nav-link {
+  color: #fff;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-size: 90%;
+}
+.table {
+  background-color: #50697f;
+  color: #fff;
+  font-size: 85%;
+  margin-bottom: 0;
+}
+thead {
+  background-color: #486177;
+  color: #fff;
+}
+.table thead th {
+  border-bottom: 0;
+}
+.form-control {
+  background-color: #54657d;
+  color: #fff;
+  border: 0;
+}
+.form-group {
+  margin-bottom: 15px;
+}
+.btn {
+  border-radius: 0;
+  padding: 9px 22px;
+  transition: all 0.2s ease;
+  max-width: 90%;
+}
+.btn-primary {
+  color: #fff;
+  background-color: #f5a623;
+  border: 2px solid #f5a623;
+  font-size: 90%;
+  font-weight: 600;
+}
+.btn-primary:active,
+.btn-primary:hover {
+  color: #f5a623;
+  background-color: transparent;
+  border: 2px solid #f5a623;
+}
+.table td,
+.table th {
+  border-top: 2px solid #415a70;
+  padding: 20px 30px;
+  vertical-align: middle;
+}
+.tm-table-small td,
+.tm-table-small th {
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+.navbar-toggler:hover .tm-nav-icon {
+  color: #f5a623;
+}

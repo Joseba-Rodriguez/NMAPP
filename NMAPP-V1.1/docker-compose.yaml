@@ -36,16 +36,6 @@ services:
       - ./:/usr/src/app
     depends_on:
       - db
-
-  pgadmin:
-    image: dpage/pgadmin4
-    environment:
-      - PGADMIN_DEFAULT_EMAIL=admin@admin.com
-      - PGADMIN_DEFAULT_PASSWORD=#TFGD3#
-    ports:
-      - "8080:80"
-    depends_on:
-      - db
-
+      
 volumes:
   db:

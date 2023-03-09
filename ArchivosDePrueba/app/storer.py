@@ -43,10 +43,8 @@ def parse_for_individual(ip, hostname, portnum, protocol, service, versioning):
     conn = psycopg2.connect(host=hostdb, database=database,
                             user=user, password=password)
     cursor = conn.cursor()
-    # Insert data into lastAnalyze table
-    cursor.execute("INSERT INTO lastAnalyze SELECT * FROM nmapIndividual")
     # Insert data into nmapIndividual table
-    cursor.execute("INSERT INTO nmapIndividual(ip, hostname, port, protocol,service, version) VALUES (%s, %s, %s, %s, %s, %s, %s)",
+    cursor.execute("INSERT INTO nmapIndividual(ip, hostname, port, protocol,service, version) VALUES (%s, %s, %s, %s, %s, %s)",
                    (ip, hostname, portnum, protocol, service, versioning))
     conn.commit()
 
@@ -61,7 +59,11 @@ def raw_parser(NUM):
     """
     conn = psycopg2.connect(host=hostdb, database=database,
                             user=user, password=password)
+
     cursor = conn.cursor()
+    # Insert data into lastAnalyze table
+    cursor.execute("INSERT INTO lastAnalyze SELECT * FROM nmapIndividual")
+    conn.commit()
     cursor.execute("DELETE FROM nmapIndividual")
     conn.commit()
     try:

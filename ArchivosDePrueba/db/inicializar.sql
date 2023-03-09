@@ -4,8 +4,7 @@ CREATE TABLE IF NOT EXISTS nmapIndividual(
     port varchar(200),
     protocol text,
     service text,
-    version text,
-    vuln text
+    version text
 );
 
 CREATE TABLE IF NOT EXISTS lastAnalyze(
@@ -14,8 +13,7 @@ CREATE TABLE IF NOT EXISTS lastAnalyze(
     port varchar(200),
     protocol text,
     service text,
-    version text,
-    vuln text
+    version text
 );
 
 
@@ -35,6 +33,16 @@ CREATE TABLE buttons (
     selection TEXT NOT NULL
 );
 
+CREATE TABLE login_attempts (
+  user_id VARCHAR(50) NOT NULL,
+  timestamp TIMESTAMP NOT NULL,
+  ip_address VARCHAR(50) NOT NULL
+);
+
 
 INSERT INTO buttons (selection) VALUES ('2Weeks');
-INSERT INTO users (userID,password) VALUES ('NmappAdmin',MD5('Tr4b4j0F1n!'));
+CREATE EXTENSION IF NOT EXISTS pgcrypto;
+INSERT INTO users (userID, password) 
+VALUES ('NmappAdmin', 
+        crypt('Tr4b4j0F1n!', gen_salt('bf'))
+       );

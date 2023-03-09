@@ -24,3 +24,8 @@ RUN apt-get install -y apache2
 RUN pip install psycopg2
 #To schedule the PDF export we need this python library
 RUN pip install schedule
+
+#Certs
+RUN a2enmod ssl 
+COPY default-ssl.conf /etc/apache2/sites-available/default-ssl.conf 
+RUN a2ensite default-ssl.conf

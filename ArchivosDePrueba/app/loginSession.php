@@ -1,5 +1,6 @@
 <?php 
 session_start();
+
 // Establecer una conexión a la base de datos PostgreSQL
 require 'Connection.php';
 
@@ -31,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $user = pg_fetch_assoc($result);
 
   // Comprobar si la contraseña ingresada coincide con la almacenada en la base de datos
-  if (!($user && crypt($password, $user['password']) == $user['password'])) {
+  if (!password_verify($password, $user['password'])) {
     echo "<script>";
     echo "alert('La contraseña no es correcta');";
     echo "window.location.href='login.php';";
@@ -47,5 +48,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 pg_close($conexion);
+
 
 ?>

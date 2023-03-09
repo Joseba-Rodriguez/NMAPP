@@ -151,6 +151,7 @@
                                             <td>'. $array['port'].'</td>
                                             <td>'. $array['protocol'].'</td>
                                             <td>'. $array['service'].'</td>
+                                            <td>'. $array['version'].'</td>
                                             </tr>';
                                     }
                                     echo'</table>';

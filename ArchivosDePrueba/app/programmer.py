@@ -64,10 +64,14 @@ while True:
         schedule.clear()
         if new_selection == "2Weeks":
             schedule.every(14).days.at("00:00").do(main_task)
+            os.system("python3 ./app/excelReport.py")
         elif new_selection == "monthly":
             schedule.every(30).days.at("00:00").do(main_task)
+            os.system("python3 ./app/excelReport.py")
         elif new_selection == "now":
             main_task()
+            os.system("python3 ./app/excelReport.py")
+
         last_selection = new_selection
 
     # Run any pending scheduled tasks
