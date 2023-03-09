@@ -61,7 +61,7 @@
         $result = pg_query($conexion, $query);
         $arr = pg_fetch_all($result);
         ?>
-        <table class="table">
+        <table class="table table-active">
             <thead>
                 <tr>
                     <th>IP</th>
