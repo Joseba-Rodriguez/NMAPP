@@ -25,12 +25,14 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css"
     />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
     <link href="css/styles.css" rel="stylesheet" />
   </head>
 
   <body>
-    <div class="container-fluid">
       <div class="row">
         <div class="jwrapper">
           <header>
@@ -47,21 +49,37 @@
               <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                   <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a
+                      class="nav-link dropdown-toggle"
+                      href="#"
+                      id="navbarDropdown"
+                      role="button"
+                      data-toggle="dropdown"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                    >
                       Otros
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <a class="dropdown-item" href="changePassword.php">Cambia la contraseña</a>
-                      <a class="dropdown-item" href="register.php">Registra un nuevo usuario</a>
+                      <a class="dropdown-item" href="changePassword.php"
+                        >Cambia la contraseña</a
+                      >
+                      <a class="dropdown-item" href="register.php"
+                        >Registra un nuevo usuario</a
+                      >
                     </div>
                   </li>
                   <li class="nav-item">
                     <form>
-                      <a class="nav-link" href="Discovery.php"><b>Descubrimientos</b></a>
+                      <a class="nav-link" href="Discovery.php"
+                        ><b>Descubrimientos</b></a
+                      >
                     </form>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="logout.php"><?php echo $_SESSION['userID']; ?>, <b>Logout</b></a>
+                    <a class="nav-link" href="logout.php"
+                      ><?php echo $_SESSION['userID']; ?>, <b>Logout</b></a
+                    >
                   </li>
                 </ul>
               </div>
@@ -93,16 +111,34 @@
       <div class="row">
         <div class="jwrapper">
           <?php
-            include('Connection.php');
-            #All the data from the last execution
-            $query = "SELECT * FROM nmapIndividual;";
-            $result = pg_query($conexion, $query);
-            $arr = pg_fetch_all($result);
-            ?>
+          include('Connection.php');
+          
+          # Query to group the data by IP
+          $query = "SELECT ip, hostname, port, protocol, service, version FROM nmapIndividual";
+          $result = pg_query($conexion, $query);
+          
+          # Initialize the current IP variable
+          $currentIp = '';
+          
+          # Loop through the results and create a table for each IP
+          while ($row = pg_fetch_assoc($result)) {
+            # Check if the IP has changed
+            if ($row['ip'] !== $currentIp) {
+              # If it has, close the previous table (if it exists) and create a new one
+              if (!empty($currentIp)) {
+          ?>
+        </tbody>
+      </table>
+          <?php
+              }
+          ?>
+          <h2>
+            IP:
+            <?php echo $row['ip']; ?>
+          </h2>
           <table class="table table-active jtable">
             <thead>
               <tr>
-                <th>IP</th>
                 <th>HOSTNAME</th>
                 <th>PORT</th>
                 <th>PROTOCOL</th>
@@ -111,18 +147,28 @@
               </tr>
             </thead>
             <tbody>
-              <?php foreach ($arr as $array): ?>
+              <?php
+              # Update the current IP variable
+              $currentIp = $row['ip'];
+            }
+          ?>
               <tr>
-                <td>aa<?php echo $array['ip']; ?></td>
-                <td>aa<?php echo $array['hostname']; ?></td>
-                <td>aa<?php echo $array['port']; ?></td>
-                <td>aa<?php echo $array['protocol']; ?></td>
-                <td>aa<?php echo $array['service']; ?></td>
-                <td>aa<?php echo $array['version']; ?></td>
+                <td><?php echo $row['hostname']; ?></td>
+                <td><?php echo $row['port']; ?></td>
+                <td><?php echo $row['protocol']; ?></td>
+                <td><?php echo $row['service']; ?></td>
+                <td><?php echo $row['version']; ?></td>
               </tr>
-              <?php endforeach; ?>
+              <?php
+          }
+          # Close the final table
+          if (!empty($currentIp)) {
+          ?>
             </tbody>
           </table>
+          <?php
+          }
+          ?>
         </div>
       </div>
       <div class="row">
@@ -180,24 +226,32 @@
       <div class="row">
         <div class="jwrapper">
           <form action="envioIPs.php" method="post" name="formulario">
-            <div class="input-group">
-              <input
-                class="form-control validate"
-                type="text"
-                name="ipIndividual"
-                placeholder=" Introduce IP o rangos de IPs. p.e 192.168.0.1 o ehu.es"
-              />
-              <div class="input-group-append">
-                <input
-                  class="btn btn-primary text-uppercase"
-                  type="submit"
-                  value="Enviar"
-                />
-                <input
-                  class="btn btn-primary text-uppercase"
-                  type="submit"
-                  value="Eliminar"
-                />
+            <div class="row">
+              <div class="col-md-10">
+                <div class="form-group">
+                  <input
+                    class="form-control validate"
+                    type="text"
+                    name="ipIndividual"
+                    placeholder="Introduce IP o rangos de IPs. p.e 192.168.0.1 o ehu.es"
+                  />
+                </div>
+              </div>
+              <div class="col-md-10">
+                <div class="form-group">
+                  <div class="input-group-append">
+                    <input
+                      class="btn btn-primary text-uppercase"
+                      type="submit"
+                      value="Enviar"
+                    />
+                    <input
+                      class="btn btn-primary text-uppercase"
+                      type="submit"
+                      value="Eliminar"
+                    />
+                  </div>
+                </div>
               </div>
             </div>
           </form>
@@ -227,7 +281,7 @@
       </div>
       <div class="row">
         <div class="jwrapper">
-          <footer class="footer fixed-bottom text-center">
+          <footer>
             <div class="container">
               <div class="row">
                 <div class="col-lg-12">
@@ -247,9 +301,9 @@
       ></script>
       <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/js/adminlte.min.js"></script>
       <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     </div>
   </body>
 </html>
