@@ -39,6 +39,10 @@ CREATE TABLE login_attempts (
   ip_address VARCHAR(50) NOT NULL
 );
 
+CREATE TABLE stats (
+    idTime SERIAL PRIMARY KEY,
+    summary text
+);
 
 INSERT INTO buttons (selection) VALUES ('2Weeks');
 CREATE EXTENSION IF NOT EXISTS pgcrypto;

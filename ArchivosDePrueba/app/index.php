@@ -89,30 +89,39 @@
       </div>
       <div class="row">
         <div class="jwrapper">
-          <h1 class="offcanvas-title">Último escaneo</h1>
+          <p class="text-white mb-0 px-4 small">
+            Último escaneo:</span>
+            <?php
+                        include 'Connection.php';
+                        $query = "SELECT * FROM stats ORDER BY idTime DESC LIMIT 1";
+                        $result = pg_query($conexion, $query) or die('Query failed: ' . pg_last_error());
+                        // Obtenemos los resultados
+                        $row = pg_fetch_array($result, null, PGSQL_ASSOC);
+                        // Mostramos el resultado
+                        $summary = $row['summary'];
+                        echo $summary;
+                        ?>
+          </p>
         </div>
       </div>
       <div class="row">
         <div class="jwrapper">
-          <form
-            action="csv.php"
-            method="post"
-            class="justify-content-start text-center"
-          >
-            <input type="hidden" name="download_data" value="nmapIndividual" />
-            <input
-              type="submit"
-              class="btn btn-primary text-uppercase"
-              value="Descargar datos"
-            />
-          </form>
+        <form action="csv.php" method="post" class="justify-content-start text-center">
+          <input type="hidden" name="download_data" value="nmapIndividual" />
+          <button type="submit" class="btn btn-primary text-uppercase">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-down" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M3.5 10a.5.5 0 0 1-.5-.5v-8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 0 0 1h2A1.5 1.5 0 0 0 14 9.5v-8A1.5 1.5 0 0 0 12.5 0h-9A1.5 1.5 0 0 0 2 1.5v8A1.5 1.5 0 0 0 3.5 11h2a.5.5 0 0 0 0-1h-2z"/>
+              <path fill-rule="evenodd" d="M7.646 15.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 14.293V5.5a.5.5 0 0 0-1 0v8.793l-2.146-2.147a.5.5 0 0 0-.708.708l3 3z"/>
+            </svg> 
+            Descargar datos
+          </button>
+        </form>
+
         </div>
       </div>
       <div class="row">
         <div class="jwrapper">
           <?php
-          include('Connection.php');
-          
           # Query to group the data by IP
           $query = "SELECT ip, hostname, port, protocol, service, version FROM nmapIndividual";
           $result = pg_query($conexion, $query);
@@ -128,7 +137,7 @@
               if (!empty($currentIp)) {
           ?>
         </tbody>
-      </table>
+        </table>
           <?php
               }
           ?>
@@ -224,39 +233,63 @@
         </div>
       </div>
       <div class="row">
-        <div class="jwrapper">
-          <form action="envioIPs.php" method="post" name="formulario">
-            <div class="row">
-              <div class="col-md-10">
-                <div class="form-group">
-                  <input
-                    class="form-control validate"
-                    type="text"
-                    name="ipIndividual"
-                    placeholder="Introduce IP o rangos de IPs. p.e 192.168.0.1 o ehu.es"
-                  />
-                </div>
-              </div>
-              <div class="col-md-10">
-                <div class="form-group">
-                  <div class="input-group-append">
-                    <input
-                      class="btn btn-primary text-uppercase"
-                      type="submit"
-                      value="Enviar"
-                    />
-                    <input
-                      class="btn btn-primary text-uppercase"
-                      type="submit"
-                      value="Eliminar"
-                    />
-                  </div>
-                </div>
-              </div>
+      <div class="row">
+  <div class="jwrapper">
+    <form action="envioIPs.php" method="post" name="formulario">
+      <div class="row">
+        <div class="col-md-10">
+          <div class="form-group">
+            <input
+              class="form-control validate"
+              type="text"
+              name="ipIndividual"
+              placeholder="Introduce IP o rangos de IPs. p.e 192.168.0.1 o ehu.es"
+            />
+          </div>
+        </div>
+        <div class="col-md-10">
+          <div class="form-group">
+            <div class="input-group-append">
+              <button class="btn btn-primary text-uppercase me-2" type="submit">Enviar</button>
+              <button class="btn btn-danger text-uppercase" type="submit" name="eliminar" data-bs-toggle="modal" data-bs-target="#eliminarModal">Eliminar</button>
             </div>
-          </form>
+          </div>
         </div>
       </div>
+    </form>
+  </div>
+</div>
+
+<!-- Modal de confirmación de eliminación -->
+<div class="modal fade" id="eliminarModal" tabindex="-1" aria-labelledby="eliminarModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="eliminarModalLabel">Eliminar datos</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>¿Está seguro de que desea eliminar todos los datos de la base de datos inspectIndividual?</p>
+      </div>
+      <div class="modal-footer">
+        <form action="envioIPs.php" method="post" name="eliminarForm">
+          <input type="hidden" name="eliminar" value="true">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn btn-danger">Eliminar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<?php
+  if(isset($_POST['eliminar'])) {
+    $query = "DELETE FROM inspectIndividual";
+    $result = pg_query($conexion, $query);
+    header("Location: index.php");
+  }
+?>
+
       <div class="row">
         <div class="jwrapper">
           <?php  

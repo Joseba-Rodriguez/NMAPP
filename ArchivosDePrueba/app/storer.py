@@ -59,13 +59,15 @@ def raw_parser(NUM):
     """
     conn = psycopg2.connect(host=hostdb, database=database,
                             user=user, password=password)
-
     cursor = conn.cursor()
     # Insert data into lastAnalyze table
     cursor.execute("INSERT INTO lastAnalyze SELECT * FROM nmapIndividual")
     conn.commit()
     cursor.execute("DELETE FROM nmapIndividual")
     conn.commit()
+    cursor.execute("DELETE FROM stats")
+    conn.commit()
+
     try:
         tree = ET.parse(INPUT_FILE)
         root = tree.getroot()
@@ -78,6 +80,16 @@ def raw_parser(NUM):
     except Exception as unexpected_error:
         print("Unexpected error:", str(unexpected_error))
         sys.exit(2)
+
+    #Get the summary of the xml
+    summary = root.find('runstats').find('finished').get('summary')
+    if summary is None:
+        summary = ""   # Asignar una cadena vacía si el valor de summary es nulo
+    cursor = conn.cursor()
+    # Insert data into stats table
+    cursor.execute("INSERT INTO stats (summary) VALUES (%s)", (summary,))
+    conn.commit()
+    print(summary)
 
     for host in root.findall('host'):
         ip = host.find('address').get('addr')
