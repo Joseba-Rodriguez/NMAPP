@@ -48,7 +48,46 @@
                 <span class="brand-text font-weight-light">NMAPP</span>
               </a>
               <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto"></ul>
+                <ul class="navbar-nav ml-auto">
+                  <li class="nav-item dropdown">
+                    <a
+                      class="nav-link dropdown-toggle"
+                      href="#"
+                      id="navbarDropdown"
+                      role="button"
+                      data-toggle="dropdown"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                    >
+                      Otros
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="changePassword.php"
+                        >Cambia la contraseña</a
+                      >
+                      <a class="dropdown-item" href="register.php"
+                        >Registra un nuevo usuario</a
+                      >
+                    </div>
+                  </li>
+                  <li class="nav-item">
+                    <form>
+                      <a class="nav-link" href="Discovery.php"
+                        ><b>Descubrimientos</b></a
+                      >
+                    </form>
+                  </li>
+                  <li class="nav-item">
+                    <form>
+                      <a class="nav-link" href="index2.php"><b>nmapNow</b></a>
+                    </form>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="logout.php"
+                      ><?php echo $_SESSION['userID']; ?>, <b>Logout</b></a
+                    >
+                  </li>
+                </ul>
               </div>
             </nav>
           </header>
