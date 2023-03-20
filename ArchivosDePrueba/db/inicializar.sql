@@ -7,6 +7,15 @@ CREATE TABLE IF NOT EXISTS nmapIndividual(
     version text
 );
 
+CREATE TABLE IF NOT EXISTS nmapNow(
+    ip VARCHAR(40),
+    hostname varchar(100),
+    port varchar(200),
+    protocol text,
+    service text,
+    version text
+);
+
 CREATE TABLE IF NOT EXISTS lastAnalyze(
     ip VARCHAR(40),
     hostname varchar(100),
@@ -21,6 +30,12 @@ CREATE TABLE IF NOT EXISTS inspectIndividual(
     idIpIndividual SERIAL PRIMARY KEY,
     ip text
 );
+
+CREATE TABLE IF NOT EXISTS inspectNow(
+    idIpIndividual SERIAL PRIMARY KEY,
+    ip text
+);
+
 
 
 CREATE TABLE IF NOT EXISTS users(

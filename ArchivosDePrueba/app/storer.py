@@ -6,20 +6,58 @@ import psycopg2
 import os
 
 # Constants
-INPUT_FILE = './app/datos.xml'
-POSTGRES_CONFIG_FILE = './app/postgresConfiguration.txt'
 
+NUM = int(sys.argv[1])
+
+
+if NUM == 1:
+    INPUT_FILE = './datos.xml'
+    POSTGRES_CONFIG_FILE = './postgresConfiguration.txt'
 # Read postgresConfiguration.txt and set env variables
-with open(POSTGRES_CONFIG_FILE, encoding='utf-8') as f:
-    for line in f:
-        name, value = line.strip().split('=')
-        os.environ[name] = value
+    with open(POSTGRES_CONFIG_FILE, encoding='utf-8') as f:
+        for line in f:
+            name, value = line.strip().split('=')
+            os.environ[name] = value
+        # Get env variables
+    user = os.environ['DB_USER']
+    password = os.environ['DB_PASS']
+    hostdb = os.environ['DB_HOST']
+    database = os.environ['DB_DB']
+    
+    conn = psycopg2.connect(host=hostdb, database=database,
+                            user=user, password=password)
+    cursor = conn.cursor()
+    # Insert data into lastAnalyze table
+    cursor.execute("DELETE FROM nmapNow")
+    conn.commit()
+    cursor.execute("DELETE FROM stats")
+    conn.commit()
 
-# Get env variables
-user = os.environ['DB_USER']
-password = os.environ['DB_PASS']
-hostdb = os.environ['DB_HOST']
-database = os.environ['DB_DB']
+if NUM != 1:
+    INPUT_FILE = './app/datos.xml'
+    POSTGRES_CONFIG_FILE = './app/postgresConfiguration.txt'
+# Read postgresConfiguration.txt and set env variables
+    with open(POSTGRES_CONFIG_FILE, encoding='utf-8') as f:
+        for line in f:
+            name, value = line.strip().split('=')
+            os.environ[name] = value
+        # Get env variables
+    user = os.environ['DB_USER']
+    password = os.environ['DB_PASS']
+    hostdb = os.environ['DB_HOST']
+    database = os.environ['DB_DB']
+    
+    conn = psycopg2.connect(host=hostdb, database=database,
+                            user=user, password=password)
+    cursor = conn.cursor()
+    # Insert data into lastAnalyze table
+    cursor.execute("INSERT INTO lastAnalyze SELECT * FROM nmapIndividual")
+    conn.commit()
+    cursor.execute("DELETE FROM nmapIndividual")
+    conn.commit()
+    cursor.execute("DELETE FROM stats")
+    conn.commit()
+    
 
 # we input the file
 
@@ -48,6 +86,29 @@ def parse_for_individual(ip, hostname, portnum, protocol, service, versioning):
                    (ip, hostname, portnum, protocol, service, versioning))
     conn.commit()
 
+def parse_for_now(ip, hostname, portnum, protocol, service, versioning):
+    """
+    Inserts now nmap scan results into a PostgreSQL database.
+
+    Args:
+        ip (str): The IP address of the scanned host.
+        hostname (str): The hostname of the scanned host.
+        portnum (int): The port number of the scanned service.
+        protocol (str): The protocol of the scanned service (e.g. tcp or udp).
+        service (str): The name of the scanned service.
+        versioning (str): The version information of the scanned service.
+        vuln (str): The vulnerability information of the scanned service.
+
+    Returns:
+        None
+    """
+    conn = psycopg2.connect(host=hostdb, database=database,
+                            user=user, password=password)
+    cursor = conn.cursor()
+    # Insert data into nmapIndividual table
+    cursor.execute("INSERT INTO nmapNow(ip, hostname, port, protocol,service, version) VALUES (%s, %s, %s, %s, %s, %s)",
+                   (ip, hostname, portnum, protocol, service, versioning))
+    conn.commit()
 
 def raw_parser(NUM):
     """
@@ -57,16 +118,6 @@ def raw_parser(NUM):
     This is like this because in a future you can implement another function
     with this parser.
     """
-    conn = psycopg2.connect(host=hostdb, database=database,
-                            user=user, password=password)
-    cursor = conn.cursor()
-    # Insert data into lastAnalyze table
-    cursor.execute("INSERT INTO lastAnalyze SELECT * FROM nmapIndividual")
-    conn.commit()
-    cursor.execute("DELETE FROM nmapIndividual")
-    conn.commit()
-    cursor.execute("DELETE FROM stats")
-    conn.commit()
 
     try:
         tree = ET.parse(INPUT_FILE)
@@ -122,7 +173,7 @@ def raw_parser(NUM):
             if NUM != 1:
                 parse_for_individual(ip, hostname, portnum,
                                      protocol, service, versioning)
+            else: parse_for_now(ip, hostname, portnum,
+                                     protocol, service, versioning)
 
-
-NUM = int(sys.argv[1])
 raw_parser(NUM)
