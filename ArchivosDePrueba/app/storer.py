@@ -63,7 +63,7 @@ if NUM != 1:
 # we input the file
 
 
-def parse_for_individual(ip, hostname, portnum, protocol, service, cpe):
+def parse_for_individual(ip, hostname, portnum, protocol, service, versioning):
     """
     Inserts individual nmap scan results into a PostgreSQL database.
 
@@ -84,10 +84,10 @@ def parse_for_individual(ip, hostname, portnum, protocol, service, cpe):
     cursor = conn.cursor()
     # Insert data into nmapIndividual table
     cursor.execute("INSERT INTO nmapIndividual(ip, hostname, port, protocol,service, version) VALUES (%s, %s, %s, %s, %s, %s)",
-                   (ip, hostname, portnum, protocol, service, cpe))
+                   (ip, hostname, portnum, protocol, service, versioning))
     conn.commit()
 
-def parse_for_now(ip, hostname, portnum, protocol, service, cpe):
+def parse_for_now(ip, hostname, portnum, protocol, service, versioning):
     """
     Inserts now nmap scan results into a PostgreSQL database.
 
@@ -107,8 +107,8 @@ def parse_for_now(ip, hostname, portnum, protocol, service, cpe):
                             user=user, password=password)
     cursor = conn.cursor()
     # Insert data into nmapIndividual table
-    cursor.execute("INSERT INTO nmapNow(ip, hostname, port, protocol, service, version) VALUES (%s, %s, %s, %s, %s, %s)",
-                   (ip, hostname, portnum, protocol, service, cpe))
+    cursor.execute("INSERT INTO nmapNow(ip, hostname, port, protocol,service, version) VALUES (%s, %s, %s, %s, %s, %s)",
+                   (ip, hostname, portnum, protocol, service, versioning))
     conn.commit()
 
 def raw_parser(NUM):
@@ -172,11 +172,11 @@ def raw_parser(NUM):
                 for cve in port.find('script').findall("table"):
                     cpe = cve.get('key')
             print(
-                f"Dato insertado {ip}, {hostname}, {portnum}, {protocol}, {service}, {cpe}\n")
+                f"Dato insertado {ip}, {hostname}, {portnum}, {protocol}, {service}, {versioning}\n")
             if NUM != 1:
                 parse_for_individual(ip, hostname, portnum,
-                                     protocol, service, cpe)
+                                     protocol, service, versioning)
             else: parse_for_now(ip, hostname, portnum,
-                                     protocol, service, cpe)
+                                     protocol, service, versioning)
 
 raw_parser(NUM)
