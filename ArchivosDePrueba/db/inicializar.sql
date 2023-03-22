@@ -36,8 +36,6 @@ CREATE TABLE IF NOT EXISTS inspectNow(
     ip text
 );
 
-
-
 CREATE TABLE IF NOT EXISTS users(
     userID VARCHAR(40),
     password varchar(100)
