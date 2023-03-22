@@ -46,12 +46,6 @@ CREATE TABLE buttons (
     selection TEXT NOT NULL
 );
 
-CREATE TABLE login_attempts (
-  user_id VARCHAR(50) NOT NULL,
-  timestamp TIMESTAMP NOT NULL,
-  ip_address VARCHAR(50) NOT NULL
-);
-
 CREATE TABLE stats (
     idTime SERIAL PRIMARY KEY,
     summary text

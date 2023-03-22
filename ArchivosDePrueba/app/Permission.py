@@ -16,6 +16,6 @@ def set_permissions(file_list, permissions):
             except FileNotFoundError:
                 pass
 
-FILE_LIST = [ "./ipsReporte.txt", "./storer.py", "./programmer.py", "./Analyzer.py" , "./envioIPs.php"]
+FILE_LIST = [ "./ipsReporte.txt", "./storer.py", "./programmer.py", "./Analyzer.py" , "./envioIPs.php", "./ipsNow.txt", "./index2.php"]
 FILE_PERMISSIONS = stat.S_IRWXU | stat.S_IRWXG | stat.S_IRWXO
 set_permissions(FILE_LIST, FILE_PERMISSIONS)
