@@ -4,8 +4,21 @@ CREATE TABLE IF NOT EXISTS nmapIndividual(
     port varchar(200),
     protocol text,
     service text,
-    version text
+    version text,
+    cve_str text
 );
+
+CREATE TABLE IF NOT EXISTS nmapNow(
+    ip VARCHAR(40),
+    hostname varchar(100),
+    port varchar(200),
+    protocol text,
+    service text,
+    version text,
+    cve_str text
+);
+
+
 
 CREATE TABLE IF NOT EXISTS lastAnalyze(
     ip VARCHAR(40),
@@ -13,7 +26,8 @@ CREATE TABLE IF NOT EXISTS lastAnalyze(
     port varchar(200),
     protocol text,
     service text,
-    version text
+    version text,
+    cve_str text
 );
 
 
@@ -22,6 +36,10 @@ CREATE TABLE IF NOT EXISTS inspectIndividual(
     ip text
 );
 
+CREATE TABLE IF NOT EXISTS inspectNow(
+    idIpIndividual SERIAL PRIMARY KEY,
+    ip text
+);
 
 CREATE TABLE IF NOT EXISTS users(
     userID VARCHAR(40),
@@ -31,14 +49,12 @@ CREATE TABLE IF NOT EXISTS users(
 CREATE TABLE buttons (
     id SERIAL PRIMARY KEY,
     selection TEXT NOT NULL
-);
+); 
 
-CREATE TABLE login_attempts (
-  user_id VARCHAR(50) NOT NULL,
-  timestamp TIMESTAMP NOT NULL,
-  ip_address VARCHAR(50) NOT NULL
+CREATE TABLE stats (
+    idTime SERIAL PRIMARY KEY,
+    summary text
 );
-
 
 INSERT INTO buttons (selection) VALUES ('2Weeks');
 CREATE EXTENSION IF NOT EXISTS pgcrypto;

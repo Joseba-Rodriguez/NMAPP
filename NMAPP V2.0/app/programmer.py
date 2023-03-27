@@ -70,7 +70,6 @@ while True:
             os.system("python3 ./app/excelReport.py")
         elif new_selection == "now":
             main_task()
-            os.system("python3 ./app/excelReport.py")
 
         last_selection = new_selection
 
