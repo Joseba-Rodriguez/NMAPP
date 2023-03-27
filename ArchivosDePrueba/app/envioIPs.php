@@ -35,4 +35,10 @@ if (isset($_POST["eliminar"])) {
     $result = pg_query($conexion, $query);
     header('Location: index.php');
 }
+
+if (isset($_POST["eliminarNow"])) {
+    $query = "TRUNCATE inspectNow RESTART IDENTITY";
+    $result = pg_query($conexion, $query);
+    header('Location: index2.php');
+}
 ?>

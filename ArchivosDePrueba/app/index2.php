@@ -14,7 +14,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>NMAPP</title>
+    <title>NMAPP Now</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -95,8 +95,10 @@
           </header>
         </div>
       </div>
+      
       <div class="row">
         <div class="jwrapper">
+        <h1>NMAPP Now</h1>
           <p class="text-white mb-0 px-4 small">
             Último escaneo:
             <?php
@@ -113,86 +115,81 @@
         </div>
       </div>
       <div class="row">
-        <div class="row">
-          <div class="jwrapper">
-            <form action="envioIPs.php" method="post" name="formulario">
-              <div class="row">
-                <div class="col-md-10">
-                  <div class="form-group">
-                    <input
-                      class="form-control validate"
-                      type="text"
-                      name="ipNow"
-                      placeholder="Introduce IP o rangos de IPs. p.e 192.168.0.1 o ehu.es"
-                    />
-                  </div>
+        <div class="jwrapper">
+          <form action="envioIPs.php" method="post" name="formulario">
+            <div class="row">
+              <div class="col-md-10">
+                <div class="form-group">
+                  <input
+                    class="form-control validate"
+                    type="text"
+                    name="ipNow"
+                    placeholder="Introduce IP o rangos de IPs. p.e 192.168.0.1 o ehu.es"
+                  />
                 </div>
-                <div class="col-md-10">
-                  <div class="form-group">
-                    <div class="input-group-append">
-                      <button
-                        class="btn btn-primary text-uppercase me-2"
-                        type="submit"
-                      >
-                        Enviar
-                      </button>
-                      <button
-                        class="btn btn-danger text-uppercase"
-                        type="submit"
-                        name="eliminar"
-                        data-bs-toggle="modal"
-                        data-bs-target="#eliminarModal"
-                      >
-                        Eliminar
-                      </button>
-                    </div>
+              </div>
+              <div class="col-md-10">
+                <div class="form-group">
+                  <div class="input-group-append">
+                    <button
+                      class="btn btn-primary text-uppercase me-2"
+                      type="submit"
+                    >
+                      Enviar
+                    </button>
+                    <a
+                      href="#eliminarModal"
+                      class="btn btn-danger text-uppercase modal-trigger"
+                      data-bs-toggle="modal"
+                    >
+                      Eliminar
+                    </a>
                   </div>
                 </div>
               </div>
-            </form>
-          </div>
+            </div>
+          </form>
         </div>
-        
+      </div>
 
-        <div
-          class="modal fade"
-          id="eliminarModal"
-          tabindex="-1"
-          aria-labelledby="eliminarModalLabel"
-          aria-hidden="true"
-        >
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="eliminarModalLabel">
-                  Eliminar datos
-                </h5>
+      <div
+        class="modal fade"
+        id="eliminarModal"
+        tabindex="-1"
+        aria-labelledby="eliminarModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="eliminarModalLabel">
+                Eliminar datos
+              </h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <p>
+                ¿Está seguro de que desea eliminar todas las IPs introducidas
+                para escanear?
+              </p>
+            </div>
+            <div class="modal-footer">
+              <form action="envioIPs.php" method="post" name="eliminarForm">
+                <input type="hidden" name="eliminarNow" value="true" />
                 <button
                   type="button"
-                  class="btn-close"
+                  class="btn btn-secondary"
                   data-bs-dismiss="modal"
-                  aria-label="Close"
-                ></button>
-              </div>
-              <div class="modal-body">
-                <p>
-                  ¿Está seguro de que desea eliminar todos los datos de la base
-                  de datos inspectIndividual?
-                </p>
-              </div>
-              <div class="modal-footer">
-                <form action="envioIPs.php" method="post" name="eliminarForm">
-                  <input type="hidden" name="eliminar" value="true" />
-                  <button
-                    type="button"
-                    class="btn btn-secondary"
-                    data-bs-dismiss="modal"
-                  >
-                    Cancelar
-                  </button>
-                  <button type="submit" class="btn btn-danger">Eliminar</button>
-                </form>
-              </div>
+                >
+                  Cancelar
+                </button>
+                <button type="submit" class="btn btn-danger">Eliminar</button>
+              </form>
             </div>
           </div>
         </div>
@@ -237,11 +234,27 @@
           </form>
         </div>
       </div>
+       <div class="row">
+        <div class="jwrapper">
+          <p class="text-white mb-0 px-4 small">
+            Botón seleccionado: <span id="timer"></span>
+            <?php
+                        $query = "SELECT selection FROM buttons ORDER BY id DESC LIMIT 1";
+                        $result = pg_query($conexion, $query) or die('Query failed: ' . pg_last_error());
+                        // Obtenemos los resultados
+                        $row = pg_fetch_array($result, null, PGSQL_ASSOC);
+                        // Mostramos el resultado
+                        $selected = $row['selection'];
+                        echo $selected;
+                        ?>
+          </p>
+        </div>
+      </div>
       <div class="row">
         <div class="jwrapper">
           <?php
           # Query to group the data by IP
-          $query = "SELECT ip, hostname, port, protocol, service, version FROM nmapNow";
+          $query = "SELECT ip, hostname, port, protocol, service, version, cve_str FROM nmapNow";
           $result = pg_query($conexion, $query);
           
           # Initialize the current IP variable
@@ -254,11 +267,12 @@
               # If it has, close the previous table (if it exists) and create a new one
               if (!empty($currentIp)) {
           ?>
-          </tbody>
-        </table>
+
           <?php
               }
           ?>
+            </tbody>
+          </table>
           <h2>
             IP:
             <?php echo $row['ip']; ?>
@@ -271,26 +285,93 @@
                 <th>PROTOCOL</th>
                 <th>SERVICE</th>
                 <th>VERSION</th>
+                <th>Vulnerabilities</th>
               </tr>
             </thead>
             <tbody>
               <?php
-              # Update the current IP variable
-              $currentIp = $row['ip'];
-            }
-          ?>
+          # Update the current IP variable
+          $currentIp = $row['ip'];
+        }
+        $cve_array = explode(';', $row['cve_str']);
+        # Get the first vulnerability from the array
+        $first_vulnerability = isset($cve_array[0]) ? $cve_array[0] : "";
+        # Extract the criticity from the vulnerability string
+        preg_match('/\d\.\d/', $first_vulnerability, $matches);
+        $criticity = isset($matches[0]) ? $matches[0] : "";
+        # Set the color of the button based on the criticity
+        if ($criticity >
+              8) { $button_color = 'btn-danger'; } elseif ($criticity >= 5) {
+              $button_color = 'btn-warning'; } else { $button_color =
+              'btn-primary'; } ?>
               <tr>
                 <td><?php echo $row['hostname']; ?></td>
                 <td><?php echo $row['port']; ?></td>
                 <td><?php echo $row['protocol']; ?></td>
                 <td><?php echo $row['service']; ?></td>
                 <td><?php echo $row['version']; ?></td>
+                <td>
+                  <?php if (!empty($row['cve_str'])) { ?>
+                  <button
+                    type="button"
+                    class="<?php echo $button_color; ?>"
+                    onclick="showModal('<?php echo $row['cve_str']; ?>')"
+                  >
+                    Ver vulnerabilidades
+                    <span class="vulnerability-level">
+                      <?php
+                      switch ($button_color) {
+                        case 'btn-danger':
+                          echo ' - Crítica';
+                          break;
+                        case 'btn-warning':
+                          echo ' - Media';
+                          break;
+                        case 'btn-info':
+                          echo ' - Baja';
+                          break;
+                        default:
+                          echo '';
+                          break;
+                      }
+                    ?>
+                    </span>
+                  </button>
+                  <?php } ?>
+                </td>
               </tr>
+              <!-- Modal -->
+              <div
+                class="modal fade"
+                id="vulnerabilityModal"
+                tabindex="-1"
+                aria-labelledby="vulnerabilityModalLabel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="vulnerabilityModalLabel">
+                        Vulnerabilidades
+                      </h5>
+                      <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+                    <div class="modal-body">
+                      <p id="vulnerabilityList"></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
               <?php
-          }
-          # Close the final table
-          if (!empty($currentIp)) {
-          ?>
+              }
+              # Close the final table
+              if (!empty($currentIp)) {
+              ?>
             </tbody>
           </table>
           <?php
@@ -298,6 +379,29 @@
           ?>
         </div>
       </div>
+      <script>
+        function showModal(cveStr) {
+          // Split the CVE string by semicolon and create a list of vulnerabilities
+          const vulnerabilities = cveStr
+            .split(";")
+            .map((str) => str.trim())
+            .filter((str) => str !== "");
+
+          // Update the modal content
+          const vulnerabilityList =
+            document.getElementById("vulnerabilityList");
+          vulnerabilityList.innerHTML =
+            vulnerabilities.length > 0
+              ? vulnerabilities.join("<br>")
+              : "No hay vulnerabilidades.";
+
+          // Show the modal
+          const modal = new bootstrap.Modal(
+            document.getElementById("vulnerabilityModal")
+          );
+          modal.show();
+        }
+      </script>
       <div class="row">
         <div class="jwrapper">
           <footer>
