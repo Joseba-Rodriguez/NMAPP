@@ -142,89 +142,85 @@
         </div>
       </div>
       <div class="row">
-        <div class="row">
-          <div class="jwrapper">
-            <form action="envioIPs.php" method="post" name="formulario">
-              <div class="row">
-                <div class="col-md-10">
-                  <div class="form-group">
-                    <input
-                      class="form-control validate"
-                      type="text"
-                      name="ipIndividual"
-                      placeholder="Introduce IP o rangos de IPs. p.e 192.168.0.1 o ehu.es"
-                    />
-                  </div>
-                </div>
-                <div class="col-md-10">
-                  <div class="form-group">
-                    <div class="input-group-append">
-                      <button
-                        class="btn btn-primary text-uppercase me-2"
-                        type="submit"
-                      >
-                        Enviar
-                      </button>
-                      <button
-                        class="btn btn-danger text-uppercase"
-                        type="submit"
-                        name="eliminar"
-                        data-bs-toggle="modal"
-                        data-bs-target="#eliminarModal"
-                      >
-                        Eliminar
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </form>
+  <div class="jwrapper">
+    <form action="envioIPs.php" method="post" name="formulario">
+      <div class="row">
+        <div class="col-md-10">
+          <div class="form-group">
+            <input
+              class="form-control validate"
+              type="text"
+              name="ipIndividual"
+              placeholder="Introduce IP o rangos de IPs. p.e 192.168.0.1 o ehu.es"
+            />
           </div>
         </div>
-
-        <div
-          class="modal fade"
-          id="eliminarModal"
-          tabindex="-1"
-          aria-labelledby="eliminarModalLabel"
-          aria-hidden="true"
-        >
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="eliminarModalLabel">
-                  Eliminar datos
-                </h5>
-                <button
-                  type="button"
-                  class="btn-close"
-                  data-bs-dismiss="modal"
-                  aria-label="Close"
-                ></button>
-              </div>
-              <div class="modal-body">
-                <p>
-                  ¿Está seguro de que desea eliminar todos los datos de la base
-                  de datos inspectIndividual?
-                </p>
-              </div>
-              <div class="modal-footer">
-                <form action="envioIPs.php" method="post" name="eliminarForm">
-                  <input type="hidden" name="eliminar" value="true" />
-                  <button
-                    type="button"
-                    class="btn btn-secondary"
-                    data-bs-dismiss="modal"
-                  >
-                    Cancelar
-                  </button>
-                  <button type="submit" class="btn btn-danger">Eliminar</button>
-                </form>
-              </div>
+        <div class="col-md-10">
+          <div class="form-group">
+            <div class="input-group-append">
+              <button
+                class="btn btn-primary text-uppercase me-2"
+                type="submit"
+              >
+                Enviar
+              </button>
+              <a
+                href="#eliminarModal"
+                class="btn btn-danger text-uppercase modal-trigger"
+                data-bs-toggle="modal"
+              >
+                Eliminar
+              </a>
             </div>
           </div>
         </div>
       </div>
+    </form>
+  </div>
+</div>
+
+<div
+  class="modal fade"
+  id="eliminarModal"
+  tabindex="-1"
+  aria-labelledby="eliminarModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="eliminarModalLabel">
+          Eliminar datos
+        </h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <p>
+          ¿Está seguro de que desea eliminar todas las IPs introducidas para escanear?
+        </p>
+      </div>
+      <div class="modal-footer">
+        <form action="envioIPs.php" method="post" name="eliminarForm">
+          <input type="hidden" name="eliminar" value="true" />
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Cancelar
+          </button>
+          <button type="submit" class="btn btn-danger">Eliminar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
       <div class="row">
         <div class="jwrapper">
           <?php  

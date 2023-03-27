@@ -28,4 +28,11 @@ if (isset($_POST["ipNow"])) {
     // Redirect the user to the main page
     header('Location: index2.php');
 }
+
+// Check if "eliminar" parameter has been sent
+if (isset($_POST["eliminar"])) {
+    $query = "TRUNCATE inspectIndividual RESTART IDENTITY";
+    $result = pg_query($conexion, $query);
+    header('Location: index.php');
+}
 ?>
