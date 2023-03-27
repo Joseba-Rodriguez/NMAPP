@@ -53,9 +53,16 @@ def main_task():
     # Execute the main task here
     os.system("python3 ./app/Analyzer.py")
 
+def DBVulners():
+    """
+    This is the main task that will be executed.
+    """
+    # Execute the main task here
+    os.system("python3 ./app/DBVulners.py")
 
 # Infinite loop
 while True:
+    schedule.every(30).days.at("00:00").do(DBVulners)
     # Check the last selection of the button every 2 seconds
     new_selection = get_last_selection()
 
