@@ -305,7 +305,7 @@
         <div class="jwrapper">
           <?php
           # Query to group the data by IP
-          $query = "SELECT ip, hostname, port, protocol, service, version,cve_str FROM nmapIndividual";
+          $query = "SELECT ip, hostname, port, protocol, service, version, cve_str FROM nmapIndividual";
           $result = pg_query($conexion, $query);
           
           # Initialize the current IP variable
@@ -350,8 +350,26 @@
                 <td><?php echo $row['protocol']; ?></td>
                 <td><?php echo $row['service']; ?></td>
                 <td><?php echo $row['version']; ?></td>
-                <td><?php echo $row['cve_str']; ?></td>
-              </tr>
+                <td>
+                <?php if (!empty($row['cve_str'])) { ?>
+                  <button type="button" class="btn btn-link" onclick="showModal('<?php echo $row['cve_str']; ?>')">Ver vulnerabilidades</button>
+                <?php } ?>
+              </td>              
+            </tr>
+            <!-- Modal -->
+<div class="modal fade" id="vulnerabilityModal" tabindex="-1" aria-labelledby="vulnerabilityModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="vulnerabilityModalLabel">Vulnerabilidades</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p id="vulnerabilityList"></p>
+      </div>
+    </div>
+  </div>
+</div>
               <?php
           }
           # Close the final table
@@ -364,6 +382,20 @@
           ?>
         </div>
       </div>
+            <script>
+  function showModal(cveStr) {
+    // Split the CVE string by semicolon and create a list of vulnerabilities
+    const vulnerabilities = cveStr.split(';').map(str => str.trim()).filter(str => str !== '');
+    
+    // Update the modal content
+    const vulnerabilityList = document.getElementById('vulnerabilityList');
+    vulnerabilityList.innerHTML = vulnerabilities.length > 0 ? vulnerabilities.join('<br>') : 'No hay vulnerabilidades.';
+    
+    // Show the modal
+    const modal = new bootstrap.Modal(document.getElementById('vulnerabilityModal'));
+    modal.show();
+  }
+</script>
       <div class="row">
         <div class="jwrapper">
           <footer>
@@ -389,6 +421,7 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     </div>
   </body>
 </html>
