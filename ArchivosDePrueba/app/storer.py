@@ -63,7 +63,7 @@ if NUM != 1:
 # we input the file
 
 
-def parse_for_individual(ip, hostname, portnum, protocol, service, versioning):
+def parse_for_individual(ip, hostname, portnum, protocol, service, versioning, cve_str):
     """
     Inserts individual nmap scan results into a PostgreSQL database.
 
@@ -83,11 +83,11 @@ def parse_for_individual(ip, hostname, portnum, protocol, service, versioning):
                             user=user, password=password)
     cursor = conn.cursor()
     # Insert data into nmapIndividual table
-    cursor.execute("INSERT INTO nmapIndividual(ip, hostname, port, protocol,service, version) VALUES (%s, %s, %s, %s, %s, %s)",
-                   (ip, hostname, portnum, protocol, service, versioning))
+    cursor.execute("INSERT INTO nmapIndividual(ip, hostname, port, protocol,service, version, cve_str) VALUES (%s, %s, %s, %s, %s, %s, %s)",
+                   (ip, hostname, portnum, protocol, service, versioning, cve_str))
     conn.commit()
 
-def parse_for_now(ip, hostname, portnum, protocol, service, versioning):
+def parse_for_now(ip, hostname, portnum, protocol, service, versioning, cve_str):
     """
     Inserts now nmap scan results into a PostgreSQL database.
 
@@ -107,8 +107,8 @@ def parse_for_now(ip, hostname, portnum, protocol, service, versioning):
                             user=user, password=password)
     cursor = conn.cursor()
     # Insert data into nmapIndividual table
-    cursor.execute("INSERT INTO nmapNow(ip, hostname, port, protocol,service, version) VALUES (%s, %s, %s, %s, %s, %s)",
-                   (ip, hostname, portnum, protocol, service, versioning))
+    cursor.execute("INSERT INTO nmapNow(ip, hostname, port, protocol,service, version, cve_str) VALUES (%s, %s, %s, %s, %s, %s, %s)",
+                   (ip, hostname, portnum, protocol, service, versioning, cve_str))
     conn.commit()
 
 def raw_parser(NUM):
@@ -169,14 +169,20 @@ def raw_parser(NUM):
                 versioning += ' (' + version + ')' if version else ''
                 versioning += ' (' + extrainfo + ')' if extrainfo else ''
                 versioning = product.replace("'", "")
-                for cve in port.find('script').findall("table"):
-                    cpe = cve.get('key')
+                cve_list = []
+                for script in port.findall('script'):
+                    if 'output' in script.attrib:
+                        output = script.attrib['output']
+                        for line in output.split('\n'):
+                            if 'CVE-' in line:
+                                cve_list.append(line.strip())
+                cve_str = ";".join(cve_list)
             print(
-                f"Dato insertado {ip}, {hostname}, {portnum}, {protocol}, {service}, {versioning}\n")
+                f"Dato insertado {ip}, {hostname}, {portnum}, {protocol}, {service}, {versioning}, {cve_str}\n")
             if NUM != 1:
                 parse_for_individual(ip, hostname, portnum,
-                                     protocol, service, versioning)
+                                     protocol, service, versioning,cve_str)
             else: parse_for_now(ip, hostname, portnum,
-                                     protocol, service, versioning)
+                                     protocol, service, versioning,cve_str)
 
 raw_parser(NUM)

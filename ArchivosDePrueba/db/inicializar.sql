@@ -4,7 +4,8 @@ CREATE TABLE IF NOT EXISTS nmapIndividual(
     port varchar(200),
     protocol text,
     service text,
-    version text
+    version text,
+    cve_str text
 );
 
 CREATE TABLE IF NOT EXISTS nmapNow(
@@ -13,8 +14,11 @@ CREATE TABLE IF NOT EXISTS nmapNow(
     port varchar(200),
     protocol text,
     service text,
-    version text
+    version text,
+    cve_str text
 );
+
+
 
 CREATE TABLE IF NOT EXISTS lastAnalyze(
     ip VARCHAR(40),
@@ -22,7 +26,8 @@ CREATE TABLE IF NOT EXISTS lastAnalyze(
     port varchar(200),
     protocol text,
     service text,
-    version text
+    version text,
+    cve_str text
 );
 
 
@@ -44,7 +49,7 @@ CREATE TABLE IF NOT EXISTS users(
 CREATE TABLE buttons (
     id SERIAL PRIMARY KEY,
     selection TEXT NOT NULL
-);
+); 
 
 CREATE TABLE stats (
     idTime SERIAL PRIMARY KEY,

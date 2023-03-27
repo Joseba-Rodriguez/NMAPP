@@ -305,7 +305,7 @@
         <div class="jwrapper">
           <?php
           # Query to group the data by IP
-          $query = "SELECT ip, hostname, port, protocol, service, version FROM nmapIndividual";
+          $query = "SELECT ip, hostname, port, protocol, service, version,cve_str FROM nmapIndividual";
           $result = pg_query($conexion, $query);
           
           # Initialize the current IP variable
@@ -335,6 +335,7 @@
                 <th>PROTOCOL</th>
                 <th>SERVICE</th>
                 <th>VERSION</th>
+                <th>Vulnerabilities</th>
               </tr>
             </thead>
             <tbody>
@@ -349,6 +350,7 @@
                 <td><?php echo $row['protocol']; ?></td>
                 <td><?php echo $row['service']; ?></td>
                 <td><?php echo $row['version']; ?></td>
+                <td><?php echo $row['cve_str']; ?></td>
               </tr>
               <?php
           }

@@ -6,12 +6,10 @@ import psycopg2
 import os
 
 # Constants
-
-NUM = int(sys.argv[1])
 INPUT_FILE = './datos.xml'
 
 
-def raw_parser(NUM):
+def raw_parser():
     """
     This function parses an NMAP XML file and inserts the data into a PostgreSQL database.
     :param NUM: an integer representing a parameter for the function. 
@@ -52,8 +50,6 @@ def raw_parser(NUM):
             if state != "filtered":
                 service = port.find('service').get(
                     'name') if port.find('service') is not None else ""
-                vuln = port.find('script').get('output').replace("'", "") if port.find(
-                    'script') is not None and port.find('script').get('output') is not None else ""
                 product = port.find('service').get('product') if port.find(
                     'service') is not None and port.find('service').get('product') is not None else ""
                 version = port.find('service').get('version') if port.find(
@@ -64,9 +60,14 @@ def raw_parser(NUM):
                 versioning += ' (' + version + ')' if version else ''
                 versioning += ' (' + extrainfo + ')' if extrainfo else ''
                 versioning = version.replace("'", "")
-                for cve in port.find('script').findall("table"):
-                    cpe = cve.get('key')
-            print(
-                f"Dato insertado {ip}, {hostname}, {portnum}, {protocol}, {service}, {product}, {cpe}\n")
-
-raw_parser(NUM)
+                cve_list = []
+                for script in port.findall('script'):
+                    if 'output' in script.attrib:
+                        output = script.attrib['output']
+                        for line in output.split('\n'):
+                            if 'CVE-' in line:
+                                cve_list.append(line.strip())
+                cve_str = ";".join(cve_list)
+                print(
+                    f"Dato insertado {ip}, {hostname}, {portnum}, {protocol}, {service}, {product}, {cve_str}\n")
+raw_parser()
