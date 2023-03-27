@@ -79,9 +79,7 @@
                   </li>
                   <li class="nav-item">
                     <form>
-                      <a class="nav-link" href="index2.php"
-                        ><b>nmapNow</b></a
-                      >
+                      <a class="nav-link" href="index2.php"><b>nmapNow</b></a>
                     </form>
                   </li>
                   <li class="nav-item">
@@ -318,8 +316,8 @@
               # If it has, close the previous table (if it exists) and create a new one
               if (!empty($currentIp)) {
           ?>
-          </tbody>
-        </table>
+        </tbody>
+      </table>
           <?php
               }
           ?>
@@ -339,37 +337,70 @@
               </tr>
             </thead>
             <tbody>
-              <?php
-              # Update the current IP variable
-              $currentIp = $row['ip'];
-            }
-          ?>
-              <tr>
-                <td><?php echo $row['hostname']; ?></td>
-                <td><?php echo $row['port']; ?></td>
-                <td><?php echo $row['protocol']; ?></td>
-                <td><?php echo $row['service']; ?></td>
-                <td><?php echo $row['version']; ?></td>
-                <td>
-                <?php if (!empty($row['cve_str'])) { ?>
-                  <button type="button" class="btn btn-link" onclick="showModal('<?php echo $row['cve_str']; ?>')">Ver vulnerabilidades</button>
-                <?php } ?>
-              </td>              
-            </tr>
-            <!-- Modal -->
-<div class="modal fade" id="vulnerabilityModal" tabindex="-1" aria-labelledby="vulnerabilityModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="vulnerabilityModalLabel">Vulnerabilidades</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <p id="vulnerabilityList"></p>
-      </div>
-    </div>
-  </div>
-</div>
+            <?php
+          # Update the current IP variable
+          $currentIp = $row['ip'];
+        }
+        $cve_array = explode(';', $row['cve_str']);
+        # Get the first vulnerability from the array
+        $first_vulnerability = isset($cve_array[0]) ? $cve_array[0] : "";
+        # Extract the criticity from the vulnerability string
+        preg_match('/\d\.\d/', $first_vulnerability, $matches);
+        $criticity = isset($matches[0]) ? $matches[0] : "";
+        # Set the color of the button based on the criticity
+        if ($criticity > 8) {
+          $button_color = 'btn-danger';
+        } elseif ($criticity >= 5) {
+          $button_color = 'btn-warning';
+        } else {
+          $button_color = 'btn-primary';
+        }
+      ?>
+          <tr>
+            <td><?php echo $row['hostname']; ?></td>
+            <td><?php echo $row['port']; ?></td>
+            <td><?php echo $row['protocol']; ?></td>
+            <td><?php echo $row['service']; ?></td>
+            <td><?php echo $row['version']; ?></td>
+            <td>
+              <?php if (!empty($row['cve_str'])) { ?>
+                <button
+    type="button"
+    class="<?php echo $button_color; ?>"
+    onclick="showModal('<?php echo $row['cve_str']; ?>')"
+>
+    Ver vulnerabilidades
+</button>
+              <?php } ?>
+            </td>
+          </tr>
+              <!-- Modal -->
+              <div
+                class="modal fade"
+                id="vulnerabilityModal"
+                tabindex="-1"
+                aria-labelledby="vulnerabilityModalLabel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="vulnerabilityModalLabel">
+                        Vulnerabilidades
+                      </h5>
+                      <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+                    <div class="modal-body">
+                      <p id="vulnerabilityList"></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
               <?php
           }
           # Close the final table
@@ -382,20 +413,29 @@
           ?>
         </div>
       </div>
-            <script>
-  function showModal(cveStr) {
-    // Split the CVE string by semicolon and create a list of vulnerabilities
-    const vulnerabilities = cveStr.split(';').map(str => str.trim()).filter(str => str !== '');
-    
-    // Update the modal content
-    const vulnerabilityList = document.getElementById('vulnerabilityList');
-    vulnerabilityList.innerHTML = vulnerabilities.length > 0 ? vulnerabilities.join('<br>') : 'No hay vulnerabilidades.';
-    
-    // Show the modal
-    const modal = new bootstrap.Modal(document.getElementById('vulnerabilityModal'));
-    modal.show();
-  }
-</script>
+      <script>
+        function showModal(cveStr) {
+          // Split the CVE string by semicolon and create a list of vulnerabilities
+          const vulnerabilities = cveStr
+            .split(";")
+            .map((str) => str.trim())
+            .filter((str) => str !== "");
+
+          // Update the modal content
+          const vulnerabilityList =
+            document.getElementById("vulnerabilityList");
+          vulnerabilityList.innerHTML =
+            vulnerabilities.length > 0
+              ? vulnerabilities.join("<br>")
+              : "No hay vulnerabilidades.";
+
+          // Show the modal
+          const modal = new bootstrap.Modal(
+            document.getElementById("vulnerabilityModal")
+          );
+          modal.show();
+        }
+      </script>
       <div class="row">
         <div class="jwrapper">
           <footer>
@@ -421,7 +461,6 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
     </div>
   </body>
 </html>
