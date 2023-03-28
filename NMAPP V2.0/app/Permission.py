@@ -11,6 +11,6 @@ def set_permissions(file_list, permissions):
     for file in file_list:
         os.chmod(file, permissions)
 
-FILE_LIST = [ "./ipsReporte.txt", "./storer.py", "./programmer.py", "./Analyzer.py" , "./envioIPs.php", "./ipsNow.txt", "./index2.php", "./datos.xml"]
+FILE_LIST = [ "./ipsReporte.txt", "./storer.py", "./programmer.py", "./Analyzer.py", "./DBVulners.py" , "./envioIPs.php", "./ipsNow.txt", "./index2.php", "./datos.xml"]
 FILE_PERMISSIONS = stat.S_IRWXU | stat.S_IRWXG | stat.S_IRWXO
 set_permissions(FILE_LIST, FILE_PERMISSIONS)
