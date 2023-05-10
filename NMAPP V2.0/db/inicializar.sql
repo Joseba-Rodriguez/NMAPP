@@ -1,11 +1,25 @@
 CREATE TABLE IF NOT EXISTS nmapIndividual(
+    idNmapIndividual SERIAL PRIMARY KEY,
     ip VARCHAR(40),
     hostname varchar(100),
     port varchar(200),
     protocol text,
     service text,
     version text,
-    cve_str text
+    cve_str text,
+    ts timestamp
+);
+
+CREATE TABLE IF NOT EXISTS lastAnalyze(
+    idLastAnalyze SERIAL PRIMARY KEY,
+    ip VARCHAR(40),
+    hostname varchar(100),
+    port varchar(200),
+    protocol text,
+    service text,
+    version text,
+    cve_str text,
+    ts timestamp
 );
 
 CREATE TABLE IF NOT EXISTS nmapNow(
@@ -17,19 +31,6 @@ CREATE TABLE IF NOT EXISTS nmapNow(
     version text,
     cve_str text
 );
-
-
-
-CREATE TABLE IF NOT EXISTS lastAnalyze(
-    ip VARCHAR(40),
-    hostname varchar(100),
-    port varchar(200),
-    protocol text,
-    service text,
-    version text,
-    cve_str text
-);
-
 
 CREATE TABLE IF NOT EXISTS inspectIndividual(
     idIpIndividual SERIAL PRIMARY KEY,
