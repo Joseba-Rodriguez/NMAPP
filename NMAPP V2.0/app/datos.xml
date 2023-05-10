@@ -1,210 +1,248 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE nmaprun>
 <?xml-stylesheet href="file:///usr/bin/../share/nmap/nmap.xsl" type="text/xsl"?>
-<!-- Nmap 7.80 scan initiated Tue Apr 25 13:49:12 2023 as: nmap -Pn -&#45;open -sV -&#45;script vulners -&#45;script-args mincvss=5.0 -&#45;script-args vulners.cvesonly -sV -stats-every 2s -iL ./app/ipsReporte.txt -oX ./app/datos.xml -->
-<nmaprun scanner="nmap" args="nmap -Pn -&#45;open -sV -&#45;script vulners -&#45;script-args mincvss=5.0 -&#45;script-args vulners.cvesonly -sV -stats-every 2s -iL ./app/ipsReporte.txt -oX ./app/datos.xml" start="1682430552" startstr="Tue Apr 25 13:49:12 2023" version="7.80" xmloutputversion="1.04">
+<!-- Nmap 7.80 scan initiated Wed May 10 17:24:14 2023 as: nmap -Pn -&#45;open -sV -&#45;script vulners -&#45;script-args mincvss=5.0 -&#45;script-args vulners.cvesonly -sV -stats-every 2s -iL ./app/ipsReporte.txt -oX ./app/datos.xml -->
+<nmaprun scanner="nmap" args="nmap -Pn -&#45;open -sV -&#45;script vulners -&#45;script-args mincvss=5.0 -&#45;script-args vulners.cvesonly -sV -stats-every 2s -iL ./app/ipsReporte.txt -oX ./app/datos.xml" start="1683739454" startstr="Wed May 10 17:24:14 2023" version="7.80" xmloutputversion="1.04">
 <scaninfo type="syn" protocol="tcp" numservices="1000" services="1,3-4,6-7,9,13,17,19-26,30,32-33,37,42-43,49,53,70,79-85,88-90,99-100,106,109-111,113,119,125,135,139,143-144,146,161,163,179,199,211-212,222,254-256,259,264,280,301,306,311,340,366,389,406-407,416-417,425,427,443-445,458,464-465,481,497,500,512-515,524,541,543-545,548,554-555,563,587,593,616-617,625,631,636,646,648,666-668,683,687,691,700,705,711,714,720,722,726,749,765,777,783,787,800-801,808,843,873,880,888,898,900-903,911-912,981,987,990,992-993,995,999-1002,1007,1009-1011,1021-1100,1102,1104-1108,1110-1114,1117,1119,1121-1124,1126,1130-1132,1137-1138,1141,1145,1147-1149,1151-1152,1154,1163-1166,1169,1174-1175,1183,1185-1187,1192,1198-1199,1201,1213,1216-1218,1233-1234,1236,1244,1247-1248,1259,1271-1272,1277,1287,1296,1300-1301,1309-1311,1322,1328,1334,1352,1417,1433-1434,1443,1455,1461,1494,1500-1501,1503,1521,1524,1533,1556,1580,1583,1594,1600,1641,1658,1666,1687-1688,1700,1717-1721,1723,1755,1761,1782-1783,1801,1805,1812,1839-1840,1862-1864,1875,1900,1914,1935,1947,1971-1972,1974,1984,1998-2010,2013,2020-2022,2030,2033-2035,2038,2040-2043,2045-2049,2065,2068,2099-2100,2103,2105-2107,2111,2119,2121,2126,2135,2144,2160-2161,2170,2179,2190-2191,2196,2200,2222,2251,2260,2288,2301,2323,2366,2381-2383,2393-2394,2399,2401,2492,2500,2522,2525,2557,2601-2602,2604-2605,2607-2608,2638,2701-2702,2710,2717-2718,2725,2800,2809,2811,2869,2875,2909-2910,2920,2967-2968,2998,3000-3001,3003,3005-3007,3011,3013,3017,3030-3031,3052,3071,3077,3128,3168,3211,3221,3260-3261,3268-3269,3283,3300-3301,3306,3322-3325,3333,3351,3367,3369-3372,3389-3390,3404,3476,3493,3517,3527,3546,3551,3580,3659,3689-3690,3703,3737,3766,3784,3800-3801,3809,3814,3826-3828,3851,3869,3871,3878,3880,3889,3905,3914,3918,3920,3945,3971,3986,3995,3998,4000-4006,4045,4111,4125-4126,4129,4224,4242,4279,4321,4343,4443-4446,4449,4550,4567,4662,4848,4899-4900,4998,5000-5004,5009,5030,5033,5050-5051,5054,5060-5061,5080,5087,5100-5102,5120,5190,5200,5214,5221-5222,5225-5226,5269,5280,5298,5357,5405,5414,5431-5432,5440,5500,5510,5544,5550,5555,5560,5566,5631,5633,5666,5678-5679,5718,5730,5800-5802,5810-5811,5815,5822,5825,5850,5859,5862,5877,5900-5904,5906-5907,5910-5911,5915,5922,5925,5950,5952,5959-5963,5987-5989,5998-6007,6009,6025,6059,6100-6101,6106,6112,6123,6129,6156,6346,6389,6502,6510,6543,6547,6565-6567,6580,6646,6666-6669,6689,6692,6699,6779,6788-6789,6792,6839,6881,6901,6969,7000-7002,7004,7007,7019,7025,7070,7100,7103,7106,7200-7201,7402,7435,7443,7496,7512,7625,7627,7676,7741,7777-7778,7800,7911,7920-7921,7937-7938,7999-8002,8007-8011,8021-8022,8031,8042,8045,8080-8090,8093,8099-8100,8180-8181,8192-8194,8200,8222,8254,8290-8292,8300,8333,8383,8400,8402,8443,8500,8600,8649,8651-8652,8654,8701,8800,8873,8888,8899,8994,9000-9003,9009-9011,9040,9050,9071,9080-9081,9090-9091,9099-9103,9110-9111,9200,9207,9220,9290,9415,9418,9485,9500,9502-9503,9535,9575,9593-9595,9618,9666,9876-9878,9898,9900,9917,9929,9943-9944,9968,9998-10004,10009-10010,10012,10024-10025,10082,10180,10215,10243,10566,10616-10617,10621,10626,10628-10629,10778,11110-11111,11967,12000,12174,12265,12345,13456,13722,13782-13783,14000,14238,14441-14442,15000,15002-15004,15660,15742,16000-16001,16012,16016,16018,16080,16113,16992-16993,17877,17988,18040,18101,18988,19101,19283,19315,19350,19780,19801,19842,20000,20005,20031,20221-20222,20828,21571,22939,23502,24444,24800,25734-25735,26214,27000,27352-27353,27355-27356,27715,28201,30000,30718,30951,31038,31337,32768-32785,33354,33899,34571-34573,35500,38292,40193,40911,41511,42510,44176,44442-44443,44501,45100,48080,49152-49161,49163,49165,49167,49175-49176,49400,49999-50003,50006,50300,50389,50500,50636,50800,51103,51493,52673,52822,52848,52869,54045,54328,55055-55056,55555,55600,56737-56738,57294,57797,58080,60020,60443,61532,61900,62078,63331,64623,64680,65000,65129,65389"/>
 <verbose level="0"/>
 <debugging level="0"/>
-<taskprogress task="SYN Stealth Scan" time="1682430555" percent="0.17"/>
-<taskprogress task="SYN Stealth Scan" time="1682430556" percent="5.67" remaining="50" etc="1682430606"/>
-<taskprogress task="SYN Stealth Scan" time="1682430558" percent="14.97" remaining="29" etc="1682430586"/>
-<taskprogress task="SYN Stealth Scan" time="1682430560" percent="23.98" remaining="23" etc="1682430582"/>
-<taskprogress task="SYN Stealth Scan" time="1682430562" percent="34.73" remaining="17" etc="1682430579"/>
-<taskprogress task="SYN Stealth Scan" time="1682430564" percent="42.23" remaining="16" etc="1682430579"/>
-<taskprogress task="SYN Stealth Scan" time="1682430567" percent="42.23" remaining="20" etc="1682430586"/>
-<taskprogress task="SYN Stealth Scan" time="1682430569" percent="42.23" remaining="22" etc="1682430591"/>
-<taskprogress task="SYN Stealth Scan" time="1682430571" percent="42.23" remaining="25" etc="1682430596"/>
-<taskprogress task="SYN Stealth Scan" time="1682430572" percent="43.60" remaining="25" etc="1682430597"/>
-<taskprogress task="SYN Stealth Scan" time="1682430574" percent="44.83" remaining="26" etc="1682430600"/>
-<taskprogress task="SYN Stealth Scan" time="1682430576" percent="44.88" remaining="29" etc="1682430604"/>
-<taskprogress task="SYN Stealth Scan" time="1682430578" percent="47.25" remaining="28" etc="1682430606"/>
-<taskprogress task="SYN Stealth Scan" time="1682430580" percent="48.22" remaining="29" etc="1682430609"/>
-<taskprogress task="SYN Stealth Scan" time="1682430582" percent="50.08" remaining="29" etc="1682430611"/>
-<taskprogress task="SYN Stealth Scan" time="1682430584" percent="54.03" remaining="27" etc="1682430610"/>
-<taskprogress task="SYN Stealth Scan" time="1682430586" percent="59.00" remaining="23" etc="1682430609"/>
-<taskprogress task="SYN Stealth Scan" time="1682430588" percent="65.13" remaining="19" etc="1682430607"/>
-<taskprogress task="SYN Stealth Scan" time="1682430590" percent="73.60" remaining="14" etc="1682430603"/>
-<taskprogress task="SYN Stealth Scan" time="1682430592" percent="74.82" remaining="14" etc="1682430605"/>
-<taskprogress task="SYN Stealth Scan" time="1682430594" percent="76.12" remaining="13" etc="1682430607"/>
-<taskprogress task="SYN Stealth Scan" time="1682430596" percent="77.62" remaining="13" etc="1682430608"/>
-<taskprogress task="SYN Stealth Scan" time="1682430598" percent="79.50" remaining="12" etc="1682430610"/>
-<taskprogress task="SYN Stealth Scan" time="1682430600" percent="81.92" remaining="11" etc="1682430610"/>
-<taskprogress task="SYN Stealth Scan" time="1682430602" percent="84.87" remaining="9" etc="1682430611"/>
-<taskprogress task="SYN Stealth Scan" time="1682430605" percent="88.35" remaining="7" etc="1682430612"/>
-<taskprogress task="SYN Stealth Scan" time="1682430607" percent="92.93" remaining="5" etc="1682430611"/>
-<taskprogress task="SYN Stealth Scan" time="1682430608" percent="98.63" remaining="1" etc="1682430609"/>
-<taskprogress task="Service scan" time="1682430616" percent="9.09" remaining="60" etc="1682430676"/>
-<taskprogress task="Service scan" time="1682430621" percent="54.55" remaining="10" etc="1682430630"/>
-<taskprogress task="Service scan" time="1682430622" percent="54.55" remaining="10" etc="1682430632"/>
-<taskprogress task="Service scan" time="1682430626" percent="72.73" remaining="6" etc="1682430632"/>
-<taskprogress task="Service scan" time="1682430627" percent="72.73" remaining="7" etc="1682430633"/>
-<taskprogress task="Service scan" time="1682430631" percent="72.73" remaining="8" etc="1682430639"/>
-<taskprogress task="Service scan" time="1682430632" percent="72.73" remaining="9" etc="1682430640"/>
-<taskprogress task="Service scan" time="1682430636" percent="72.73" remaining="10" etc="1682430646"/>
-<taskprogress task="Service scan" time="1682430637" percent="72.73" remaining="11" etc="1682430647"/>
-<taskprogress task="Service scan" time="1682430641" percent="72.73" remaining="12" etc="1682430653"/>
-<taskprogress task="Service scan" time="1682430642" percent="72.73" remaining="12" etc="1682430654"/>
-<taskprogress task="Service scan" time="1682430646" percent="72.73" remaining="14" etc="1682430660"/>
-<taskprogress task="Service scan" time="1682430647" percent="72.73" remaining="14" etc="1682430661"/>
-<taskprogress task="Service scan" time="1682430652" percent="72.73" remaining="16" etc="1682430668"/>
-<taskprogress task="Service scan" time="1682430653" percent="72.73" remaining="17" etc="1682430669"/>
-<taskprogress task="Service scan" time="1682430657" percent="72.73" remaining="18" etc="1682430675"/>
-<taskprogress task="Service scan" time="1682430658" percent="72.73" remaining="18" etc="1682430676"/>
-<taskprogress task="Service scan" time="1682430662" percent="72.73" remaining="20" etc="1682430682"/>
-<taskprogress task="Service scan" time="1682430663" percent="72.73" remaining="20" etc="1682430683"/>
-<taskprogress task="Service scan" time="1682430667" percent="72.73" remaining="22" etc="1682430688"/>
-<taskprogress task="Service scan" time="1682430669" percent="72.73" remaining="23" etc="1682430691"/>
-<taskprogress task="Service scan" time="1682430672" percent="72.73" remaining="24" etc="1682430695"/>
-<taskprogress task="Service scan" time="1682430674" percent="72.73" remaining="24" etc="1682430698"/>
-<taskprogress task="Service scan" time="1682430677" percent="72.73" remaining="26" etc="1682430702"/>
-<taskprogress task="Service scan" time="1682430679" percent="72.73" remaining="26" etc="1682430705"/>
-<taskprogress task="Service scan" time="1682430682" percent="72.73" remaining="28" etc="1682430709"/>
-<taskprogress task="Service scan" time="1682430684" percent="72.73" remaining="28" etc="1682430712"/>
-<taskprogress task="Service scan" time="1682430687" percent="72.73" remaining="29" etc="1682430716"/>
-<taskprogress task="Service scan" time="1682430689" percent="72.73" remaining="30" etc="1682430719"/>
-<taskprogress task="Service scan" time="1682430692" percent="72.73" remaining="31" etc="1682430723"/>
-<taskprogress task="Service scan" time="1682430694" percent="72.73" remaining="32" etc="1682430726"/>
-<taskprogress task="Service scan" time="1682430697" percent="72.73" remaining="33" etc="1682430730"/>
-<taskprogress task="Service scan" time="1682430699" percent="72.73" remaining="34" etc="1682430732"/>
-<taskprogress task="Service scan" time="1682430702" percent="81.82" remaining="21" etc="1682430722"/>
-<taskprogress task="Service scan" time="1682430704" percent="81.82" remaining="21" etc="1682430725"/>
-<taskprogress task="Service scan" time="1682430709" percent="81.82" remaining="22" etc="1682430731"/>
-<taskprogress task="Service scan" time="1682430714" percent="81.82" remaining="24" etc="1682430737"/>
-<taskprogress task="Service scan" time="1682430719" percent="90.91" remaining="11" etc="1682430730"/>
-<taskprogress task="Service scan" time="1682430724" percent="90.91" remaining="12" etc="1682430735"/>
-<taskprogress task="Service scan" time="1682430729" percent="90.91" remaining="12" etc="1682430741"/>
-<taskprogress task="Service scan" time="1682430734" percent="90.91" remaining="13" etc="1682430746"/>
-<taskprogress task="Service scan" time="1682430739" percent="90.91" remaining="13" etc="1682430752"/>
-<taskprogress task="Service scan" time="1682430744" percent="90.91" remaining="14" etc="1682430757"/>
-<taskprogress task="Service scan" time="1682430749" percent="100.00" remaining="0" etc="1682430749"/>
-<taskprogress task="NSE" time="1682430750" percent="96.90" remaining="1" etc="1682430750"/>
-<taskprogress task="NSE" time="1682430752" percent="99.79" remaining="1" etc="1682430752"/>
-<taskprogress task="NSE" time="1682430754" percent="99.79" remaining="1" etc="1682430754"/>
-<taskprogress task="NSE" time="1682430756" percent="99.79" remaining="1" etc="1682430756"/>
-<host starttime="1682430553" endtime="1682430758"><status state="up" reason="user-set" reason_ttl="0"/>
+<taskprogress task="Parallel DNS resolution of 3 hosts." time="1683739456" percent="0.00"/>
+<taskprogress task="Parallel DNS resolution of 3 hosts." time="1683739458" percent="0.00"/>
+<taskprogress task="Parallel DNS resolution of 3 hosts." time="1683739460" percent="0.00"/>
+<taskprogress task="Parallel DNS resolution of 3 hosts." time="1683739462" percent="0.00"/>
+<taskprogress task="Parallel DNS resolution of 3 hosts." time="1683739464" percent="0.00"/>
+<taskprogress task="Parallel DNS resolution of 3 hosts." time="1683739466" percent="0.00"/>
+<taskprogress task="Parallel DNS resolution of 1 host." time="1683739468" percent="0.00"/>
+<taskprogress task="Parallel DNS resolution of 1 host." time="1683739470" percent="0.00"/>
+<taskprogress task="Parallel DNS resolution of 1 host." time="1683739472" percent="0.00"/>
+<taskprogress task="Parallel DNS resolution of 1 host." time="1683739474" percent="0.00"/>
+<taskprogress task="Parallel DNS resolution of 1 host." time="1683739476" percent="0.00"/>
+<taskprogress task="Parallel DNS resolution of 1 host." time="1683739478" percent="0.00"/>
+<taskprogress task="Parallel DNS resolution of 1 host." time="1683739480" percent="0.00"/>
+<taskprogress task="SYN Stealth Scan" time="1683739482" percent="0.17"/>
+<taskprogress task="SYN Stealth Scan" time="1683739484" percent="5.04" remaining="76" etc="1683739559"/>
+<taskprogress task="SYN Stealth Scan" time="1683739486" percent="20.41" remaining="24" etc="1683739509"/>
+<taskprogress task="SYN Stealth Scan" time="1683739488" percent="22.17" remaining="29" etc="1683739516"/>
+<taskprogress task="SYN Stealth Scan" time="1683739490" percent="22.63" remaining="35" etc="1683739524"/>
+<taskprogress task="SYN Stealth Scan" time="1683739492" percent="22.76" remaining="41" etc="1683739533"/>
+<taskprogress task="SYN Stealth Scan" time="1683739494" percent="22.82" remaining="48" etc="1683739541"/>
+<taskprogress task="SYN Stealth Scan" time="1683739496" percent="22.90" remaining="54" etc="1683739550"/>
+<taskprogress task="SYN Stealth Scan" time="1683739498" percent="23.00" remaining="61" etc="1683739558"/>
+<taskprogress task="SYN Stealth Scan" time="1683739500" percent="23.08" remaining="67" etc="1683739567"/>
+<taskprogress task="SYN Stealth Scan" time="1683739502" percent="23.18" remaining="73" etc="1683739575"/>
+<taskprogress task="SYN Stealth Scan" time="1683739504" percent="24.11" remaining="76" etc="1683739580"/>
+<taskprogress task="SYN Stealth Scan" time="1683739506" percent="26.36" remaining="73" etc="1683739579"/>
+<taskprogress task="SYN Stealth Scan" time="1683739508" percent="33.07" remaining="57" etc="1683739565"/>
+<taskprogress task="SYN Stealth Scan" time="1683739510" percent="39.84" remaining="46" etc="1683739555"/>
+<taskprogress task="SYN Stealth Scan" time="1683739512" percent="40.51" remaining="48" etc="1683739559"/>
+<taskprogress task="SYN Stealth Scan" time="1683739514" percent="40.66" remaining="50" etc="1683739564"/>
+<taskprogress task="SYN Stealth Scan" time="1683739516" percent="40.81" remaining="53" etc="1683739568"/>
+<taskprogress task="SYN Stealth Scan" time="1683739518" percent="40.98" remaining="55" etc="1683739573"/>
+<taskprogress task="SYN Stealth Scan" time="1683739520" percent="41.12" remaining="58" etc="1683739577"/>
+<taskprogress task="SYN Stealth Scan" time="1683739522" percent="41.31" remaining="60" etc="1683739582"/>
+<taskprogress task="SYN Stealth Scan" time="1683739524" percent="41.43" remaining="63" etc="1683739586"/>
+<taskprogress task="SYN Stealth Scan" time="1683739526" percent="41.67" remaining="65" etc="1683739590"/>
+<taskprogress task="SYN Stealth Scan" time="1683739528" percent="47.88" remaining="53" etc="1683739580"/>
+<taskprogress task="SYN Stealth Scan" time="1683739530" percent="60.66" remaining="33" etc="1683739562"/>
+<taskprogress task="SYN Stealth Scan" time="1683739532" percent="64.87" remaining="29" etc="1683739560"/>
+<taskprogress task="SYN Stealth Scan" time="1683739534" percent="65.18" remaining="29" etc="1683739563"/>
+<taskprogress task="SYN Stealth Scan" time="1683739536" percent="65.32" remaining="30" etc="1683739566"/>
+<taskprogress task="SYN Stealth Scan" time="1683739538" percent="65.52" remaining="31" etc="1683739569"/>
+<taskprogress task="SYN Stealth Scan" time="1683739540" percent="65.64" remaining="32" etc="1683739571"/>
+<taskprogress task="SYN Stealth Scan" time="1683739542" percent="65.80" remaining="33" etc="1683739574"/>
+<taskprogress task="SYN Stealth Scan" time="1683739544" percent="65.91" remaining="34" etc="1683739577"/>
+<taskprogress task="SYN Stealth Scan" time="1683739546" percent="66.12" remaining="34" etc="1683739580"/>
+<taskprogress task="SYN Stealth Scan" time="1683739548" percent="67.33" remaining="33" etc="1683739581"/>
+<taskprogress task="SYN Stealth Scan" time="1683739550" percent="73.40" remaining="26" etc="1683739575"/>
+<taskprogress task="SYN Stealth Scan" time="1683739552" percent="79.84" remaining="19" etc="1683739570"/>
+<taskprogress task="SYN Stealth Scan" time="1683739554" percent="80.24" remaining="19" etc="1683739572"/>
+<taskprogress task="SYN Stealth Scan" time="1683739556" percent="80.41" remaining="19" etc="1683739575"/>
+<taskprogress task="SYN Stealth Scan" time="1683739558" percent="80.49" remaining="19" etc="1683739577"/>
+<taskprogress task="SYN Stealth Scan" time="1683739560" percent="80.60" remaining="20" etc="1683739579"/>
+<taskprogress task="SYN Stealth Scan" time="1683739563" percent="80.74" remaining="20" etc="1683739583"/>
+<taskprogress task="SYN Stealth Scan" time="1683739564" percent="80.84" remaining="20" etc="1683739584"/>
+<taskprogress task="SYN Stealth Scan" time="1683739566" percent="81.07" remaining="21" etc="1683739586"/>
+<taskprogress task="SYN Stealth Scan" time="1683739568" percent="81.71" remaining="20" etc="1683739588"/>
+<taskprogress task="SYN Stealth Scan" time="1683739570" percent="82.38" remaining="20" etc="1683739589"/>
+<taskprogress task="SYN Stealth Scan" time="1683739572" percent="86.99" remaining="14" etc="1683739586"/>
+<taskprogress task="SYN Stealth Scan" time="1683739574" percent="92.44" remaining="8" etc="1683739582"/>
+<taskprogress task="SYN Stealth Scan" time="1683739576" percent="96.91" remaining="4" etc="1683739579"/>
+<taskprogress task="SYN Stealth Scan" time="1683739578" percent="97.02" remaining="4" etc="1683739581"/>
+<taskprogress task="SYN Stealth Scan" time="1683739580" percent="97.14" remaining="3" etc="1683739583"/>
+<taskprogress task="SYN Stealth Scan" time="1683739582" percent="97.26" remaining="3" etc="1683739585"/>
+<taskprogress task="SYN Stealth Scan" time="1683739584" percent="97.38" remaining="3" etc="1683739587"/>
+<taskprogress task="SYN Stealth Scan" time="1683739586" percent="97.49" remaining="3" etc="1683739589"/>
+<taskprogress task="SYN Stealth Scan" time="1683739588" percent="97.61" remaining="3" etc="1683739591"/>
+<taskprogress task="SYN Stealth Scan" time="1683739590" percent="97.80" remaining="3" etc="1683739592"/>
+<taskprogress task="SYN Stealth Scan" time="1683739592" percent="99.93" remaining="1" etc="1683739592"/>
+<taskprogress task="Service scan" time="1683739598" percent="9.09" remaining="60" etc="1683739658"/>
+<taskprogress task="Service scan" time="1683739603" percent="54.55" remaining="10" etc="1683739612"/>
+<taskprogress task="Service scan" time="1683739604" percent="54.55" remaining="10" etc="1683739614"/>
+<taskprogress task="Service scan" time="1683739608" percent="72.73" remaining="6" etc="1683739614"/>
+<taskprogress task="Service scan" time="1683739610" percent="72.73" remaining="7" etc="1683739617"/>
+<taskprogress task="Service scan" time="1683739613" percent="72.73" remaining="8" etc="1683739621"/>
+<taskprogress task="Service scan" time="1683739615" percent="72.73" remaining="9" etc="1683739624"/>
+<taskprogress task="Service scan" time="1683739618" percent="72.73" remaining="10" etc="1683739628"/>
+<taskprogress task="Service scan" time="1683739620" percent="72.73" remaining="11" etc="1683739631"/>
+<taskprogress task="Service scan" time="1683739624" percent="72.73" remaining="12" etc="1683739636"/>
+<taskprogress task="Service scan" time="1683739625" percent="72.73" remaining="13" etc="1683739637"/>
+<taskprogress task="Service scan" time="1683739629" percent="72.73" remaining="14" etc="1683739643"/>
+<taskprogress task="Service scan" time="1683739630" percent="72.73" remaining="15" etc="1683739644"/>
+<taskprogress task="Service scan" time="1683739634" percent="72.73" remaining="16" etc="1683739650"/>
+<taskprogress task="Service scan" time="1683739635" percent="72.73" remaining="17" etc="1683739651"/>
+<taskprogress task="Service scan" time="1683739639" percent="72.73" remaining="18" etc="1683739657"/>
+<taskprogress task="Service scan" time="1683739640" percent="72.73" remaining="18" etc="1683739658"/>
+<taskprogress task="Service scan" time="1683739644" percent="72.73" remaining="20" etc="1683739664"/>
+<taskprogress task="Service scan" time="1683739646" percent="72.73" remaining="21" etc="1683739666"/>
+<taskprogress task="Service scan" time="1683739649" percent="72.73" remaining="22" etc="1683739670"/>
+<taskprogress task="Service scan" time="1683739651" percent="72.73" remaining="23" etc="1683739673"/>
+<taskprogress task="Service scan" time="1683739654" percent="72.73" remaining="24" etc="1683739677"/>
+<taskprogress task="Service scan" time="1683739656" percent="72.73" remaining="24" etc="1683739680"/>
+<taskprogress task="Service scan" time="1683739659" percent="72.73" remaining="26" etc="1683739684"/>
+<taskprogress task="Service scan" time="1683739661" percent="72.73" remaining="26" etc="1683739687"/>
+<taskprogress task="Service scan" time="1683739664" percent="72.73" remaining="28" etc="1683739691"/>
+<taskprogress task="Service scan" time="1683739666" percent="72.73" remaining="28" etc="1683739694"/>
+<taskprogress task="Service scan" time="1683739669" percent="72.73" remaining="29" etc="1683739698"/>
+<taskprogress task="Service scan" time="1683739671" percent="72.73" remaining="30" etc="1683739701"/>
+<taskprogress task="Service scan" time="1683739674" percent="72.73" remaining="31" etc="1683739705"/>
+<taskprogress task="Service scan" time="1683739676" percent="72.73" remaining="32" etc="1683739708"/>
+<taskprogress task="Service scan" time="1683739679" percent="72.73" remaining="33" etc="1683739712"/>
+<taskprogress task="Service scan" time="1683739681" percent="72.73" remaining="34" etc="1683739714"/>
+<taskprogress task="Service scan" time="1683739684" percent="81.82" remaining="21" etc="1683739704"/>
+<taskprogress task="Service scan" time="1683739686" percent="81.82" remaining="21" etc="1683739707"/>
+<taskprogress task="Service scan" time="1683739691" percent="81.82" remaining="22" etc="1683739713"/>
+<taskprogress task="Service scan" time="1683739696" percent="90.91" remaining="11" etc="1683739706"/>
+<taskprogress task="Service scan" time="1683739702" percent="90.91" remaining="12" etc="1683739713"/>
+<taskprogress task="Service scan" time="1683739707" percent="90.91" remaining="12" etc="1683739719"/>
+<taskprogress task="Service scan" time="1683739712" percent="90.91" remaining="12" etc="1683739724"/>
+<taskprogress task="Service scan" time="1683739717" percent="90.91" remaining="13" etc="1683739730"/>
+<taskprogress task="Service scan" time="1683739722" percent="90.91" remaining="14" etc="1683739735"/>
+<taskprogress task="Service scan" time="1683739727" percent="90.91" remaining="14" etc="1683739741"/>
+<taskprogress task="Service scan" time="1683739732" percent="100.00" remaining="0" etc="1683739732"/>
+<taskprogress task="NSE" time="1683739732" percent="96.90" remaining="0" etc="1683739732"/>
+<taskprogress task="NSE" time="1683739734" percent="99.79" remaining="1" etc="1683739734"/>
+<taskprogress task="NSE" time="1683739736" percent="99.79" remaining="1" etc="1683739736"/>
+<taskprogress task="NSE" time="1683739738" percent="99.79" remaining="1" etc="1683739738"/>
+<host starttime="1683739480" endtime="1683739740"><status state="up" reason="user-set" reason_ttl="0"/>
 <address addr="80.245.2.142" addrtype="ipv4"/>
 <hostnames>
 <hostname name="santurtzi.net" type="user"/>
 </hostnames>
-<ports><extraports state="filtered" count="994">
-<extrareasons reason="no-responses" count="994"/>
+<ports><extraports state="filtered" count="996">
+<extrareasons reason="no-responses" count="996"/>
 </extraports>
-<extraports state="closed" count="2">
-<extrareasons reason="resets" count="2"/>
-</extraports>
-<port protocol="tcp" portid="53"><state state="open" reason="syn-ack" reason_ttl="36"/><service name="domain" product="dnsmasq" version="2.78" method="probed" conf="10"><cpe>cpe:/a:thekelleys:dnsmasq:2.78</cpe></service><script id="vulners" output="&#xa;  cpe:/a:thekelleys:dnsmasq:2.78: &#xa;    &#x9;CVE-2020-25682&#x9;8.3&#x9;https://vulners.com/cve/CVE-2020-25682&#xa;    &#x9;CVE-2020-25681&#x9;8.3&#x9;https://vulners.com/cve/CVE-2020-25681&#xa;    &#x9;CVE-2020-25687&#x9;7.1&#x9;https://vulners.com/cve/CVE-2020-25687&#xa;    &#x9;CVE-2020-25683&#x9;7.1&#x9;https://vulners.com/cve/CVE-2020-25683&#xa;    &#x9;CVE-2017-15107&#x9;5.0&#x9;https://vulners.com/cve/CVE-2017-15107&#xa;    &#x9;OSV:CVE-2020-25685&#x9;4.3&#x9;https://vulners.com/osv/OSV:CVE-2020-25685&#xa;    &#x9;CVE-2021-3448&#x9;4.3&#x9;https://vulners.com/cve/CVE-2021-3448&#xa;    &#x9;CVE-2020-25686&#x9;4.3&#x9;https://vulners.com/cve/CVE-2020-25686&#xa;    &#x9;CVE-2020-25685&#x9;4.3&#x9;https://vulners.com/cve/CVE-2020-25685&#xa;    &#x9;CVE-2020-25684&#x9;4.3&#x9;https://vulners.com/cve/CVE-2020-25684&#xa;    &#x9;CVE-2019-14834&#x9;4.3&#x9;https://vulners.com/cve/CVE-2019-14834&#xa;    &#x9;CBF3EF2D-3A5B-5110-A374-4A5ADE9AC91A&#x9;4.3&#x9;https://vulners.com/githubexploit/CBF3EF2D-3A5B-5110-A374-4A5ADE9AC91A&#x9;*EXPLOIT*&#xa;    &#x9;OSV:CVE-2021-3448&#x9;0.0&#x9;https://vulners.com/osv/OSV:CVE-2021-3448&#xa;    &#x9;CVE-2023-28450&#x9;0.0&#x9;https://vulners.com/cve/CVE-2023-28450&#xa;    &#x9;CVE-2022-0934&#x9;0.0&#x9;https://vulners.com/cve/CVE-2022-0934&#xa;    &#x9;79068BEF-A572-5A8A-88D0-177524BDAAFE&#x9;0.0&#x9;https://vulners.com/githubexploit/79068BEF-A572-5A8A-88D0-177524BDAAFE&#x9;*EXPLOIT*"><table key="cpe:/a:thekelleys:dnsmasq:2.78">
+<port protocol="tcp" portid="53"><state state="open" reason="syn-ack" reason_ttl="62"/><service name="domain" product="dnsmasq" version="2.78" method="probed" conf="10"><cpe>cpe:/a:thekelleys:dnsmasq:2.78</cpe></service><script id="vulners" output="&#xa;  cpe:/a:thekelleys:dnsmasq:2.78: &#xa;    &#x9;CVE-2020-25682&#x9;8.3&#x9;https://vulners.com/cve/CVE-2020-25682&#xa;    &#x9;CVE-2020-25681&#x9;8.3&#x9;https://vulners.com/cve/CVE-2020-25681&#xa;    &#x9;CVE-2020-25687&#x9;7.1&#x9;https://vulners.com/cve/CVE-2020-25687&#xa;    &#x9;CVE-2020-25683&#x9;7.1&#x9;https://vulners.com/cve/CVE-2020-25683&#xa;    &#x9;CVE-2017-15107&#x9;5.0&#x9;https://vulners.com/cve/CVE-2017-15107&#xa;    &#x9;OSV:CVE-2020-25685&#x9;4.3&#x9;https://vulners.com/osv/OSV:CVE-2020-25685&#xa;    &#x9;CVE-2021-3448&#x9;4.3&#x9;https://vulners.com/cve/CVE-2021-3448&#xa;    &#x9;CVE-2020-25686&#x9;4.3&#x9;https://vulners.com/cve/CVE-2020-25686&#xa;    &#x9;CVE-2020-25685&#x9;4.3&#x9;https://vulners.com/cve/CVE-2020-25685&#xa;    &#x9;CVE-2020-25684&#x9;4.3&#x9;https://vulners.com/cve/CVE-2020-25684&#xa;    &#x9;CVE-2019-14834&#x9;4.3&#x9;https://vulners.com/cve/CVE-2019-14834&#xa;    &#x9;CBF3EF2D-3A5B-5110-A374-4A5ADE9AC91A&#x9;4.3&#x9;https://vulners.com/githubexploit/CBF3EF2D-3A5B-5110-A374-4A5ADE9AC91A&#x9;*EXPLOIT*&#xa;    &#x9;OSV:CVE-2021-3448&#x9;0.0&#x9;https://vulners.com/osv/OSV:CVE-2021-3448&#xa;    &#x9;CVE-2023-28450&#x9;0.0&#x9;https://vulners.com/cve/CVE-2023-28450&#xa;    &#x9;CVE-2022-0934&#x9;0.0&#x9;https://vulners.com/cve/CVE-2022-0934&#xa;    &#x9;79068BEF-A572-5A8A-88D0-177524BDAAFE&#x9;0.0&#x9;https://vulners.com/githubexploit/79068BEF-A572-5A8A-88D0-177524BDAAFE&#x9;*EXPLOIT*"><table key="cpe:/a:thekelleys:dnsmasq:2.78">
 <table>
+<elem key="cvss">8.3</elem>
+<elem key="is_exploit">false</elem>
+<elem key="type">cve</elem>
 <elem key="id">CVE-2020-25682</elem>
+</table>
+<table>
 <elem key="cvss">8.3</elem>
 <elem key="is_exploit">false</elem>
 <elem key="type">cve</elem>
-</table>
-<table>
 <elem key="id">CVE-2020-25681</elem>
-<elem key="cvss">8.3</elem>
-<elem key="is_exploit">false</elem>
-<elem key="type">cve</elem>
 </table>
 <table>
+<elem key="cvss">7.1</elem>
+<elem key="is_exploit">false</elem>
+<elem key="type">cve</elem>
 <elem key="id">CVE-2020-25687</elem>
+</table>
+<table>
 <elem key="cvss">7.1</elem>
 <elem key="is_exploit">false</elem>
 <elem key="type">cve</elem>
-</table>
-<table>
 <elem key="id">CVE-2020-25683</elem>
-<elem key="cvss">7.1</elem>
-<elem key="is_exploit">false</elem>
-<elem key="type">cve</elem>
 </table>
 <table>
-<elem key="id">CVE-2017-15107</elem>
 <elem key="cvss">5.0</elem>
 <elem key="is_exploit">false</elem>
 <elem key="type">cve</elem>
+<elem key="id">CVE-2017-15107</elem>
 </table>
 <table>
+<elem key="cvss">4.3</elem>
+<elem key="is_exploit">false</elem>
+<elem key="type">osv</elem>
 <elem key="id">OSV:CVE-2020-25685</elem>
-<elem key="cvss">4.3</elem>
-<elem key="is_exploit">false</elem>
-<elem key="type">osv</elem>
 </table>
 <table>
+<elem key="cvss">4.3</elem>
+<elem key="is_exploit">false</elem>
+<elem key="type">cve</elem>
 <elem key="id">CVE-2021-3448</elem>
+</table>
+<table>
 <elem key="cvss">4.3</elem>
 <elem key="is_exploit">false</elem>
 <elem key="type">cve</elem>
-</table>
-<table>
 <elem key="id">CVE-2020-25686</elem>
+</table>
+<table>
 <elem key="cvss">4.3</elem>
 <elem key="is_exploit">false</elem>
 <elem key="type">cve</elem>
-</table>
-<table>
 <elem key="id">CVE-2020-25685</elem>
+</table>
+<table>
 <elem key="cvss">4.3</elem>
 <elem key="is_exploit">false</elem>
 <elem key="type">cve</elem>
-</table>
-<table>
 <elem key="id">CVE-2020-25684</elem>
+</table>
+<table>
 <elem key="cvss">4.3</elem>
 <elem key="is_exploit">false</elem>
 <elem key="type">cve</elem>
-</table>
-<table>
 <elem key="id">CVE-2019-14834</elem>
-<elem key="cvss">4.3</elem>
-<elem key="is_exploit">false</elem>
-<elem key="type">cve</elem>
 </table>
 <table>
-<elem key="id">CBF3EF2D-3A5B-5110-A374-4A5ADE9AC91A</elem>
 <elem key="cvss">4.3</elem>
 <elem key="is_exploit">true</elem>
 <elem key="type">githubexploit</elem>
+<elem key="id">CBF3EF2D-3A5B-5110-A374-4A5ADE9AC91A</elem>
 </table>
 <table>
-<elem key="id">OSV:CVE-2021-3448</elem>
 <elem key="cvss">0.0</elem>
 <elem key="is_exploit">false</elem>
 <elem key="type">osv</elem>
+<elem key="id">OSV:CVE-2021-3448</elem>
 </table>
 <table>
+<elem key="cvss">0.0</elem>
+<elem key="is_exploit">false</elem>
+<elem key="type">cve</elem>
 <elem key="id">CVE-2023-28450</elem>
+</table>
+<table>
 <elem key="cvss">0.0</elem>
 <elem key="is_exploit">false</elem>
 <elem key="type">cve</elem>
-</table>
-<table>
 <elem key="id">CVE-2022-0934</elem>
-<elem key="cvss">0.0</elem>
-<elem key="is_exploit">false</elem>
-<elem key="type">cve</elem>
 </table>
 <table>
-<elem key="id">79068BEF-A572-5A8A-88D0-177524BDAAFE</elem>
 <elem key="cvss">0.0</elem>
 <elem key="is_exploit">true</elem>
 <elem key="type">githubexploit</elem>
+<elem key="id">79068BEF-A572-5A8A-88D0-177524BDAAFE</elem>
 </table>
 </table>
 </script></port>
-<port protocol="tcp" portid="80"><state state="open" reason="syn-ack" reason_ttl="36"/><service name="http" product="Microsoft IIS httpd" version="10.0" ostype="Windows" method="probed" conf="10"><cpe>cpe:/a:microsoft:iis:10.0</cpe><cpe>cpe:/o:microsoft:windows</cpe></service><script id="http-server-header" output="&#xa;  BigIP&#xa;  Microsoft-IIS/10.0"><elem>BigIP</elem>
+<port protocol="tcp" portid="80"><state state="open" reason="syn-ack" reason_ttl="62"/><service name="http" product="Microsoft IIS httpd" version="10.0" ostype="Windows" method="probed" conf="10"><cpe>cpe:/a:microsoft:iis:10.0</cpe><cpe>cpe:/o:microsoft:windows</cpe></service><script id="http-server-header" output="&#xa;  BigIP&#xa;  Microsoft-IIS/10.0"><elem>BigIP</elem>
 <elem>Microsoft-IIS/10.0</elem>
 </script></port>
-<port protocol="tcp" portid="443"><state state="open" reason="syn-ack" reason_ttl="36"/><service name="http" product="Microsoft IIS httpd" version="10.0" ostype="Windows" tunnel="ssl" method="probed" conf="10"><cpe>cpe:/a:microsoft:iis:10.0</cpe><cpe>cpe:/o:microsoft:windows</cpe></service><script id="http-server-header" output="Microsoft-IIS/10.0"><elem>Microsoft-IIS/10.0</elem>
+<port protocol="tcp" portid="443"><state state="open" reason="syn-ack" reason_ttl="62"/><service name="http" product="Microsoft IIS httpd" version="10.0" ostype="Windows" tunnel="ssl" method="probed" conf="10"><cpe>cpe:/a:microsoft:iis:10.0</cpe><cpe>cpe:/o:microsoft:windows</cpe></service><script id="http-server-header" output="Microsoft-IIS/10.0"><elem>Microsoft-IIS/10.0</elem>
 </script></port>
-<port protocol="tcp" portid="8008"><state state="open" reason="syn-ack" reason_ttl="36"/><service name="http" servicefp="SF-Port8008-TCP:V=7.80%I=7%D=4/25%Time=6447DA98%P=x86_64-pc-linux-gnu%r(GetRequest,D3,&quot;HTTP/1\.1\x20302\x20Found\r\nLocation:\x20https://:8015/\r\nConnection:\x20close\r\nX-Frame-Options:\x20SAMEORIGIN\r\nX-XSS-Protection:\x201;\x20mode=block\r\nX-Content-Type-Options:\x20nosniff\r\nContent-Security-Policy:\x20frame-ancestors\x20&apos;self&apos;\r\n\r\n&quot;)%r(FourOhFourRequest,F6,&quot;HTTP/1\.1\x20302\x20Found\r\nLocation:\x20https://:8015/nice%20ports%2C/Tri%6Eity\.txt%2ebak\r\nConnection:\x20close\r\nX-Frame-Options:\x20SAMEORIGIN\r\nX-XSS-Protection:\x201;\x20mode=block\r\nX-Content-Type-Options:\x20nosniff\r\nContent-Security-Policy:\x20frame-ancestors\x20&apos;self&apos;\r\n\r\n&quot;)%r(GenericLines,D2,&quot;HTTP/1\.1\x20302\x20Found\r\nLocation:\x20https://:8015\r\nConnection:\x20close\r\nX-Frame-Options:\x20SAMEORIGIN\r\nX-XSS-Protection:\x201;\x20mode=block\r\nX-Content-Type-Options:\x20nosniff\r\nContent-Security-Policy:\x20frame-ancestors\x20&apos;self&apos;\r\n\r\n&quot;)%r(HTTPOptions,D2,&quot;HTTP/1\.1\x20302\x20Found\r\nLocation:\x20https://:8015\r\nConnection:\x20close\r\nX-Frame-Options:\x20SAMEORIGIN\r\nX-XSS-Protection:\x201;\x20mode=block\r\nX-Content-Type-Options:\x20nosniff\r\nContent-Security-Policy:\x20frame-ancestors\x20&apos;self&apos;\r\n\r\n&quot;)%r(RTSPRequest,D2,&quot;HTTP/1\.1\x20302\x20Found\r\nLocation:\x20https://:8015\r\nConnection:\x20close\r\nX-Frame-Options:\x20SAMEORIGIN\r\nX-XSS-Protection:\x201;\x20mode=block\r\nX-Content-Type-Options:\x20nosniff\r\nContent-Security-Policy:\x20frame-ancestors\x20&apos;self&apos;\r\n\r\n&quot;)%r(SIPOptions,D2,&quot;HTTP/1\.1\x20302\x20Found\r\nLocation:\x20https://:8015\r\nConnection:\x20close\r\nX-Frame-Options:\x20SAMEORIGIN\r\nX-XSS-Protection:\x201;\x20mode=block\r\nX-Content-Type-Options:\x20nosniff\r\nContent-Security-Policy:\x20frame-ancestors\x20&apos;self&apos;\r\n\r\n&quot;);" method="probed" conf="10"/><script id="fingerprint-strings" output="&#xa;  FourOhFourRequest: &#xa;    HTTP/1.1 302 Found&#xa;    Location: https://:8015/nice%20ports%2C/Tri%6Eity.txt%2ebak&#xa;    Connection: close&#xa;    X-Frame-Options: SAMEORIGIN&#xa;    X-XSS-Protection: 1; mode=block&#xa;    X-Content-Type-Options: nosniff&#xa;    Content-Security-Policy: frame-ancestors &apos;self&apos;&#xa;  GenericLines, HTTPOptions, RTSPRequest, SIPOptions: &#xa;    HTTP/1.1 302 Found&#xa;    Location: https://:8015&#xa;    Connection: close&#xa;    X-Frame-Options: SAMEORIGIN&#xa;    X-XSS-Protection: 1; mode=block&#xa;    X-Content-Type-Options: nosniff&#xa;    Content-Security-Policy: frame-ancestors &apos;self&apos;&#xa;  GetRequest: &#xa;    HTTP/1.1 302 Found&#xa;    Location: https://:8015/&#xa;    Connection: close&#xa;    X-Frame-Options: SAMEORIGIN&#xa;    X-XSS-Protection: 1; mode=block&#xa;    X-Content-Type-Options: nosniff&#xa;    Content-Security-Policy: frame-ancestors &apos;self&apos;"><elem key="FourOhFourRequest">&#xa;    HTTP/1.1 302 Found&#xa;    Location: https://:8015/nice%20ports%2C/Tri%6Eity.txt%2ebak&#xa;    Connection: close&#xa;    X-Frame-Options: SAMEORIGIN&#xa;    X-XSS-Protection: 1; mode=block&#xa;    X-Content-Type-Options: nosniff&#xa;    Content-Security-Policy: frame-ancestors &apos;self&apos;</elem>
+<port protocol="tcp" portid="8008"><state state="open" reason="syn-ack" reason_ttl="62"/><service name="http" servicefp="SF-Port8008-TCP:V=7.80%I=7%D=5/10%Time=645BD3CE%P=x86_64-pc-linux-gnu%r(GetRequest,D3,&quot;HTTP/1\.1\x20302\x20Found\r\nLocation:\x20https://:8015/\r\nConnection:\x20close\r\nX-Frame-Options:\x20SAMEORIGIN\r\nX-XSS-Protection:\x201;\x20mode=block\r\nX-Content-Type-Options:\x20nosniff\r\nContent-Security-Policy:\x20frame-ancestors\x20&apos;self&apos;\r\n\r\n&quot;)%r(FourOhFourRequest,F6,&quot;HTTP/1\.1\x20302\x20Found\r\nLocation:\x20https://:8015/nice%20ports%2C/Tri%6Eity\.txt%2ebak\r\nConnection:\x20close\r\nX-Frame-Options:\x20SAMEORIGIN\r\nX-XSS-Protection:\x201;\x20mode=block\r\nX-Content-Type-Options:\x20nosniff\r\nContent-Security-Policy:\x20frame-ancestors\x20&apos;self&apos;\r\n\r\n&quot;)%r(GenericLines,D2,&quot;HTTP/1\.1\x20302\x20Found\r\nLocation:\x20https://:8015\r\nConnection:\x20close\r\nX-Frame-Options:\x20SAMEORIGIN\r\nX-XSS-Protection:\x201;\x20mode=block\r\nX-Content-Type-Options:\x20nosniff\r\nContent-Security-Policy:\x20frame-ancestors\x20&apos;self&apos;\r\n\r\n&quot;)%r(HTTPOptions,D2,&quot;HTTP/1\.1\x20302\x20Found\r\nLocation:\x20https://:8015\r\nConnection:\x20close\r\nX-Frame-Options:\x20SAMEORIGIN\r\nX-XSS-Protection:\x201;\x20mode=block\r\nX-Content-Type-Options:\x20nosniff\r\nContent-Security-Policy:\x20frame-ancestors\x20&apos;self&apos;\r\n\r\n&quot;)%r(RTSPRequest,D2,&quot;HTTP/1\.1\x20302\x20Found\r\nLocation:\x20https://:8015\r\nConnection:\x20close\r\nX-Frame-Options:\x20SAMEORIGIN\r\nX-XSS-Protection:\x201;\x20mode=block\r\nX-Content-Type-Options:\x20nosniff\r\nContent-Security-Policy:\x20frame-ancestors\x20&apos;self&apos;\r\n\r\n&quot;)%r(SIPOptions,D2,&quot;HTTP/1\.1\x20302\x20Found\r\nLocation:\x20https://:8015\r\nConnection:\x20close\r\nX-Frame-Options:\x20SAMEORIGIN\r\nX-XSS-Protection:\x201;\x20mode=block\r\nX-Content-Type-Options:\x20nosniff\r\nContent-Security-Policy:\x20frame-ancestors\x20&apos;self&apos;\r\n\r\n&quot;);" method="probed" conf="10"/><script id="fingerprint-strings" output="&#xa;  FourOhFourRequest: &#xa;    HTTP/1.1 302 Found&#xa;    Location: https://:8015/nice%20ports%2C/Tri%6Eity.txt%2ebak&#xa;    Connection: close&#xa;    X-Frame-Options: SAMEORIGIN&#xa;    X-XSS-Protection: 1; mode=block&#xa;    X-Content-Type-Options: nosniff&#xa;    Content-Security-Policy: frame-ancestors &apos;self&apos;&#xa;  GenericLines, HTTPOptions, RTSPRequest, SIPOptions: &#xa;    HTTP/1.1 302 Found&#xa;    Location: https://:8015&#xa;    Connection: close&#xa;    X-Frame-Options: SAMEORIGIN&#xa;    X-XSS-Protection: 1; mode=block&#xa;    X-Content-Type-Options: nosniff&#xa;    Content-Security-Policy: frame-ancestors &apos;self&apos;&#xa;  GetRequest: &#xa;    HTTP/1.1 302 Found&#xa;    Location: https://:8015/&#xa;    Connection: close&#xa;    X-Frame-Options: SAMEORIGIN&#xa;    X-XSS-Protection: 1; mode=block&#xa;    X-Content-Type-Options: nosniff&#xa;    Content-Security-Policy: frame-ancestors &apos;self&apos;"><elem key="FourOhFourRequest">&#xa;    HTTP/1.1 302 Found&#xa;    Location: https://:8015/nice%20ports%2C/Tri%6Eity.txt%2ebak&#xa;    Connection: close&#xa;    X-Frame-Options: SAMEORIGIN&#xa;    X-XSS-Protection: 1; mode=block&#xa;    X-Content-Type-Options: nosniff&#xa;    Content-Security-Policy: frame-ancestors &apos;self&apos;</elem>
 <elem key="GenericLines, HTTPOptions, RTSPRequest, SIPOptions">&#xa;    HTTP/1.1 302 Found&#xa;    Location: https://:8015&#xa;    Connection: close&#xa;    X-Frame-Options: SAMEORIGIN&#xa;    X-XSS-Protection: 1; mode=block&#xa;    X-Content-Type-Options: nosniff&#xa;    Content-Security-Policy: frame-ancestors &apos;self&apos;</elem>
 <elem key="GetRequest">&#xa;    HTTP/1.1 302 Found&#xa;    Location: https://:8015/&#xa;    Connection: close&#xa;    X-Frame-Options: SAMEORIGIN&#xa;    X-XSS-Protection: 1; mode=block&#xa;    X-Content-Type-Options: nosniff&#xa;    Content-Security-Policy: frame-ancestors &apos;self&apos;</elem>
 </script><script id="https-redirect" output="ERROR: Script execution failed (use -d to debug)"/></port>
 </ports>
-<times srtt="87732" rttvar="98641" to="482296"/>
+<times srtt="30399" rttvar="2791" to="100000"/>
 </host>
-<host starttime="1682430553" endtime="1682430758"><status state="up" reason="user-set" reason_ttl="0"/>
+<host starttime="1683739480" endtime="1683739740"><status state="up" reason="user-set" reason_ttl="0"/>
 <address addr="212.142.136.20" addrtype="ipv4"/>
 <hostnames>
 <hostname name="bilbao.eus" type="user"/>
@@ -212,471 +250,491 @@
 <ports><extraports state="filtered" count="997">
 <extrareasons reason="no-responses" count="997"/>
 </extraports>
-<port protocol="tcp" portid="53"><state state="open" reason="syn-ack" reason_ttl="36"/><service name="domain" product="dnsmasq" version="2.78" method="probed" conf="10"><cpe>cpe:/a:thekelleys:dnsmasq:2.78</cpe></service><script id="vulners" output="&#xa;  cpe:/a:thekelleys:dnsmasq:2.78: &#xa;    &#x9;CVE-2020-25682&#x9;8.3&#x9;https://vulners.com/cve/CVE-2020-25682&#xa;    &#x9;CVE-2020-25681&#x9;8.3&#x9;https://vulners.com/cve/CVE-2020-25681&#xa;    &#x9;CVE-2020-25687&#x9;7.1&#x9;https://vulners.com/cve/CVE-2020-25687&#xa;    &#x9;CVE-2020-25683&#x9;7.1&#x9;https://vulners.com/cve/CVE-2020-25683&#xa;    &#x9;CVE-2017-15107&#x9;5.0&#x9;https://vulners.com/cve/CVE-2017-15107&#xa;    &#x9;OSV:CVE-2020-25685&#x9;4.3&#x9;https://vulners.com/osv/OSV:CVE-2020-25685&#xa;    &#x9;CVE-2021-3448&#x9;4.3&#x9;https://vulners.com/cve/CVE-2021-3448&#xa;    &#x9;CVE-2020-25686&#x9;4.3&#x9;https://vulners.com/cve/CVE-2020-25686&#xa;    &#x9;CVE-2020-25685&#x9;4.3&#x9;https://vulners.com/cve/CVE-2020-25685&#xa;    &#x9;CVE-2020-25684&#x9;4.3&#x9;https://vulners.com/cve/CVE-2020-25684&#xa;    &#x9;CVE-2019-14834&#x9;4.3&#x9;https://vulners.com/cve/CVE-2019-14834&#xa;    &#x9;CBF3EF2D-3A5B-5110-A374-4A5ADE9AC91A&#x9;4.3&#x9;https://vulners.com/githubexploit/CBF3EF2D-3A5B-5110-A374-4A5ADE9AC91A&#x9;*EXPLOIT*&#xa;    &#x9;OSV:CVE-2021-3448&#x9;0.0&#x9;https://vulners.com/osv/OSV:CVE-2021-3448&#xa;    &#x9;CVE-2023-28450&#x9;0.0&#x9;https://vulners.com/cve/CVE-2023-28450&#xa;    &#x9;CVE-2022-0934&#x9;0.0&#x9;https://vulners.com/cve/CVE-2022-0934&#xa;    &#x9;79068BEF-A572-5A8A-88D0-177524BDAAFE&#x9;0.0&#x9;https://vulners.com/githubexploit/79068BEF-A572-5A8A-88D0-177524BDAAFE&#x9;*EXPLOIT*"><table key="cpe:/a:thekelleys:dnsmasq:2.78">
+<port protocol="tcp" portid="53"><state state="open" reason="syn-ack" reason_ttl="62"/><service name="domain" product="dnsmasq" version="2.78" method="probed" conf="10"><cpe>cpe:/a:thekelleys:dnsmasq:2.78</cpe></service><script id="vulners" output="&#xa;  cpe:/a:thekelleys:dnsmasq:2.78: &#xa;    &#x9;CVE-2020-25682&#x9;8.3&#x9;https://vulners.com/cve/CVE-2020-25682&#xa;    &#x9;CVE-2020-25681&#x9;8.3&#x9;https://vulners.com/cve/CVE-2020-25681&#xa;    &#x9;CVE-2020-25687&#x9;7.1&#x9;https://vulners.com/cve/CVE-2020-25687&#xa;    &#x9;CVE-2020-25683&#x9;7.1&#x9;https://vulners.com/cve/CVE-2020-25683&#xa;    &#x9;CVE-2017-15107&#x9;5.0&#x9;https://vulners.com/cve/CVE-2017-15107&#xa;    &#x9;OSV:CVE-2020-25685&#x9;4.3&#x9;https://vulners.com/osv/OSV:CVE-2020-25685&#xa;    &#x9;CVE-2021-3448&#x9;4.3&#x9;https://vulners.com/cve/CVE-2021-3448&#xa;    &#x9;CVE-2020-25686&#x9;4.3&#x9;https://vulners.com/cve/CVE-2020-25686&#xa;    &#x9;CVE-2020-25685&#x9;4.3&#x9;https://vulners.com/cve/CVE-2020-25685&#xa;    &#x9;CVE-2020-25684&#x9;4.3&#x9;https://vulners.com/cve/CVE-2020-25684&#xa;    &#x9;CVE-2019-14834&#x9;4.3&#x9;https://vulners.com/cve/CVE-2019-14834&#xa;    &#x9;CBF3EF2D-3A5B-5110-A374-4A5ADE9AC91A&#x9;4.3&#x9;https://vulners.com/githubexploit/CBF3EF2D-3A5B-5110-A374-4A5ADE9AC91A&#x9;*EXPLOIT*&#xa;    &#x9;OSV:CVE-2021-3448&#x9;0.0&#x9;https://vulners.com/osv/OSV:CVE-2021-3448&#xa;    &#x9;CVE-2023-28450&#x9;0.0&#x9;https://vulners.com/cve/CVE-2023-28450&#xa;    &#x9;CVE-2022-0934&#x9;0.0&#x9;https://vulners.com/cve/CVE-2022-0934&#xa;    &#x9;79068BEF-A572-5A8A-88D0-177524BDAAFE&#x9;0.0&#x9;https://vulners.com/githubexploit/79068BEF-A572-5A8A-88D0-177524BDAAFE&#x9;*EXPLOIT*"><table key="cpe:/a:thekelleys:dnsmasq:2.78">
 <table>
+<elem key="cvss">8.3</elem>
+<elem key="is_exploit">false</elem>
+<elem key="type">cve</elem>
 <elem key="id">CVE-2020-25682</elem>
+</table>
+<table>
 <elem key="cvss">8.3</elem>
 <elem key="is_exploit">false</elem>
 <elem key="type">cve</elem>
-</table>
-<table>
 <elem key="id">CVE-2020-25681</elem>
-<elem key="cvss">8.3</elem>
-<elem key="is_exploit">false</elem>
-<elem key="type">cve</elem>
 </table>
 <table>
+<elem key="cvss">7.1</elem>
+<elem key="is_exploit">false</elem>
+<elem key="type">cve</elem>
 <elem key="id">CVE-2020-25687</elem>
+</table>
+<table>
 <elem key="cvss">7.1</elem>
 <elem key="is_exploit">false</elem>
 <elem key="type">cve</elem>
-</table>
-<table>
 <elem key="id">CVE-2020-25683</elem>
-<elem key="cvss">7.1</elem>
-<elem key="is_exploit">false</elem>
-<elem key="type">cve</elem>
 </table>
 <table>
-<elem key="id">CVE-2017-15107</elem>
 <elem key="cvss">5.0</elem>
 <elem key="is_exploit">false</elem>
 <elem key="type">cve</elem>
+<elem key="id">CVE-2017-15107</elem>
 </table>
 <table>
+<elem key="cvss">4.3</elem>
+<elem key="is_exploit">false</elem>
+<elem key="type">osv</elem>
 <elem key="id">OSV:CVE-2020-25685</elem>
-<elem key="cvss">4.3</elem>
-<elem key="is_exploit">false</elem>
-<elem key="type">osv</elem>
 </table>
 <table>
+<elem key="cvss">4.3</elem>
+<elem key="is_exploit">false</elem>
+<elem key="type">cve</elem>
 <elem key="id">CVE-2021-3448</elem>
+</table>
+<table>
 <elem key="cvss">4.3</elem>
 <elem key="is_exploit">false</elem>
 <elem key="type">cve</elem>
-</table>
-<table>
 <elem key="id">CVE-2020-25686</elem>
+</table>
+<table>
 <elem key="cvss">4.3</elem>
 <elem key="is_exploit">false</elem>
 <elem key="type">cve</elem>
-</table>
-<table>
 <elem key="id">CVE-2020-25685</elem>
+</table>
+<table>
 <elem key="cvss">4.3</elem>
 <elem key="is_exploit">false</elem>
 <elem key="type">cve</elem>
-</table>
-<table>
 <elem key="id">CVE-2020-25684</elem>
+</table>
+<table>
 <elem key="cvss">4.3</elem>
 <elem key="is_exploit">false</elem>
 <elem key="type">cve</elem>
-</table>
-<table>
 <elem key="id">CVE-2019-14834</elem>
-<elem key="cvss">4.3</elem>
-<elem key="is_exploit">false</elem>
-<elem key="type">cve</elem>
 </table>
 <table>
-<elem key="id">CBF3EF2D-3A5B-5110-A374-4A5ADE9AC91A</elem>
 <elem key="cvss">4.3</elem>
 <elem key="is_exploit">true</elem>
 <elem key="type">githubexploit</elem>
+<elem key="id">CBF3EF2D-3A5B-5110-A374-4A5ADE9AC91A</elem>
 </table>
 <table>
-<elem key="id">OSV:CVE-2021-3448</elem>
 <elem key="cvss">0.0</elem>
 <elem key="is_exploit">false</elem>
 <elem key="type">osv</elem>
+<elem key="id">OSV:CVE-2021-3448</elem>
 </table>
 <table>
+<elem key="cvss">0.0</elem>
+<elem key="is_exploit">false</elem>
+<elem key="type">cve</elem>
 <elem key="id">CVE-2023-28450</elem>
+</table>
+<table>
 <elem key="cvss">0.0</elem>
 <elem key="is_exploit">false</elem>
 <elem key="type">cve</elem>
-</table>
-<table>
 <elem key="id">CVE-2022-0934</elem>
-<elem key="cvss">0.0</elem>
-<elem key="is_exploit">false</elem>
-<elem key="type">cve</elem>
 </table>
 <table>
-<elem key="id">79068BEF-A572-5A8A-88D0-177524BDAAFE</elem>
 <elem key="cvss">0.0</elem>
 <elem key="is_exploit">true</elem>
 <elem key="type">githubexploit</elem>
+<elem key="id">79068BEF-A572-5A8A-88D0-177524BDAAFE</elem>
 </table>
 </table>
 </script></port>
-<port protocol="tcp" portid="80"><state state="open" reason="syn-ack" reason_ttl="36"/><service name="http" product="Bilbao WebServer" servicefp="SF-Port80-TCP:V=7.80%I=7%D=4/25%Time=6447DA98%P=x86_64-pc-linux-gnu%r(GetRequest,340,&quot;HTTP/1\.1\x20302\x20Found\r\nDate:\x20Tue,\x2025\x20Apr\x202023\x2015:50:15\x20GMT\r\nServer:\x20Bilbao\x20WebServer\r\nReferrer-Policy:\x20strict-origin-when-cross-origin\r\nFeature-Policy:\x20accelerometer\x20&apos;none&apos;;\x20geolocation\x20&apos;none&apos;;\x20gyroscope\x20&apos;none&apos;;\x20magnetometer\x20&apos;none&apos;;\x20payment\x20&apos;none&apos;;\x20usb\x20&apos;none&apos;\r\nPermissions-Policy:\x20accelerometer=\(\),\x20geolocation=\(\),\x20gyroscope=\(\),\x20magnetometer=\(\),\x20payment=\(\),\x20usb=\(\)\r\nLocation:\x20http://www\.bilbao\.eus/cs/Satellite\?c=Page&amp;cid=3000005415&amp;pagename=Bilbaonet/Page/BIO_home\r\nContent-Length:\x20281\r\nConnection:\x20close\r\nContent-Type:\x20text/html;\x20charset=iso-8859-1\r\n\r\n&lt;!DOCTYPE\x20HTML\x20PUBLIC\x20\&quot;-//IETF//DTD\x20HTML\x202\.0//EN\&quot;&gt;\n&lt;html&gt;&lt;head&gt;\n&lt;title&gt;302\x20Found&lt;/title&gt;\n&lt;/head&gt;&lt;body&gt;\n&lt;h1&gt;Found&lt;/h1&gt;\n&lt;p&gt;The\x20document\x20has\x20moved\x20&lt;a\x20href=\&quot;http://www\.bilbao\.eus/cs/Satellite\?c=Page&amp;amp;cid=3000005415&amp;amp;pagename=Bilbaonet/Page/BIO_home\&quot;&gt;here&lt;/a&gt;\.&lt;/p&gt;\n&lt;/body&gt;&lt;/html&gt;\n&quot;)%r(HTTPOptions,340,&quot;HTTP/1\.1\x20302\x20Found\r\nDate:\x20Tue,\x2025\x20Apr\x202023\x2015:50:15\x20GMT\r\nServer:\x20Bilbao\x20WebServer\r\nReferrer-Policy:\x20strict-origin-when-cross-origin\r\nFeature-Policy:\x20accelerometer\x20&apos;none&apos;;\x20geolocation\x20&apos;none&apos;;\x20gyroscope\x20&apos;none&apos;;\x20magnetometer\x20&apos;none&apos;;\x20payment\x20&apos;none&apos;;\x20usb\x20&apos;none&apos;\r\nPermissions-Policy:\x20accelerometer=\(\),\x20geolocation=\(\),\x20gyroscope=\(\),\x20magnetometer=\(\),\x20payment=\(\),\x20usb=\(\)\r\nLocation:\x20http://www\.bilbao\.eus/cs/Satellite\?c=Page&amp;cid=3000005415&amp;pagename=Bilbaonet/Page/BIO_home\r\nContent-Length:\x20281\r\nConnection:\x20close\r\nContent-Type:\x20text/html;\x20charset=iso-8859-1\r\n\r\n&lt;!DOCTYPE\x20HTML\x20PUBLIC\x20\&quot;-//IETF//DTD\x20HTML\x202\.0//EN\&quot;&gt;\n&lt;html&gt;&lt;head&gt;\n&lt;title&gt;302\x20Found&lt;/title&gt;\n&lt;/head&gt;&lt;body&gt;\n&lt;h1&gt;Found&lt;/h1&gt;\n&lt;p&gt;The\x20document\x20has\x20moved\x20&lt;a\x20href=\&quot;http://www\.bilbao\.eus/cs/Satellite\?c=Page&amp;amp;cid=3000005415&amp;amp;pagename=Bilbaonet/Page/BIO_home\&quot;&gt;here&lt;/a&gt;\.&lt;/p&gt;\n&lt;/body&gt;&lt;/html&gt;\n&quot;);" method="probed" conf="10"/><script id="fingerprint-strings" output="&#xa;  GetRequest, HTTPOptions: &#xa;    HTTP/1.1 302 Found&#xa;    Date: Tue, 25 Apr 2023 15:50:15 GMT&#xa;    Server: Bilbao WebServer&#xa;    Referrer-Policy: strict-origin-when-cross-origin&#xa;    Feature-Policy: accelerometer &apos;none&apos;; geolocation &apos;none&apos;; gyroscope &apos;none&apos;; magnetometer &apos;none&apos;; payment &apos;none&apos;; usb &apos;none&apos;&#xa;    Permissions-Policy: accelerometer=(), geolocation=(), gyroscope=(), magnetometer=(), payment=(), usb=()&#xa;    Location: http://www.bilbao.eus/cs/Satellite?c=Page&amp;cid=3000005415&amp;pagename=Bilbaonet/Page/BIO_home&#xa;    Content-Length: 281&#xa;    Connection: close&#xa;    Content-Type: text/html; charset=iso-8859-1&#xa;    &lt;!DOCTYPE HTML PUBLIC &quot;-//IETF//DTD HTML 2.0//EN&quot;&gt;&#xa;    &lt;html&gt;&lt;head&gt;&#xa;    &lt;title&gt;302 Found&lt;/title&gt;&#xa;    &lt;/head&gt;&lt;body&gt;&#xa;    &lt;h1&gt;Found&lt;/h1&gt;&#xa;    &lt;p&gt;The document has moved &lt;a href=&quot;http://www.bilbao.eus/cs/Satellite?c=Page&amp;amp;cid=3000005415&amp;amp;pagename=Bilbaonet/Page/BIO_home&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;&#xa;    &lt;/body&gt;&lt;/html&gt;"><elem key="GetRequest, HTTPOptions">&#xa;    HTTP/1.1 302 Found&#xa;    Date: Tue, 25 Apr 2023 15:50:15 GMT&#xa;    Server: Bilbao WebServer&#xa;    Referrer-Policy: strict-origin-when-cross-origin&#xa;    Feature-Policy: accelerometer &apos;none&apos;; geolocation &apos;none&apos;; gyroscope &apos;none&apos;; magnetometer &apos;none&apos;; payment &apos;none&apos;; usb &apos;none&apos;&#xa;    Permissions-Policy: accelerometer=(), geolocation=(), gyroscope=(), magnetometer=(), payment=(), usb=()&#xa;    Location: http://www.bilbao.eus/cs/Satellite?c=Page&amp;cid=3000005415&amp;pagename=Bilbaonet/Page/BIO_home&#xa;    Content-Length: 281&#xa;    Connection: close&#xa;    Content-Type: text/html; charset=iso-8859-1&#xa;    &lt;!DOCTYPE HTML PUBLIC &quot;-//IETF//DTD HTML 2.0//EN&quot;&gt;&#xa;    &lt;html&gt;&lt;head&gt;&#xa;    &lt;title&gt;302 Found&lt;/title&gt;&#xa;    &lt;/head&gt;&lt;body&gt;&#xa;    &lt;h1&gt;Found&lt;/h1&gt;&#xa;    &lt;p&gt;The document has moved &lt;a href=&quot;http://www.bilbao.eus/cs/Satellite?c=Page&amp;amp;cid=3000005415&amp;amp;pagename=Bilbaonet/Page/BIO_home&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;&#xa;    &lt;/body&gt;&lt;/html&gt;</elem>
+<port protocol="tcp" portid="80"><state state="open" reason="syn-ack" reason_ttl="62"/><service name="http" product="Bilbao WebServer" servicefp="SF-Port80-TCP:V=7.80%I=7%D=5/10%Time=645BD3CE%P=x86_64-pc-linux-gnu%r(GetRequest,340,&quot;HTTP/1\.1\x20302\x20Found\r\nDate:\x20Wed,\x2010\x20May\x202023\x2017:26:38\x20GMT\r\nServer:\x20Bilbao\x20WebServer\r\nReferrer-Policy:\x20strict-origin-when-cross-origin\r\nFeature-Policy:\x20accelerometer\x20&apos;none&apos;;\x20geolocation\x20&apos;none&apos;;\x20gyroscope\x20&apos;none&apos;;\x20magnetometer\x20&apos;none&apos;;\x20payment\x20&apos;none&apos;;\x20usb\x20&apos;none&apos;\r\nPermissions-Policy:\x20accelerometer=\(\),\x20geolocation=\(\),\x20gyroscope=\(\),\x20magnetometer=\(\),\x20payment=\(\),\x20usb=\(\)\r\nLocation:\x20http://www\.bilbao\.eus/cs/Satellite\?c=Page&amp;cid=3000005415&amp;pagename=Bilbaonet/Page/BIO_home\r\nContent-Length:\x20281\r\nConnection:\x20close\r\nContent-Type:\x20text/html;\x20charset=iso-8859-1\r\n\r\n&lt;!DOCTYPE\x20HTML\x20PUBLIC\x20\&quot;-//IETF//DTD\x20HTML\x202\.0//EN\&quot;&gt;\n&lt;html&gt;&lt;head&gt;\n&lt;title&gt;302\x20Found&lt;/title&gt;\n&lt;/head&gt;&lt;body&gt;\n&lt;h1&gt;Found&lt;/h1&gt;\n&lt;p&gt;The\x20document\x20has\x20moved\x20&lt;a\x20href=\&quot;http://www\.bilbao\.eus/cs/Satellite\?c=Page&amp;amp;cid=3000005415&amp;amp;pagename=Bilbaonet/Page/BIO_home\&quot;&gt;here&lt;/a&gt;\.&lt;/p&gt;\n&lt;/body&gt;&lt;/html&gt;\n&quot;)%r(HTTPOptions,340,&quot;HTTP/1\.1\x20302\x20Found\r\nDate:\x20Wed,\x2010\x20May\x202023\x2017:26:38\x20GMT\r\nServer:\x20Bilbao\x20WebServer\r\nReferrer-Policy:\x20strict-origin-when-cross-origin\r\nFeature-Policy:\x20accelerometer\x20&apos;none&apos;;\x20geolocation\x20&apos;none&apos;;\x20gyroscope\x20&apos;none&apos;;\x20magnetometer\x20&apos;none&apos;;\x20payment\x20&apos;none&apos;;\x20usb\x20&apos;none&apos;\r\nPermissions-Policy:\x20accelerometer=\(\),\x20geolocation=\(\),\x20gyroscope=\(\),\x20magnetometer=\(\),\x20payment=\(\),\x20usb=\(\)\r\nLocation:\x20http://www\.bilbao\.eus/cs/Satellite\?c=Page&amp;cid=3000005415&amp;pagename=Bilbaonet/Page/BIO_home\r\nContent-Length:\x20281\r\nConnection:\x20close\r\nContent-Type:\x20text/html;\x20charset=iso-8859-1\r\n\r\n&lt;!DOCTYPE\x20HTML\x20PUBLIC\x20\&quot;-//IETF//DTD\x20HTML\x202\.0//EN\&quot;&gt;\n&lt;html&gt;&lt;head&gt;\n&lt;title&gt;302\x20Found&lt;/title&gt;\n&lt;/head&gt;&lt;body&gt;\n&lt;h1&gt;Found&lt;/h1&gt;\n&lt;p&gt;The\x20document\x20has\x20moved\x20&lt;a\x20href=\&quot;http://www\.bilbao\.eus/cs/Satellite\?c=Page&amp;amp;cid=3000005415&amp;amp;pagename=Bilbaonet/Page/BIO_home\&quot;&gt;here&lt;/a&gt;\.&lt;/p&gt;\n&lt;/body&gt;&lt;/html&gt;\n&quot;);" method="probed" conf="10"/><script id="fingerprint-strings" output="&#xa;  GetRequest, HTTPOptions: &#xa;    HTTP/1.1 302 Found&#xa;    Date: Wed, 10 May 2023 17:26:38 GMT&#xa;    Server: Bilbao WebServer&#xa;    Referrer-Policy: strict-origin-when-cross-origin&#xa;    Feature-Policy: accelerometer &apos;none&apos;; geolocation &apos;none&apos;; gyroscope &apos;none&apos;; magnetometer &apos;none&apos;; payment &apos;none&apos;; usb &apos;none&apos;&#xa;    Permissions-Policy: accelerometer=(), geolocation=(), gyroscope=(), magnetometer=(), payment=(), usb=()&#xa;    Location: http://www.bilbao.eus/cs/Satellite?c=Page&amp;cid=3000005415&amp;pagename=Bilbaonet/Page/BIO_home&#xa;    Content-Length: 281&#xa;    Connection: close&#xa;    Content-Type: text/html; charset=iso-8859-1&#xa;    &lt;!DOCTYPE HTML PUBLIC &quot;-//IETF//DTD HTML 2.0//EN&quot;&gt;&#xa;    &lt;html&gt;&lt;head&gt;&#xa;    &lt;title&gt;302 Found&lt;/title&gt;&#xa;    &lt;/head&gt;&lt;body&gt;&#xa;    &lt;h1&gt;Found&lt;/h1&gt;&#xa;    &lt;p&gt;The document has moved &lt;a href=&quot;http://www.bilbao.eus/cs/Satellite?c=Page&amp;amp;cid=3000005415&amp;amp;pagename=Bilbaonet/Page/BIO_home&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;&#xa;    &lt;/body&gt;&lt;/html&gt;"><elem key="GetRequest, HTTPOptions">&#xa;    HTTP/1.1 302 Found&#xa;    Date: Wed, 10 May 2023 17:26:38 GMT&#xa;    Server: Bilbao WebServer&#xa;    Referrer-Policy: strict-origin-when-cross-origin&#xa;    Feature-Policy: accelerometer &apos;none&apos;; geolocation &apos;none&apos;; gyroscope &apos;none&apos;; magnetometer &apos;none&apos;; payment &apos;none&apos;; usb &apos;none&apos;&#xa;    Permissions-Policy: accelerometer=(), geolocation=(), gyroscope=(), magnetometer=(), payment=(), usb=()&#xa;    Location: http://www.bilbao.eus/cs/Satellite?c=Page&amp;cid=3000005415&amp;pagename=Bilbaonet/Page/BIO_home&#xa;    Content-Length: 281&#xa;    Connection: close&#xa;    Content-Type: text/html; charset=iso-8859-1&#xa;    &lt;!DOCTYPE HTML PUBLIC &quot;-//IETF//DTD HTML 2.0//EN&quot;&gt;&#xa;    &lt;html&gt;&lt;head&gt;&#xa;    &lt;title&gt;302 Found&lt;/title&gt;&#xa;    &lt;/head&gt;&lt;body&gt;&#xa;    &lt;h1&gt;Found&lt;/h1&gt;&#xa;    &lt;p&gt;The document has moved &lt;a href=&quot;http://www.bilbao.eus/cs/Satellite?c=Page&amp;amp;cid=3000005415&amp;amp;pagename=Bilbaonet/Page/BIO_home&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;&#xa;    &lt;/body&gt;&lt;/html&gt;</elem>
 </script><script id="http-server-header" output="Bilbao WebServer"><elem>Bilbao WebServer</elem>
 </script></port>
-<port protocol="tcp" portid="443"><state state="open" reason="syn-ack" reason_ttl="36"/><service name="https" product="Bilbao WebServer" servicefp="SF-Port443-TCP:V=7.80%T=SSL%I=7%D=4/25%Time=6447DA9E%P=x86_64-pc-linux-gnu%r(GetRequest,323,&quot;HTTP/1\.1\x20400\x20Bad\x20Request\r\nDate:\x20Tue,\x2025\x20Apr\x202023\x2015:50:21\x20GMT\r\nServer:\x20Bilbao\x20WebServer\r\nReferrer-Policy:\x20strict-origin-when-cross-origin\r\nFeature-Policy:\x20accelerometer\x20&apos;none&apos;;\x20geolocation\x20&apos;none&apos;;\x20gyroscope\x20&apos;none&apos;;\x20magnetometer\x20&apos;none&apos;;\x20payment\x20&apos;none&apos;;\x20usb\x20&apos;none&apos;\r\nPermissions-Policy:\x20accelerometer=\(\),\x20geolocation=\(\),\x20gyroscope=\(\),\x20magnetometer=\(\),\x20payment=\(\),\x20usb=\(\)\r\nContent-Length:\x20347\r\nConnection:\x20close\r\nContent-Type:\x20text/html;\x20charset=iso-8859-1\r\n\r\n&lt;!DOCTYPE\x20HTML\x20PUBLIC\x20\&quot;-//IETF//DTD\x20HTML\x202\.0//EN\&quot;&gt;\n&lt;html&gt;&lt;head&gt;\n&lt;title&gt;400\x20Bad\x20Request&lt;/title&gt;\n&lt;/head&gt;&lt;body&gt;\n&lt;h1&gt;Bad\x20Request&lt;/h1&gt;\n&lt;p&gt;Your\x20browser\x20sent\x20a\x20request\x20that\x20this\x20server\x20could\x20not\x20understand\.&lt;br\x20/&gt;\n&lt;/p&gt;\n&lt;p&gt;Additionally,\x20a\x20400\x20Bad\x20Request\nerror\x20was\x20encountered\x20while\x20trying\x20to\x20use\x20an\x20ErrorDocument\x20to\x20handle\x20the\x20request\.&lt;/p&gt;\n&lt;/body&gt;&lt;/html&gt;\n&quot;)%r(HTTPOptions,323,&quot;HTTP/1\.1\x20400\x20Bad\x20Request\r\nDate:\x20Tue,\x2025\x20Apr\x202023\x2015:50:22\x20GMT\r\nServer:\x20Bilbao\x20WebServer\r\nReferrer-Policy:\x20strict-origin-when-cross-origin\r\nFeature-Policy:\x20accelerometer\x20&apos;none&apos;;\x20geolocation\x20&apos;none&apos;;\x20gyroscope\x20&apos;none&apos;;\x20magnetometer\x20&apos;none&apos;;\x20payment\x20&apos;none&apos;;\x20usb\x20&apos;none&apos;\r\nPermissions-Policy:\x20accelerometer=\(\),\x20geolocation=\(\),\x20gyroscope=\(\),\x20magnetometer=\(\),\x20payment=\(\),\x20usb=\(\)\r\nContent-Length:\x20347\r\nConnection:\x20close\r\nContent-Type:\x20text/html;\x20charset=iso-8859-1\r\n\r\n&lt;!DOCTYPE\x20HTML\x20PUBLIC\x20\&quot;-//IETF//DTD\x20HTML\x202\.0//EN\&quot;&gt;\n&lt;html&gt;&lt;head&gt;\n&lt;title&gt;400\x20Bad\x20Request&lt;/title&gt;\n&lt;/head&gt;&lt;body&gt;\n&lt;h1&gt;Bad\x20Request&lt;/h1&gt;\n&lt;p&gt;Your\x20browser\x20sent\x20a\x20request\x20that\x20this\x20server\x20could\x20not\x20understand\.&lt;br\x20/&gt;\n&lt;/p&gt;\n&lt;p&gt;Additionally,\x20a\x20400\x20Bad\x20Request\nerror\x20was\x20encountered\x20while\x20trying\x20to\x20use\x20an\x20ErrorDocument\x20to\x20handle\x20the\x20request\.&lt;/p&gt;\n&lt;/body&gt;&lt;/html&gt;\n&quot;);" tunnel="ssl" method="probed" conf="10"/><script id="fingerprint-strings" output="&#xa;  GetRequest: &#xa;    HTTP/1.1 400 Bad Request&#xa;    Date: Tue, 25 Apr 2023 15:50:21 GMT&#xa;    Server: Bilbao WebServer&#xa;    Referrer-Policy: strict-origin-when-cross-origin&#xa;    Feature-Policy: accelerometer &apos;none&apos;; geolocation &apos;none&apos;; gyroscope &apos;none&apos;; magnetometer &apos;none&apos;; payment &apos;none&apos;; usb &apos;none&apos;&#xa;    Permissions-Policy: accelerometer=(), geolocation=(), gyroscope=(), magnetometer=(), payment=(), usb=()&#xa;    Content-Length: 347&#xa;    Connection: close&#xa;    Content-Type: text/html; charset=iso-8859-1&#xa;    &lt;!DOCTYPE HTML PUBLIC &quot;-//IETF//DTD HTML 2.0//EN&quot;&gt;&#xa;    &lt;html&gt;&lt;head&gt;&#xa;    &lt;title&gt;400 Bad Request&lt;/title&gt;&#xa;    &lt;/head&gt;&lt;body&gt;&#xa;    &lt;h1&gt;Bad Request&lt;/h1&gt;&#xa;    &lt;p&gt;Your browser sent a request that this server could not understand.&lt;br /&gt;&#xa;    &lt;/p&gt;&#xa;    &lt;p&gt;Additionally, a 400 Bad Request&#xa;    error was encountered while trying to use an ErrorDocument to handle the request.&lt;/p&gt;&#xa;    &lt;/body&gt;&lt;/html&gt;&#xa;  HTTPOptions: &#xa;    HTTP/1.1 400 Bad Request&#xa;    Date: Tue, 25 Apr 2023 15:50:22 GMT&#xa;    Server: Bilbao WebServer&#xa;    Referrer-Policy: strict-origin-when-cross-origin&#xa;    Feature-Policy: accelerometer &apos;none&apos;; geolocation &apos;none&apos;; gyroscope &apos;none&apos;; magnetometer &apos;none&apos;; payment &apos;none&apos;; usb &apos;none&apos;&#xa;    Permissions-Policy: accelerometer=(), geolocation=(), gyroscope=(), magnetometer=(), payment=(), usb=()&#xa;    Content-Length: 347&#xa;    Connection: close&#xa;    Content-Type: text/html; charset=iso-8859-1&#xa;    &lt;!DOCTYPE HTML PUBLIC &quot;-//IETF//DTD HTML 2.0//EN&quot;&gt;&#xa;    &lt;html&gt;&lt;head&gt;&#xa;    &lt;title&gt;400 Bad Request&lt;/title&gt;&#xa;    &lt;/head&gt;&lt;body&gt;&#xa;    &lt;h1&gt;Bad Request&lt;/h1&gt;&#xa;    &lt;p&gt;Your browser sent a request that this server could not understand.&lt;br /&gt;&#xa;    &lt;/p&gt;&#xa;    &lt;p&gt;Additionally, a 400 Bad Request&#xa;    error was encountered while trying to use an ErrorDocument to handle the request.&lt;/p&gt;&#xa;    &lt;/body&gt;&lt;/html&gt;"><elem key="GetRequest">&#xa;    HTTP/1.1 400 Bad Request&#xa;    Date: Tue, 25 Apr 2023 15:50:21 GMT&#xa;    Server: Bilbao WebServer&#xa;    Referrer-Policy: strict-origin-when-cross-origin&#xa;    Feature-Policy: accelerometer &apos;none&apos;; geolocation &apos;none&apos;; gyroscope &apos;none&apos;; magnetometer &apos;none&apos;; payment &apos;none&apos;; usb &apos;none&apos;&#xa;    Permissions-Policy: accelerometer=(), geolocation=(), gyroscope=(), magnetometer=(), payment=(), usb=()&#xa;    Content-Length: 347&#xa;    Connection: close&#xa;    Content-Type: text/html; charset=iso-8859-1&#xa;    &lt;!DOCTYPE HTML PUBLIC &quot;-//IETF//DTD HTML 2.0//EN&quot;&gt;&#xa;    &lt;html&gt;&lt;head&gt;&#xa;    &lt;title&gt;400 Bad Request&lt;/title&gt;&#xa;    &lt;/head&gt;&lt;body&gt;&#xa;    &lt;h1&gt;Bad Request&lt;/h1&gt;&#xa;    &lt;p&gt;Your browser sent a request that this server could not understand.&lt;br /&gt;&#xa;    &lt;/p&gt;&#xa;    &lt;p&gt;Additionally, a 400 Bad Request&#xa;    error was encountered while trying to use an ErrorDocument to handle the request.&lt;/p&gt;&#xa;    &lt;/body&gt;&lt;/html&gt;</elem>
-<elem key="HTTPOptions">&#xa;    HTTP/1.1 400 Bad Request&#xa;    Date: Tue, 25 Apr 2023 15:50:22 GMT&#xa;    Server: Bilbao WebServer&#xa;    Referrer-Policy: strict-origin-when-cross-origin&#xa;    Feature-Policy: accelerometer &apos;none&apos;; geolocation &apos;none&apos;; gyroscope &apos;none&apos;; magnetometer &apos;none&apos;; payment &apos;none&apos;; usb &apos;none&apos;&#xa;    Permissions-Policy: accelerometer=(), geolocation=(), gyroscope=(), magnetometer=(), payment=(), usb=()&#xa;    Content-Length: 347&#xa;    Connection: close&#xa;    Content-Type: text/html; charset=iso-8859-1&#xa;    &lt;!DOCTYPE HTML PUBLIC &quot;-//IETF//DTD HTML 2.0//EN&quot;&gt;&#xa;    &lt;html&gt;&lt;head&gt;&#xa;    &lt;title&gt;400 Bad Request&lt;/title&gt;&#xa;    &lt;/head&gt;&lt;body&gt;&#xa;    &lt;h1&gt;Bad Request&lt;/h1&gt;&#xa;    &lt;p&gt;Your browser sent a request that this server could not understand.&lt;br /&gt;&#xa;    &lt;/p&gt;&#xa;    &lt;p&gt;Additionally, a 400 Bad Request&#xa;    error was encountered while trying to use an ErrorDocument to handle the request.&lt;/p&gt;&#xa;    &lt;/body&gt;&lt;/html&gt;</elem>
+<port protocol="tcp" portid="443"><state state="open" reason="syn-ack" reason_ttl="62"/><service name="https" product="Bilbao WebServer" servicefp="SF-Port443-TCP:V=7.80%T=SSL%I=7%D=5/10%Time=645BD3D4%P=x86_64-pc-linux-gnu%r(GetRequest,323,&quot;HTTP/1\.1\x20400\x20Bad\x20Request\r\nDate:\x20Wed,\x2010\x20May\x202023\x2017:26:44\x20GMT\r\nServer:\x20Bilbao\x20WebServer\r\nReferrer-Policy:\x20strict-origin-when-cross-origin\r\nFeature-Policy:\x20accelerometer\x20&apos;none&apos;;\x20geolocation\x20&apos;none&apos;;\x20gyroscope\x20&apos;none&apos;;\x20magnetometer\x20&apos;none&apos;;\x20payment\x20&apos;none&apos;;\x20usb\x20&apos;none&apos;\r\nPermissions-Policy:\x20accelerometer=\(\),\x20geolocation=\(\),\x20gyroscope=\(\),\x20magnetometer=\(\),\x20payment=\(\),\x20usb=\(\)\r\nContent-Length:\x20347\r\nConnection:\x20close\r\nContent-Type:\x20text/html;\x20charset=iso-8859-1\r\n\r\n&lt;!DOCTYPE\x20HTML\x20PUBLIC\x20\&quot;-//IETF//DTD\x20HTML\x202\.0//EN\&quot;&gt;\n&lt;html&gt;&lt;head&gt;\n&lt;title&gt;400\x20Bad\x20Request&lt;/title&gt;\n&lt;/head&gt;&lt;body&gt;\n&lt;h1&gt;Bad\x20Request&lt;/h1&gt;\n&lt;p&gt;Your\x20browser\x20sent\x20a\x20request\x20that\x20this\x20server\x20could\x20not\x20understand\.&lt;br\x20/&gt;\n&lt;/p&gt;\n&lt;p&gt;Additionally,\x20a\x20400\x20Bad\x20Request\nerror\x20was\x20encountered\x20while\x20trying\x20to\x20use\x20an\x20ErrorDocument\x20to\x20handle\x20the\x20request\.&lt;/p&gt;\n&lt;/body&gt;&lt;/html&gt;\n&quot;)%r(HTTPOptions,323,&quot;HTTP/1\.1\x20400\x20Bad\x20Request\r\nDate:\x20Wed,\x2010\x20May\x202023\x2017:26:44\x20GMT\r\nServer:\x20Bilbao\x20WebServer\r\nReferrer-Policy:\x20strict-origin-when-cross-origin\r\nFeature-Policy:\x20accelerometer\x20&apos;none&apos;;\x20geolocation\x20&apos;none&apos;;\x20gyroscope\x20&apos;none&apos;;\x20magnetometer\x20&apos;none&apos;;\x20payment\x20&apos;none&apos;;\x20usb\x20&apos;none&apos;\r\nPermissions-Policy:\x20accelerometer=\(\),\x20geolocation=\(\),\x20gyroscope=\(\),\x20magnetometer=\(\),\x20payment=\(\),\x20usb=\(\)\r\nContent-Length:\x20347\r\nConnection:\x20close\r\nContent-Type:\x20text/html;\x20charset=iso-8859-1\r\n\r\n&lt;!DOCTYPE\x20HTML\x20PUBLIC\x20\&quot;-//IETF//DTD\x20HTML\x202\.0//EN\&quot;&gt;\n&lt;html&gt;&lt;head&gt;\n&lt;title&gt;400\x20Bad\x20Request&lt;/title&gt;\n&lt;/head&gt;&lt;body&gt;\n&lt;h1&gt;Bad\x20Request&lt;/h1&gt;\n&lt;p&gt;Your\x20browser\x20sent\x20a\x20request\x20that\x20this\x20server\x20could\x20not\x20understand\.&lt;br\x20/&gt;\n&lt;/p&gt;\n&lt;p&gt;Additionally,\x20a\x20400\x20Bad\x20Request\nerror\x20was\x20encountered\x20while\x20trying\x20to\x20use\x20an\x20ErrorDocument\x20to\x20handle\x20the\x20request\.&lt;/p&gt;\n&lt;/body&gt;&lt;/html&gt;\n&quot;);" tunnel="ssl" method="probed" conf="10"/><script id="fingerprint-strings" output="&#xa;  GetRequest, HTTPOptions: &#xa;    HTTP/1.1 400 Bad Request&#xa;    Date: Wed, 10 May 2023 17:26:44 GMT&#xa;    Server: Bilbao WebServer&#xa;    Referrer-Policy: strict-origin-when-cross-origin&#xa;    Feature-Policy: accelerometer &apos;none&apos;; geolocation &apos;none&apos;; gyroscope &apos;none&apos;; magnetometer &apos;none&apos;; payment &apos;none&apos;; usb &apos;none&apos;&#xa;    Permissions-Policy: accelerometer=(), geolocation=(), gyroscope=(), magnetometer=(), payment=(), usb=()&#xa;    Content-Length: 347&#xa;    Connection: close&#xa;    Content-Type: text/html; charset=iso-8859-1&#xa;    &lt;!DOCTYPE HTML PUBLIC &quot;-//IETF//DTD HTML 2.0//EN&quot;&gt;&#xa;    &lt;html&gt;&lt;head&gt;&#xa;    &lt;title&gt;400 Bad Request&lt;/title&gt;&#xa;    &lt;/head&gt;&lt;body&gt;&#xa;    &lt;h1&gt;Bad Request&lt;/h1&gt;&#xa;    &lt;p&gt;Your browser sent a request that this server could not understand.&lt;br /&gt;&#xa;    &lt;/p&gt;&#xa;    &lt;p&gt;Additionally, a 400 Bad Request&#xa;    error was encountered while trying to use an ErrorDocument to handle the request.&lt;/p&gt;&#xa;    &lt;/body&gt;&lt;/html&gt;"><elem key="GetRequest, HTTPOptions">&#xa;    HTTP/1.1 400 Bad Request&#xa;    Date: Wed, 10 May 2023 17:26:44 GMT&#xa;    Server: Bilbao WebServer&#xa;    Referrer-Policy: strict-origin-when-cross-origin&#xa;    Feature-Policy: accelerometer &apos;none&apos;; geolocation &apos;none&apos;; gyroscope &apos;none&apos;; magnetometer &apos;none&apos;; payment &apos;none&apos;; usb &apos;none&apos;&#xa;    Permissions-Policy: accelerometer=(), geolocation=(), gyroscope=(), magnetometer=(), payment=(), usb=()&#xa;    Content-Length: 347&#xa;    Connection: close&#xa;    Content-Type: text/html; charset=iso-8859-1&#xa;    &lt;!DOCTYPE HTML PUBLIC &quot;-//IETF//DTD HTML 2.0//EN&quot;&gt;&#xa;    &lt;html&gt;&lt;head&gt;&#xa;    &lt;title&gt;400 Bad Request&lt;/title&gt;&#xa;    &lt;/head&gt;&lt;body&gt;&#xa;    &lt;h1&gt;Bad Request&lt;/h1&gt;&#xa;    &lt;p&gt;Your browser sent a request that this server could not understand.&lt;br /&gt;&#xa;    &lt;/p&gt;&#xa;    &lt;p&gt;Additionally, a 400 Bad Request&#xa;    error was encountered while trying to use an ErrorDocument to handle the request.&lt;/p&gt;&#xa;    &lt;/body&gt;&lt;/html&gt;</elem>
 </script><script id="http-server-header" output="Bilbao WebServer"><elem>Bilbao WebServer</elem>
 </script></port>
 </ports>
-<times srtt="40167" rttvar="7582" to="100000"/>
+<times srtt="28725" rttvar="5745" to="100000"/>
 </host>
-<host starttime="1682430553" endtime="1682430758"><status state="up" reason="user-set" reason_ttl="0"/>
+<host starttime="1683739480" endtime="1683739740"><status state="up" reason="user-set" reason_ttl="0"/>
 <address addr="35.206.71.198" addrtype="ipv4"/>
 <hostnames>
 <hostname name="deusto.es" type="user"/>
 </hostnames>
-<ports><extraports state="filtered" count="942">
-<extrareasons reason="no-responses" count="942"/>
+<ports><extraports state="filtered" count="996">
+<extrareasons reason="no-responses" count="996"/>
 </extraports>
-<extraports state="closed" count="54">
-<extrareasons reason="resets" count="54"/>
-</extraports>
-<port protocol="tcp" portid="22"><state state="open" reason="syn-ack" reason_ttl="36"/><service name="ssh" product="OpenSSH" version="8.2p1 Ubuntu 4ubuntu0.5" extrainfo="Ubuntu Linux; protocol 2.0" ostype="Linux" method="probed" conf="10"><cpe>cpe:/a:openbsd:openssh:8.2p1</cpe><cpe>cpe:/o:linux:linux_kernel</cpe></service><script id="vulners" output="&#xa;  cpe:/a:openbsd:openssh:8.2p1: &#xa;    &#x9;CVE-2020-15778&#x9;6.8&#x9;https://vulners.com/cve/CVE-2020-15778&#xa;    &#x9;C94132FD-1FA5-5342-B6EE-0DAF45EEFFE3&#x9;6.8&#x9;https://vulners.com/githubexploit/C94132FD-1FA5-5342-B6EE-0DAF45EEFFE3&#x9;*EXPLOIT*&#xa;    &#x9;10213DBE-F683-58BB-B6D3-353173626207&#x9;6.8&#x9;https://vulners.com/githubexploit/10213DBE-F683-58BB-B6D3-353173626207&#x9;*EXPLOIT*&#xa;    &#x9;CVE-2020-12062&#x9;5.0&#x9;https://vulners.com/cve/CVE-2020-12062&#xa;    &#x9;CVE-2021-28041&#x9;4.6&#x9;https://vulners.com/cve/CVE-2021-28041&#xa;    &#x9;CVE-2021-41617&#x9;4.4&#x9;https://vulners.com/cve/CVE-2021-41617&#xa;    &#x9;CVE-2020-14145&#x9;4.3&#x9;https://vulners.com/cve/CVE-2020-14145&#xa;    &#x9;CVE-2016-20012&#x9;4.3&#x9;https://vulners.com/cve/CVE-2016-20012&#xa;    &#x9;CVE-2021-36368&#x9;2.6&#x9;https://vulners.com/cve/CVE-2021-36368"><table key="cpe:/a:openbsd:openssh:8.2p1">
+<port protocol="tcp" portid="22"><state state="open" reason="syn-ack" reason_ttl="62"/><service name="ssh" product="OpenSSH" version="8.2p1 Ubuntu 4ubuntu0.5" extrainfo="Ubuntu Linux; protocol 2.0" ostype="Linux" method="probed" conf="10"><cpe>cpe:/a:openbsd:openssh:8.2p1</cpe><cpe>cpe:/o:linux:linux_kernel</cpe></service><script id="vulners" output="&#xa;  cpe:/a:openbsd:openssh:8.2p1: &#xa;    &#x9;CVE-2020-15778&#x9;6.8&#x9;https://vulners.com/cve/CVE-2020-15778&#xa;    &#x9;C94132FD-1FA5-5342-B6EE-0DAF45EEFFE3&#x9;6.8&#x9;https://vulners.com/githubexploit/C94132FD-1FA5-5342-B6EE-0DAF45EEFFE3&#x9;*EXPLOIT*&#xa;    &#x9;10213DBE-F683-58BB-B6D3-353173626207&#x9;6.8&#x9;https://vulners.com/githubexploit/10213DBE-F683-58BB-B6D3-353173626207&#x9;*EXPLOIT*&#xa;    &#x9;CVE-2020-12062&#x9;5.0&#x9;https://vulners.com/cve/CVE-2020-12062&#xa;    &#x9;CVE-2021-28041&#x9;4.6&#x9;https://vulners.com/cve/CVE-2021-28041&#xa;    &#x9;CVE-2021-41617&#x9;4.4&#x9;https://vulners.com/cve/CVE-2021-41617&#xa;    &#x9;CVE-2020-14145&#x9;4.3&#x9;https://vulners.com/cve/CVE-2020-14145&#xa;    &#x9;CVE-2016-20012&#x9;4.3&#x9;https://vulners.com/cve/CVE-2016-20012&#xa;    &#x9;CVE-2021-36368&#x9;2.6&#x9;https://vulners.com/cve/CVE-2021-36368"><table key="cpe:/a:openbsd:openssh:8.2p1">
 <table>
-<elem key="id">CVE-2020-15778</elem>
 <elem key="cvss">6.8</elem>
 <elem key="is_exploit">false</elem>
 <elem key="type">cve</elem>
+<elem key="id">CVE-2020-15778</elem>
 </table>
 <table>
+<elem key="cvss">6.8</elem>
+<elem key="is_exploit">true</elem>
+<elem key="type">githubexploit</elem>
 <elem key="id">C94132FD-1FA5-5342-B6EE-0DAF45EEFFE3</elem>
+</table>
+<table>
 <elem key="cvss">6.8</elem>
 <elem key="is_exploit">true</elem>
 <elem key="type">githubexploit</elem>
-</table>
-<table>
 <elem key="id">10213DBE-F683-58BB-B6D3-353173626207</elem>
-<elem key="cvss">6.8</elem>
-<elem key="is_exploit">true</elem>
-<elem key="type">githubexploit</elem>
 </table>
 <table>
-<elem key="id">CVE-2020-12062</elem>
 <elem key="cvss">5.0</elem>
 <elem key="is_exploit">false</elem>
 <elem key="type">cve</elem>
+<elem key="id">CVE-2020-12062</elem>
 </table>
 <table>
-<elem key="id">CVE-2021-28041</elem>
 <elem key="cvss">4.6</elem>
 <elem key="is_exploit">false</elem>
 <elem key="type">cve</elem>
+<elem key="id">CVE-2021-28041</elem>
 </table>
 <table>
-<elem key="id">CVE-2021-41617</elem>
 <elem key="cvss">4.4</elem>
 <elem key="is_exploit">false</elem>
 <elem key="type">cve</elem>
+<elem key="id">CVE-2021-41617</elem>
 </table>
 <table>
+<elem key="cvss">4.3</elem>
+<elem key="is_exploit">false</elem>
+<elem key="type">cve</elem>
 <elem key="id">CVE-2020-14145</elem>
+</table>
+<table>
 <elem key="cvss">4.3</elem>
 <elem key="is_exploit">false</elem>
 <elem key="type">cve</elem>
-</table>
-<table>
 <elem key="id">CVE-2016-20012</elem>
-<elem key="cvss">4.3</elem>
-<elem key="is_exploit">false</elem>
-<elem key="type">cve</elem>
 </table>
 <table>
-<elem key="id">CVE-2021-36368</elem>
 <elem key="cvss">2.6</elem>
 <elem key="is_exploit">false</elem>
 <elem key="type">cve</elem>
+<elem key="id">CVE-2021-36368</elem>
 </table>
 </table>
 </script></port>
-<port protocol="tcp" portid="53"><state state="open" reason="syn-ack" reason_ttl="36"/><service name="domain" product="dnsmasq" version="2.78" method="probed" conf="10"><cpe>cpe:/a:thekelleys:dnsmasq:2.78</cpe></service><script id="vulners" output="&#xa;  cpe:/a:thekelleys:dnsmasq:2.78: &#xa;    &#x9;CVE-2020-25682&#x9;8.3&#x9;https://vulners.com/cve/CVE-2020-25682&#xa;    &#x9;CVE-2020-25681&#x9;8.3&#x9;https://vulners.com/cve/CVE-2020-25681&#xa;    &#x9;CVE-2020-25687&#x9;7.1&#x9;https://vulners.com/cve/CVE-2020-25687&#xa;    &#x9;CVE-2020-25683&#x9;7.1&#x9;https://vulners.com/cve/CVE-2020-25683&#xa;    &#x9;CVE-2017-15107&#x9;5.0&#x9;https://vulners.com/cve/CVE-2017-15107&#xa;    &#x9;OSV:CVE-2020-25685&#x9;4.3&#x9;https://vulners.com/osv/OSV:CVE-2020-25685&#xa;    &#x9;CVE-2021-3448&#x9;4.3&#x9;https://vulners.com/cve/CVE-2021-3448&#xa;    &#x9;CVE-2020-25686&#x9;4.3&#x9;https://vulners.com/cve/CVE-2020-25686&#xa;    &#x9;CVE-2020-25685&#x9;4.3&#x9;https://vulners.com/cve/CVE-2020-25685&#xa;    &#x9;CVE-2020-25684&#x9;4.3&#x9;https://vulners.com/cve/CVE-2020-25684&#xa;    &#x9;CVE-2019-14834&#x9;4.3&#x9;https://vulners.com/cve/CVE-2019-14834&#xa;    &#x9;CBF3EF2D-3A5B-5110-A374-4A5ADE9AC91A&#x9;4.3&#x9;https://vulners.com/githubexploit/CBF3EF2D-3A5B-5110-A374-4A5ADE9AC91A&#x9;*EXPLOIT*&#xa;    &#x9;OSV:CVE-2021-3448&#x9;0.0&#x9;https://vulners.com/osv/OSV:CVE-2021-3448&#xa;    &#x9;CVE-2023-28450&#x9;0.0&#x9;https://vulners.com/cve/CVE-2023-28450&#xa;    &#x9;CVE-2022-0934&#x9;0.0&#x9;https://vulners.com/cve/CVE-2022-0934&#xa;    &#x9;79068BEF-A572-5A8A-88D0-177524BDAAFE&#x9;0.0&#x9;https://vulners.com/githubexploit/79068BEF-A572-5A8A-88D0-177524BDAAFE&#x9;*EXPLOIT*"><table key="cpe:/a:thekelleys:dnsmasq:2.78">
+<port protocol="tcp" portid="53"><state state="open" reason="syn-ack" reason_ttl="62"/><service name="domain" product="dnsmasq" version="2.78" method="probed" conf="10"><cpe>cpe:/a:thekelleys:dnsmasq:2.78</cpe></service><script id="vulners" output="&#xa;  cpe:/a:thekelleys:dnsmasq:2.78: &#xa;    &#x9;CVE-2020-25682&#x9;8.3&#x9;https://vulners.com/cve/CVE-2020-25682&#xa;    &#x9;CVE-2020-25681&#x9;8.3&#x9;https://vulners.com/cve/CVE-2020-25681&#xa;    &#x9;CVE-2020-25687&#x9;7.1&#x9;https://vulners.com/cve/CVE-2020-25687&#xa;    &#x9;CVE-2020-25683&#x9;7.1&#x9;https://vulners.com/cve/CVE-2020-25683&#xa;    &#x9;CVE-2017-15107&#x9;5.0&#x9;https://vulners.com/cve/CVE-2017-15107&#xa;    &#x9;OSV:CVE-2020-25685&#x9;4.3&#x9;https://vulners.com/osv/OSV:CVE-2020-25685&#xa;    &#x9;CVE-2021-3448&#x9;4.3&#x9;https://vulners.com/cve/CVE-2021-3448&#xa;    &#x9;CVE-2020-25686&#x9;4.3&#x9;https://vulners.com/cve/CVE-2020-25686&#xa;    &#x9;CVE-2020-25685&#x9;4.3&#x9;https://vulners.com/cve/CVE-2020-25685&#xa;    &#x9;CVE-2020-25684&#x9;4.3&#x9;https://vulners.com/cve/CVE-2020-25684&#xa;    &#x9;CVE-2019-14834&#x9;4.3&#x9;https://vulners.com/cve/CVE-2019-14834&#xa;    &#x9;CBF3EF2D-3A5B-5110-A374-4A5ADE9AC91A&#x9;4.3&#x9;https://vulners.com/githubexploit/CBF3EF2D-3A5B-5110-A374-4A5ADE9AC91A&#x9;*EXPLOIT*&#xa;    &#x9;OSV:CVE-2021-3448&#x9;0.0&#x9;https://vulners.com/osv/OSV:CVE-2021-3448&#xa;    &#x9;CVE-2023-28450&#x9;0.0&#x9;https://vulners.com/cve/CVE-2023-28450&#xa;    &#x9;CVE-2022-0934&#x9;0.0&#x9;https://vulners.com/cve/CVE-2022-0934&#xa;    &#x9;79068BEF-A572-5A8A-88D0-177524BDAAFE&#x9;0.0&#x9;https://vulners.com/githubexploit/79068BEF-A572-5A8A-88D0-177524BDAAFE&#x9;*EXPLOIT*"><table key="cpe:/a:thekelleys:dnsmasq:2.78">
 <table>
+<elem key="cvss">8.3</elem>
+<elem key="is_exploit">false</elem>
+<elem key="type">cve</elem>
 <elem key="id">CVE-2020-25682</elem>
+</table>
+<table>
 <elem key="cvss">8.3</elem>
 <elem key="is_exploit">false</elem>
 <elem key="type">cve</elem>
-</table>
-<table>
 <elem key="id">CVE-2020-25681</elem>
-<elem key="cvss">8.3</elem>
-<elem key="is_exploit">false</elem>
-<elem key="type">cve</elem>
 </table>
 <table>
+<elem key="cvss">7.1</elem>
+<elem key="is_exploit">false</elem>
+<elem key="type">cve</elem>
 <elem key="id">CVE-2020-25687</elem>
+</table>
+<table>
 <elem key="cvss">7.1</elem>
 <elem key="is_exploit">false</elem>
 <elem key="type">cve</elem>
-</table>
-<table>
 <elem key="id">CVE-2020-25683</elem>
-<elem key="cvss">7.1</elem>
-<elem key="is_exploit">false</elem>
-<elem key="type">cve</elem>
 </table>
 <table>
-<elem key="id">CVE-2017-15107</elem>
 <elem key="cvss">5.0</elem>
 <elem key="is_exploit">false</elem>
 <elem key="type">cve</elem>
+<elem key="id">CVE-2017-15107</elem>
 </table>
 <table>
+<elem key="cvss">4.3</elem>
+<elem key="is_exploit">false</elem>
+<elem key="type">osv</elem>
 <elem key="id">OSV:CVE-2020-25685</elem>
-<elem key="cvss">4.3</elem>
-<elem key="is_exploit">false</elem>
-<elem key="type">osv</elem>
 </table>
 <table>
+<elem key="cvss">4.3</elem>
+<elem key="is_exploit">false</elem>
+<elem key="type">cve</elem>
 <elem key="id">CVE-2021-3448</elem>
+</table>
+<table>
 <elem key="cvss">4.3</elem>
 <elem key="is_exploit">false</elem>
 <elem key="type">cve</elem>
-</table>
-<table>
 <elem key="id">CVE-2020-25686</elem>
+</table>
+<table>
 <elem key="cvss">4.3</elem>
 <elem key="is_exploit">false</elem>
 <elem key="type">cve</elem>
-</table>
-<table>
 <elem key="id">CVE-2020-25685</elem>
+</table>
+<table>
 <elem key="cvss">4.3</elem>
 <elem key="is_exploit">false</elem>
 <elem key="type">cve</elem>
-</table>
-<table>
 <elem key="id">CVE-2020-25684</elem>
+</table>
+<table>
 <elem key="cvss">4.3</elem>
 <elem key="is_exploit">false</elem>
 <elem key="type">cve</elem>
-</table>
-<table>
 <elem key="id">CVE-2019-14834</elem>
-<elem key="cvss">4.3</elem>
-<elem key="is_exploit">false</elem>
-<elem key="type">cve</elem>
 </table>
 <table>
+<elem key="cvss">4.3</elem>
+<elem key="is_exploit">true</elem>
+<elem key="type">githubexploit</elem>
 <elem key="id">CBF3EF2D-3A5B-5110-A374-4A5ADE9AC91A</elem>
-<elem key="cvss">4.3</elem>
-<elem key="is_exploit">true</elem>
-<elem key="type">githubexploit</elem>
 </table>
 <table>
+<elem key="cvss">0.0</elem>
+<elem key="is_exploit">false</elem>
+<elem key="type">osv</elem>
 <elem key="id">OSV:CVE-2021-3448</elem>
-<elem key="cvss">0.0</elem>
-<elem key="is_exploit">false</elem>
-<elem key="type">osv</elem>
 </table>
 <table>
+<elem key="cvss">0.0</elem>
+<elem key="is_exploit">false</elem>
+<elem key="type">cve</elem>
 <elem key="id">CVE-2023-28450</elem>
+</table>
+<table>
 <elem key="cvss">0.0</elem>
 <elem key="is_exploit">false</elem>
 <elem key="type">cve</elem>
-</table>
-<table>
 <elem key="id">CVE-2022-0934</elem>
-<elem key="cvss">0.0</elem>
-<elem key="is_exploit">false</elem>
-<elem key="type">cve</elem>
 </table>
 <table>
-<elem key="id">79068BEF-A572-5A8A-88D0-177524BDAAFE</elem>
 <elem key="cvss">0.0</elem>
 <elem key="is_exploit">true</elem>
 <elem key="type">githubexploit</elem>
+<elem key="id">79068BEF-A572-5A8A-88D0-177524BDAAFE</elem>
 </table>
 </table>
 </script></port>
-<port protocol="tcp" portid="80"><state state="open" reason="syn-ack" reason_ttl="36"/><service name="http" product="lighttpd" version="1.4.55" method="probed" conf="10"><cpe>cpe:/a:lighttpd:lighttpd:1.4.55</cpe></service><script id="http-server-header" output="lighttpd/1.4.55"><elem>lighttpd/1.4.55</elem>
+<port protocol="tcp" portid="80"><state state="open" reason="syn-ack" reason_ttl="62"/><service name="http" product="lighttpd" version="1.4.55" method="probed" conf="10"><cpe>cpe:/a:lighttpd:lighttpd:1.4.55</cpe></service><script id="http-server-header" output="lighttpd/1.4.55"><elem>lighttpd/1.4.55</elem>
 </script><script id="vulners" output="&#xa;  cpe:/a:lighttpd:lighttpd:1.4.55: &#xa;    &#x9;CVE-2022-22707&#x9;4.3&#x9;https://vulners.com/cve/CVE-2022-22707&#xa;    &#x9;OSV:CVE-2022-41556&#x9;0.0&#x9;https://vulners.com/osv/OSV:CVE-2022-41556"><table key="cpe:/a:lighttpd:lighttpd:1.4.55">
 <table>
-<elem key="id">CVE-2022-22707</elem>
 <elem key="cvss">4.3</elem>
 <elem key="is_exploit">false</elem>
 <elem key="type">cve</elem>
+<elem key="id">CVE-2022-22707</elem>
 </table>
 <table>
-<elem key="id">OSV:CVE-2022-41556</elem>
 <elem key="cvss">0.0</elem>
 <elem key="is_exploit">false</elem>
 <elem key="type">osv</elem>
+<elem key="id">OSV:CVE-2022-41556</elem>
 </table>
 </table>
 </script></port>
-<port protocol="tcp" portid="443"><state state="open" reason="syn-ack" reason_ttl="36"/><service name="http" product="lighttpd" version="1.4.55" tunnel="ssl" method="probed" conf="10"><cpe>cpe:/a:lighttpd:lighttpd:1.4.55</cpe></service><script id="http-server-header" output="lighttpd/1.4.55"><elem>lighttpd/1.4.55</elem>
+<port protocol="tcp" portid="443"><state state="open" reason="syn-ack" reason_ttl="62"/><service name="http" product="lighttpd" version="1.4.55" tunnel="ssl" method="probed" conf="10"><cpe>cpe:/a:lighttpd:lighttpd:1.4.55</cpe></service><script id="http-server-header" output="lighttpd/1.4.55"><elem>lighttpd/1.4.55</elem>
 </script><script id="vulners" output="&#xa;  cpe:/a:lighttpd:lighttpd:1.4.55: &#xa;    &#x9;CVE-2022-22707&#x9;4.3&#x9;https://vulners.com/cve/CVE-2022-22707&#xa;    &#x9;OSV:CVE-2022-41556&#x9;0.0&#x9;https://vulners.com/osv/OSV:CVE-2022-41556"><table key="cpe:/a:lighttpd:lighttpd:1.4.55">
 <table>
-<elem key="id">CVE-2022-22707</elem>
 <elem key="cvss">4.3</elem>
 <elem key="is_exploit">false</elem>
 <elem key="type">cve</elem>
+<elem key="id">CVE-2022-22707</elem>
 </table>
 <table>
-<elem key="id">OSV:CVE-2022-41556</elem>
 <elem key="cvss">0.0</elem>
 <elem key="is_exploit">false</elem>
 <elem key="type">osv</elem>
+<elem key="id">OSV:CVE-2022-41556</elem>
 </table>
 </table>
 </script></port>
 </ports>
-<times srtt="133137" rttvar="6959" to="160973"/>
+<times srtt="131843" rttvar="9310" to="169083"/>
 </host>
-<taskprogress task="SYN Stealth Scan" time="1682430758" percent="0.65"/>
-<taskprogress task="SYN Stealth Scan" time="1682430760" percent="23.55" remaining="7" etc="1682430766"/>
-<taskprogress task="SYN Stealth Scan" time="1682430762" percent="84.30" remaining="1" etc="1682430763"/>
-<taskprogress task="Service scan" time="1682430768" percent="0.00"/>
-<taskprogress task="Service scan" time="1682430774" percent="50.00" remaining="12" etc="1682430786"/>
-<taskprogress task="Service scan" time="1682430775" percent="50.00" remaining="14" etc="1682430788"/>
-<taskprogress task="Service scan" time="1682430779" percent="75.00" remaining="6" etc="1682430785"/>
-<taskprogress task="Service scan" time="1682430784" percent="75.00" remaining="8" etc="1682430791"/>
-<taskprogress task="Service scan" time="1682430789" percent="75.00" remaining="10" etc="1682430798"/>
-<taskprogress task="Service scan" time="1682430794" percent="75.00" remaining="11" etc="1682430805"/>
-<taskprogress task="Service scan" time="1682430799" percent="75.00" remaining="13" etc="1682430811"/>
-<taskprogress task="Service scan" time="1682430806" percent="75.00" remaining="15" etc="1682430821"/>
-<taskprogress task="Service scan" time="1682430811" percent="75.00" remaining="17" etc="1682430827"/>
-<taskprogress task="Service scan" time="1682430817" percent="75.00" remaining="19" etc="1682430835"/>
-<taskprogress task="Service scan" time="1682430822" percent="75.00" remaining="20" etc="1682430842"/>
-<taskprogress task="Service scan" time="1682430827" percent="75.00" remaining="22" etc="1682430849"/>
-<taskprogress task="Service scan" time="1682430832" percent="75.00" remaining="24" etc="1682430855"/>
-<taskprogress task="Service scan" time="1682430837" percent="75.00" remaining="26" etc="1682430862"/>
-<taskprogress task="Service scan" time="1682430842" percent="75.00" remaining="27" etc="1682430869"/>
-<taskprogress task="Service scan" time="1682430847" percent="75.00" remaining="29" etc="1682430875"/>
-<taskprogress task="Service scan" time="1682430852" percent="75.00" remaining="30" etc="1682430882"/>
-<taskprogress task="Service scan" time="1682430857" percent="75.00" remaining="32" etc="1682430889"/>
-<taskprogress task="Service scan" time="1682430862" percent="75.00" remaining="34" etc="1682430895"/>
-<taskprogress task="Service scan" time="1682430867" percent="75.00" remaining="36" etc="1682430902"/>
-<taskprogress task="Service scan" time="1682430872" percent="75.00" remaining="37" etc="1682430909"/>
-<taskprogress task="Service scan" time="1682430877" percent="75.00" remaining="39" etc="1682430915"/>
-<taskprogress task="Service scan" time="1682430882" percent="75.00" remaining="40" etc="1682430922"/>
-<taskprogress task="Service scan" time="1682430887" percent="75.00" remaining="42" etc="1682430929"/>
-<taskprogress task="Service scan" time="1682430892" percent="75.00" remaining="44" etc="1682430935"/>
-<taskprogress task="Service scan" time="1682430897" percent="75.00" remaining="46" etc="1682430942"/>
-<taskprogress task="Service scan" time="1682430902" percent="100.00" remaining="0" etc="1682430902"/>
-<taskprogress task="NSE" time="1682430903" percent="98.30" remaining="1" etc="1682430903"/>
-<taskprogress task="NSE" time="1682430905" percent="99.43" remaining="1" etc="1682430905"/>
-<taskprogress task="NSE" time="1682430907" percent="99.43" remaining="1" etc="1682430907"/>
-<taskprogress task="NSE" time="1682430909" percent="99.43" remaining="1" etc="1682430909"/>
-<host starttime="1682430758" endtime="1682430910"><status state="up" reason="user-set" reason_ttl="0"/>
+<taskprogress task="SYN Stealth Scan" time="1683739740" percent="0.65"/>
+<taskprogress task="SYN Stealth Scan" time="1683739742" percent="4.15" remaining="47" etc="1683739788"/>
+<taskprogress task="SYN Stealth Scan" time="1683739744" percent="27.50" remaining="11" etc="1683739755"/>
+<taskprogress task="SYN Stealth Scan" time="1683739746" percent="54.25" remaining="6" etc="1683739751"/>
+<taskprogress task="SYN Stealth Scan" time="1683739748" percent="69.95" remaining="4" etc="1683739751"/>
+<taskprogress task="SYN Stealth Scan" time="1683739750" percent="70.30" remaining="5" etc="1683739754"/>
+<taskprogress task="SYN Stealth Scan" time="1683739752" percent="70.65" remaining="5" etc="1683739757"/>
+<taskprogress task="SYN Stealth Scan" time="1683739754" percent="71.00" remaining="6" etc="1683739760"/>
+<taskprogress task="SYN Stealth Scan" time="1683739756" percent="71.40" remaining="7" etc="1683739762"/>
+<taskprogress task="SYN Stealth Scan" time="1683739758" percent="71.70" remaining="8" etc="1683739765"/>
+<taskprogress task="SYN Stealth Scan" time="1683739760" percent="72.05" remaining="8" etc="1683739768"/>
+<taskprogress task="SYN Stealth Scan" time="1683739762" percent="72.45" remaining="9" etc="1683739770"/>
+<taskprogress task="SYN Stealth Scan" time="1683739764" percent="48.80" remaining="26" etc="1683739789"/>
+<taskprogress task="SYN Stealth Scan" time="1683739766" percent="72.10" remaining="11" etc="1683739776"/>
+<taskprogress task="SYN Stealth Scan" time="1683739768" percent="88.50" remaining="4" etc="1683739772"/>
+<taskprogress task="SYN Stealth Scan" time="1683739770" percent="88.87" remaining="4" etc="1683739774"/>
+<taskprogress task="SYN Stealth Scan" time="1683739772" percent="89.20" remaining="4" etc="1683739776"/>
+<taskprogress task="SYN Stealth Scan" time="1683739774" percent="89.53" remaining="4" etc="1683739778"/>
+<taskprogress task="SYN Stealth Scan" time="1683739776" percent="89.90" remaining="5" etc="1683739780"/>
+<taskprogress task="SYN Stealth Scan" time="1683739778" percent="90.23" remaining="5" etc="1683739782"/>
+<taskprogress task="SYN Stealth Scan" time="1683739780" percent="90.57" remaining="5" etc="1683739784"/>
+<taskprogress task="SYN Stealth Scan" time="1683739782" percent="90.90" remaining="5" etc="1683739786"/>
+<taskprogress task="SYN Stealth Scan" time="1683739784" percent="91.30" remaining="5" etc="1683739788"/>
+<taskprogress task="SYN Stealth Scan" time="1683739786" percent="96.37" remaining="2" etc="1683739788"/>
+<taskprogress task="Service scan" time="1683739793" percent="0.00"/>
+<taskprogress task="Service scan" time="1683739798" percent="50.00" remaining="12" etc="1683739809"/>
+<taskprogress task="Service scan" time="1683739800" percent="50.00" remaining="14" etc="1683739813"/>
+<taskprogress task="Service scan" time="1683739803" percent="75.00" remaining="6" etc="1683739808"/>
+<taskprogress task="Service scan" time="1683739809" percent="75.00" remaining="8" etc="1683739816"/>
+<taskprogress task="Service scan" time="1683739814" percent="75.00" remaining="10" etc="1683739823"/>
+<taskprogress task="Service scan" time="1683739819" percent="75.00" remaining="11" etc="1683739830"/>
+<taskprogress task="Service scan" time="1683739824" percent="75.00" remaining="13" etc="1683739836"/>
+<taskprogress task="Service scan" time="1683739831" percent="75.00" remaining="15" etc="1683739846"/>
+<taskprogress task="Service scan" time="1683739836" percent="75.00" remaining="17" etc="1683739852"/>
+<taskprogress task="Service scan" time="1683739841" percent="75.00" remaining="18" etc="1683739859"/>
+<taskprogress task="Service scan" time="1683739846" percent="75.00" remaining="20" etc="1683739866"/>
+<taskprogress task="Service scan" time="1683739851" percent="75.00" remaining="22" etc="1683739872"/>
+<taskprogress task="Service scan" time="1683739856" percent="75.00" remaining="24" etc="1683739879"/>
+<taskprogress task="Service scan" time="1683739862" percent="75.00" remaining="26" etc="1683739887"/>
+<taskprogress task="Service scan" time="1683739867" percent="75.00" remaining="27" etc="1683739894"/>
+<taskprogress task="Service scan" time="1683739872" percent="75.00" remaining="29" etc="1683739900"/>
+<taskprogress task="Service scan" time="1683739877" percent="75.00" remaining="30" etc="1683739907"/>
+<taskprogress task="Service scan" time="1683739882" percent="75.00" remaining="32" etc="1683739914"/>
+<taskprogress task="Service scan" time="1683739887" percent="75.00" remaining="34" etc="1683739920"/>
+<taskprogress task="Service scan" time="1683739892" percent="75.00" remaining="36" etc="1683739927"/>
+<taskprogress task="Service scan" time="1683739897" percent="75.00" remaining="37" etc="1683739934"/>
+<taskprogress task="Service scan" time="1683739902" percent="75.00" remaining="39" etc="1683739940"/>
+<taskprogress task="Service scan" time="1683739907" percent="75.00" remaining="40" etc="1683739947"/>
+<taskprogress task="Service scan" time="1683739912" percent="75.00" remaining="42" etc="1683739954"/>
+<taskprogress task="Service scan" time="1683739917" percent="75.00" remaining="44" etc="1683739960"/>
+<taskprogress task="Service scan" time="1683739922" percent="75.00" remaining="46" etc="1683739967"/>
+<taskprogress task="Service scan" time="1683739927" percent="100.00" remaining="0" etc="1683739927"/>
+<taskprogress task="NSE" time="1683739928" percent="98.30" remaining="1" etc="1683739928"/>
+<taskprogress task="NSE" time="1683739930" percent="99.43" remaining="1" etc="1683739930"/>
+<taskprogress task="NSE" time="1683739931" percent="99.43" remaining="1" etc="1683739931"/>
+<taskprogress task="NSE" time="1683739933" percent="99.43" remaining="1" etc="1683739933"/>
+<host starttime="1683739740" endtime="1683739935"><status state="up" reason="user-set" reason_ttl="0"/>
 <address addr="80.245.2.142" addrtype="ipv4"/>
 <hostnames>
 <hostname name="portugalete.org" type="user"/>
 </hostnames>
-<ports><extraports state="filtered" count="996">
-<extrareasons reason="no-responses" count="996"/>
+<ports><extraports state="filtered" count="995">
+<extrareasons reason="no-responses" count="995"/>
 </extraports>
-<port protocol="tcp" portid="53"><state state="open" reason="syn-ack" reason_ttl="36"/><service name="domain" product="dnsmasq" version="2.78" method="probed" conf="10"><cpe>cpe:/a:thekelleys:dnsmasq:2.78</cpe></service><script id="vulners" output="&#xa;  cpe:/a:thekelleys:dnsmasq:2.78: &#xa;    &#x9;CVE-2020-25682&#x9;8.3&#x9;https://vulners.com/cve/CVE-2020-25682&#xa;    &#x9;CVE-2020-25681&#x9;8.3&#x9;https://vulners.com/cve/CVE-2020-25681&#xa;    &#x9;CVE-2020-25687&#x9;7.1&#x9;https://vulners.com/cve/CVE-2020-25687&#xa;    &#x9;CVE-2020-25683&#x9;7.1&#x9;https://vulners.com/cve/CVE-2020-25683&#xa;    &#x9;CVE-2017-15107&#x9;5.0&#x9;https://vulners.com/cve/CVE-2017-15107&#xa;    &#x9;OSV:CVE-2020-25685&#x9;4.3&#x9;https://vulners.com/osv/OSV:CVE-2020-25685&#xa;    &#x9;CVE-2021-3448&#x9;4.3&#x9;https://vulners.com/cve/CVE-2021-3448&#xa;    &#x9;CVE-2020-25686&#x9;4.3&#x9;https://vulners.com/cve/CVE-2020-25686&#xa;    &#x9;CVE-2020-25685&#x9;4.3&#x9;https://vulners.com/cve/CVE-2020-25685&#xa;    &#x9;CVE-2020-25684&#x9;4.3&#x9;https://vulners.com/cve/CVE-2020-25684&#xa;    &#x9;CVE-2019-14834&#x9;4.3&#x9;https://vulners.com/cve/CVE-2019-14834&#xa;    &#x9;CBF3EF2D-3A5B-5110-A374-4A5ADE9AC91A&#x9;4.3&#x9;https://vulners.com/githubexploit/CBF3EF2D-3A5B-5110-A374-4A5ADE9AC91A&#x9;*EXPLOIT*&#xa;    &#x9;OSV:CVE-2021-3448&#x9;0.0&#x9;https://vulners.com/osv/OSV:CVE-2021-3448&#xa;    &#x9;CVE-2023-28450&#x9;0.0&#x9;https://vulners.com/cve/CVE-2023-28450&#xa;    &#x9;CVE-2022-0934&#x9;0.0&#x9;https://vulners.com/cve/CVE-2022-0934&#xa;    &#x9;79068BEF-A572-5A8A-88D0-177524BDAAFE&#x9;0.0&#x9;https://vulners.com/githubexploit/79068BEF-A572-5A8A-88D0-177524BDAAFE&#x9;*EXPLOIT*"><table key="cpe:/a:thekelleys:dnsmasq:2.78">
+<extraports state="closed" count="1">
+<extrareasons reason="reset" count="1"/>
+</extraports>
+<port protocol="tcp" portid="53"><state state="open" reason="syn-ack" reason_ttl="62"/><service name="domain" product="dnsmasq" version="2.78" method="probed" conf="10"><cpe>cpe:/a:thekelleys:dnsmasq:2.78</cpe></service><script id="vulners" output="&#xa;  cpe:/a:thekelleys:dnsmasq:2.78: &#xa;    &#x9;CVE-2020-25682&#x9;8.3&#x9;https://vulners.com/cve/CVE-2020-25682&#xa;    &#x9;CVE-2020-25681&#x9;8.3&#x9;https://vulners.com/cve/CVE-2020-25681&#xa;    &#x9;CVE-2020-25687&#x9;7.1&#x9;https://vulners.com/cve/CVE-2020-25687&#xa;    &#x9;CVE-2020-25683&#x9;7.1&#x9;https://vulners.com/cve/CVE-2020-25683&#xa;    &#x9;CVE-2017-15107&#x9;5.0&#x9;https://vulners.com/cve/CVE-2017-15107&#xa;    &#x9;OSV:CVE-2020-25685&#x9;4.3&#x9;https://vulners.com/osv/OSV:CVE-2020-25685&#xa;    &#x9;CVE-2021-3448&#x9;4.3&#x9;https://vulners.com/cve/CVE-2021-3448&#xa;    &#x9;CVE-2020-25686&#x9;4.3&#x9;https://vulners.com/cve/CVE-2020-25686&#xa;    &#x9;CVE-2020-25685&#x9;4.3&#x9;https://vulners.com/cve/CVE-2020-25685&#xa;    &#x9;CVE-2020-25684&#x9;4.3&#x9;https://vulners.com/cve/CVE-2020-25684&#xa;    &#x9;CVE-2019-14834&#x9;4.3&#x9;https://vulners.com/cve/CVE-2019-14834&#xa;    &#x9;CBF3EF2D-3A5B-5110-A374-4A5ADE9AC91A&#x9;4.3&#x9;https://vulners.com/githubexploit/CBF3EF2D-3A5B-5110-A374-4A5ADE9AC91A&#x9;*EXPLOIT*&#xa;    &#x9;OSV:CVE-2021-3448&#x9;0.0&#x9;https://vulners.com/osv/OSV:CVE-2021-3448&#xa;    &#x9;CVE-2023-28450&#x9;0.0&#x9;https://vulners.com/cve/CVE-2023-28450&#xa;    &#x9;CVE-2022-0934&#x9;0.0&#x9;https://vulners.com/cve/CVE-2022-0934&#xa;    &#x9;79068BEF-A572-5A8A-88D0-177524BDAAFE&#x9;0.0&#x9;https://vulners.com/githubexploit/79068BEF-A572-5A8A-88D0-177524BDAAFE&#x9;*EXPLOIT*"><table key="cpe:/a:thekelleys:dnsmasq:2.78">
 <table>
+<elem key="cvss">8.3</elem>
+<elem key="is_exploit">false</elem>
+<elem key="type">cve</elem>
 <elem key="id">CVE-2020-25682</elem>
+</table>
+<table>
 <elem key="cvss">8.3</elem>
 <elem key="is_exploit">false</elem>
 <elem key="type">cve</elem>
-</table>
-<table>
 <elem key="id">CVE-2020-25681</elem>
-<elem key="cvss">8.3</elem>
-<elem key="is_exploit">false</elem>
-<elem key="type">cve</elem>
 </table>
 <table>
+<elem key="cvss">7.1</elem>
+<elem key="is_exploit">false</elem>
+<elem key="type">cve</elem>
 <elem key="id">CVE-2020-25687</elem>
+</table>
+<table>
 <elem key="cvss">7.1</elem>
 <elem key="is_exploit">false</elem>
 <elem key="type">cve</elem>
-</table>
-<table>
 <elem key="id">CVE-2020-25683</elem>
-<elem key="cvss">7.1</elem>
-<elem key="is_exploit">false</elem>
-<elem key="type">cve</elem>
 </table>
 <table>
-<elem key="id">CVE-2017-15107</elem>
 <elem key="cvss">5.0</elem>
 <elem key="is_exploit">false</elem>
 <elem key="type">cve</elem>
+<elem key="id">CVE-2017-15107</elem>
 </table>
 <table>
+<elem key="cvss">4.3</elem>
+<elem key="is_exploit">false</elem>
+<elem key="type">osv</elem>
 <elem key="id">OSV:CVE-2020-25685</elem>
-<elem key="cvss">4.3</elem>
-<elem key="is_exploit">false</elem>
-<elem key="type">osv</elem>
 </table>
 <table>
+<elem key="cvss">4.3</elem>
+<elem key="is_exploit">false</elem>
+<elem key="type">cve</elem>
 <elem key="id">CVE-2021-3448</elem>
+</table>
+<table>
 <elem key="cvss">4.3</elem>
 <elem key="is_exploit">false</elem>
 <elem key="type">cve</elem>
-</table>
-<table>
 <elem key="id">CVE-2020-25686</elem>
+</table>
+<table>
 <elem key="cvss">4.3</elem>
 <elem key="is_exploit">false</elem>
 <elem key="type">cve</elem>
-</table>
-<table>
 <elem key="id">CVE-2020-25685</elem>
+</table>
+<table>
 <elem key="cvss">4.3</elem>
 <elem key="is_exploit">false</elem>
 <elem key="type">cve</elem>
-</table>
-<table>
 <elem key="id">CVE-2020-25684</elem>
+</table>
+<table>
 <elem key="cvss">4.3</elem>
 <elem key="is_exploit">false</elem>
 <elem key="type">cve</elem>
-</table>
-<table>
 <elem key="id">CVE-2019-14834</elem>
-<elem key="cvss">4.3</elem>
-<elem key="is_exploit">false</elem>
-<elem key="type">cve</elem>
 </table>
 <table>
-<elem key="id">CBF3EF2D-3A5B-5110-A374-4A5ADE9AC91A</elem>
 <elem key="cvss">4.3</elem>
 <elem key="is_exploit">true</elem>
 <elem key="type">githubexploit</elem>
+<elem key="id">CBF3EF2D-3A5B-5110-A374-4A5ADE9AC91A</elem>
 </table>
 <table>
-<elem key="id">OSV:CVE-2021-3448</elem>
 <elem key="cvss">0.0</elem>
 <elem key="is_exploit">false</elem>
 <elem key="type">osv</elem>
+<elem key="id">OSV:CVE-2021-3448</elem>
 </table>
 <table>
+<elem key="cvss">0.0</elem>
+<elem key="is_exploit">false</elem>
+<elem key="type">cve</elem>
 <elem key="id">CVE-2023-28450</elem>
+</table>
+<table>
 <elem key="cvss">0.0</elem>
 <elem key="is_exploit">false</elem>
 <elem key="type">cve</elem>
-</table>
-<table>
 <elem key="id">CVE-2022-0934</elem>
-<elem key="cvss">0.0</elem>
-<elem key="is_exploit">false</elem>
-<elem key="type">cve</elem>
 </table>
 <table>
-<elem key="id">79068BEF-A572-5A8A-88D0-177524BDAAFE</elem>
 <elem key="cvss">0.0</elem>
 <elem key="is_exploit">true</elem>
 <elem key="type">githubexploit</elem>
+<elem key="id">79068BEF-A572-5A8A-88D0-177524BDAAFE</elem>
 </table>
 </table>
 </script></port>
-<port protocol="tcp" portid="80"><state state="open" reason="syn-ack" reason_ttl="36"/><service name="http" product="Microsoft IIS httpd" version="10.0" ostype="Windows" method="probed" conf="10"><cpe>cpe:/a:microsoft:iis:10.0</cpe><cpe>cpe:/o:microsoft:windows</cpe></service><script id="http-server-header" output="&#xa;  BigIP&#xa;  Microsoft-IIS/10.0"><elem>BigIP</elem>
+<port protocol="tcp" portid="80"><state state="open" reason="syn-ack" reason_ttl="62"/><service name="http" product="Microsoft IIS httpd" version="10.0" ostype="Windows" method="probed" conf="10"><cpe>cpe:/a:microsoft:iis:10.0</cpe><cpe>cpe:/o:microsoft:windows</cpe></service><script id="http-server-header" output="&#xa;  BigIP&#xa;  Microsoft-IIS/10.0"><elem>BigIP</elem>
 <elem>Microsoft-IIS/10.0</elem>
 </script></port>
-<port protocol="tcp" portid="443"><state state="open" reason="syn-ack" reason_ttl="36"/><service name="http" product="Microsoft IIS httpd" version="10.0" ostype="Windows" tunnel="ssl" method="probed" conf="10"><cpe>cpe:/a:microsoft:iis:10.0</cpe><cpe>cpe:/o:microsoft:windows</cpe></service><script id="http-server-header" output="Microsoft-IIS/10.0"><elem>Microsoft-IIS/10.0</elem>
+<port protocol="tcp" portid="443"><state state="open" reason="syn-ack" reason_ttl="62"/><service name="http" product="Microsoft IIS httpd" version="10.0" ostype="Windows" tunnel="ssl" method="probed" conf="10"><cpe>cpe:/a:microsoft:iis:10.0</cpe><cpe>cpe:/o:microsoft:windows</cpe></service><script id="http-server-header" output="Microsoft-IIS/10.0"><elem>Microsoft-IIS/10.0</elem>
 </script></port>
-<port protocol="tcp" portid="8008"><state state="open" reason="syn-ack" reason_ttl="36"/><service name="http" servicefp="SF-Port8008-TCP:V=7.80%I=7%D=4/25%Time=6447DB30%P=x86_64-pc-linux-gnu%r(GetRequest,D3,&quot;HTTP/1\.1\x20302\x20Found\r\nLocation:\x20https://:8015/\r\nConnection:\x20close\r\nX-Frame-Options:\x20SAMEORIGIN\r\nX-XSS-Protection:\x201;\x20mode=block\r\nX-Content-Type-Options:\x20nosniff\r\nContent-Security-Policy:\x20frame-ancestors\x20&apos;self&apos;\r\n\r\n&quot;)%r(FourOhFourRequest,F6,&quot;HTTP/1\.1\x20302\x20Found\r\nLocation:\x20https://:8015/nice%20ports%2C/Tri%6Eity\.txt%2ebak\r\nConnection:\x20close\r\nX-Frame-Options:\x20SAMEORIGIN\r\nX-XSS-Protection:\x201;\x20mode=block\r\nX-Content-Type-Options:\x20nosniff\r\nContent-Security-Policy:\x20frame-ancestors\x20&apos;self&apos;\r\n\r\n&quot;)%r(GenericLines,D2,&quot;HTTP/1\.1\x20302\x20Found\r\nLocation:\x20https://:8015\r\nConnection:\x20close\r\nX-Frame-Options:\x20SAMEORIGIN\r\nX-XSS-Protection:\x201;\x20mode=block\r\nX-Content-Type-Options:\x20nosniff\r\nContent-Security-Policy:\x20frame-ancestors\x20&apos;self&apos;\r\n\r\n&quot;)%r(HTTPOptions,D2,&quot;HTTP/1\.1\x20302\x20Found\r\nLocation:\x20https://:8015\r\nConnection:\x20close\r\nX-Frame-Options:\x20SAMEORIGIN\r\nX-XSS-Protection:\x201;\x20mode=block\r\nX-Content-Type-Options:\x20nosniff\r\nContent-Security-Policy:\x20frame-ancestors\x20&apos;self&apos;\r\n\r\n&quot;)%r(RTSPRequest,D2,&quot;HTTP/1\.1\x20302\x20Found\r\nLocation:\x20https://:8015\r\nConnection:\x20close\r\nX-Frame-Options:\x20SAMEORIGIN\r\nX-XSS-Protection:\x201;\x20mode=block\r\nX-Content-Type-Options:\x20nosniff\r\nContent-Security-Policy:\x20frame-ancestors\x20&apos;self&apos;\r\n\r\n&quot;)%r(SIPOptions,D2,&quot;HTTP/1\.1\x20302\x20Found\r\nLocation:\x20https://:8015\r\nConnection:\x20close\r\nX-Frame-Options:\x20SAMEORIGIN\r\nX-XSS-Protection:\x201;\x20mode=block\r\nX-Content-Type-Options:\x20nosniff\r\nContent-Security-Policy:\x20frame-ancestors\x20&apos;self&apos;\r\n\r\n&quot;);" method="probed" conf="10"/><script id="fingerprint-strings" output="&#xa;  FourOhFourRequest: &#xa;    HTTP/1.1 302 Found&#xa;    Location: https://:8015/nice%20ports%2C/Tri%6Eity.txt%2ebak&#xa;    Connection: close&#xa;    X-Frame-Options: SAMEORIGIN&#xa;    X-XSS-Protection: 1; mode=block&#xa;    X-Content-Type-Options: nosniff&#xa;    Content-Security-Policy: frame-ancestors &apos;self&apos;&#xa;  GenericLines, HTTPOptions, RTSPRequest, SIPOptions: &#xa;    HTTP/1.1 302 Found&#xa;    Location: https://:8015&#xa;    Connection: close&#xa;    X-Frame-Options: SAMEORIGIN&#xa;    X-XSS-Protection: 1; mode=block&#xa;    X-Content-Type-Options: nosniff&#xa;    Content-Security-Policy: frame-ancestors &apos;self&apos;&#xa;  GetRequest: &#xa;    HTTP/1.1 302 Found&#xa;    Location: https://:8015/&#xa;    Connection: close&#xa;    X-Frame-Options: SAMEORIGIN&#xa;    X-XSS-Protection: 1; mode=block&#xa;    X-Content-Type-Options: nosniff&#xa;    Content-Security-Policy: frame-ancestors &apos;self&apos;"><elem key="FourOhFourRequest">&#xa;    HTTP/1.1 302 Found&#xa;    Location: https://:8015/nice%20ports%2C/Tri%6Eity.txt%2ebak&#xa;    Connection: close&#xa;    X-Frame-Options: SAMEORIGIN&#xa;    X-XSS-Protection: 1; mode=block&#xa;    X-Content-Type-Options: nosniff&#xa;    Content-Security-Policy: frame-ancestors &apos;self&apos;</elem>
+<port protocol="tcp" portid="8008"><state state="open" reason="syn-ack" reason_ttl="62"/><service name="http" servicefp="SF-Port8008-TCP:V=7.80%I=7%D=5/10%Time=645BD491%P=x86_64-pc-linux-gnu%r(GetRequest,D3,&quot;HTTP/1\.1\x20302\x20Found\r\nLocation:\x20https://:8015/\r\nConnection:\x20close\r\nX-Frame-Options:\x20SAMEORIGIN\r\nX-XSS-Protection:\x201;\x20mode=block\r\nX-Content-Type-Options:\x20nosniff\r\nContent-Security-Policy:\x20frame-ancestors\x20&apos;self&apos;\r\n\r\n&quot;)%r(FourOhFourRequest,F6,&quot;HTTP/1\.1\x20302\x20Found\r\nLocation:\x20https://:8015/nice%20ports%2C/Tri%6Eity\.txt%2ebak\r\nConnection:\x20close\r\nX-Frame-Options:\x20SAMEORIGIN\r\nX-XSS-Protection:\x201;\x20mode=block\r\nX-Content-Type-Options:\x20nosniff\r\nContent-Security-Policy:\x20frame-ancestors\x20&apos;self&apos;\r\n\r\n&quot;)%r(GenericLines,D2,&quot;HTTP/1\.1\x20302\x20Found\r\nLocation:\x20https://:8015\r\nConnection:\x20close\r\nX-Frame-Options:\x20SAMEORIGIN\r\nX-XSS-Protection:\x201;\x20mode=block\r\nX-Content-Type-Options:\x20nosniff\r\nContent-Security-Policy:\x20frame-ancestors\x20&apos;self&apos;\r\n\r\n&quot;)%r(HTTPOptions,D2,&quot;HTTP/1\.1\x20302\x20Found\r\nLocation:\x20https://:8015\r\nConnection:\x20close\r\nX-Frame-Options:\x20SAMEORIGIN\r\nX-XSS-Protection:\x201;\x20mode=block\r\nX-Content-Type-Options:\x20nosniff\r\nContent-Security-Policy:\x20frame-ancestors\x20&apos;self&apos;\r\n\r\n&quot;)%r(RTSPRequest,D2,&quot;HTTP/1\.1\x20302\x20Found\r\nLocation:\x20https://:8015\r\nConnection:\x20close\r\nX-Frame-Options:\x20SAMEORIGIN\r\nX-XSS-Protection:\x201;\x20mode=block\r\nX-Content-Type-Options:\x20nosniff\r\nContent-Security-Policy:\x20frame-ancestors\x20&apos;self&apos;\r\n\r\n&quot;)%r(SIPOptions,D2,&quot;HTTP/1\.1\x20302\x20Found\r\nLocation:\x20https://:8015\r\nConnection:\x20close\r\nX-Frame-Options:\x20SAMEORIGIN\r\nX-XSS-Protection:\x201;\x20mode=block\r\nX-Content-Type-Options:\x20nosniff\r\nContent-Security-Policy:\x20frame-ancestors\x20&apos;self&apos;\r\n\r\n&quot;);" method="probed" conf="10"/><script id="fingerprint-strings" output="&#xa;  FourOhFourRequest: &#xa;    HTTP/1.1 302 Found&#xa;    Location: https://:8015/nice%20ports%2C/Tri%6Eity.txt%2ebak&#xa;    Connection: close&#xa;    X-Frame-Options: SAMEORIGIN&#xa;    X-XSS-Protection: 1; mode=block&#xa;    X-Content-Type-Options: nosniff&#xa;    Content-Security-Policy: frame-ancestors &apos;self&apos;&#xa;  GenericLines, HTTPOptions, RTSPRequest, SIPOptions: &#xa;    HTTP/1.1 302 Found&#xa;    Location: https://:8015&#xa;    Connection: close&#xa;    X-Frame-Options: SAMEORIGIN&#xa;    X-XSS-Protection: 1; mode=block&#xa;    X-Content-Type-Options: nosniff&#xa;    Content-Security-Policy: frame-ancestors &apos;self&apos;&#xa;  GetRequest: &#xa;    HTTP/1.1 302 Found&#xa;    Location: https://:8015/&#xa;    Connection: close&#xa;    X-Frame-Options: SAMEORIGIN&#xa;    X-XSS-Protection: 1; mode=block&#xa;    X-Content-Type-Options: nosniff&#xa;    Content-Security-Policy: frame-ancestors &apos;self&apos;"><elem key="FourOhFourRequest">&#xa;    HTTP/1.1 302 Found&#xa;    Location: https://:8015/nice%20ports%2C/Tri%6Eity.txt%2ebak&#xa;    Connection: close&#xa;    X-Frame-Options: SAMEORIGIN&#xa;    X-XSS-Protection: 1; mode=block&#xa;    X-Content-Type-Options: nosniff&#xa;    Content-Security-Policy: frame-ancestors &apos;self&apos;</elem>
 <elem key="GenericLines, HTTPOptions, RTSPRequest, SIPOptions">&#xa;    HTTP/1.1 302 Found&#xa;    Location: https://:8015&#xa;    Connection: close&#xa;    X-Frame-Options: SAMEORIGIN&#xa;    X-XSS-Protection: 1; mode=block&#xa;    X-Content-Type-Options: nosniff&#xa;    Content-Security-Policy: frame-ancestors &apos;self&apos;</elem>
 <elem key="GetRequest">&#xa;    HTTP/1.1 302 Found&#xa;    Location: https://:8015/&#xa;    Connection: close&#xa;    X-Frame-Options: SAMEORIGIN&#xa;    X-XSS-Protection: 1; mode=block&#xa;    X-Content-Type-Options: nosniff&#xa;    Content-Security-Policy: frame-ancestors &apos;self&apos;</elem>
 </script><script id="https-redirect" output="ERROR: Script execution failed (use -d to debug)"/></port>
 </ports>
-<times srtt="33211" rttvar="17799" to="104407"/>
+<times srtt="41881" rttvar="23073" to="134173"/>
 </host>
-<runstats><finished time="1682430910" timestr="Tue Apr 25 13:55:10 2023" elapsed="358.06" summary="Nmap done at Tue Apr 25 13:55:10 2023; 4 IP addresses (4 hosts up) scanned in 358.06 seconds" exit="success"/><hosts up="4" down="0" total="4"/>
+<runstats><finished time="1683739935" timestr="Wed May 10 17:32:15 2023" elapsed="481.46" summary="Nmap done at Wed May 10 17:32:15 2023; 4 IP addresses (4 hosts up) scanned in 481.46 seconds" exit="success"/><hosts up="4" down="0" total="4"/>
 </runstats>
 </nmaprun>

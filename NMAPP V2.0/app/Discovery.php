@@ -116,6 +116,7 @@
                   <th>protocol</th>
                   <th>service</th>
                   <th>version</th>
+                  <th>Timestamp</th>
                 </tr>
                 '; foreach($arr as $array) { echo'
                 <tr>
@@ -125,6 +126,7 @@
                   <td>'. $array['protocol'].'</td>
                   <td>'. $array['service'].'</td>
                   <td>'. $array['version'].'</td>
+                  <td>'. $array['ts'].'</td>
                 </tr>
                 '; } echo'
               </table>
@@ -152,6 +154,7 @@
                 <th>protocol</th>
                 <th>service</th>
                 <th>version</th>
+                <th>timestamp</th>
               </tr>
               '; foreach($arr as $array) { echo'
               <tr>
@@ -161,6 +164,7 @@
                 <td>'. $array['protocol'].'</td>
                 <td>'. $array['service'].'</td>
                 <td>'. $array['version'].'</td>
+                <td>'. $array['ts'].'</td>
               </tr>
               '; } echo'
             </table>
@@ -170,7 +174,10 @@
 
           <?php
                                 #Stay:
-                                $query = "SELECT * FROM nmapIndividual INTERSECT  SELECT * from lastanalyze";
+                                $query = "SELECT n.ip, n.hostname, n.port, n.protocol, n.service, n.version, l.ts
+                                FROM nmapIndividual n
+                                JOIN lastAnalyze l
+                                ON n.ip = l.ip AND n.port = l.port";
                                 $result = pg_query($conexion, $query);
                                 $arr = pg_fetch_all($result);
                                 echo'<div class="col-12 tm-block-col">
@@ -186,6 +193,7 @@
                 <th>protocol</th>
                 <th>service</th>
                 <th>version</th>
+                <th>Timesa</th>
               </tr>
               '; foreach($arr as $array) { echo'
               <tr>
@@ -195,6 +203,7 @@
                 <td>'. $array['protocol'].'</td>
                 <td>'. $array['service'].'</td>
                 <td>'. $array['version'].'</td>
+                <td>'. $array['ts'].'</td>
               </tr>
               '; } echo'
             </table>

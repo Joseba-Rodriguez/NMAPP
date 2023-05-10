@@ -232,23 +232,7 @@
               </button>
           </form>
         </div>
-      </div>
-       <div class="row">
-        <div class="jwrapper">
-          <p class="text-white mb-0 px-4 small">
-            Botón seleccionado: <span id="timer"></span>
-            <?php
-                        $query = "SELECT selection FROM buttons ORDER BY id DESC LIMIT 1";
-                        $result = pg_query($conexion, $query) or die('Query failed: ' . pg_last_error());
-                        // Obtenemos los resultados
-                        $row = pg_fetch_array($result, null, PGSQL_ASSOC);
-                        // Mostramos el resultado
-                        $selected = $row['selection'];
-                        echo $selected;
-                        ?>
-          </p>
-        </div>
-      </div>
+
       <div class="row">
         <div class="jwrapper">
           <?php
