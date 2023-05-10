@@ -52,7 +52,7 @@ if NUM != 1:
                             user=user, password=password)
     cursor = conn.cursor()
     # Insert data into lastAnalyze table
-    cursor.execute("INSERT INTO lastAnalyze SELECT * FROM nmapIndividual")
+    cursor.execute("INSERT INTO lastAnalyze SELECT * FROM nmapIndividual WHERE NOT EXISTS ( SELECT 1 FROM lastAnalyze WHERE nmapIndividual.ip = lastAnalyze.ip AND nmapIndividual.port = lastAnalyze.port);")
     conn.commit()
     cursor.execute("DELETE FROM nmapIndividual")
     conn.commit()
@@ -83,7 +83,7 @@ def parse_for_individual(ip, hostname, portnum, protocol, service, versioning, c
                             user=user, password=password)
     cursor = conn.cursor()
     # Insert data into nmapIndividual table
-    cursor.execute("INSERT INTO nmapIndividual(ip, hostname, port, protocol,service, version, cve_str) VALUES (%s, %s, %s, %s, %s, %s, %s)",
+    cursor.execute("INSERT INTO nmapIndividual(ip, hostname, port, protocol,service, version, cve_str, ts) VALUES (%s, %s, %s, %s, %s, %s, %s, now())",
                    (ip, hostname, portnum, protocol, service, versioning, cve_str))
     conn.commit()
 
