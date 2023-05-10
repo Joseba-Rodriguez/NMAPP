@@ -31,7 +31,6 @@
     />
     <link href="css/styles.css" rel="stylesheet" />
   </head>
-
   <body>
     <div class="container-flex">
       <div class="row">
@@ -94,8 +93,7 @@
             </nav>
           </header>
         </div>
-      </div>
-      
+      </div>    
       <div class="row">
         <div class="jwrapper">
         <h1>NMAPP Now</h1>
@@ -151,45 +149,46 @@
           </form>
         </div>
       </div>
-
-      <div
-        class="modal fade"
-        id="eliminarModal"
-        tabindex="-1"
-        aria-labelledby="eliminarModalLabel"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="eliminarModalLabel">
-                Eliminar datos
-              </h5>
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div class="modal-body">
-              <p>
-                ¿Está seguro de que desea eliminar todas las IPs introducidas
-                para escanear?
-              </p>
-            </div>
-            <div class="modal-footer">
-              <form action="envioIPs.php" method="post" name="eliminarForm">
-                <input type="hidden" name="eliminarNow" value="true" />
+      <div class="row">
+        <div
+          class="modal fade"
+          id="eliminarModal"
+          tabindex="-1"
+          aria-labelledby="eliminarModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="eliminarModalLabel">
+                  Eliminar datos
+                </h5>
                 <button
                   type="button"
-                  class="btn btn-secondary"
+                  class="btn-close"
                   data-bs-dismiss="modal"
-                >
-                  Cancelar
-                </button>
-                <button type="submit" class="btn btn-danger">Eliminar</button>
-              </form>
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <p>
+                  ¿Está seguro de que desea eliminar todas las IPs introducidas
+                  para escanear?
+                </p>
+              </div>
+              <div class="modal-footer">
+                <form action="envioIPs.php" method="post" name="eliminarForm">
+                  <input type="hidden" name="eliminarNow" value="true" />
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                  >
+                    Cancelar
+                  </button>
+                  <button type="submit" class="btn btn-danger">Eliminar</button>
+                </form>
+              </div>
             </div>
           </div>
         </div>

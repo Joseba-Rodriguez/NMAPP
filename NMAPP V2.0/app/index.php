@@ -179,7 +179,6 @@
           </form>
         </div>
       </div>
-
       <div
         class="modal fade"
         id="eliminarModal"
