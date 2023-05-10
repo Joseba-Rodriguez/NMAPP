@@ -193,7 +193,7 @@
                 <th>protocol</th>
                 <th>service</th>
                 <th>version</th>
-                <th>Timesa</th>
+                <th>Timestamp</th>
               </tr>
               '; foreach($arr as $array) { echo'
               <tr>
