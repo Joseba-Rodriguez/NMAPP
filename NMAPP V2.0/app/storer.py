@@ -83,7 +83,7 @@ def parse_for_individual(ip, hostname, portnum, protocol, service, versioning, c
                             user=user, password=password)
     cursor = conn.cursor()
     # Insert data into nmapIndividual table
-    cursor.execute("INSERT INTO nmapIndividual(ip, hostname, port, protocol,service, version, cve_str) VALUES (%s, %s, %s, %s, %s, %s, %s)",
+    cursor.execute("INSERT INTO nmapIndividual(ip, hostname, port, protocol,service, version, cve_str, ts) VALUES (%s, %s, %s, %s, %s, %s, %s, now())",
                    (ip, hostname, portnum, protocol, service, versioning, cve_str))
     conn.commit()
 
