@@ -32,7 +32,7 @@ results = cursor.fetchall()
 
 # Convert the results to a Pandas DataFrame
 df1 = pd.DataFrame(results, columns=[
-    "ip", "hostname", "port", "protocol", "service", "version", "cve_str"])
+    "ip", "hostname", "port", "protocol", "service", "version", "cve_str", "ts"])
 
 # Save the DataFrame to the first sheet of an Excel file
 with pd.ExcelWriter("./app/resources/data.xlsx") as writer:
@@ -47,7 +47,7 @@ with pd.ExcelWriter("./app/resources/data.xlsx") as writer:
 
     # Convert the results to a Pandas DataFrame
     df2 = pd.DataFrame(results, columns=[
-        "ip", "hostname", "port", "protocol", "service", "version", "cve_str"])
+        "ip", "hostname", "port", "protocol", "service", "version", "cve_str", "ts"])
 
     # Save the DataFrame to the second sheet of the Excel file
     df2.to_excel(writer, index=False, sheet_name="lost")
@@ -61,7 +61,7 @@ with pd.ExcelWriter("./app/resources/data.xlsx") as writer:
 
     # Convert the results to a Pandas DataFrame
     df3 = pd.DataFrame(results, columns=[
-        "ip", "hostname", "port", "protocol", "service", "version", "cve_str"])
+        "ip", "hostname", "port", "protocol", "service", "version", "cve_str", "ts"])
 
     # Save the DataFrame to the third sheet of the Excel file
     df3.to_excel(writer, index=False, sheet_name="Stay")
