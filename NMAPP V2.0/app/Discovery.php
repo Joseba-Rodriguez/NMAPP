@@ -154,6 +154,7 @@
                 <th>protocol</th>
                 <th>service</th>
                 <th>version</th>
+                <th>Timestamp</th>
               </tr>
               '; foreach($arr as $array) { echo'
               <tr>
