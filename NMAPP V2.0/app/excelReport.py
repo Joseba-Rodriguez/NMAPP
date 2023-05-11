@@ -62,7 +62,6 @@ with pd.ExcelWriter("./app/resources/data.xlsx") as writer:
     # Convert the results to a Pandas DataFrame
     df3 = pd.DataFrame(results, columns=[
         "ip", "hostname", "port", "protocol", "service", "version", "cve_str", "ts"])
-
     # Save the DataFrame to the third sheet of the Excel file
     df3.to_excel(writer, index=False, sheet_name="Stay")
 
