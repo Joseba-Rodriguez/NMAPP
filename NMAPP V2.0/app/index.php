@@ -112,7 +112,148 @@
         </div>
       </div>
       <div class="row">
+        <div class="col-sm-6">
+          <div class="chart-jwrapper">
+            <?php
+        include 'Connection.php';
+
+        // Obtener los datos de los últimos 7 días
+        $fecha_actual = date('Y-m-d');
+        $fecha_anterior = date('Y-m-d', strtotime('-7 days', strtotime($fecha_actual)));
+        $query = pg_query($conexion, "SELECT port, COUNT(DISTINCT ip) as dispositivos FROM nmapIndividual WHERE ts >=
+            '$fecha_anterior' GROUP BY port"); 
+            // Crear un array para almacenarlos datos 
+            $data = array( array('Puerto', 'Dispositivos escaneados')
+            ); // Iterar sobre los resultados y agregarlos al array de datos
+            while ($row = pg_fetch_assoc($query)) { $data[] =
+            array($row['port'], intval($row['dispositivos'])); } 
+            // Crear lagráfica de Google Chart 
+            echo "
+            <style>
+                #chart_div {
+                    margin: 0 auto; /* Centrar el div horizontalmente */
+                    width: 900px;
+                    height: 500px;
+                    background-color: transparent; /* Cambiar el fondo a transparente */
+                }
+                
+            </style>
+            <script type=\"text/javascript\" src=\"https://www.gstatic.com/charts/loader.js\"></script>
+            <script type=\"text/javascript\">
+                google.charts.load('current', {'packages':['corechart']});
+                google.charts.setOnLoadCallback(drawChart);
+
+                function drawChart() {
+                    var data = google.visualization.arrayToDataTable(".json_encode($data).");
+
+                    var options = {
+                      title: 'Top puertos escaneados',
+                      legend: {textStyle: {color: '#FFF'}},
+                      vAxis: {minValue: 0},
+                      backgroundColor: 'transparent',
+                      colors: ['#ff6969', '#a7f062', '#ed69ff'],
+                      titleTextStyle: {color: '#FFF', fontSize: 18},
+                      chartArea: {width: '100%', height: '80%'},
+                      hAxis: {textStyle: {color: '#FFF'}},
+                    };
+
+                    var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+                    chart.draw(data, options);
+                }
+            </script>
+            <div id=\"chart_div\"></div>
+        ";
+        ?>
+          </div>
+        </div>
+
+        <div class="col-sm-6">
+          <div class="chart-wrapper">
+          <?php
+        // Conectamos a la base de datos
+        include 'Connection.php';
+
+        // Realizamos una consulta para obtener todas las entradas de la columna cve_str
+        $query = "SELECT cve_str FROM nmapIndividual";
+        $result = pg_query($conexion, $query);
+
+        // Inicializamos los contadores
+        $criticas = 0;
+        $medias = 0;
+        $bajas = 0;
+
+        // Iteramos sobre cada entrada
+        while ($row = pg_fetch_assoc($result)) {
+          // Extraemos la primera criticidad de la CVE utilizando expresiones regulares
+          preg_match('/\d+/', $row['cve_str'], $matches);
+          if (isset($matches[0])) {
+            $criticidad = intval($matches[0]);
+
+            // Clasificamos cada entrada según su criticidad
+            if ($criticidad >= 8) {
+              $criticas++;
+            } elseif ($criticidad >= 6) {
+              $medias++;
+            } else {
+              $bajas++;
+            }
+          }
+        }
+
+        // Creamos un array con los datos para la gráfica
+        $data = array(
+          array('Criticidad', 'Número de vulnerabilidades'),
+          array('Críticas', $criticas),
+          array('Medias', $medias),
+          array('Bajas', $bajas)
+        );
+
+        // Convertimos el array a formato JSON
+        $json_data = json_encode($data);
+
+        // Creamos el gráfico de barras utilizando Google Charts
+        ?>
+        <div style="width: 65%; float: left">
+          <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+          <script type="text/javascript">
+            google.charts.load('current', {'packages':['corechart']});
+            google.charts.setOnLoadCallback(drawChart);
+
+            function drawChart() {
+              var data = google.visualization.arrayToDataTable(<?php echo $json_data; ?>);
+            var options = {
+                title: 'Número de vulnerabilidades según su criticidad',
+                legend: {textStyle: {color: '#FFF'}},
+                vAxis: {minValue: 0},
+                backgroundColor: 'transparent',
+                colors: ['#fa4343', '#fa8955', '#55dffa'],
+                titleTextStyle: {color: '#FFF', fontSize: 18},
+                chartArea: {width: '100%', height: '80%'},
+                hAxis: {textStyle: {color: '#FFF'}},
+              };
+
+
+              var chart = new google.visualization.ColumnChart(document.getElementById('chart_div2'));
+
+              chart.draw(data, options);
+            }
+          </script>
+
+          <div id="chart_div2" style="width: 100%; height: 400px"></div>
+        </div>
+
+        <!-- Mostramos los contadores -->
+        <div style="width: 50%; float: left">
+          <p>Vulnerabilidades críticas: <?php echo $criticas; ?></p>
+          <p>Vulnerabilidades medias: <?php echo $medias; ?></p>
+          <p>Vulnerabilidades bajas: <?php echo $bajas; ?></p>
+          </div>
+         </div>
+        </div>
+      </div>
+      <div class="row">
         <div class="jwrapper">
+          <br>
           <form
             action="csv.php"
             method="post"
@@ -178,49 +319,49 @@
             </div>
           </form>
         </div>
-      </div>
-      <div
-        class="modal fade"
-        id="eliminarModal"
-        tabindex="-1"
-        aria-labelledby="eliminarModalLabel"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="eliminarModalLabel">
-                Eliminar datos
-              </h5>
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div class="modal-body">
-              <p>
-                ¿Está seguro de que desea eliminar todas las IPs introducidas
-                para escanear?
-              </p>
-            </div>
-            <div class="modal-footer">
-              <form action="envioIPs.php" method="post" name="eliminarForm">
-                <input type="hidden" name="eliminar" value="true" />
-                <button
-                  type="button"
-                  class="btn btn-secondary"
-                  data-bs-dismiss="modal"
-                >
-                  Cancelar
-                </button>
-                <button type="submit" class="btn btn-danger">Eliminar</button>
-              </form>
+        </div>
+          <div
+            class="modal fade"
+            id="eliminarModal"
+            tabindex="-1"
+            aria-labelledby="eliminarModalLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="eliminarModalLabel">
+                    Eliminar datos
+                  </h5>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div class="modal-body">
+                  <p>
+                    ¿Está seguro de que desea eliminar todas las IPs introducidas
+                    para escanear?
+                  </p>
+                </div>
+                <div class="modal-footer">
+                  <form action="envioIPs.php" method="post" name="eliminarForm">
+                    <input type="hidden" name="eliminar" value="true" />
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-bs-dismiss="modal"
+                    >
+                      Cancelar
+                    </button>
+                    <button type="submit" class="btn btn-danger">Eliminar</button>
+                  </form>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
 
       <div class="row">
         <div class="jwrapper">
@@ -339,6 +480,7 @@
           # Update the current IP variable
           $currentIp = $row['ip'];
         }
+        
         $cve_array = explode(';', $row['cve_str']);
         # Get the first vulnerability from the array
         $first_vulnerability = isset($cve_array[0]) ? $cve_array[0] : "";
@@ -386,6 +528,7 @@
                   <?php } ?>
                 </td>
               </tr>
+
               <!-- Modal -->
               <div
                 class="modal fade"
@@ -425,6 +568,7 @@
           ?>
         </div>
       </div>
+
       <script>
         function showModal(cveStr) {
           // Split the CVE string by semicolon and create a list of vulnerabilities
@@ -448,6 +592,7 @@
           modal.show();
         }
       </script>
+
       <div class="row">
         <div class="jwrapper">
           <footer>
