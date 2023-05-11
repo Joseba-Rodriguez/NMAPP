@@ -52,7 +52,7 @@ if NUM != 1:
                             user=user, password=password)
     cursor = conn.cursor()
     # Insert data into lastAnalyze table
-    cursor.execute("INSERT INTO lastAnalyze SELECT * FROM nmapIndividual")
+    cursor.execute("INSERT INTO lastAnalyze SELECT * FROM nmapIndividual WHERE NOT EXISTS ( SELECT 1 FROM lastAnalyze WHERE nmapIndividual.ip = lastAnalyze.ip AND nmapIndividual.port = lastAnalyze.port);")
     conn.commit()
     cursor.execute("DELETE FROM nmapIndividual")
     conn.commit()
