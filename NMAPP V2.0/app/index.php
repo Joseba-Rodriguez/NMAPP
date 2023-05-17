@@ -236,9 +236,6 @@
             $resultStay = pg_query($conexion, $queryStay);
             $rowStay = pg_fetch_assoc($resultStay);
             $countStay = intval($rowStay['count']);
-
-            // Cerrar la conexión a la base de datos
-            pg_close($conexion);
             ?>
 
             <script type="text/javascript">
