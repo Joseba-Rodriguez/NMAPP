@@ -1,6 +1,6 @@
 <?php include "./resources/header.php" ?>
   <body>
-    <div class="container-flex">
+    <div class="container-fluid">
       <div class="row">
         <div class="jwrapper">
           <header>
@@ -79,7 +79,7 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-sm-4">
+        <div class="col-4">
           <div class="chart-jwrapper">
           <?php
             include 'Connection.php';
@@ -135,7 +135,7 @@
             <div id="chart_div"></div>
           </div>
         </div>
-        <div class="col-sm-4">
+        <div class="col-4">
           <div class="chart-wrapper">
           <?php
               // Conectamos a la base de datos
@@ -213,7 +213,7 @@
               </div>
           </div>
         </div>
-        <div class="col-sm-4">
+        <div class="col-4">
           <div class="chat-wrappper">
                   <?php
             // Incluir el archivo de conexión
@@ -642,7 +642,7 @@
           modal.show();
         }
       </script>
-    <?php include "./resources/scripts.php" ?>
+       <?php include "./resources/scripts.php" ?>
     </div>
   </body>
 </html>

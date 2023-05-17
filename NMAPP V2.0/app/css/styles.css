@@ -5,6 +5,7 @@
   padding: 20px;
 }
 
+
 /*Header*/
 header {
   position: fixed;
@@ -13,6 +14,10 @@ header {
   width: 100%;
   z-index: 9999;
 }
+.container-fluid {
+    overflow-x: hidden;
+}
+
 
 nav{
   background-color: #f7f7f7;

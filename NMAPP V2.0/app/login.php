@@ -23,7 +23,7 @@
   </head>
   
   <body>
-    <div class="container-flex">
+    <div class="container-fluid">
       <div class="row">
         <div class="jwrapper">
           <header>
