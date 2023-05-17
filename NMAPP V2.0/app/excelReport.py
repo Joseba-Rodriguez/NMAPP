@@ -5,6 +5,7 @@ import pandas as pd
 import psycopg2
 import smtplib
 import os
+import datetime
 
 with open('./app/postgresConfiguration.txt', encoding='utf-8') as f:
     for line in f:
@@ -16,6 +17,8 @@ password = os.environ['DB_PASS']
 hostdb = os.environ['DB_HOST']
 database = os.environ['DB_DB']
 
+fecha_actual = datetime.datetime.now().strftime("%Y-%m-%d")
+
 # Connect to the database
 conn = psycopg2.connect(host=hostdb, database=database,
                         user=user, password=password)
@@ -25,7 +28,7 @@ cursor = conn.cursor()
 
 # Execute the first SQL query
 cursor.execute(
-    "SELECT * FROM nmapIndividual as n WHERE NOT EXISTS(SELECT * FROM lastAnalyze AS L WHERE n.ip = L.ip)")
+    "SELECT ip, hostname, port, protocol, service, version, cve_str, ts FROM nmapIndividual as n WHERE NOT EXISTS(SELECT * FROM lastAnalyze AS L WHERE n.ip = L.ip)")
 
 # Collect the results of the query
 results = cursor.fetchall()
@@ -40,7 +43,7 @@ with pd.ExcelWriter("./app/resources/data.xlsx") as writer:
 
     # Execute the second SQL query
     cursor.execute(
-        "SELECT * FROM lastAnalyze as n WHERE NOT EXISTS(SELECT * FROM nmapIndividual AS L WHERE n.ip = L.ip)")
+        "SELECT ip, hostname, port, protocol, service, version, cve_str, ts FROM lastanalyze as n WHERE NOT EXISTS(SELECT * FROM nmapIndividual AS L WHERE n.ip = L.ip)")
 
     # Collect the results of the query
     results = cursor.fetchall()
@@ -54,14 +57,14 @@ with pd.ExcelWriter("./app/resources/data.xlsx") as writer:
 
     # Execute the third SQL query
     cursor.execute(
-        "SELECT * FROM nmapIndividual INTERSECT SELECT * from lastAnalyze")
+        "SELECT n.ip, n.hostname, n.port, n.protocol, n.service, n.version, n.cve_str, l.ts FROM nmapIndividual n JOIN lastAnalyze l ON n.ip = l.ip AND n.port = l.port")
 
     # Collect the results of the query
     results = cursor.fetchall()
 
     # Convert the results to a Pandas DataFrame
     df3 = pd.DataFrame(results, columns=[
-        "ip", "hostname", "port", "protocol", "service", "version", "cve_str", "ts"])
+        "ip", "hostname", "port", "protocol", "service", "version","cve_str", "ts" ])
     # Save the DataFrame to the third sheet of the Excel file
     df3.to_excel(writer, index=False, sheet_name="Stay")
 
@@ -82,7 +85,7 @@ msg.attach(MIMEText(
 with open("./app/resources/data.xlsx", "rb") as f:
     excel = MIMEApplication(f.read(), _subtype="xlsx")
     excel.add_header('content-disposition', 'attachment',
-                     filename=".NMAPP.xlsx")
+                     filename=".NMAPP" + fecha_actual + ".xlsx")
     msg.attach(excel)
 
 # Authenticate to the Gmail mail server

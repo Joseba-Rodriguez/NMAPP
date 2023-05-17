@@ -5,3 +5,4 @@ os.system("nmap -Pn --open -sV --script vulners --script-args mincvss=5.0 --scri
 
 # With the previous export, we call a new python to parse the data
 os.system(" python3 ./app/storer.py 2")
+os.system("python3 ./app/excelReport.py")

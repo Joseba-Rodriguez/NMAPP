@@ -1,37 +1,4 @@
-<?php 
-  session_start();
-
-  // Verifica si el usuario ya ha iniciado sesión
-  if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
-    header('Location: login.php');
-    exit;
-  }
-?>
-
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>NMAPP Scheduled</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    />
-    <link href="css/styles.css" rel="stylesheet" />
-  </head>
-
+<?php include "./resources/header.php" ?>
   <body>
     <div class="container-flex">
       <div class="row">
@@ -112,23 +79,28 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-sm-6">
+        <div class="col-sm-4">
           <div class="chart-jwrapper">
-            <?php
-        include 'Connection.php';
+          <?php
+            include 'Connection.php';
 
-        // Obtener los datos de los últimos 7 días
-        $fecha_actual = date('Y-m-d');
-        $fecha_anterior = date('Y-m-d', strtotime('-7 days', strtotime($fecha_actual)));
-        $query = pg_query($conexion, "SELECT port, COUNT(DISTINCT ip) as dispositivos FROM nmapIndividual WHERE ts >=
-            '$fecha_anterior' GROUP BY port"); 
-            // Crear un array para almacenarlos datos 
-            $data = array( array('Puerto', 'Dispositivos escaneados')
-            ); // Iterar sobre los resultados y agregarlos al array de datos
-            while ($row = pg_fetch_assoc($query)) { $data[] =
-            array($row['port'], intval($row['dispositivos'])); } 
-            // Crear lagráfica de Google Chart 
-            echo "
+            // Obtener los datos de los últimos 7 días
+            $fecha_actual = date('Y-m-d');
+            $fecha_anterior = date('Y-m-d', strtotime('-7 days', strtotime($fecha_actual)));
+            $query = pg_query($conexion, "SELECT port, COUNT(DISTINCT ip) as dispositivos FROM nmapIndividual WHERE ts >= '$fecha_anterior' GROUP BY port");
+
+            // Crear un array para almacenar los datos
+            $data = array(
+                array('Puerto', 'Dispositivos escaneados')
+            );
+
+            // Iterar sobre los resultados y agregarlos al array de datos
+            while ($row = pg_fetch_assoc($query)) {
+                $data[] = array($row['port'], intval($row['dispositivos']));
+            }
+
+            // Crear la gráfica de Google Chart
+            ?>
             <style>
                 #chart_div {
                     margin: 0 auto; /* Centrar el div horizontalmente */
@@ -136,124 +108,206 @@
                     height: 500px;
                     background-color: transparent; /* Cambiar el fondo a transparente */
                 }
-                
             </style>
-            <script type=\"text/javascript\" src=\"https://www.gstatic.com/charts/loader.js\"></script>
-            <script type=\"text/javascript\">
-                google.charts.load('current', {'packages':['corechart']});
+            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+            <script type="text/javascript">
+                google.charts.load('current', {'packages': ['corechart']});
                 google.charts.setOnLoadCallback(drawChart);
 
                 function drawChart() {
-                    var data = google.visualization.arrayToDataTable(".json_encode($data).");
+                    var data = google.visualization.arrayToDataTable(<?php echo json_encode($data); ?>);
 
                     var options = {
-                      title: 'Top puertos escaneados',
-                      legend: {textStyle: {color: '#FFF'}},
-                      vAxis: {minValue: 0},
-                      backgroundColor: 'transparent',
-                      colors: ['#ff6969', '#a7f062', '#ed69ff'],
-                      titleTextStyle: {color: '#FFF', fontSize: 18},
-                      chartArea: {width: '100%', height: '80%'},
-                      hAxis: {textStyle: {color: '#FFF'}},
+                        title: 'Top puertos escaneados',
+                        legend: {textStyle: {color: '#FFF'}},
+                        vAxis: {minValue: 0},
+                        backgroundColor: 'transparent',
+                        colors: ['#ff6969', '#a7f062', '#ed69ff'],
+                        titleTextStyle: {color: '#FFF', fontSize: 18},
+                        chartArea: {width: '100%', height: '80%'},
+                        hAxis: {textStyle: {color: '#FFF'}},
                     };
 
                     var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
                     chart.draw(data, options);
                 }
             </script>
-            <div id=\"chart_div\"></div>
-        ";
-        ?>
+            <div id="chart_div"></div>
           </div>
         </div>
-
-        <div class="col-sm-6">
+        <div class="col-sm-4">
           <div class="chart-wrapper">
           <?php
-        // Conectamos a la base de datos
-        include 'Connection.php';
+              // Conectamos a la base de datos
+              include 'Connection.php';
 
-        // Realizamos una consulta para obtener todas las entradas de la columna cve_str
-        $query = "SELECT cve_str FROM nmapIndividual";
-        $result = pg_query($conexion, $query);
+              // Realizamos una consulta para obtener el número total de entradas en la columna cve_str
+              $query = "SELECT COUNT(*) AS total FROM nmapIndividual";
+              $result = pg_query($conexion, $query);
+              $row = pg_fetch_assoc($result);
+              $totalVulnerabilidades = (int) $row['total']; // Convertimos el resultado a entero
 
-        // Inicializamos los contadores
-        $criticas = 0;
-        $medias = 0;
-        $bajas = 0;
+              // Creamos un array con los datos para la gráfica
+              $data = array(
+                  array('Criticidad', 'Número de vulnerabilidades', array('role' => 'style')),
+                  array('Total', $totalVulnerabilidades, '#fa4343')
+              );
 
-        // Iteramos sobre cada entrada
-        while ($row = pg_fetch_assoc($result)) {
-          // Extraemos la primera criticidad de la CVE utilizando expresiones regulares
-          preg_match('/\d+/', $row['cve_str'], $matches);
-          if (isset($matches[0])) {
-            $criticidad = intval($matches[0]);
+              // Convertimos el array a formato JSON
+              $json_data = json_encode($data);
 
-            // Clasificamos cada entrada según su criticidad
-            if ($criticidad >= 8) {
-              $criticas++;
-            } elseif ($criticidad >= 6) {
-              $medias++;
-            } else {
-              $bajas++;
-            }
-          }
-        }
+              // Cerramos la conexión a la base de datos
+              pg_close($conexion);
+              ?>
 
-        // Creamos un array con los datos para la gráfica
-        $data = array(
-          array('Criticidad', 'Número de vulnerabilidades'),
-          array('Críticas', $criticas),
-          array('Medias', $medias),
-          array('Bajas', $bajas)
-        );
+              <div style="width: 90%; float: left">
+                  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+                  <script type="text/javascript">
+                      google.charts.load('current', {'packages': ['corechart']});
+                      google.charts.setOnLoadCallback(drawChart);
 
-        // Convertimos el array a formato JSON
-        $json_data = json_encode($data);
+                      function drawChart() {
+                          var data = google.visualization.arrayToDataTable(<?php echo $json_data; ?>);
+                          var view = new google.visualization.DataView(data);
+                          view.setColumns([0, 1, {
+                              calc: "stringify",
+                              sourceColumn: 1,
+                              type: "string",
+                              role: "annotation"
+                          }, 2]);
 
-        // Creamos el gráfico de barras utilizando Google Charts
-        ?>
-        <div style="width: 65%; float: left">
-          <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-          <script type="text/javascript">
-            google.charts.load('current', {'packages':['corechart']});
-            google.charts.setOnLoadCallback(drawChart);
+                          var options = {
+                              title: 'Número total de vulnerabilidades',
+                              legend: {
+                                  textStyle: {color: '#FFF'},
+                                  position: 'left',
+                                  alignment: 'end'
+                              },
+                              vAxis: {minValue: 0},
+                              backgroundColor: 'transparent',
+                              titleTextStyle: {color: '#FFF', fontSize: 18},
+                              chartArea: {width: '100%', height: '110%'},
+                              hAxis: {textStyle: {color: '#FFF'}},
+                              bar: {groupWidth: '35%'},
+                              annotations: {
+                                  textStyle: {color: '#FFF', fontSize: 16},
+                                  highContrast: true,
+                                  stem: {
+                                      color: 'transparent'
+                                  }
+                              }
+                          };
 
-            function drawChart() {
-              var data = google.visualization.arrayToDataTable(<?php echo $json_data; ?>);
-            var options = {
-                title: 'Número de vulnerabilidades según su criticidad',
-                legend: {textStyle: {color: '#FFF'}},
-                vAxis: {minValue: 0},
-                backgroundColor: 'transparent',
-                colors: ['#fa4343', '#fa8955', '#55dffa'],
-                titleTextStyle: {color: '#FFF', fontSize: 18},
-                chartArea: {width: '100%', height: '80%'},
-                hAxis: {textStyle: {color: '#FFF'}},
-              };
+                          var chart = new google.visualization.ColumnChart(document.getElementById('chart_div2'));
+                          chart.draw(view, options);
+                      }
+                  </script>
+                  <div id="chart_div2" style="width: 100%; height: 400px"></div>
+              </div>
 
-
-              var chart = new google.visualization.ColumnChart(document.getElementById('chart_div2'));
-
-              chart.draw(data, options);
-            }
-          </script>
-
-          <div id="chart_div2" style="width: 100%; height: 400px"></div>
-        </div>
-
-        <!-- Mostramos los contadores -->
-        <div style="width: 50%; float: left">
-          <p>Vulnerabilidades críticas: <?php echo $criticas; ?></p>
-          <p>Vulnerabilidades medias: <?php echo $medias; ?></p>
-          <p>Vulnerabilidades bajas: <?php echo $bajas; ?></p>
+              <!-- Mostramos el contador -->
+              <div style="width: 90%; float: left">
+                  <p style="font-size: 18px;">
+                      Total de vulnerabilidades: <?php echo $totalVulnerabilidades; ?>
+                  </p>
+              </div>
           </div>
-         </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="chat-wrappper">
+                  <?php
+            // Incluir el archivo de conexión
+            include 'Connection.php';
+
+            // Consulta para contar las filas en la tabla nmapIndividual que no existen en lastAnalyze
+            $queryAppear = "SELECT COUNT(*) as count FROM nmapIndividual as n WHERE NOT EXISTS (SELECT * FROM lastAnalyze AS L WHERE n.ip = L.ip)";
+            $resultAppear = pg_query($conexion, $queryAppear);
+            $rowAppear = pg_fetch_assoc($resultAppear);
+            $countAppear = intval($rowAppear['count']);
+
+            // Consulta para contar las filas en la tabla lastAnalyze que no existen en nmapIndividual
+            $queryLost = "SELECT COUNT(*) as count FROM lastAnalyze as n WHERE NOT EXISTS (SELECT * FROM nmapIndividual AS L WHERE n.ip = L.ip)";
+            $resultLost = pg_query($conexion, $queryLost);
+            $rowLost = pg_fetch_assoc($resultLost);
+            $countLost = intval($rowLost['count']);
+
+            // Consulta para obtener las filas en la tabla nmapIndividual que existen en lastAnalyze
+            $queryStay = "SELECT COUNT(*) as count FROM nmapIndividual n JOIN lastAnalyze l ON n.ip = l.ip AND n.port = l.port";
+            $resultStay = pg_query($conexion, $queryStay);
+            $rowStay = pg_fetch_assoc($resultStay);
+            $countStay = intval($rowStay['count']);
+
+            // Cerrar la conexión a la base de datos
+            pg_close($conexion);
+            ?>
+
+            <script type="text/javascript">
+              google.charts.load("current", {packages:["corechart"]});
+              google.charts.setOnLoadCallback(drawChart);
+              function drawChart() {
+                var data = google.visualization.arrayToDataTable([
+                  ["Element", "Count", { role: "style" } ],
+                  ["Appear", <?php echo $countAppear; ?>, "#FFF"],
+                  ["Lost", <?php echo $countLost; ?>, "silver"],
+                  ["Stay", <?php echo $countStay; ?>, "gold"]
+                ]);
+
+                var view = new google.visualization.DataView(data);
+                view.setColumns([0, 1,
+                                { calc: "stringify",
+                                  sourceColumn: 1,
+                                  type: "string",
+                                  role: "annotation" },
+                                2]);
+
+                var options = {
+                  title: "IP Counts",
+                  width: 600,
+                  height: 400,
+                  backgroundColor: 'transparent',
+                  chartArea: {width: '100%', height: '80%'},
+                  legend: {textStyle: {color: '#FFF'}},
+                  titleTextStyle: {color: '#FFF', fontSize: 18},
+                  hAxis: {textStyle: {color: '#FFF'}},
+                  vAxis: {
+                    textStyle: {color: '#FFF'},
+                    minValue: 0,
+                    title: 'Count'
+                  },
+                  annotations: {
+                    textStyle: {color: '#FFF'},
+                    highContrast: true,
+                    stem: {
+                      color: 'transparent'
+                    }
+                  }
+                };
+
+                var chart = new google.visualization.BarChart(document.getElementById("barchart_values"));
+                chart.draw(view, options);
+              }
+            </script>
+
+          <div id="barchart_values" style="width: 900px; height: 300px;"></div>
+          <div style="display: flex; justify-content: center; margin-top: 100px;">
+            <div style="margin-right: 20px;">
+              <span style="color: #FFF;">Appear: <?php echo $countAppear; ?></span>
+            </div>
+            <div style="margin-right: 20px;">
+              <span style="color: silver;">Lost: <?php echo $countLost; ?></span>
+            </div>
+            <div>
+              <span style="color: gold;">Stay: <?php echo $countStay; ?></span>
+            </div>
+          </div>
+
+
+          </div>
         </div>
       </div>
       <div class="row">
         <div class="jwrapper">
-          <br>
+          <br />
           <form
             action="csv.php"
             method="post"
@@ -318,51 +372,50 @@
               </div>
             </div>
           </form>
-        </div>
-        </div>
-          <div
-            class="modal fade"
-            id="eliminarModal"
-            tabindex="-1"
-            aria-labelledby="eliminarModalLabel"
-            aria-hidden="true"
-          >
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="eliminarModalLabel">
-                    Eliminar datos
-                  </h5>
+        </div>  
+        <div
+          class="modal fade"
+          id="eliminarModal"
+          tabindex="-1"
+          aria-labelledby="eliminarModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="eliminarModalLabel">
+                  Eliminar datos
+                </h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <p>
+                  ¿Está seguro de que desea eliminar todas las IPs introducidas
+                  para escanear?
+                </p>
+              </div>
+              <div class="modal-footer">
+                <form action="envioIPs.php" method="post" name="eliminarForm">
+                  <input type="hidden" name="eliminar" value="true" />
                   <button
                     type="button"
-                    class="btn-close"
+                    class="btn btn-secondary"
                     data-bs-dismiss="modal"
-                    aria-label="Close"
-                  ></button>
-                </div>
-                <div class="modal-body">
-                  <p>
-                    ¿Está seguro de que desea eliminar todas las IPs introducidas
-                    para escanear?
-                  </p>
-                </div>
-                <div class="modal-footer">
-                  <form action="envioIPs.php" method="post" name="eliminarForm">
-                    <input type="hidden" name="eliminar" value="true" />
-                    <button
-                      type="button"
-                      class="btn btn-secondary"
-                      data-bs-dismiss="modal"
-                    >
-                      Cancelar
-                    </button>
-                    <button type="submit" class="btn btn-danger">Eliminar</button>
-                  </form>
-                </div>
+                  >
+                    Cancelar
+                  </button>
+                  <button type="submit" class="btn btn-danger">Eliminar</button>
+                </form>
               </div>
             </div>
           </div>
-
+        </div>
+      </div>
       <div class="row">
         <div class="jwrapper">
           <?php  
@@ -399,7 +452,7 @@
                 name="selection"
                 value="2Weeks"
               >
-                2 semanas
+                2 días
               </button>
               <button
                 type="submit"
@@ -407,7 +460,7 @@
                 name="selection"
                 value="monthly"
               >
-                Mensual
+                Semanal
               </button>
               <button
                 type="submit"
@@ -568,7 +621,7 @@
           ?>
         </div>
       </div>
-
+      <?php include "./resources/footer.php" ?>
       <script>
         function showModal(cveStr) {
           // Split the CVE string by semicolon and create a list of vulnerabilities
@@ -592,32 +645,7 @@
           modal.show();
         }
       </script>
-
-      <div class="row">
-        <div class="jwrapper">
-          <footer>
-            <div class="container">
-              <div class="row">
-                <div class="col-lg-12">
-                  <h6 class="text-center text-muted">
-                    &copy; 2023 NMAPP. Todos los derechos reservados.
-                  </h6>
-                </div>
-              </div>
-            </div>
-          </footer>
-        </div>
-      </div>
-      <script
-        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-        crossorigin="anonymous"
-      ></script>
-      <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/js/adminlte.min.js"></script>
-      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <?php include "./resources/scripts.php" ?>
     </div>
   </body>
 </html>
