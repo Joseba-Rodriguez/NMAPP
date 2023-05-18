@@ -135,84 +135,91 @@
             <div id="chart_div"></div>
           </div>
         </div>
-        <div class="col-4">
+         <div class="col-4">
           <div class="chart-wrapper">
           <?php
-              // Conectamos a la base de datos
-              include 'Connection.php';
+        // Conectamos a la base de datos
+        include 'Connection.php';
 
-              // Realizamos una consulta para obtener el número total de entradas en la columna cve_str
-              $query = "SELECT COUNT(*) AS total FROM nmapIndividual";
-              $result = pg_query($conexion, $query);
-              $row = pg_fetch_assoc($result);
-              $totalVulnerabilidades = (int) $row['total']; // Convertimos el resultado a entero
+        // Realizamos una consulta para obtener todas las entradas de la columna               cve_str
+        $query = "SELECT cve_str FROM nmapIndividual";
+        $result = pg_query($conexion, $query);
 
-              // Creamos un array con los datos para la gráfica
-              $data = array(
-                  array('Criticidad', 'Número de vulnerabilidades', array('role' => 'style')),
-                  array('Total', $totalVulnerabilidades, '#fa4343')
-              );
+        // Inicializamos los contadores
+        $criticas = 0;
+        $medias = 0;
+        $bajas = 0;
 
-              // Convertimos el array a formato JSON
-              $json_data = json_encode($data);
+        // Iteramos sobre cada entrada
+        while ($row = pg_fetch_assoc($result)) {
+          // Extraemos la primera criticidad de la CVE utilizando expresiones re              gulares
+          preg_match('/\d+/', $row['cve_str'], $matches);
+          if (isset($matches[0])) {
+            $criticidad = intval($matches[0]);
 
-              // Cerramos la conexión a la base de datos
-              pg_close($conexion);
-              ?>
+            // Clasificamos cada entrada según su criticidad
+            if ($criticidad >= 8) {
+              $criticas++;
+            } elseif ($criticidad >= 6) {
+              $medias++;
+            } else {
+              $bajas++;
+            }
+          }
+        }
 
-              <div style="width: 90%; float: left">
-                  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-                  <script type="text/javascript">
-                      google.charts.load('current', {'packages': ['corechart']});
-                      google.charts.setOnLoadCallback(drawChart);
+        // Creamos un array con los datos para la gráfica
+        $data = array(
+          array('Criticidad', 'Número de vulnerabilidades'),
+          array('Críticas', $criticas),
+          array('Medias', $medias),
+          array('Bajas', $bajas)
+        );
 
-                      function drawChart() {
-                          var data = google.visualization.arrayToDataTable(<?php echo $json_data; ?>);
-                          var view = new google.visualization.DataView(data);
-                          view.setColumns([0, 1, {
-                              calc: "stringify",
-                              sourceColumn: 1,
-                              type: "string",
-                              role: "annotation"
-                          }, 2]);
+        // Convertimos el array a formato JSON
+        $json_data = json_encode($data);
 
-                          var options = {
-                              title: 'Número total de vulnerabilidades',
-                              legend: {
-                                  textStyle: {color: '#FFF'},
-                                  position: 'left',
-                                  alignment: 'end'
-                              },
-                              vAxis: {minValue: 0},
-                              backgroundColor: 'transparent',
-                              titleTextStyle: {color: '#FFF', fontSize: 18},
-                              chartArea: {width: '100%', height: '110%'},
-                              hAxis: {textStyle: {color: '#FFF'}},
-                              bar: {groupWidth: '35%'},
-                              annotations: {
-                                  textStyle: {color: '#FFF', fontSize: 16},
-                                  highContrast: true,
-                                  stem: {
-                                      color: 'transparent'
-                                  }
-                              }
-                          };
+        // Creamos el gráfico de barras utilizando Google Charts
+        ?>
+        <div style="width: 65%; float: left">
+          <script type="text/javascript" src="https://www.gstatic.com/charts/loa              der.js"></script>
+          <script type="text/javascript">
+            google.charts.load('current', {'packages':['corechart']});
+            google.charts.setOnLoadCallback(drawChart);
 
-                          var chart = new google.visualization.ColumnChart(document.getElementById('chart_div2'));
-                          chart.draw(view, options);
-                      }
-                  </script>
-                  <div id="chart_div2" style="width: 100%; height: 400px"></div>
-              </div>
+            function drawChart() {
+              var data = google.visualization.arrayToDataTable(<?php echo $json_              data; ?>);
+            var options = {
+                title: 'Número de vulnerabilidades según su criticidad',
+                legend: {textStyle: {color: '#FFF'}},
+                vAxis: {minValue: 0},
+                backgroundColor: 'transparent',
+                colors: ['#fa4343', '#fa8955', '#55dffa'],
+                titleTextStyle: {color: '#FFF', fontSize: 18},
+                chartArea: {width: '100%', height: '80%'},
+                hAxis: {textStyle: {color: '#FFF'}},
+              };
 
-              <!-- Mostramos el contador -->
-              <div style="width: 90%; float: left">
-                  <p style="font-size: 18px;">
-                      Total de vulnerabilidades: <?php echo $totalVulnerabilidades; ?>
-                  </p>
-              </div>
-          </div>
+
+              var chart = new google.visualization.ColumnChart(document.getEleme              ntById('chart_div2'));
+
+              chart.draw(data, options);
+            }
+          </script>
+
+          <div id="chart_div2" style="width: 100%; height: 400px"></div>
         </div>
+
+        <!-- Mostramos los contadores -->
+        <div style="width: 50%; float: left">
+          <p>Vulnerabilidades críticas: <?php echo $criticas; ?></p>
+          <p>Vulnerabilidades medias: <?php echo $medias; ?></p>
+          <p>Vulnerabilidades bajas: <?php echo $bajas; ?></p>
+          </div>
+         </div>
+        </div>
+      </div>
+
         <div class="col-4">
           <div class="chat-wrappper">
                   <?php
