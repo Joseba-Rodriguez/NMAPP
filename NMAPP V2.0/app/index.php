@@ -142,7 +142,7 @@
               include 'Connection.php';
 
               // Realizamos una consulta para obtener el número total de entradas en la columna cve_str
-              $query = "SELECT COUNT(*) AS total FROM nmapIndividual";
+              $query = "SELECT COUNT(*) AS total FROM nmapIndividual WHERE cve_str <> ''";
               $result = pg_query($conexion, $query);
               $row = pg_fetch_assoc($result);
               $totalVulnerabilidades = (int) $row['total']; // Convertimos el resultado a entero

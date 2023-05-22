@@ -5,7 +5,6 @@ of a button stored in a PostgreSQL database.
 
 import time
 import os
-import subprocess
 import psycopg2
 import schedule
 
@@ -53,6 +52,8 @@ def main_task():
     """
     # Execute the main task here
     os.system("python3 ./app/Analyzer.py")
+    os.system("python3 ./app/excelReport.py")
+
 
 def DBVulners():
     """
@@ -71,11 +72,9 @@ while True:
     if new_selection != last_selection:
         schedule.clear()
         if new_selection == "2Weeks":
-            schedule.every(2).days.at("00:00").do(main_task)
-            subprocess.run(["python3", "./app/excelReport.py"])
+            schedule.every(2).minutes.do(main_task)
         elif new_selection == "monthly":
             schedule.every(30).days.at("00:00").do(main_task)
-            subprocess.run(["python3", "./app/excelReport.py"])
         elif new_selection == "now":
             main_task()
 
