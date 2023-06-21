@@ -73,8 +73,10 @@ conn.close()
 
 # Create the e-mail message
 msg = MIMEMultipart()
-msg['From'] = "bashadowyt@gmail.com"
-msg['To'] = "joseba.rodriguez01@gmail.com"
+
+#Enter the email "From" and "To" you want to send the report
+msg['From'] = ""
+msg['To'] = ""
 msg['Subject'] = "NMAPP - Reporte de nuevos puertos encontrados"
 
 # Add the body of the e-mail message
@@ -91,7 +93,8 @@ with open("./app/resources/data.xlsx", "rb") as f:
 # Authenticate to the Gmail mail server
 server = smtplib.SMTP('smtp.gmail.com', 587)
 server.starttls()
-server.login("bshadowyt@gmail.com", "lixrvxfxpbwbuiou")
+#Introduce the credentials
+server.login("", "")
 
 # Send the email
 server.sendmail(msg['From'], msg['To'], msg.as_string())
