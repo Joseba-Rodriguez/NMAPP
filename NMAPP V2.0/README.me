@@ -1,10 +1,83 @@
-Para poder adentrarte dentro de la aplicación web de NMAPP bastará con realizar 3 sencillos pasos:
+#Guía de uso#
 
-1)Instalar docker dentro de la máquina en la que se quiera utilizar. "snap install docker"
-
-2)Tras hacer el git clone, hay que adentrarse dentro de la aplicaciçon en la carpeta /app y ejecutar el comando "python3 Permission.py" para establecer los permisos necesarios antes de ejecutar. Esto es así debido a que cuando se lanza el compose para crear los contenedores, copia los archivos con los permisos incluidos.
-
-3)Ya se puede ejecutar "docker compose up" para lanzar la software. Si ya has lanzado alguna vez dicho compose y has realizado cambios, para que se instauren dentro de los contenedores, hay que utilizar el comando "docker compose up --build"
+##Instalación##
+La herramienta y los ejemplos de comandos han sido ejecutados en una máquina Ubuntu 22.04. En primer lugar, ésta se almacena en la plataforma github. Aquí se encuentra un repositorio público desde el que se podrá acceder y descargar con los comandos git. Para proceder a su instalación bastará con realizar en la terminal (se recomienda situarse dentro de la carpeta donde quiere ser descargado mediante el comando “cd /ruta”) la siguiente instrucción: 
 
 
-Una vez se hayan creado y descargado todos los contenedores, bastará con acceder dentro del nombre de la máquina en el puerto 443." https://IPDeMiMáquina:443 "
+Una vez descargado dicho repositorio para proceder a su lanzamiento se necesitará descargar la herramienta docker, desde ubuntu 22.04 bastaría con realizar dentro de la terminal: 
+
+snap install docker
+
+Con la ejecución de docker instalada ya tenemos todos los pasos necesarios para realizar el lanzamiento de la aplicación.
+
+La aplicación cuenta con una serie de permisos que habrá que otorgar previamente para que el compose de docker pueda realizar cada una de las ejecuciones necesarias de la aplicación. Para ello nos adentramos dentro del git descargado de github, nos adentramos de la misma forma que antes dentro de la carpeta /app y mediante Python3 en la terminal ejecutamos el archivo Permissions.py:
+
+python3 Permissions/app/Permission.py
+
+Si no obtenemos ningún error por parte de la terminal, habremos finalizado la configuración previa. Estos pasos solo serán necesarios realizarlos una única vez, tras descargarlo.
+
+##Iniciar la aplicación##
+
+Para lanzar la herramienta, el usuario se deberá situar dentro de la carpeta NMAPP V2.0. Aquí es donde el usuario deberá ejecutar en la terminal (es
+posible que necesites permisos de administrador para ejecutar el compose, añade “sudo” al comienzo de la instrucción para dar permisos de administrador y ejecutarlo):
+
+docker compose up –build
+
+El programa comenzará a descargar y componer las imágenes.
+
+##Interfaz y funcionamiento##
+Para acceder a la web creada, si se ha lanzado en local, está expuesto el puerto 443 para la interfaz web. Dentro de un navegador se deberá escribir:
+https://localhost:443
+
+#Login#
+Por defecto cuando el usuario se adentra en la URL se accede a la página de login para que se puedan proceder al inicio de sesión para poder acceder a la aplicación el usuario deberá de estar registrado dentro de la aplicación. De lo contrario bastará con ingresar los datos correspondientes en los campos del formulario, con usuario y contraseña y pulsar el botón de Login. Si los datos son correctos, accederás a la web, si no se mostrarán distintos errores dependiendo de la falta que se haya cometido.
+
+#Register#
+Si el usuario necesita la creación de una cuenta para poder adentrarse dentro de la web. Una vez dentro y pulsando el botón “otros” del header el usuario podrá proceder a la creación de su cuenta dentro de la herramienta. Hay que tener en cuenta que el usuario debe mantener una contraseña segura en este caso los campos que necesitará introducir son entre 8-12 carácteres, con una mayúscula y con un número. Véase la imagen 4 donde se podrá ver la interfaz de registro.
+
+Imagen 4 registro de usuarios
+
+#Main index#
+La interfaz principal está dividida en diferentes partes:
+
+Imagen 5 main index
+
+1.Escaneos:
+En esta primera parte el usuario podrá ver el resultado del último Nmap realizado. Observa la Imagen 6 para ver esta primera parte.
+En este apartado se muestra la extracción obtenida tras ejecutar el comando Nmap mostrando así las distintas partes encontradas: IP, Hostname, Port, Protocol, Device, Version y Vulnerabilities.
+
+Además cuenta con un botón de descarga, si se pulsa, se procederá a una descarga del reporte que se muestra en pantalla. Para que el usuario pueda consultarlos y guardarlos en formato CSV. Se muestra un ejemplo en la imagen 7.
+Imagen 7 csv
+En esta fase encontramos también los horarios de programación para la realización del escaneo.
+
+2.Descubrimientos:
+Uno de los apartados más importantes dentro de la herramienta es la posibilidad de poder monitorizar cada escaneo. De tal forma que el usuario puede observar si han aparecido o desaparecido las distintas IPs o servidores que se quieran analizar.
+Imagen 8. Descubrimientos
+
+Dividido en 3 subcategorías:
+
+1. Appear: Mostrará todos aquellos host nuevos que haya encontrado respecto al
+anterior escaneo.
+
+2. Lost: Es el encargado de señalar cuáles han sido eliminados o no detectados
+respecto al anterior análisis.
+
+3. Stay: Enseña todos aquellos host en los que no se ha recibido ninguna novedad.
+Imagen 9 Discovery
+
+3. Historial de IPs:
+Para finalizar con la vista principal el programa cuenta con un formulario de introducción de datos, donde se deberán insertar IPs(individuales o rangos) y dominios, bastará con pulsar el botón de enviar, por otro lado si el usuario no esta conforme con su introducción podrá eliminar la lista de IPs introducida. Cabe recalcar que todo lo que se quiera someter al análisis deberá ser de forma lineal, es decir solo se puede introducir de forma seguida en una línea y no por partes . Se podrán insertar varias ips o dominios, pero deberán ser separados mediante un espacio en blanco p.e: 192.168.0.1-10 192.168.0.1/24 deusto.es santurtzi.net. 
+
+Imagen 10 Historial de Ips
+
+#Desconexión y cambio de contraseña#
+
+El usuario siempre tendrá la opción de desconectar su cuenta en cualquier momento independientemente de la fase en la que se encuentre, es importante saber que aunque el usuario se desconecte, las programaciones que haya realizado seguirán ejecutándose. Se podrá acceder a dicha acción en la parte superior.
+
+Imagen 11 Logout
+
+Tal y como se observa en la imagen anterior también podremos acceder al cambio de contraseña del usuario actual en la sesión. Si accedemos se nos mostrará la siguiente interfaz que al introducir la nueva contraseña se actualizará en la base de datos.
+
+#Funcionalidad NmapNow#
+Esta funcionalidad se utiliza para realizar escaneos individuales independientemente del escaneo programado, es útil para analizar IPs de forma rápida y completa.
+
