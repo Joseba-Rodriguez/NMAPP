@@ -44,9 +44,9 @@ Tanto el codigo python3, docker, bbdd y html deberá ir acompañado de una expli
 
 Otro dato importante en cuanto a la máquinam, se va a tratar de los logs tanto de actividad en cuanto a cuando se lanza o de para la máquina, como un control de acceso a la misma. Esta tarea la llevará a cabo el equipo de SAP para comprobar que todo usuario que consiga acceder a la máquina sea legítimo.
 
-Existirá una ejecución Cron con la que se lanzará la máquina de forma semanal, junto con un correo eléctronico con las amenazas, descubrimientos o falta de ips. Junto con la fecha de este cron se enviará un correo electrónico al correo de ITSecurity@itpaero.com  con el que se podrá consultar todas aquellas amenazas detectadas por el análisis semanal. Para ello se utilizará Webhooks desde la web de DockerHub con la imagen del proyecto subida y con un script realizado desde script.google.com . 
+Existirá una ejecución de un programador con la que se lanzará la máquina de forma semanal, junto con un correo eléctronico con las amenazas, descubrimientos o falta de ips. Junto con la fecha de este programador se enviará un correo electrónico al correo corporativo  con el que se podrá consultar todas aquellas amenazas detectadas por el análisis semanal. Para ello se utilizará Webhooks desde la web de DockerHub con la imagen del proyecto subida y con un script realizado desde script.google.com . 
 
-Sera preciso excepcionar la dirección IP del servidor en las plataformas de busqueda de amenazas para evitar que sea bloqueada. Esto no debe hacerse enlas politicas de los Firewalls, sino que deberian aplicarse las restriciones comunes a cualquier acceso externo.
+Sera preciso excepcionar la dirección IP del servidor en las plataformas de busqueda de amenazas para evitar que sea bloqueada. Esto no debe hacerse en las politicas de los Firewalls, sino que deberian aplicarse las restriciones comunes a cualquier acceso externo.
 
 
 Para la realización del proyecto será necesario un plan con un desglose de tareas con un Gantt que describa los tiempos necesariosa para cada tarea. GanttProject será la elegida debido a que es de código libre, está disponible en los distintos sistemas operativos, contiene todo lo necesario para la realizacion del proyecto y es manejable y accesible. 
