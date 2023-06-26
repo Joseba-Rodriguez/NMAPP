@@ -1,4 +1,4 @@
-# TGF-ITP
+# NMAPP
 
 NMAPP (Network Mapping Application) es una herramienta diseñada para realizar escaneos de red y monitorizar la presencia de hosts y servicios en una red determinada. Proporciona una interfaz web que permite a los usuarios realizar escaneos, visualizar los resultados y gestionar la información obtenida de manera eficiente.
 
