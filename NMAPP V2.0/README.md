@@ -2,7 +2,7 @@
 
 ## Instalación
 
-La herramienta y los ejemplos de comandos han sido ejecutados en una máquina Ubuntu 22.04. En primer lugar, ésta se almacena en la plataforma GitHub. Aquí se encuentra un repositorio público desde el que se podrá acceder y descargar con los comandos git. Para proceder a su instalación, bastará con realizar en la terminal (se recomienda situarse dentro de la carpeta donde quiere ser descargado mediante el comando "cd /ruta") la siguiente instrucción: 
+La herramienta y los ejemplos de comandos han sido ejecutados y probados en una máquina Ubuntu 22.04. En primer lugar, ésta se almacena en la plataforma GitHub. Aquí se encuentra un repositorio público desde el que se podrá acceder y descargar con los comandos git. Para proceder a su instalación, bastará con realizar en la terminal (se recomienda situarse dentro de la carpeta donde quiere ser descargado mediante el comando "cd /ruta") la siguiente instrucción: 
 
 ```bash
 # Descargar el repositorio
