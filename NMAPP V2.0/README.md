@@ -91,9 +91,7 @@ Aquí tienes los pasos para utilizar la funcionalidad NmapNow:
 
 1) Accede a la interfaz principal de la aplicación.
 2) Busca la sección "Funcionalidad NmapNow" o una opción similar en el menú o la página principal.
-3) Dent
-
-ro de la funcionalidad NmapNow, encontrarás un formulario donde podrás ingresar la dirección IP que deseas escanear.
+3) Dentro de la funcionalidad NmapNow, encontrarás un formulario donde podrás ingresar la dirección IP que deseas escanear.
 4) Ingresa la dirección IP en el formulario y haz clic en el botón "Escanear" o "Iniciar escaneo".
 5) El sistema ejecutará el escaneo utilizando la herramienta Nmap y mostrará los resultados en pantalla.
 6) Examina los resultados del escaneo, que pueden incluir información como puertos abiertos, protocolos utilizados, servicios detectados, vulnerabilidades, entre otros.
