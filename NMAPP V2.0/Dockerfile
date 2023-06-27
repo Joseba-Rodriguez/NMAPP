@@ -17,7 +17,6 @@ WORKDIR /usr/src/app
 COPY ./app/programmer.py .
 COPY ./app/storer.py .
 
-#puerto para enviar el reporte del pdf
 EXPOSE 587
 
 CMD [ "python", "./app/programmer.py" ]
