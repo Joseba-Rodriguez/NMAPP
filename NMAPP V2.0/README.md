@@ -48,20 +48,16 @@ Por defecto, cuando el usuario se adentra en la URL, se accede a la página de i
 
 ## Registro
 
-Si el usuario necesita crear una cuenta para poder acceder a la web, una vez dentro y pulsando el botón "otros" del encabezado, el usuario podrá proceder a la creación de su cuenta dentro de la herramienta. Hay que tener en cuenta que el usuario debe mantener una contraseña segura. En este caso, los campos que necesitará introducir son entre 8 y 12 caracteres, con al menos una mayúscula y un número. Se puede
-
- ver la interfaz de registro en la imagen 4.
+Si el usuario necesita crear una cuenta para poder acceder a la web, una vez dentro y pulsando el botón "otros" del encabezado, el usuario podrá proceder a la creación de su cuenta dentro de la herramienta. Hay que tener en cuenta que el usuario debe mantener una contraseña segura. En este caso, los campos que necesitará introducir son entre 8 y 12 caracteres, con al menos una mayúscula y un número.
 
 ## Índice principal
 
 La interfaz principal está dividida en diferentes partes:
 
 1. Escaneos:
-En esta primera parte, el usuario podrá ver el resultado del último Nmap realizado. Observa la Imagen 6 para ver esta primera parte.
-En este apartado se muestra la extracción obtenida tras ejecutar el comando Nmap, mostrando así las distintas partes encontradas: IP, Hostname, Port, Protocol, Device, Version y Vulnerabilities.
+En esta primera parte, el usuario podrá ver el resultado del último Nmap realizado. En este apartado se muestra la extracción obtenida tras ejecutar el comando Nmap, mostrando así las distintas partes encontradas: IP, Hostname, Port, Protocol, Device, Version y Vulnerabilities.
 
-Además, cuenta con un botón de descarga. Si se pulsa, se procederá a la descarga del informe que se muestra en pantalla, para que el usuario pueda consultarlo y guardarlo en formato CSV. Se muestra un ejemplo en la imagen 7.
-En esta fase encontramos también los horarios de programación para la realización del escaneo.
+Además, cuenta con un botón de descarga. Si se pulsa, se procederá a la descarga del informe que se muestra en pantalla, para que el usuario pueda consultarlo y guardarlo en formato CSV. En esta fase encontramos también los horarios de programación para la realización del escaneo.
 
 2. Descubrimientos:
 Uno de los apartados más importantes dentro de la herramienta es la posibilidad de poder monitorizar cada escaneo. De tal forma que el usuario puede observar si han aparecido o desaparecido las distintas IPs o servidores que se quieran analizar.
@@ -81,7 +77,7 @@ Para finalizar con la vista principal, el programa cuenta con un formulario de i
 
 El usuario siempre tendrá la opción de desconectar su cuenta en cualquier momento, independientemente de la fase en la que se encuentre. Es importante saber que, aunque el usuario se desconecte, las programaciones que haya realizado seguirán ejecutándose. Se podrá acceder a dicha acción en la parte superior.
 
-Tal y como se observa en la imagen anterior, también se puede acceder al cambio de contraseña del usuario actual en la sesión. Al introducir la nueva contraseña, se actualizará en la base de datos.
+Tal y como se observa, también se puede acceder al cambio de contraseña del usuario actual en la sesión. Al introducir la nueva contraseña, se actualizará en la base de datos.
 
 ## Funcionalidad NmapNow
 
