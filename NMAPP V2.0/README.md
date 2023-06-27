@@ -95,3 +95,21 @@ Aquí tienes los pasos para utilizar la funcionalidad NmapNow:
 8) Repite el proceso para realizar escaneos adicionales de otras direcciones IP.
 
 Recuerda que la funcionalidad NmapNow te permite obtener información detallada sobre una dirección IP específica de manera rápida y sencilla, sin la necesidad de configurar un escaneo programado. Utilízala para obtener información relevante sobre los servicios y vulnerabilidades asociadas a una dirección IP en particular.
+
+## Configuración de correo electrónico
+La configuración del correo electrónico no está configurada por defecto, deberá ser configurada por el usuario introduciendo usuaruo y contraseña tanto de la generación de los correos como el destino. 
+# Ejemplo de uso básico Scheduled
+
+    1. Introducir las IPs, dominios o rangos de IPs en el fomulario de búsqueda (separadas por espacios).
+    
+    2. Pulsar el boton de enviar bajo el formulario para proceder a su análisis.
+    
+    3. Seleccionar un tiempo para la programación de los análisis.
+
+    4. Esperar al análisis despues de haber realizado la programación temporal.
+
+    5. Recibir el email (Si se ha configurado).
+
+    6. Se muestran los datos en Scheduled.
+
+
