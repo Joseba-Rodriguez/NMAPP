@@ -97,7 +97,8 @@ Aquí tienes los pasos para utilizar la funcionalidad NmapNow:
 Recuerda que la funcionalidad NmapNow te permite obtener información detallada sobre una dirección IP específica de manera rápida y sencilla, sin la necesidad de configurar un escaneo programado. Utilízala para obtener información relevante sobre los servicios y vulnerabilidades asociadas a una dirección IP en particular.
 
 ## Configuración de correo electrónico
-La configuración del correo electrónico no está configurada por defecto, deberá ser configurada por el usuario introduciendo usuaruo y contraseña tanto de la generación de los correos como el destino. 
+La configuración del correo electrónico no está configurada por defecto, deberá ser configurada por el usuario introduciendo usuaruo y contraseña tanto de la generación de los correos como el destino.
+Accede dentro de /app/excelReport.py y sigue los comentarios del archivo para proceder con la configuración.
 # Ejemplo de uso básico Scheduled
 
     1. Introducir las IPs, dominios o rangos de IPs en el fomulario de búsqueda (separadas por espacios).
