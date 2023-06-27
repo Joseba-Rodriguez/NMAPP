@@ -22,7 +22,7 @@ La aplicación cuenta con una serie de permisos que habrá que otorgar previamen
 
 ```bash
 # Otorgar permisos necesarios
-python3 Permissions/app/Permission.py
+python3 /app/Permission.py
 ```
 
 Si no obtenemos ningún error por parte de la terminal, habremos finalizado la configuración previa. Estos pasos solo serán necesarios realizarlos una única vez, tras descargarlo.
