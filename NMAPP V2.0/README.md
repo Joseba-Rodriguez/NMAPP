@@ -77,13 +77,13 @@ Dividido en 3 subcategorías:
 3. Historial de IPs:
 Para finalizar con la vista principal, el programa cuenta con un formulario de introducción de datos, donde se deberán insertar IPs (individuales o rangos) y dominios. Bastará con pulsar el botón de enviar. Por otro lado, si el usuario no está conforme con su introducción, podrá eliminar la lista de IPs introducida. Cabe recalcar que todo lo que se quiera someter al análisis deberá ser de forma lineal, es decir, solo se puede introducir de forma seguida en una línea y no por partes. Se podrán insertar varias IPs o dominios, pero deberán estar separados por un espacio en blanco. Por ejemplo: 192.168.0.1-10 192.168.0.1/24 deusto.es santurtzi.net.
 
-# Desconexión y cambio de contraseña
+## Desconexión y cambio de contraseña
 
 El usuario siempre tendrá la opción de desconectar su cuenta en cualquier momento, independientemente de la fase en la que se encuentre. Es importante saber que, aunque el usuario se desconecte, las programaciones que haya realizado seguirán ejecutándose. Se podrá acceder a dicha acción en la parte superior.
 
 Tal y como se observa en la imagen anterior, también se puede acceder al cambio de contraseña del usuario actual en la sesión. Al introducir la nueva contraseña, se actualizará en la base de datos.
 
-# Funcionalidad NmapNow
+## Funcionalidad NmapNow
 
 Esta funcionalidad se utiliza para realizar escaneos individuales, independientemente del escaneo programado. Es útil para analizar IPs de forma rápida y completa. Es especialmente útil para analizar direcciones IP de forma ágil.
 
