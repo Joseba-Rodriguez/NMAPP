@@ -29,7 +29,7 @@ Si no obtenemos ningún error por parte de la terminal, habremos finalizado la c
 
 ## Iniciar la aplicación
 
-Para lanzar la herramienta, el usuario se deberá situar dentro de la carpeta NMAPP V2.0. Aquí es donde el usuario deberá ejecutar en la terminal (es posible que necesites permisos de administrador para ejecutar el compose, añade "sudo" al comienzo de la instrucción para dar permisos de administrador y ejecutarlo):
+Para lanzar la herramienta, el usuario se deberá situar dentro de la carpeta NMAPP V2.0. Aquí es donde el usuario deberá ejecutar en la terminal (es posible que necesites permisos de administrador para ejecutar el compose, añade "sudo" al comienzo de la instrucción para dar permisos de administrador y ejecutarlo), además se deberán de inicializar las variables de acceso a la base de datos dentro del archivo /app/postgresConfiguration.txt:
 
 ```bash
 # Lanzar la aplicación
