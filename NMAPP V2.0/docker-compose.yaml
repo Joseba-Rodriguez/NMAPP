@@ -18,7 +18,7 @@ services:
     build: ./app/
     ports:
       - "443:443"
-    links:
+    depends_on:
       - db
     volumes:
       - ./app/:/var/www/html/
@@ -35,7 +35,7 @@ services:
     volumes:
       - ./:/usr/src/app
     depends_on:
-      - db
+      - web
       
 volumes:
   db:
