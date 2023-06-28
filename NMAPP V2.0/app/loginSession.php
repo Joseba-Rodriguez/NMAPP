@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 
 // Establecer una conexión a la base de datos PostgreSQL
@@ -17,7 +17,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $password = $_POST['password'];
 
   // Consultar la base de datos para verificar si el usuario existe
-  $result = pg_query($conexion, "SELECT * FROM users WHERE userID='$username'");
+  $query = "SELECT * FROM users WHERE userID = $1";
+  $stmt = pg_prepare($conexion, "login_query", $query);
+  $result = pg_execute($conexion, "login_query", array($username));
 
   // Comprobar si el usuario existe en la base de datos
   if (pg_num_rows($result) == 0) {
@@ -48,6 +50,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 pg_close($conexion);
-
-
 ?>
