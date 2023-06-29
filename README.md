@@ -19,12 +19,12 @@ To install NMAPP, follow these steps:
 ```sudo snap install docker```
 
 
-2. Run the Permission.py script using Python 3 to set the necessary permissions:
+2. Run the Permission.py  script using Python 3 to set the necessary permissions:
    
-```python3 /app/Permission.py```
+```python3 /NMAPP V2/app/Permission.py```
 
 
-3. Build and launch the NMAPP application using Docker Compose:
+3. Build and launch the NMAPP application using Docker Compose inside /NMAPP V2 directory:
 
 ```docker-compose up```
 
