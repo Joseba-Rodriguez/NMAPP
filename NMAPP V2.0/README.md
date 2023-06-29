@@ -1,74 +1,68 @@
-# Guía de uso
+# User Guide
 
 ## Login
 
-Por defecto, cuando el usuario se adentra en la URL, se accede a la página de inicio de sesión. Para poder acceder a la aplicación, el usuario deberá estar registrado previamente. De lo contrario, bastará con ingresar los datos correspondientes en los campos del formulario (usuario y contraseña) y pulsar el botón de Login. Si los datos son correctos, accederás a la web; de lo contrario, se mostrarán distintos errores dependiendo de la falta que se haya cometido.
+By default, when the user enters the URL, they will be directed to the login page. In order to access the application, the user must be registered beforehand. Otherwise, they can simply enter the corresponding data in the form fields (username and password) and click the Login button. If the data is correct, you will be redirected to the web page; otherwise, different errors will be displayed depending on the mistake made.
 
-## Registro
+## Registration
 
-Si el usuario necesita crear una cuenta para poder acceder a la web, una vez dentro y pulsando el botón "otros" del encabezado, el usuario podrá proceder a la creación de su cuenta dentro de la herramienta. Hay que tener en cuenta que el usuario debe mantener una contraseña segura. En este caso, los campos que necesitará introducir son entre 8 y 12 caracteres, con al menos una mayúscula y un número.
+If the user needs to create an account to access the website, they can proceed with the account creation within the tool by clicking the "Others" button in the header. It is important to note that the user must maintain a secure password. In this case, the required fields will need to be filled in with 8 to 12 characters, including at least one uppercase letter and one number.
 
-## Índice principal
+## Main Index
 
-La interfaz principal está dividida en diferentes partes:
+The main interface is divided into different sections:
 
-1. Escaneos:
-En esta primera parte, el usuario podrá ver el resultado del último Nmap realizado. En este apartado se muestra la extracción obtenida tras ejecutar el comando Nmap, mostrando así las distintas partes encontradas: IP, Hostname, Port, Protocol, Device, Version y Vulnerabilities.
+1. Scans:
+In this first section, the user can view the results of the latest Nmap scan. The extracted information from running the Nmap command is displayed, showing various details such as IP, Hostname, Port, Protocol, Device, Version, and Vulnerabilities.
 
-Además, cuenta con un botón de descarga. Si se pulsa, se procederá a la descarga del informe que se muestra en pantalla, para que el usuario pueda consultarlo y guardarlo en formato CSV. En esta fase encontramos también los horarios de programación para la realización del escaneo.
+Additionally, there is a download button. Clicking it will initiate the download of the displayed report in CSV format, allowing the user to review and save it. This section also includes the scheduling times for scan execution.
 
-2. Descubrimientos:
-Uno de los apartados más importantes dentro de la herramienta es la posibilidad de poder monitorizar cada escaneo. De tal forma que el usuario puede observar si han aparecido o desaparecido las distintas IPs o servidores que se quieran analizar.
+2. Discoveries:
+One of the most important features of the tool is the ability to monitor each scan. The user can observe if there have been any new appearances or disappearances of the desired IPs or servers.
 
-Dividido en 3 subcategorías:
+This section is divided into 3 subcategories:
 
-    a. Appear: Mostrará todos aquellos host nuevos que se hayan encontrado respecto al escaneo anterior.
+    a. Appear: Displays newly discovered hosts compared to the previous scan.
     
-    b. Lost: Señala cuáles han sido eliminados o no detectados respecto al análisis anterior.
+    b. Lost: Indicates hosts that have been removed or not detected compared to the previous analysis.
     
-    c. Stay: Muestra todos aquellos host en los que no se ha recibido ninguna novedad.
+    c. Stay: Shows hosts where no changes have been detected.
 
-3. Historial de IPs:
-Para finalizar con la vista principal, el programa cuenta con un formulario de introducción de datos, donde se deberán insertar IPs (individuales o rangos) y dominios. Bastará con pulsar el botón de enviar. Por otro lado, si el usuario no está conforme con su introducción, podrá eliminar la lista de IPs introducida. Cabe recalcar que todo lo que se quiera someter al análisis deberá ser de forma lineal, es decir, solo se puede introducir de forma seguida en una línea y no por partes. Se podrán insertar varias IPs o dominios, pero deberán estar separados por un espacio en blanco. Por ejemplo: 192.168.0.1-10 192.168.0.1/24 deusto.es santurtzi.net.
+3. IP History:
+To conclude the main view, the program includes a data input form where the user can enter IPs (individual or ranges) and domains. Simply click the submit button to proceed. Additionally, if the user is not satisfied with their input, they can clear the entered IP list. It is important to note that everything submitted for analysis must be in a linear format, meaning that it should be entered consecutively in a single line rather than in parts. Multiple IPs or domains can be entered, separated by a blank space. For example: 192.168.0.1-10 192.168.0.1/24 deusto.es santurtzi.net.
 
-## Desconexión y cambio de contraseña
+## Logout and Password Change
 
-El usuario siempre tendrá la opción de desconectar su cuenta en cualquier momento, independientemente de la fase en la que se encuentre. Es importante saber que, aunque el usuario se desconecte, las programaciones que haya realizado seguirán ejecutándose. Se podrá acceder a dicha acción en la parte superior.
+The user always has the option to log out of their account at any time, regardless of the phase they are in. It is important to note that even if the user logs out, any scheduled scans they have set up will continue to run. The option to log out can be accessed from the top part of the interface.
 
-Tal y como se observa, también se puede acceder al cambio de contraseña del usuario actual en la sesión. Al introducir la nueva contraseña, se actualizará en la base de datos.
+As shown, the user can also access the password change functionality within the session. By entering the new password, it will be updated in the database.
 
-## Funcionalidad NmapNow
+## NmapNow Functionality
 
-Esta funcionalidad se utiliza para realizar escaneos individuales, independientemente del escaneo programado. Es útil para analizar IPs de forma rápida y completa. Es especialmente útil para analizar direcciones IP de forma ágil.
+This functionality is used to perform individual scans, separate from the scheduled scans. It is useful for quickly and comprehensively analyzing IPs. It is particularly efficient for swiftly analyzing IP addresses.
 
-Aquí tienes los pasos para utilizar la funcionalidad NmapNow:
+Here are the steps to use the NmapNow functionality:
 
-1) Accede a la interfaz principal de la aplicación.
-2) Busca la sección "Funcionalidad NmapNow" o una opción similar en el menú o la página principal.
-3) Dentro de la funcionalidad NmapNow, encontrarás un formulario donde podrás ingresar la dirección IP que deseas escanear.
-4) Ingresa la dirección IP en el formulario y haz clic en el botón "Escanear" o "Iniciar escaneo".
-5) El sistema ejecutará el escaneo utilizando la herramienta Nmap y mostrará los resultados en pantalla.
-6) Examina los resultados del escaneo, que pueden incluir información como puertos abiertos, protocolos utilizados, servicios detectados, vulnerabilidades, entre otros.
-7) Si lo deseas, puedes descargar un informe detallado en formato CSV o guardar los resultados para futuras referencias.
-8) Repite el proceso para realizar escaneos adicionales de otras direcciones IP.
+1) Access the main interface of the application.
+2) Look for the "NmapNow Functionality" section or a similar option in the menu or main page.
+3) Within the NmapNow functionality, you will find a form where you can enter the IP address you want to scan.
+4) Enter the IP address in the form and click the "Scan" or "Start Scan" button.
+5) The system will perform the scan using the Nmap tool and display the results on the screen.
+6) Examine the scan results, which may include information such as open ports, protocols used, detected services, vulnerabilities, and more.
+7) If desired, you can download a detailed report in CSV format or save the results for future reference.
+8) Repeat the process to perform additional scans on other IP addresses.
 
-Recuerda que la funcionalidad NmapNow te permite obtener información detallada sobre una dirección IP específica de manera rápida y sencilla, sin la necesidad de configurar un escaneo programado. Utilízala para obtener información relevante sobre los servicios y vulnerabilidades asociadas a una dirección IP en particular.
+Remember that the NmapNow functionality allows you to quickly and easily obtain detailed information about a specific IP address without the need to set up a scheduled scan. Use it to gather relevant information about the services and vulnerabilities associated with a particular IP address.
 
-## Configuración de correo electrónico
-La configuración del correo electrónico no está configurada por defecto, deberá ser configurada por el usuario introduciendo usuaruo y contraseña tanto de la generación de los correos como el destino.
-Accede dentro de /app/excelReport.py y sigue los comentarios del archivo para proceder con la configuración.
-# Ejemplo de uso básico Scheduled
+## Email Configuration
+The email configuration is not set by default and needs to be configured by the user by entering the username and password for both the email generation and destination.
+Access /app/excelReport.py and follow the comments in the file to proceed with the configuration.
 
-    1. Introducir las IPs, dominios o rangos de IPs en el fomulario de búsqueda (separadas por espacios).
-    
-    2. Pulsar el boton de enviar bajo el formulario para proceder a su análisis.
-    
-    3. Seleccionar un tiempo para la programación de los análisis.
+# Basic Scheduled Usage Example
 
-    4. Esperar al análisis despues de haber realizado la programación temporal.
-
-    5. Recibir el email (Si se ha configurado).
-
-    6. Se muestran los datos en Scheduled.
-
-
+    1. Enter the IPs, domains, or IP ranges in the search form (separated by spaces).
+    2. Click the submit button below the form to proceed with the analysis.
+    3. Select a time for the scheduled scans.
+    4. Wait for the analysis after scheduling the scans.
+    5. Receive the email (if configured).
+    6. View the data in the Scheduled section.
