@@ -1,4 +1,5 @@
 # NMAPP (Network Mapping Application)
+![NMAPP](NMAPP%20V2.0/app/resources/logo.png)
 
 NMAPP (Network Mapping Application) is a tool designed to perform network scans and monitor the presence of hosts and services in a given network. It provides a web interface that allows users to conduct scans, visualize the results, and efficiently manage the obtained information.
 
