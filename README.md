@@ -34,7 +34,7 @@ To install NMAPP, follow these steps:
 
 5. Use the following credentials to log in:
 - Username: NmappAdmin
-- Password: aasfaqwe12
+- Password: u2F91g@b
 
 **Important**: It is highly recommended to change the password immediately after logging in for the first time to ensure the security of your NMAPP instance.
 
