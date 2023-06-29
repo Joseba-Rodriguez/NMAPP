@@ -36,6 +36,7 @@ services:
       - ./:/usr/src/app
     depends_on:
       - web
+    restart: always
       
 volumes:
   db:
