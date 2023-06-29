@@ -8,8 +8,6 @@ The tool facilitates the detection of changes in the network, the discovery of n
 
 Explore NMAPP and take advantage of its functionality to obtain detailed and up-to-date information about your network! Access the /NMAPP v2.0 folder for installation instructions.
 
-![Descripción de la imagen](NMAPP%20V2.0/app/resources/Total.JPG)
-
 ## Installation
 
 To install NMAPP, follow these steps:
@@ -28,9 +26,17 @@ To install NMAPP, follow these steps:
 
 ```docker-compose up```
 
+4. Once the installation is complete, access the NMAPP web interface by opening your web browser and navigating to `https://localhost`. 
+
+5. Use the following credentials to log in:
+- Username: NmappAdmin
+- Password: aasfaqwe12
+
+**Important**: It is highly recommended to change the password immediately after logging in for the first time to ensure the security of your NMAPP instance.
 
 Make sure to check the /NMAPP v2.0 folder for any additional configuration or setup instructions specific to your environment.
 
+![Descripción de la imagen](NMAPP%20V2.0/app/resources/Total.JPG)
 ## License
 
 NMAPP is licensed under the [MIT License](LICENSE). Feel free to use, modify, and distribute the software according to the terms of the license.
