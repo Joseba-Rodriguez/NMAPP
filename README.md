@@ -8,22 +8,25 @@ The tool facilitates the detection of changes in the network, the discovery of n
 
 Explore NMAPP and take advantage of its functionality to obtain detailed and up-to-date information about your network! Access the /NMAPP v2.0 folder for installation instructions.
 
+![Descripción de la imagen](NMAPP%20V2.0/app/resources/Total.JPG)
+
 ## Installation
 
 To install NMAPP, follow these steps:
 
 1. Install Docker by running the following command:
 
-sudo snap install docker
+```sudo snap install docker```
 
 
 2. Run the Permission.py script using Python 3 to set the necessary permissions:
    
-python3 /app/Permission.py
+```python3 /app/Permission.py```
 
 
 3. Build and launch the NMAPP application using Docker Compose:
-docker-compose up
+
+```docker-compose up```
 
 
 Make sure to check the /NMAPP v2.0 folder for any additional configuration or setup instructions specific to your environment.
@@ -51,5 +54,5 @@ NMAPP was developed with the goal of simplifying network scanning and monitoring
 
 ---
 
-![Descripción de la imagen](NMAPP%20V2.0/app/resources/Total.JPG)
+
 
