@@ -1,47 +1,5 @@
 # Guía de uso
 
-## Instalación
-
-La herramienta y los ejemplos de comandos han sido ejecutados y probados en una máquina Ubuntu 22.04. En primer lugar, ésta se almacena en la plataforma GitHub. Aquí se encuentra un repositorio público desde el que se podrá acceder y descargar con los comandos git. Para proceder a su instalación, bastará con realizar en la terminal (se recomienda situarse dentro de la carpeta donde quiere ser descargado mediante el comando "cd /ruta") la siguiente instrucción: 
-
-```bash
-# Descargar el repositorio
-git clone [URL del repositorio]
-```
-
-Una vez descargado dicho repositorio, para proceder a su lanzamiento se necesitará descargar la herramienta Docker. Desde Ubuntu 22.04, bastaría con ejecutar el siguiente comando en la terminal: 
-
-```bash
-# Instalar Docker
-sudo snap install docker
-```
-
-Con la ejecución de Docker instalada, ya tenemos todos los pasos necesarios para realizar el lanzamiento de la aplicación.
-
-La aplicación cuenta con una serie de permisos que habrá que otorgar previamente para que el compose de Docker pueda realizar cada una de las ejecuciones necesarias de la aplicación. Para ello, nos adentramos dentro del git descargado de GitHub, nos situamos dentro de la carpeta /app y mediante Python3 en la terminal ejecutamos el archivo Permissions.py:
-
-```bash
-# Otorgar permisos necesarios
-python3 /app/Permission.py
-```
-
-Si no obtenemos ningún error por parte de la terminal, habremos finalizado la configuración previa. Estos pasos solo serán necesarios realizarlos una única vez, tras descargarlo.
-
-## Iniciar la aplicación
-
-Para lanzar la herramienta, el usuario se deberá situar dentro de la carpeta NMAPP V2.0. Aquí es donde el usuario deberá ejecutar en la terminal (es posible que necesites permisos de administrador para ejecutar el compose, añade "sudo" al comienzo de la instrucción para dar permisos de administrador y ejecutarlo), además se deberán de inicializar las variables de acceso a la base de datos dentro del archivo /app/postgresConfiguration.txt:
-
-```bash
-# Lanzar la aplicación
-docker compose up --build
-```
-
-El programa comenzará a descargar y componer las imágenes.
-
-## Interfaz y funcionamiento
-
-Para acceder a la web creada, si se ha lanzado en local, está expuesto el puerto 443 para la interfaz web. Dentro de un navegador, se deberá escribir: https://localhost:443
-
 ## Login
 
 Por defecto, cuando el usuario se adentra en la URL, se accede a la página de inicio de sesión. Para poder acceder a la aplicación, el usuario deberá estar registrado previamente. De lo contrario, bastará con ingresar los datos correspondientes en los campos del formulario (usuario y contraseña) y pulsar el botón de Login. Si los datos son correctos, accederás a la web; de lo contrario, se mostrarán distintos errores dependiendo de la falta que se haya cometido.
