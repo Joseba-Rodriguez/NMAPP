@@ -61,5 +61,5 @@ INSERT INTO buttons (selection) VALUES ('2Weeks');
 CREATE EXTENSION IF NOT EXISTS pgcrypto;
 INSERT INTO users (userID, password) 
 VALUES ('NmappAdmin', 
-        crypt('Tr4b4j0F1n!', gen_salt('bf'))
+        crypt('u2F91g@b', gen_salt('bf'))
        );
