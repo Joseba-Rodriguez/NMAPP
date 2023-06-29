@@ -72,7 +72,7 @@ while True:
     if new_selection != last_selection:
         schedule.clear()
         if new_selection == "2Weeks":
-            schedule.every(5).minutes.do(main_task)
+            schedule.every(14).days.do(main_task)
         elif new_selection == "monthly":
             schedule.every(30).days.at("00:00").do(main_task)
         elif new_selection == "now":
