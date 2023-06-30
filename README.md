@@ -10,7 +10,7 @@ NMAPP utilizes the Nmap tool to perform network scans and presents the results i
 
 The tool facilitates the detection of changes in the network, the discovery of new hosts, the identification of services and vulnerabilities, and the tracking of network infrastructure evolution.
 
-Explore NMAPP and take advantage of its functionality to obtain detailed and up-to-date information about your network! Access the /NMAPP v2.0 folder for installation instructions.
+Explore NMAPP and take advantage of its functionality to obtain detailed and up-to-date information about your network! Access to /NMAPP v2.0 directory to see more detailed functions.
 
 ## Installation
 
