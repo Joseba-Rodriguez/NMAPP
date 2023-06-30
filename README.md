@@ -18,19 +18,19 @@ To install NMAPP, follow these steps:
 
 1. Install Docker by running the following command:
 
-```sudo snap install docker```
-
+```sudo apt install docker.io```
+```sudo systemctl restart docker```
 
 2. Run the Permission.py  script using Python 3 to set the necessary permissions:
    
-```python3 /NMAPP V2/app/Permission.py```
-
+```python3 /NMAPP\ V2/app/Permission.py```
 
 3. Build and launch the NMAPP application using Docker Compose inside /NMAPP V2 directory:
 
-```docker-compose up```
+```docker compose up```
 
-4. Once the installation is complete, access the NMAPP web interface by opening your web browser and navigating to `https://localhost`. 
+4. Once the installation is complete, access the NMAPP web interface by opening your web browser and navigating to :
+   `https://localhost`. 
 
 5. Use the following credentials to log in:
 - Username: NmappAdmin
