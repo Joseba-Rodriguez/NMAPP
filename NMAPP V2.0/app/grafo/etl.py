@@ -2,7 +2,7 @@ import json
 import pandas as pd
 
 # Cargar el archivo CSV
-df = pd.read_csv("NMAPP V2.0\app\grafo\nmapIndividualScan.csv")
+df = pd.read_csv("/usr/src/app/app/grafo/nmapIndividual_Scan.csv")
 
 # Agrupar los datos por IP y recopilar puertos y servicios
 ip_data = df.groupby('ip').apply(lambda x: {
@@ -36,7 +36,7 @@ data = {
 }
 
 # Guardar los datos en un archivo JSON
-with open('data.json', 'w') as f:
+with open('/usr/src/app/app/grafo/data.json', 'w') as f:
     json.dump(data, f)
 
 print("Los datos se han guardado correctamente en 'data.json'.")
