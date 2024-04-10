@@ -9,7 +9,6 @@ import os
 
 NUM = int(sys.argv[1])
 
-
 if NUM == 1:
     INPUT_FILE = './datos.xml'
     POSTGRES_CONFIG_FILE = './postgresConfiguration.txt'
@@ -59,9 +58,7 @@ if NUM != 1:
     cursor.execute("DELETE FROM stats")
     conn.commit()
     
-
 # we input the file
-
 
 def parse_for_individual(ip, hostname, portnum, protocol, service, versioning, cve_str):
     """

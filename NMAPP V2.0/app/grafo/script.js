@@ -4,31 +4,25 @@ fetch('data.json')
   .then(data => {
     // Ahora puedes usar los datos cargados en lugar de los datos manuales
 
+    var nodes = data.nodes;
     var links = data.links;
-    var nodes = [];
 
-    // Unimos los nodos por subred
-    data.subnets.forEach(function(subnet) {
-      var subnetNodes = subnet.nodes.map(function(node) {
-        return { id: node.ip, subnet: subnet.id, color: subnet.color, port: node.port, service: node.service };
-      });
-      nodes = nodes.concat(subnetNodes);
-    });
-
-    links = data.links.map(function(l) {
-      var sourceNode = nodes.find(function(n) {
-          return n.id === l.source;
-        }),
-        targetNode = nodes.find(function(n) {
-          return n.id === l.target;
-        });
-      return {
-        source: sourceNode,
-        target: targetNode
+    // Crear el diccionario de nodos por IP
+    var nodesDict = {};
+    nodes.forEach(function(node) {
+      nodesDict[node.ip] = {
+        ip: node.ip,
+        ports: node.ports
       };
     });
 
-    // El resto del código permanece igual
+    // Unir los enlaces (links)
+    links = links.map(function(link) {
+      return {
+        source: nodesDict[link.source],
+        target: nodesDict[link.target]
+      };
+    });
 
     var margin = { top: 20, right: 20, bottom: 20, left: 20 };
     var width = window.innerWidth - margin.left - margin.right;
@@ -36,7 +30,7 @@ fetch('data.json')
     var radius = 6;
 
     var force = d3.layout.force()
-        .nodes(d3.values(nodes))
+        .nodes(d3.values(nodesDict))
         .links(links)
         .size([width, height])
         .linkDistance(120)
@@ -66,15 +60,13 @@ fetch('data.json')
 
     node.append("circle")
         .attr("r", radius)
-        .style("fill", function(d) { return d.color; });
+        .style("fill", "#1f77b4");
 
     node.append("text")
         .attr("x", 14)
         .attr("dy", ".35em")
         .style("fill", "#333")
-        .text(function (d) {
-          return d.id;
-    });
+        .text(function(d) { return d.ip; });
 
     var infoBox = d3.select("body")
       .append("div")
@@ -89,58 +81,41 @@ fetch('data.json')
       .attr("placeholder", "Filtrar...")
       .on("input", searchNodes);
 
-    function searchNodes() {
-      var searchText = this.value.toLowerCase();
-      if (searchText === "") {
-        node.style("display", "block");
-        link.style("display", "block");
-      } else {
-        node.style("display", function(d) {
-          var visible = false;
-          for (var key in d) {
-            if (d.hasOwnProperty(key)) {
-              if (d[key] && d[key].toString().toLowerCase().indexOf(searchText) > -1) {
-                visible = true;
-                break;
-              }
-            }
-          }
-          return visible ? "block" : "none";
-        });
-        link.style("display", function(d) {
-          return d.source.style === "block" && d.target.style === "block" ? "block" : "none";
-        });
-      }
-    }
-
+function searchNodes() {
+  var searchText = this.value.toLowerCase();
+  if (searchText === "") {
+    node.style("display", "block");
+    link.style("display", "block");
+  } else {
+    node.style("display", function(d) {
+      return d.ip.toLowerCase().indexOf(searchText) > -1 ||
+             d.ports.some(function(port) {
+               return port.port.toString().indexOf(searchText) > -1 || port.service.toLowerCase().indexOf(searchText) > -1;
+             }) ? "block" : "none";
+    });
+    link.style("display", function(d) {
+      return d.source.ip.toLowerCase().indexOf(searchText) > -1 && d.target.ip.toLowerCase().indexOf(searchText) > -1 ? "block" : "none";
+    });
+  }
+}
     function click(d) {
       infoBox.html(
-        "<strong>IP:</strong> " + d.id + "<br>" +
-        "<strong>Port:</strong> " + d.port + "<br>" +
-        "<strong>Service:</strong> " + d.service
+        "<strong>IP:</strong> " + d.ip + "<br>" +
+        "<strong>Ports:</strong> " + d.ports.map(function(port) { return port.port; }).join(", ") + "<br>" +
+        "<strong>Services:</strong> " + d.ports.map(function(port) { return port.service; }).join(", ")
       );
     }
 
     function tick() {
-        link.attr("x1", function (d) {
-            return d.source.x;
-        })
-            .attr("y1", function (d) {
-            return d.source.y;
-        })
-            .attr("x2", function (d) {
-            return d.target.x;
-        })
-            .attr("y2", function (d) {
-            return d.target.y;
-        });
+        link.attr("x1", function(d) { return d.source.x; })
+            .attr("y1", function(d) { return d.source.y; })
+            .attr("x2", function(d) { return d.target.x; })
+            .attr("y2", function(d) { return d.target.y; });
 
-        var dx = function(d) {return Math.max(radius, Math.min(width - radius, d.x))}
-        var dy = function(d) {return Math.max(radius, Math.min(height - radius, d.y))}
+        var dx = function(d) { return Math.max(radius, Math.min(width - radius, d.x)); }
+        var dy = function(d) { return Math.max(radius, Math.min(height - radius, d.y)); }
 
-        node.attr("transform", function (d) {
-            return "translate(" + dx(d) + "," + dy(d) + ")";
-        });
+        node.attr("transform", function(d) { return "translate(" + dx(d) + "," + dy(d) + ")"; });
     }
 
     function mouseover() {
