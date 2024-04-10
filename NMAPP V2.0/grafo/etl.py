@@ -2,7 +2,7 @@ import json
 import pandas as pd
 
 # Cargar el archivo CSV
-df = pd.read_csv("IPsNMAPP.csv")
+df = pd.read_csv("NMAPP V2.0\IPsNMAPP.csv")
 
 # Agrupar los datos por IP y Subred
 subnets = df.groupby('ip').apply(lambda x: {
