@@ -1,2 +1,14 @@
 idnmapindividual,ip,hostname,port,protocol,service,version,cve_str,ts
-254,192.168.0.11,,3030,tcp,arepa-cas,,,2024-04-10 19:52:27.558901
+356,80.245.2.142,santurtzi.net,53,tcp,domain,dnsmasq,,2024-04-11 06:24:30.387828
+357,80.245.2.142,santurtzi.net,80,tcp,http,Microsoft IIS httpd,,2024-04-11 06:24:30.398555
+358,80.245.2.142,santurtzi.net,443,tcp,http,Microsoft IIS httpd,,2024-04-11 06:24:30.409605
+359,194.30.81.20,bilbao.eus,53,tcp,domain,dnsmasq,,2024-04-11 06:24:30.420121
+360,194.30.81.20,bilbao.eus,80,tcp,http,Bilbao WebServer,,2024-04-11 06:24:30.430267
+361,194.30.81.20,bilbao.eus,443,tcp,https,Bilbao WebServer,,2024-04-11 06:24:30.439950
+362,143.47.40.18,deusto.es,53,tcp,domain,dnsmasq,,2024-04-11 06:24:30.449896
+363,143.47.40.18,deusto.es,80,tcp,http,,,2024-04-11 06:24:30.459721
+364,143.47.40.18,deusto.es,443,tcp,https,,,2024-04-11 06:24:30.481174
+365,80.245.2.142,portugalete.org,53,tcp,domain,dnsmasq,PRION:CVE-2020-25682	8.3	https://vulners.com/prion/PRION:CVE-2020-25682;PRION:CVE-2020-25681	8.3	https://vulners.com/prion/PRION:CVE-2020-25681;CVE-2020-25682	8.3	https://vulners.com/cve/CVE-2020-25682;CVE-2020-25681	8.3	https://vulners.com/cve/CVE-2020-25681;PRION:CVE-2020-25687	7.1	https://vulners.com/prion/PRION:CVE-2020-25687;PRION:CVE-2020-25683	7.1	https://vulners.com/prion/PRION:CVE-2020-25683;CVE-2020-25687	7.1	https://vulners.com/cve/CVE-2020-25687;CVE-2020-25683	7.1	https://vulners.com/cve/CVE-2020-25683;PRION:CVE-2023-50387	5.0	https://vulners.com/prion/PRION:CVE-2023-50387;PRION:CVE-2023-28450	5.0	https://vulners.com/prion/PRION:CVE-2023-28450;PRION:CVE-2022-0934	5.0	https://vulners.com/prion/PRION:CVE-2022-0934;PRION:CVE-2017-15107	5.0	https://vulners.com/prion/PRION:CVE-2017-15107;OSV:CVE-2017-15107	5.0	https://vulners.com/osv/OSV:CVE-2017-15107;CVE-2023-28450	5.0	https://vulners.com/cve/CVE-2023-28450;CVE-2022-0934	5.0	https://vulners.com/cve/CVE-2022-0934;CVE-2017-15107	5.0	https://vulners.com/cve/CVE-2017-15107;PRION:CVE-2021-3448	4.3	https://vulners.com/prion/PRION:CVE-2021-3448;PRION:CVE-2020-25686	4.3	https://vulners.com/prion/PRION:CVE-2020-25686;PRION:CVE-2020-25685	4.3	https://vulners.com/prion/PRION:CVE-2020-25685;PRION:CVE-2020-25684	4.3	https://vulners.com/prion/PRION:CVE-2020-25684;PRION:CVE-2019-14834	4.3	https://vulners.com/prion/PRION:CVE-2019-14834;CVE-2021-3448	4.3	https://vulners.com/cve/CVE-2021-3448;CVE-2020-25686	4.3	https://vulners.com/cve/CVE-2020-25686;CVE-2020-25685	4.3	https://vulners.com/cve/CVE-2020-25685;CVE-2020-25684	4.3	https://vulners.com/cve/CVE-2020-25684;CVE-2019-14834	4.3	https://vulners.com/cve/CVE-2019-14834,2024-04-11 06:24:30.491977
+366,80.245.2.142,portugalete.org,80,tcp,http,Microsoft IIS httpd,,2024-04-11 06:24:30.502535
+367,80.245.2.142,portugalete.org,443,tcp,http,Microsoft IIS httpd,,2024-04-11 06:24:30.513378
+368,80.245.2.142,portugalete.org,8008,tcp,http,,,2024-04-11 06:24:30.526978

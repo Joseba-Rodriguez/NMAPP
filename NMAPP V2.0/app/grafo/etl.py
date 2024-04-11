@@ -1,4 +1,5 @@
 import json
+import os
 import pandas as pd
 
 # Cargar el archivo CSV
@@ -35,7 +36,7 @@ data = {
     "links": links
 }
 
-# Guardar los datos en un archivo JSON
+# Guardar los datos en un archivo JSON sobrescribiendo el archivo existente
 with open('/usr/src/app/app/grafo/data.json', 'w') as f:
     json.dump(data, f)
 

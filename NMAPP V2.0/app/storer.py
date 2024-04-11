@@ -4,12 +4,8 @@ import sys
 import xml.etree.ElementTree as ET
 import psycopg2
 import os
-import subprocess
-
-# Constants
 
 NUM = int(sys.argv[1])
-
 
 if NUM == 1:
     INPUT_FILE = './datos.xml'
@@ -59,10 +55,6 @@ if NUM != 1:
     conn.commit()
     cursor.execute("DELETE FROM stats")
     conn.commit()
-    
-
-# we input the file
-
 
 def parse_for_individual(ip, hostname, portnum, protocol, service, versioning, cve_str):
     """
@@ -188,6 +180,5 @@ def raw_parser(NUM):
 
 raw_parser(NUM)
 
-os.system(" python3 ./app/grafo/descargaDatosCSV.py")
+os.system("python3 ./app/grafo/descargaDatosCSV.py")
 
-os.system(" python3 ./app/grafo/etl.py")
