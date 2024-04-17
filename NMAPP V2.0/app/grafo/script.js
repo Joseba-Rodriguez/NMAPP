@@ -1,13 +1,10 @@
-// Cargar el JSON desde un archivo utilizando una solicitud HTTP (puedes usar fetch si estás en un entorno de navegador)
-fetch('data.json')
+fetch('./data.json')
   .then(response => response.json())
   .then(data => {
-    // Ahora puedes usar los datos cargados en lugar de los datos manuales
 
     var nodes = data.nodes;
     var links = data.links;
 
-    // Crear el diccionario de nodos por IP
     var nodesDict = {};
     nodes.forEach(function(node) {
       nodesDict[node.ip] = {
@@ -16,7 +13,6 @@ fetch('data.json')
       };
     });
 
-    // Unir los enlaces (links)
     links = links.map(function(link) {
       return {
         source: nodesDict[link.source],
@@ -27,7 +23,14 @@ fetch('data.json')
     var margin = { top: 20, right: 20, bottom: 20, left: 20 };
     var width = window.innerWidth - margin.left - margin.right;
     var height = window.innerHeight - margin.top - margin.bottom;
-    var radius = 6;
+    var radius = 8;
+
+    var zoom = d3.behavior.zoom()
+        .scaleExtent([1, 10])
+        .on("zoom", zoomed);
+
+    var uniqueSubnets = [...new Set(nodes.map(node => node.ip.split('.').slice(0, 3).join('.')))];
+    var colorScale = d3.scale.category10().domain(uniqueSubnets);
 
     var force = d3.layout.force()
         .nodes(d3.values(nodesDict))
@@ -42,14 +45,17 @@ fetch('data.json')
         .attr("width", "100%")
         .attr("height", "100%")
         .attr("viewBox", "0 0 " + width + " " + height)
-        .attr("preserveAspectRatio", "xMidYMid meet");
+        .attr("preserveAspectRatio", "xMidYMid meet")
+        .call(zoom);
 
-    var link = svg.selectAll(".link")
+    var container = svg.append("g");
+
+    var link = container.selectAll(".link")
         .data(force.links())
         .enter().append("line")
         .attr("class", "link");
 
-    var node = svg.selectAll(".node")
+    var node = container.selectAll(".node")
         .data(force.nodes())
         .enter().append("g")
         .attr("class", "node")
@@ -60,12 +66,13 @@ fetch('data.json')
 
     node.append("circle")
         .attr("r", radius)
-        .style("fill", "#1f77b4");
+        .style("fill", function(d) {
+            return colorScale(d.ip.split('.').slice(0, 3).join('.'));
+        });
 
     node.append("text")
         .attr("x", 14)
         .attr("dy", ".35em")
-        .style("fill", "#333")
         .text(function(d) { return d.ip; });
 
     var infoBox = d3.select("body")
@@ -75,35 +82,89 @@ fetch('data.json')
       .style("top", "20px")
       .style("right", "20px");
 
-    var searchInput = d3.select("body")
-      .insert("input", "svg")
-      .attr("type", "text")
-      .attr("placeholder", "Filtrar...")
-      .on("input", searchNodes);
+    var legend = d3.select("body").append("div")
+        .attr("class", "legend")
+        .on("click", filterNodes);
 
-function searchNodes() {
-  var searchText = this.value.toLowerCase();
-  if (searchText === "") {
-    node.style("display", "block");
-    link.style("display", "block");
-  } else {
-    node.style("display", function(d) {
-      return d.ip.toLowerCase().indexOf(searchText) > -1 ||
-             d.ports.some(function(port) {
-               return port.port.toString().indexOf(searchText) > -1 || port.service.toLowerCase().indexOf(searchText) > -1;
-             }) ? "block" : "none";
-    });
-    link.style("display", function(d) {
-      return d.source.ip.toLowerCase().indexOf(searchText) > -1 && d.target.ip.toLowerCase().indexOf(searchText) > -1 ? "block" : "none";
-    });
+    // Añade la leyenda con los colores de las subredes
+    legend.selectAll("div")
+        .data(uniqueSubnets)
+        .enter().append("div")
+        .style("color", d => colorScale(d))
+        .style("border-bottom", "1px solid #ccc")
+        .text(d => d);
+
+    function zoomed() {
+      container.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
+    }
+
+    function filterNodes(d) {
+      if (d) {
+          // Filtrar nodos basados en la subred seleccionada
+          node.style("display", function(n) {
+              return n.ip.startsWith(d) ? "block" : "none";
+          });
+  
+          // Filtrar enlaces basados en la subred seleccionada
+          link.style("display", function(l) {
+              return l.source.ip.startsWith(d) || l.target.ip.startsWith(d) ? "block" : "none";
+          });
+  
+          // Actualizar el estilo de la leyenda
+          legend.selectAll("div").style("font-weight", function(subnet) {
+              return subnet === d ? "bold" : "normal";
+          });
+      } else {
+          // Mostrar todos los nodos y enlaces si no se selecciona ninguna subred
+          node.style("display", "block");
+          link.style("display", "block");
+  
+          // Resetear el estilo de la leyenda
+          legend.selectAll("div").style("font-weight", "normal");
+      }
   }
-}
+
+    document.getElementById("searchIpInput").addEventListener("input", searchNodes);
+    document.getElementById("searchPortInput").addEventListener("input", searchNodes);
+    document.getElementById("searchServiceInput").addEventListener("input", searchNodes);
+
+    function searchNodes() {
+      var searchTextIp = document.getElementById("searchIpInput").value.toLowerCase();
+      var searchTextPort = document.getElementById("searchPortInput").value.toLowerCase();
+      var searchTextService = document.getElementById("searchServiceInput").value.toLowerCase();
+
+      node.style("display", function(d) {
+        return d.ip.toLowerCase().indexOf(searchTextIp) > -1 &&
+               d.ports.some(function(port) {
+                 return port.port.toString().indexOf(searchTextPort) > -1 &&
+                        port.service.toLowerCase().indexOf(searchTextService) > -1;
+               }) ? "block" : "none";
+      });
+
+      link.style("display", function(d) {
+        return d.source.ip.toLowerCase().indexOf(searchTextIp) > -1 &&
+               d.target.ip.toLowerCase().indexOf(searchTextIp) > -1 ? "block" : "none";
+      });
+    }
+
     function click(d) {
-      infoBox.html(
-        "<strong>IP:</strong> " + d.ip + "<br>" +
-        "<strong>Ports:</strong> " + d.ports.map(function(port) { return port.port; }).join(", ") + "<br>" +
-        "<strong>Services:</strong> " + d.ports.map(function(port) { return port.service; }).join(", ")
+      var nodeDetails = d3.select("#nodeDetails");
+      nodeDetails.html(
+          "<tr><td>" + d.ip + "</td><td>" + 
+          d.ports.map(port => port.port).join(", ") + 
+          "</td><td>" + 
+          d.ports.map(port => port.service).join(", ") + 
+          "</td></tr>"
       );
+  
+      node.select("circle")
+          .attr("r", function(node) {
+              return node === d ? 12 : 8;
+          });
+  
+      link.style("stroke-opacity", function(link) {
+          return link.source === d || link.target === d ? 0.9 : 0.6;
+      });
     }
 
     function tick() {
@@ -112,29 +173,19 @@ function searchNodes() {
             .attr("x2", function(d) { return d.target.x; })
             .attr("y2", function(d) { return d.target.y; });
 
-        var dx = function(d) { return Math.max(radius, Math.min(width - radius, d.x)); }
-        var dy = function(d) { return Math.max(radius, Math.min(height - radius, d.y)); }
-
-        node.attr("transform", function(d) { return "translate(" + dx(d) + "," + dy(d) + ")"; });
+        node.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
     }
 
     function mouseover() {
         d3.select(this).select("circle").transition()
-            .duration(750)
-            .attr("r", 16);
-            d3.select(this).select("text").transition()
-            .duration(750)
-            .style("font-size", 16);
+            .duration(200)
+            .attr("r", 12);
     }
 
     function mouseout() {
         d3.select(this).select("circle").transition()
-            .duration(750)
-            .attr("r", 6);
-
-            d3.select(this).select("text").transition()
-            .duration(750)
-            .style("font-size", 14);
+            .duration(200)
+            .attr("r", 8);
     }
-  })
-  .catch(error => console.error('Error cargando el JSON:', error));
+})
+.catch(error => console.error('Error cargando el JSON:', error));

@@ -79,6 +79,11 @@
         </div>
       </div>
       <div class="row">
+        <button onclick="window.location.href='./grafo/indexgraph.html'">
+          Ir a otro archivo
+      </button>
+      </div>
+      <div class="row">
         <div class="col-4">
           <div class="chart-jwrapper">
           <?php

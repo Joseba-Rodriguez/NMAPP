@@ -1,14 +1,39 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <title>Graph Visualization</title>
-    <link href="style.css" rel="stylesheet" type="text/css" />
-  </head>
-  <body>
-    <script src="https://d3js.org/d3.v3.js"></script>
-    <script src="script.js"></script>
-    <div id="my_dataviz"></div>
-  </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Visualización de Red con D3.js</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://d3js.org/d3.v3.min.js"></script>
+</head>
+<body>
+
+  <div class="container">
+    <div class="search-container">
+        <input type="text" id="searchIpInput" placeholder="Buscar por IP..." list="searchIpInputList">
+        <datalist id="searchIpInputList"></datalist>
+
+        <input type="text" id="searchPortInput" placeholder="Buscar por puerto..." list="searchPortInputList">
+        <datalist id="searchPortInputList"></datalist>
+
+        <input type="text" id="searchServiceInput" placeholder="Buscar por servicio..." list="searchServiceInputList">
+        <datalist id="searchServiceInputList"></datalist>
+    </div>
+
+    <table class="node-details">
+        <thead>
+            <tr>
+                <th>IP</th>
+                <th>Puerto</th>
+                <th>Servicio</th>
+            </tr>
+        </thead>
+        <tbody id="nodeDetails">
+        </tbody>
+    </table>
+</div>
+
+<script src="./script.js"></script>
+
+</body>
 </html>
