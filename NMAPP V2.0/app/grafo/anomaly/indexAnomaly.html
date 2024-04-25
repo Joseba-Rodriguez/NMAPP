@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grafo de Escaneo NMAP</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        /* Estilos para el tooltip */
+        #tooltip {
+            font-size: 12px;
+            background-color: white;
+            border: 1px solid black;
+            padding: 5px;
+            opacity: 0;
+        }
+
+        /* Estilos para la leyenda */
+        #legend {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+
+        /* Estilos para el SVG */
+        svg {
+            display: block;
+            margin: auto;
+            width: 100%;
+            height: 100vh; /* 100% del alto de la ventana */
+        }
+
+        /* Estilos para la información del nodo */
+        #info {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="legend">
+        <h3>Leyenda</h3>
+        <ul>
+            <li><span style="color:#1f77b4;">IP</span>: Direcciones IP</li>
+            <li><span style="color:#2ca02c;">Servicio Común</span>: Puertos y servicios comunes</li>
+            <li><span style="color:#ff0000;">Anómalo</span>: Puertos y servicios anómalos</li>
+        </ul>
+    </div>
+
+    <svg></svg>
+
+    <div id="tooltip"></div>
+    <div id="info"></div>
+    <script src="scriptPorts.js"></script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+svg {
+    background-color: #f4f4f4;
+}
+
+.node circle {
+    stroke: #fff;
+    stroke-width: 1.5px;
+}
+
+.node text {
+    font-size: 12px;
+    pointer-events: none;
+}
+
+.link {
+    stroke: #999;
+    stroke-opacity: 0.6;
+}
+
+.legend {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.search-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.search-container input {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.node-details {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.node-details th, .node-details td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+}
+
+.node-details th {
+    background-color: #f2f2f2;
+}
+
+.tooltip {
+    position: absolute;
+    background-color: #f4f4f4;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    pointer-events: none;
+    opacity: 0;
+    font-size: 12px;
+    z-index: 10;
+}
