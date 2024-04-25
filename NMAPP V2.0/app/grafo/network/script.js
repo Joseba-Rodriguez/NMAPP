@@ -1,4 +1,4 @@
-fetch('./data.json')
+fetch('graph_data_main.json')
   .then(response => response.json())
   .then(data => {
 

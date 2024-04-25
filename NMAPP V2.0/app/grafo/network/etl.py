@@ -37,7 +37,7 @@ data = {
 }
 
 # Guardar los datos en un archivo JSON sobrescribiendo el archivo existente
-with open('/usr/src/app/app/grafo/data.json', 'w') as f:
+with open('/usr/src/app/app/grafo/network/graph_data_main.json', 'w') as f:
     json.dump(data, f)
 
 print("Los datos se han guardado correctamente en 'data.json'.")

@@ -79,7 +79,10 @@
         </div>
       </div>
       <div class="row">
-        <button onclick="window.location.href='./grafo/indexgraph.html'">
+        <button onclick="window.location.href='./grafo/anomaly/indexAnomaly.html'">
+          Ir a otro archivo
+      </button>
+      <button onclick="window.location.href='./grafo/network/indexgraph.html'">
           Ir a otro archivo
       </button>
       </div>
