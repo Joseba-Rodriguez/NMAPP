@@ -1,14 +1,445 @@
 idnmapindividual,ip,hostname,port,protocol,service,version,cve_str,ts
-653,80.245.2.142,santurtzi.net,8008,tcp,http,,,2024-04-25 19:20:36.488964
-655,194.30.81.20,bilbao.eus,80,tcp,http,Bilbao WebServer,,2024-04-25 19:20:36.510967
-656,194.30.81.20,bilbao.eus,443,tcp,https,Bilbao WebServer,,2024-04-25 19:20:36.521760
-658,143.47.40.18,deusto.es,80,tcp,http,,,2024-04-25 19:20:36.543950
-659,143.47.40.18,deusto.es,443,tcp,https,,,2024-04-25 19:20:36.554772
-650,80.245.2.142,santurtzi.net,53,tcp,domain,dnsmasq,PRION:CVE-2020-25682	8.3	https://vulners.com/prion/PRION:CVE-2020-25682;PRION:CVE-2020-25681	8.3	https://vulners.com/prion/PRION:CVE-2020-25681;CVE-2020-25682	8.3	https://vulners.com/cve/CVE-2020-25682;CVE-2020-25681	8.3	https://vulners.com/cve/CVE-2020-25681;PRION:CVE-2020-25687	7.1	https://vulners.com/prion/PRION:CVE-2020-25687;PRION:CVE-2020-25683	7.1	https://vulners.com/prion/PRION:CVE-2020-25683;CVE-2020-25687	7.1	https://vulners.com/cve/CVE-2020-25687;CVE-2020-25683	7.1	https://vulners.com/cve/CVE-2020-25683;PRION:CVE-2023-50387	5.0	https://vulners.com/prion/PRION:CVE-2023-50387;PRION:CVE-2023-28450	5.0	https://vulners.com/prion/PRION:CVE-2023-28450;PRION:CVE-2022-0934	5.0	https://vulners.com/prion/PRION:CVE-2022-0934;PRION:CVE-2017-15107	5.0	https://vulners.com/prion/PRION:CVE-2017-15107;OSV:CVE-2017-15107	5.0	https://vulners.com/osv/OSV:CVE-2017-15107;CVE-2023-28450	5.0	https://vulners.com/cve/CVE-2023-28450;CVE-2022-0934	5.0	https://vulners.com/cve/CVE-2022-0934;CVE-2017-15107	5.0	https://vulners.com/cve/CVE-2017-15107;PRION:CVE-2021-3448	4.3	https://vulners.com/prion/PRION:CVE-2021-3448;PRION:CVE-2020-25686	4.3	https://vulners.com/prion/PRION:CVE-2020-25686;PRION:CVE-2020-25685	4.3	https://vulners.com/prion/PRION:CVE-2020-25685;PRION:CVE-2020-25684	4.3	https://vulners.com/prion/PRION:CVE-2020-25684;PRION:CVE-2019-14834	4.3	https://vulners.com/prion/PRION:CVE-2019-14834;CVE-2021-3448	4.3	https://vulners.com/cve/CVE-2021-3448;CVE-2020-25686	4.3	https://vulners.com/cve/CVE-2020-25686;CVE-2020-25685	4.3	https://vulners.com/cve/CVE-2020-25685;CVE-2020-25684	4.3	https://vulners.com/cve/CVE-2020-25684;CVE-2019-14834	4.3	https://vulners.com/cve/CVE-2019-14834,2024-04-25 19:20:36.457858
-651,80.245.2.142,santurtzi.net,80,tcp,http,Microsoft IIS httpd,CVE-2019-0585	9.3	https://vulners.com/cve/CVE-2019-0585;CVE-2018-8628	9.3	https://vulners.com/cve/CVE-2018-8628;CVE-2018-1028	9.3	https://vulners.com/cve/CVE-2018-1028;CVE-2017-8524	7.6	https://vulners.com/cve/CVE-2017-8524;CVE-2017-8522	7.6	https://vulners.com/cve/CVE-2017-8522;CVE-2017-0238	7.6	https://vulners.com/cve/CVE-2017-0238;CVE-2017-0228	7.6	https://vulners.com/cve/CVE-2017-0228;CVE-2018-8378	4.3	https://vulners.com/cve/CVE-2018-8378;CVE-2017-8628	4.3	https://vulners.com/cve/CVE-2017-8628;CVE-2017-0231	4.3	https://vulners.com/cve/CVE-2017-0231;CVE-2018-8480	3.5	https://vulners.com/cve/CVE-2018-8480;CVE-2018-8426	3.5	https://vulners.com/cve/CVE-2018-8426;CVE-2024-21390	3.3	https://vulners.com/cve/CVE-2024-21390;CVE-2017-11835	2.1	https://vulners.com/cve/CVE-2017-11835,2024-04-25 19:20:36.468109
-652,80.245.2.142,santurtzi.net,443,tcp,http,Microsoft IIS httpd,CVE-2019-0585	9.3	https://vulners.com/cve/CVE-2019-0585;CVE-2018-8628	9.3	https://vulners.com/cve/CVE-2018-8628;CVE-2018-1028	9.3	https://vulners.com/cve/CVE-2018-1028;CVE-2017-8524	7.6	https://vulners.com/cve/CVE-2017-8524;CVE-2017-8522	7.6	https://vulners.com/cve/CVE-2017-8522;CVE-2017-0238	7.6	https://vulners.com/cve/CVE-2017-0238;CVE-2017-0228	7.6	https://vulners.com/cve/CVE-2017-0228;CVE-2018-8378	4.3	https://vulners.com/cve/CVE-2018-8378;CVE-2017-8628	4.3	https://vulners.com/cve/CVE-2017-8628;CVE-2017-0231	4.3	https://vulners.com/cve/CVE-2017-0231;CVE-2018-8480	3.5	https://vulners.com/cve/CVE-2018-8480;CVE-2018-8426	3.5	https://vulners.com/cve/CVE-2018-8426;CVE-2024-21390	3.3	https://vulners.com/cve/CVE-2024-21390;CVE-2017-11835	2.1	https://vulners.com/cve/CVE-2017-11835,2024-04-25 19:20:36.478153
-654,194.30.81.20,bilbao.eus,53,tcp,domain,dnsmasq,PRION:CVE-2020-25682	8.3	https://vulners.com/prion/PRION:CVE-2020-25682;PRION:CVE-2020-25681	8.3	https://vulners.com/prion/PRION:CVE-2020-25681;CVE-2020-25682	8.3	https://vulners.com/cve/CVE-2020-25682;CVE-2020-25681	8.3	https://vulners.com/cve/CVE-2020-25681;PRION:CVE-2020-25687	7.1	https://vulners.com/prion/PRION:CVE-2020-25687;PRION:CVE-2020-25683	7.1	https://vulners.com/prion/PRION:CVE-2020-25683;CVE-2020-25687	7.1	https://vulners.com/cve/CVE-2020-25687;CVE-2020-25683	7.1	https://vulners.com/cve/CVE-2020-25683;PRION:CVE-2023-50387	5.0	https://vulners.com/prion/PRION:CVE-2023-50387;PRION:CVE-2023-28450	5.0	https://vulners.com/prion/PRION:CVE-2023-28450;PRION:CVE-2022-0934	5.0	https://vulners.com/prion/PRION:CVE-2022-0934;PRION:CVE-2017-15107	5.0	https://vulners.com/prion/PRION:CVE-2017-15107;OSV:CVE-2017-15107	5.0	https://vulners.com/osv/OSV:CVE-2017-15107;CVE-2023-28450	5.0	https://vulners.com/cve/CVE-2023-28450;CVE-2022-0934	5.0	https://vulners.com/cve/CVE-2022-0934;CVE-2017-15107	5.0	https://vulners.com/cve/CVE-2017-15107;PRION:CVE-2021-3448	4.3	https://vulners.com/prion/PRION:CVE-2021-3448;PRION:CVE-2020-25686	4.3	https://vulners.com/prion/PRION:CVE-2020-25686;PRION:CVE-2020-25685	4.3	https://vulners.com/prion/PRION:CVE-2020-25685;PRION:CVE-2020-25684	4.3	https://vulners.com/prion/PRION:CVE-2020-25684;PRION:CVE-2019-14834	4.3	https://vulners.com/prion/PRION:CVE-2019-14834;CVE-2021-3448	4.3	https://vulners.com/cve/CVE-2021-3448;CVE-2020-25686	4.3	https://vulners.com/cve/CVE-2020-25686;CVE-2020-25685	4.3	https://vulners.com/cve/CVE-2020-25685;CVE-2020-25684	4.3	https://vulners.com/cve/CVE-2020-25684;CVE-2019-14834	4.3	https://vulners.com/cve/CVE-2019-14834,2024-04-25 19:20:36.500648
-657,143.47.40.18,deusto.es,53,tcp,domain,dnsmasq,PRION:CVE-2020-25682	8.3	https://vulners.com/prion/PRION:CVE-2020-25682;PRION:CVE-2020-25681	8.3	https://vulners.com/prion/PRION:CVE-2020-25681;CVE-2020-25682	8.3	https://vulners.com/cve/CVE-2020-25682;CVE-2020-25681	8.3	https://vulners.com/cve/CVE-2020-25681;PRION:CVE-2020-25687	7.1	https://vulners.com/prion/PRION:CVE-2020-25687;PRION:CVE-2020-25683	7.1	https://vulners.com/prion/PRION:CVE-2020-25683;CVE-2020-25687	7.1	https://vulners.com/cve/CVE-2020-25687;CVE-2020-25683	7.1	https://vulners.com/cve/CVE-2020-25683;PRION:CVE-2023-50387	5.0	https://vulners.com/prion/PRION:CVE-2023-50387;PRION:CVE-2023-28450	5.0	https://vulners.com/prion/PRION:CVE-2023-28450;PRION:CVE-2022-0934	5.0	https://vulners.com/prion/PRION:CVE-2022-0934;PRION:CVE-2017-15107	5.0	https://vulners.com/prion/PRION:CVE-2017-15107;OSV:CVE-2017-15107	5.0	https://vulners.com/osv/OSV:CVE-2017-15107;CVE-2023-28450	5.0	https://vulners.com/cve/CVE-2023-28450;CVE-2022-0934	5.0	https://vulners.com/cve/CVE-2022-0934;CVE-2017-15107	5.0	https://vulners.com/cve/CVE-2017-15107;PRION:CVE-2021-3448	4.3	https://vulners.com/prion/PRION:CVE-2021-3448;PRION:CVE-2020-25686	4.3	https://vulners.com/prion/PRION:CVE-2020-25686;PRION:CVE-2020-25685	4.3	https://vulners.com/prion/PRION:CVE-2020-25685;PRION:CVE-2020-25684	4.3	https://vulners.com/prion/PRION:CVE-2020-25684;PRION:CVE-2019-14834	4.3	https://vulners.com/prion/PRION:CVE-2019-14834;CVE-2021-3448	4.3	https://vulners.com/cve/CVE-2021-3448;CVE-2020-25686	4.3	https://vulners.com/cve/CVE-2020-25686;CVE-2020-25685	4.3	https://vulners.com/cve/CVE-2020-25685;CVE-2020-25684	4.3	https://vulners.com/cve/CVE-2020-25684;CVE-2019-14834	4.3	https://vulners.com/cve/CVE-2019-14834,2024-04-25 19:20:36.532879
-660,80.245.2.142,portugalete.org,53,tcp,domain,dnsmasq,PRION:CVE-2020-25682	8.3	https://vulners.com/prion/PRION:CVE-2020-25682;PRION:CVE-2020-25681	8.3	https://vulners.com/prion/PRION:CVE-2020-25681;CVE-2020-25682	8.3	https://vulners.com/cve/CVE-2020-25682;CVE-2020-25681	8.3	https://vulners.com/cve/CVE-2020-25681;PRION:CVE-2020-25687	7.1	https://vulners.com/prion/PRION:CVE-2020-25687;PRION:CVE-2020-25683	7.1	https://vulners.com/prion/PRION:CVE-2020-25683;CVE-2020-25687	7.1	https://vulners.com/cve/CVE-2020-25687;CVE-2020-25683	7.1	https://vulners.com/cve/CVE-2020-25683;PRION:CVE-2023-50387	5.0	https://vulners.com/prion/PRION:CVE-2023-50387;PRION:CVE-2023-28450	5.0	https://vulners.com/prion/PRION:CVE-2023-28450;PRION:CVE-2022-0934	5.0	https://vulners.com/prion/PRION:CVE-2022-0934;PRION:CVE-2017-15107	5.0	https://vulners.com/prion/PRION:CVE-2017-15107;OSV:CVE-2017-15107	5.0	https://vulners.com/osv/OSV:CVE-2017-15107;CVE-2023-28450	5.0	https://vulners.com/cve/CVE-2023-28450;CVE-2022-0934	5.0	https://vulners.com/cve/CVE-2022-0934;CVE-2017-15107	5.0	https://vulners.com/cve/CVE-2017-15107;PRION:CVE-2021-3448	4.3	https://vulners.com/prion/PRION:CVE-2021-3448;PRION:CVE-2020-25686	4.3	https://vulners.com/prion/PRION:CVE-2020-25686;PRION:CVE-2020-25685	4.3	https://vulners.com/prion/PRION:CVE-2020-25685;PRION:CVE-2020-25684	4.3	https://vulners.com/prion/PRION:CVE-2020-25684;PRION:CVE-2019-14834	4.3	https://vulners.com/prion/PRION:CVE-2019-14834;CVE-2021-3448	4.3	https://vulners.com/cve/CVE-2021-3448;CVE-2020-25686	4.3	https://vulners.com/cve/CVE-2020-25686;CVE-2020-25685	4.3	https://vulners.com/cve/CVE-2020-25685;CVE-2020-25684	4.3	https://vulners.com/cve/CVE-2020-25684;CVE-2019-14834	4.3	https://vulners.com/cve/CVE-2019-14834,2024-04-25 19:20:36.566243
-661,80.245.2.142,portugalete.org,80,tcp,http,Microsoft IIS httpd,CVE-2019-0585	9.3	https://vulners.com/cve/CVE-2019-0585;CVE-2018-8628	9.3	https://vulners.com/cve/CVE-2018-8628;CVE-2018-1028	9.3	https://vulners.com/cve/CVE-2018-1028;CVE-2017-8524	7.6	https://vulners.com/cve/CVE-2017-8524;CVE-2017-8522	7.6	https://vulners.com/cve/CVE-2017-8522;CVE-2017-0238	7.6	https://vulners.com/cve/CVE-2017-0238;CVE-2017-0228	7.6	https://vulners.com/cve/CVE-2017-0228;CVE-2018-8378	4.3	https://vulners.com/cve/CVE-2018-8378;CVE-2017-8628	4.3	https://vulners.com/cve/CVE-2017-8628;CVE-2017-0231	4.3	https://vulners.com/cve/CVE-2017-0231;CVE-2018-8480	3.5	https://vulners.com/cve/CVE-2018-8480;CVE-2018-8426	3.5	https://vulners.com/cve/CVE-2018-8426;CVE-2024-21390	3.3	https://vulners.com/cve/CVE-2024-21390;CVE-2017-11835	2.1	https://vulners.com/cve/CVE-2017-11835,2024-04-25 19:20:36.577231
-662,80.245.2.142,portugalete.org,443,tcp,http,Microsoft IIS httpd,CVE-2019-0585	9.3	https://vulners.com/cve/CVE-2019-0585;CVE-2018-8628	9.3	https://vulners.com/cve/CVE-2018-8628;CVE-2018-1028	9.3	https://vulners.com/cve/CVE-2018-1028;CVE-2017-8524	7.6	https://vulners.com/cve/CVE-2017-8524;CVE-2017-8522	7.6	https://vulners.com/cve/CVE-2017-8522;CVE-2017-0238	7.6	https://vulners.com/cve/CVE-2017-0238;CVE-2017-0228	7.6	https://vulners.com/cve/CVE-2017-0228;CVE-2018-8378	4.3	https://vulners.com/cve/CVE-2018-8378;CVE-2017-8628	4.3	https://vulners.com/cve/CVE-2017-8628;CVE-2017-0231	4.3	https://vulners.com/cve/CVE-2017-0231;CVE-2018-8480	3.5	https://vulners.com/cve/CVE-2018-8480;CVE-2018-8426	3.5	https://vulners.com/cve/CVE-2018-8426;CVE-2024-21390	3.3	https://vulners.com/cve/CVE-2024-21390;CVE-2017-11835	2.1	https://vulners.com/cve/CVE-2017-11835,2024-04-25 19:20:36.586928
+165,192.168.0.1,,179,tcp,tcpwrapped,,,2024-04-24 15:01:03.121143
+168,192.168.0.2,dsip002tun.sercor.itp.es,443,tcp,https,,,2024-04-24 15:01:03.176969
+171,192.168.0.3,,135,tcp,msrpc,Microsoft Windows RPC,,2024-04-24 15:01:03.233173
+173,192.168.0.3,,445,tcp,microsoft-ds,Microsoft Windows Server 2008 R2 - 2012 microsoft-ds,,2024-04-24 15:01:03.270457
+175,192.168.0.3,,1801,tcp,msmq,,,2024-04-24 15:01:03.307194
+177,192.168.0.3,,2105,tcp,msrpc,Microsoft Windows RPC,,2024-04-24 15:01:03.345367
+179,192.168.0.3,,2701,tcp,cmrcservice,Microsoft Configuration Manager Remote Control service,,2024-04-24 15:01:03.383567
+181,192.168.0.3,,8008,tcp,http,,,2024-04-24 15:01:03.421083
+183,192.168.0.4,DSIP011HIBR.sercor.itp.es,80,tcp,http,Microsoft IIS httpd,CVE-2019-0585	9.3	https://vulners.com/cve/CVE-2019-0585;CVE-2018-8628	9.3	https://vulners.com/cve/CVE-2018-8628;CVE-2018-1028	9.3	https://vulners.com/cve/CVE-2018-1028;CVE-2017-8524	7.6	https://vulners.com/cve/CVE-2017-8524;CVE-2017-8522	7.6	https://vulners.com/cve/CVE-2017-8522;CVE-2017-0238	7.6	https://vulners.com/cve/CVE-2017-0238;CVE-2017-0228	7.6	https://vulners.com/cve/CVE-2017-0228;CVE-2018-8378	4.3	https://vulners.com/cve/CVE-2018-8378;CVE-2017-8628	4.3	https://vulners.com/cve/CVE-2017-8628;CVE-2017-0231	4.3	https://vulners.com/cve/CVE-2017-0231;CVE-2018-8480	3.5	https://vulners.com/cve/CVE-2018-8480;CVE-2018-8426	3.5	https://vulners.com/cve/CVE-2018-8426;CVE-2024-21390	3.3	https://vulners.com/cve/CVE-2024-21390;CVE-2017-11835	2.1	https://vulners.com/cve/CVE-2017-11835,2024-04-24 15:01:03.458125
+184,192.168.0.4,DSIP011HIBR.sercor.itp.es,81,tcp,http,Microsoft IIS httpd,CVE-2019-0585	9.3	https://vulners.com/cve/CVE-2019-0585;CVE-2018-8628	9.3	https://vulners.com/cve/CVE-2018-8628;CVE-2018-1028	9.3	https://vulners.com/cve/CVE-2018-1028;CVE-2017-8524	7.6	https://vulners.com/cve/CVE-2017-8524;CVE-2017-8522	7.6	https://vulners.com/cve/CVE-2017-8522;CVE-2017-0238	7.6	https://vulners.com/cve/CVE-2017-0238;CVE-2017-0228	7.6	https://vulners.com/cve/CVE-2017-0228;CVE-2018-8378	4.3	https://vulners.com/cve/CVE-2018-8378;CVE-2017-8628	4.3	https://vulners.com/cve/CVE-2017-8628;CVE-2017-0231	4.3	https://vulners.com/cve/CVE-2017-0231;CVE-2018-8480	3.5	https://vulners.com/cve/CVE-2018-8480;CVE-2018-8426	3.5	https://vulners.com/cve/CVE-2018-8426;CVE-2024-21390	3.3	https://vulners.com/cve/CVE-2024-21390;CVE-2017-11835	2.1	https://vulners.com/cve/CVE-2017-11835,2024-04-24 15:01:03.476689
+186,192.168.0.4,DSIP011HIBR.sercor.itp.es,135,tcp,msrpc,Microsoft Windows RPC,,2024-04-24 15:01:03.514029
+188,192.168.0.4,DSIP011HIBR.sercor.itp.es,143,tcp,imap,Microsoft Exchange 2007-2010 imapd,,2024-04-24 15:01:03.553005
+189,192.168.0.4,DSIP011HIBR.sercor.itp.es,443,tcp,https,,,2024-04-24 15:01:03.571736
+190,192.168.0.4,DSIP011HIBR.sercor.itp.es,444,tcp,snpp,,,2024-04-24 15:01:03.590089
+191,192.168.0.4,DSIP011HIBR.sercor.itp.es,445,tcp,microsoft-ds,,,2024-04-24 15:01:03.608760
+192,192.168.0.4,DSIP011HIBR.sercor.itp.es,465,tcp,smtp,Microsoft Exchange smtpd,,2024-04-24 15:01:03.627682
+193,192.168.0.4,DSIP011HIBR.sercor.itp.es,587,tcp,smtp,Microsoft Exchange smtpd,,2024-04-24 15:01:03.646418
+194,192.168.0.4,DSIP011HIBR.sercor.itp.es,593,tcp,ncacn_http,Microsoft Windows RPC over HTTP,,2024-04-24 15:01:03.664951
+195,192.168.0.4,DSIP011HIBR.sercor.itp.es,808,tcp,ccproxy-http,,,2024-04-24 15:01:03.684456
+196,192.168.0.4,DSIP011HIBR.sercor.itp.es,993,tcp,imaps,,,2024-04-24 15:01:03.704107
+197,192.168.0.4,DSIP011HIBR.sercor.itp.es,995,tcp,pop3s,,,2024-04-24 15:01:03.724504
+198,192.168.0.4,DSIP011HIBR.sercor.itp.es,1801,tcp,msmq,,,2024-04-24 15:01:03.743155
+199,192.168.0.4,DSIP011HIBR.sercor.itp.es,2103,tcp,msrpc,Microsoft Windows RPC,,2024-04-24 15:01:03.762043
+200,192.168.0.4,DSIP011HIBR.sercor.itp.es,2105,tcp,msrpc,Microsoft Windows RPC,,2024-04-24 15:01:03.780622
+201,192.168.0.4,DSIP011HIBR.sercor.itp.es,2107,tcp,msrpc,Microsoft Windows RPC,,2024-04-24 15:01:03.799446
+202,192.168.0.4,DSIP011HIBR.sercor.itp.es,2525,tcp,smtp,Microsoft Exchange smtpd,,2024-04-24 15:01:03.818221
+203,192.168.0.4,DSIP011HIBR.sercor.itp.es,2701,tcp,cmrcservice,Microsoft Configuration Manager Remote Control service,,2024-04-24 15:01:03.837740
+204,192.168.0.4,DSIP011HIBR.sercor.itp.es,3389,tcp,ms-wbt-server,,,2024-04-24 15:01:03.856815
+205,192.168.0.4,DSIP011HIBR.sercor.itp.es,3800,tcp,http,Microsoft HTTPAPI httpd,,2024-04-24 15:01:03.876453
+206,192.168.0.4,DSIP011HIBR.sercor.itp.es,3801,tcp,mc-nmf,.NET Message Framing,,2024-04-24 15:01:03.898675
+207,192.168.0.4,DSIP011HIBR.sercor.itp.es,3828,tcp,mc-nmf,.NET Message Framing,,2024-04-24 15:01:03.920967
+208,192.168.0.4,DSIP011HIBR.sercor.itp.es,5060,tcp,sip,,,2024-04-24 15:01:03.939815
+209,192.168.0.4,DSIP011HIBR.sercor.itp.es,6001,tcp,ncacn_http,Microsoft Windows RPC over HTTP,,2024-04-24 15:01:03.959490
+210,192.168.0.4,DSIP011HIBR.sercor.itp.es,6009,tcp,msrpc,Microsoft Windows RPC,,2024-04-24 15:01:03.979218
+211,192.168.0.4,DSIP011HIBR.sercor.itp.es,8008,tcp,http,,,2024-04-24 15:01:03.998839
+212,192.168.0.4,DSIP011HIBR.sercor.itp.es,8443,tcp,https-alt,,,2024-04-24 15:01:04.025855
+213,192.168.0.5,,8008,tcp,http,,,2024-04-24 15:01:04.049722
+214,192.168.0.6,,80,tcp,http,Microsoft HTTPAPI httpd,,2024-04-24 15:01:04.069186
+215,192.168.0.6,,135,tcp,msrpc,Microsoft Windows RPC,,2024-04-24 15:01:04.087852
+216,192.168.0.6,,139,tcp,netbios-ssn,Microsoft Windows netbios-ssn,,2024-04-24 15:01:04.106069
+217,192.168.0.6,,445,tcp,microsoft-ds,Microsoft Windows Server 2008 R2 - 2012 microsoft-ds,,2024-04-24 15:01:04.125436
+218,192.168.0.6,,2701,tcp,cmrcservice,Microsoft Configuration Manager Remote Control service,,2024-04-24 15:01:04.143851
+219,192.168.0.6,,3389,tcp,ms-wbt-server,,,2024-04-24 15:01:04.162005
+220,192.168.0.6,,8008,tcp,http,,,2024-04-24 15:01:04.180548
+221,192.168.0.6,,8443,tcp,https-alt,Cloud Connector,,2024-04-24 15:01:04.198973
+222,192.168.0.7,,80,tcp,http,Microsoft HTTPAPI httpd,,2024-04-24 15:01:04.218275
+223,192.168.0.7,,135,tcp,msrpc,Microsoft Windows RPC,,2024-04-24 15:01:04.236451
+224,192.168.0.7,,139,tcp,netbios-ssn,Microsoft Windows netbios-ssn,,2024-04-24 15:01:04.254866
+225,192.168.0.7,,445,tcp,microsoft-ds,Microsoft Windows Server 2008 R2 - 2012 microsoft-ds,,2024-04-24 15:01:04.273054
+226,192.168.0.7,,1688,tcp,msrpc,Microsoft Windows RPC,,2024-04-24 15:01:04.291311
+227,192.168.0.7,,2701,tcp,cmrcservice,Microsoft Configuration Manager Remote Control service,,2024-04-24 15:01:04.309459
+228,192.168.0.7,,3389,tcp,ms-wbt-server,,,2024-04-24 15:01:04.327619
+229,192.168.0.7,,8008,tcp,http,,,2024-04-24 15:01:04.345999
+230,192.168.0.7,,8443,tcp,https-alt,Cloud Connector,,2024-04-24 15:01:04.364345
+231,192.168.0.8,dsip008tun.sercor.itp.es,22,tcp,ssh,OpenSSH,CVE-2012-1577	7.5	https://vulners.com/cve/CVE-2012-1577;CVE-2010-4816	5.0	https://vulners.com/cve/CVE-2010-4816;CVE-2023-51767	3.5	https://vulners.com/cve/CVE-2023-51767,2024-04-24 15:01:04.382465
+232,192.168.0.8,dsip008tun.sercor.itp.es,443,tcp,https,,,2024-04-24 15:01:04.400663
+233,192.168.0.8,dsip008tun.sercor.itp.es,8008,tcp,http,,,2024-04-24 15:01:04.419078
+234,192.168.0.9,,8008,tcp,http,,,2024-04-24 15:01:04.437536
+237,192.168.0.10,DSIP010DTLK.sercor.itp.es,443,tcp,http,Jetty,,2024-04-24 15:01:04.494229
+238,192.168.0.10,DSIP010DTLK.sercor.itp.es,6666,tcp,http,Jetty,,2024-04-24 15:01:04.512073
+166,192.168.0.1,,1000,tcp,cadlock,,,2024-04-24 15:01:03.139645
+169,192.168.0.2,dsip002tun.sercor.itp.es,8008,tcp,http,,,2024-04-24 15:01:03.195398
+167,192.168.0.2,dsip002tun.sercor.itp.es,22,tcp,ssh,OpenSSH,CVE-2012-1577	7.5	https://vulners.com/cve/CVE-2012-1577;CVE-2010-4816	5.0	https://vulners.com/cve/CVE-2010-4816;CVE-2023-51767	3.5	https://vulners.com/cve/CVE-2023-51767,2024-04-24 15:01:03.158092
+170,192.168.0.3,,21,tcp,ftp,,,2024-04-24 15:01:03.214640
+172,192.168.0.3,,139,tcp,netbios-ssn,Microsoft Windows netbios-ssn,,2024-04-24 15:01:03.251843
+174,192.168.0.3,,990,tcp,ftps,,,2024-04-24 15:01:03.288995
+176,192.168.0.3,,2103,tcp,msrpc,Microsoft Windows RPC,,2024-04-24 15:01:03.325763
+178,192.168.0.3,,2107,tcp,msrpc,Microsoft Windows RPC,,2024-04-24 15:01:03.364212
+180,192.168.0.3,,3389,tcp,ms-wbt-server,,,2024-04-24 15:01:03.402229
+182,192.168.0.4,DSIP011HIBR.sercor.itp.es,25,tcp,smtp,Microsoft Exchange smtpd,,2024-04-24 15:01:03.439262
+185,192.168.0.4,DSIP011HIBR.sercor.itp.es,110,tcp,pop3,Microsoft Exchange 2007-2010 pop3d,,2024-04-24 15:01:03.495148
+187,192.168.0.4,DSIP011HIBR.sercor.itp.es,139,tcp,netbios-ssn,Microsoft Windows netbios-ssn,,2024-04-24 15:01:03.534673
+235,192.168.0.10,DSIP010DTLK.sercor.itp.es,22,tcp,ssh,OpenSSH,CVE-2012-1577	7.5	https://vulners.com/cve/CVE-2012-1577;PRION:CVE-2019-6111	5.8	https://vulners.com/prion/PRION:CVE-2019-6111;CVE-2019-6111	5.8	https://vulners.com/cve/CVE-2019-6111;PRION:CVE-2018-15919	5.0	https://vulners.com/prion/PRION:CVE-2018-15919;PRION:CVE-2018-15473	5.0	https://vulners.com/prion/PRION:CVE-2018-15473;PRION:CVE-2017-15906	5.0	https://vulners.com/prion/PRION:CVE-2017-15906;CVE-2018-15919	5.0	https://vulners.com/cve/CVE-2018-15919;CVE-2018-15473	5.0	https://vulners.com/cve/CVE-2018-15473;CVE-2017-15906	5.0	https://vulners.com/cve/CVE-2017-15906;PRION:CVE-2019-16905	4.4	https://vulners.com/prion/PRION:CVE-2019-16905;CVE-2020-14145	4.3	https://vulners.com/cve/CVE-2020-14145;PRION:CVE-2019-6110	4.0	https://vulners.com/prion/PRION:CVE-2019-6110;PRION:CVE-2019-6109	4.0	https://vulners.com/prion/PRION:CVE-2019-6109;CVE-2019-6110	4.0	https://vulners.com/cve/CVE-2019-6110;CVE-2019-6109	4.0	https://vulners.com/cve/CVE-2019-6109;CVE-2023-51767	3.5	https://vulners.com/cve/CVE-2023-51767;PRION:CVE-2018-20685	2.6	https://vulners.com/prion/PRION:CVE-2018-20685;CVE-2018-20685	2.6	https://vulners.com/cve/CVE-2018-20685,2024-04-24 15:01:04.456843
+236,192.168.0.10,DSIP010DTLK.sercor.itp.es,80,tcp,http,Apache httpd,CVE-2023-25690	7.5	https://vulners.com/cve/CVE-2023-25690;CVE-2022-31813	7.5	https://vulners.com/cve/CVE-2022-31813;CVE-2022-23943	7.5	https://vulners.com/cve/CVE-2022-23943;CVE-2022-22720	7.5	https://vulners.com/cve/CVE-2022-22720;CVE-2021-44790	7.5	https://vulners.com/cve/CVE-2021-44790;CVE-2021-39275	7.5	https://vulners.com/cve/CVE-2021-39275;CVE-2021-26691	7.5	https://vulners.com/cve/CVE-2021-26691;CVE-2017-7679	7.5	https://vulners.com/cve/CVE-2017-7679;CVE-2017-3167	7.5	https://vulners.com/cve/CVE-2017-3167;CVE-2021-40438	6.8	https://vulners.com/cve/CVE-2021-40438;CVE-2020-35452	6.8	https://vulners.com/cve/CVE-2020-35452;CVE-2018-1312	6.8	https://vulners.com/cve/CVE-2018-1312;CVE-2017-15715	6.8	https://vulners.com/cve/CVE-2017-15715;CVE-2016-5387	6.8	https://vulners.com/cve/CVE-2016-5387;CVE-2014-0226	6.8	https://vulners.com/cve/CVE-2014-0226;CVE-2024-24824	6.5	https://vulners.com/cve/CVE-2024-24824;CVE-2022-28615	6.4	https://vulners.com/cve/CVE-2022-28615;CVE-2017-9788	6.4	https://vulners.com/cve/CVE-2017-9788;CVE-2019-0217	6.0	https://vulners.com/cve/CVE-2019-0217;CVE-2022-22721	5.8	https://vulners.com/cve/CVE-2022-22721;CVE-2020-1927	5.8	https://vulners.com/cve/CVE-2020-1927;CVE-2019-10098	5.8	https://vulners.com/cve/CVE-2019-10098;CVE-2024-2406	5.5	https://vulners.com/cve/CVE-2024-2406;CVE-2022-36760	5.1	https://vulners.com/cve/CVE-2022-36760;CVE-2023-31122	5.0	https://vulners.com/cve/CVE-2023-31122;CVE-2022-37436	5.0	https://vulners.com/cve/CVE-2022-37436;CVE-2022-30556	5.0	https://vulners.com/cve/CVE-2022-30556;CVE-2022-29404	5.0	https://vulners.com/cve/CVE-2022-29404;CVE-2022-28614	5.0	https://vulners.com/cve/CVE-2022-28614;CVE-2022-26377	5.0	https://vulners.com/cve/CVE-2022-26377;CVE-2022-22719	5.0	https://vulners.com/cve/CVE-2022-22719;CVE-2021-34798	5.0	https://vulners.com/cve/CVE-2021-34798;CVE-2021-26690	5.0	https://vulners.com/cve/CVE-2021-26690;CVE-2020-1934	5.0	https://vulners.com/cve/CVE-2020-1934;CVE-2019-17567	5.0	https://vulners.com/cve/CVE-2019-17567;CVE-2019-0220	5.0	https://vulners.com/cve/CVE-2019-0220;CVE-2018-17199	5.0	https://vulners.com/cve/CVE-2018-17199;CVE-2018-1303	5.0	https://vulners.com/cve/CVE-2018-1303;CVE-2017-9798	5.0	https://vulners.com/cve/CVE-2017-9798;CVE-2017-15710	5.0	https://vulners.com/cve/CVE-2017-15710;CVE-2016-8743	5.0	https://vulners.com/cve/CVE-2016-8743;CVE-2016-2161	5.0	https://vulners.com/cve/CVE-2016-2161;CVE-2016-0736	5.0	https://vulners.com/cve/CVE-2016-0736;CVE-2015-3183	5.0	https://vulners.com/cve/CVE-2015-3183;CVE-2015-0228	5.0	https://vulners.com/cve/CVE-2015-0228;CVE-2014-3581	5.0	https://vulners.com/cve/CVE-2014-3581;CVE-2014-0231	5.0	https://vulners.com/cve/CVE-2014-0231;CVE-2014-0098	5.0	https://vulners.com/cve/CVE-2014-0098;CVE-2013-6438	5.0	https://vulners.com/cve/CVE-2013-6438;CVE-2013-5704	5.0	https://vulners.com/cve/CVE-2013-5704;CVE-2006-20001	5.0	https://vulners.com/cve/CVE-2006-20001;CVE-2020-11985	4.3	https://vulners.com/cve/CVE-2020-11985;CVE-2019-10092	4.3	https://vulners.com/cve/CVE-2019-10092;CVE-2018-1302	4.3	https://vulners.com/cve/CVE-2018-1302;CVE-2018-1301	4.3	https://vulners.com/cve/CVE-2018-1301;CVE-2016-4975	4.3	https://vulners.com/cve/CVE-2016-4975;CVE-2015-3185	4.3	https://vulners.com/cve/CVE-2015-3185;CVE-2014-8109	4.3	https://vulners.com/cve/CVE-2014-8109;CVE-2014-0118	4.3	https://vulners.com/cve/CVE-2014-0118;CVE-2014-0117	4.3	https://vulners.com/cve/CVE-2014-0117;CVE-2013-4352	4.3	https://vulners.com/cve/CVE-2013-4352;CVE-2024-24823	3.6	https://vulners.com/cve/CVE-2024-24823;CVE-2018-1283	3.5	https://vulners.com/cve/CVE-2018-1283;CVE-2016-8612	3.3	https://vulners.com/cve/CVE-2016-8612;CVE-2023-45802	2.6	https://vulners.com/cve/CVE-2023-45802,2024-04-24 15:01:04.475543
+239,192.168.0.10,DSIP010DTLK.sercor.itp.es,7777,tcp,http,Jetty,,2024-04-24 15:01:04.529917
+240,192.168.0.10,DSIP010DTLK.sercor.itp.es,8008,tcp,http,,,2024-04-24 15:01:04.547842
+241,192.168.0.10,DSIP010DTLK.sercor.itp.es,8081,tcp,http,Jetty,,2024-04-24 15:01:04.566600
+242,192.168.0.10,DSIP010DTLK.sercor.itp.es,8082,tcp,http,Jetty,,2024-04-24 15:01:04.584748
+243,192.168.0.10,DSIP010DTLK.sercor.itp.es,9999,tcp,http,Jetty,,2024-04-24 15:01:04.603154
+244,192.168.0.11,,8008,tcp,http,,,2024-04-24 15:01:04.621732
+245,192.168.0.12,,21,tcp,ftp,FileZilla ftpd,,2024-04-24 15:01:04.643767
+246,192.168.0.12,,80,tcp,http,Microsoft HTTPAPI httpd,,2024-04-24 15:01:04.662362
+247,192.168.0.12,,135,tcp,msrpc,Microsoft Windows RPC,,2024-04-24 15:01:04.680617
+248,192.168.0.12,,139,tcp,netbios-ssn,Microsoft Windows netbios-ssn,,2024-04-24 15:01:04.698857
+249,192.168.0.12,,445,tcp,microsoft-ds,Microsoft Windows Server 2008 R2 - 2012 microsoft-ds,,2024-04-24 15:01:04.717298
+250,192.168.0.12,,2701,tcp,cmrcservice,Microsoft Configuration Manager Remote Control service,,2024-04-24 15:01:04.735845
+251,192.168.0.12,,3389,tcp,ms-wbt-server,Microsoft Terminal Service,,2024-04-24 15:01:04.754950
+252,192.168.0.12,,8008,tcp,http,,,2024-04-24 15:01:04.774397
+253,192.168.0.12,,49152,tcp,msrpc,Microsoft Windows RPC,,2024-04-24 15:01:04.793937
+254,192.168.0.12,,49153,tcp,msrpc,Microsoft Windows RPC,,2024-04-24 15:01:04.812657
+255,192.168.0.12,,49154,tcp,msrpc,Microsoft Windows RPC,,2024-04-24 15:01:04.831440
+256,192.168.0.12,,49157,tcp,msrpc,Microsoft Windows RPC,,2024-04-24 15:01:04.849972
+257,192.168.0.12,,49159,tcp,msrpc,Microsoft Windows RPC,,2024-04-24 15:01:04.868576
+258,192.168.0.12,,49161,tcp,msrpc,Microsoft Windows RPC,,2024-04-24 15:01:04.887129
+259,192.168.0.13,,3389,tcp,ms-wbt-server,,,2024-04-24 15:01:04.905143
+260,192.168.0.13,,5357,tcp,http,Microsoft HTTPAPI httpd,,2024-04-24 15:01:04.923750
+261,192.168.0.13,,8008,tcp,http,,,2024-04-24 15:01:04.941632
+262,192.168.0.14,,8008,tcp,http,,,2024-04-24 15:01:04.960067
+263,192.168.0.15,,80,tcp,http,Microsoft IIS httpd,CVE-2019-0585	9.3	https://vulners.com/cve/CVE-2019-0585;CVE-2018-8628	9.3	https://vulners.com/cve/CVE-2018-8628;CVE-2018-1028	9.3	https://vulners.com/cve/CVE-2018-1028;CVE-2017-8524	7.6	https://vulners.com/cve/CVE-2017-8524;CVE-2017-8522	7.6	https://vulners.com/cve/CVE-2017-8522;CVE-2017-0238	7.6	https://vulners.com/cve/CVE-2017-0238;CVE-2017-0228	7.6	https://vulners.com/cve/CVE-2017-0228;CVE-2018-8378	4.3	https://vulners.com/cve/CVE-2018-8378;CVE-2017-8628	4.3	https://vulners.com/cve/CVE-2017-8628;CVE-2017-0231	4.3	https://vulners.com/cve/CVE-2017-0231;CVE-2018-8480	3.5	https://vulners.com/cve/CVE-2018-8480;CVE-2018-8426	3.5	https://vulners.com/cve/CVE-2018-8426;CVE-2024-21390	3.3	https://vulners.com/cve/CVE-2024-21390;CVE-2017-11835	2.1	https://vulners.com/cve/CVE-2017-11835,2024-04-24 15:01:04.978476
+264,192.168.0.15,,135,tcp,msrpc,Microsoft Windows RPC,,2024-04-24 15:01:04.996970
+265,192.168.0.15,,139,tcp,netbios-ssn,Microsoft Windows netbios-ssn,,2024-04-24 15:01:05.016126
+266,192.168.0.15,,445,tcp,microsoft-ds,,,2024-04-24 15:01:05.034733
+267,192.168.0.15,,2701,tcp,cmrcservice,Microsoft Configuration Manager Remote Control service,,2024-04-24 15:01:05.053056
+268,192.168.0.15,,3389,tcp,ms-wbt-server,,,2024-04-24 15:01:05.072169
+269,192.168.0.15,,5357,tcp,http,Microsoft HTTPAPI httpd,,2024-04-24 15:01:05.090250
+270,192.168.0.15,,8008,tcp,http,,,2024-04-24 15:01:05.108174
+271,192.168.0.16,,8008,tcp,http,,,2024-04-24 15:01:05.126581
+272,192.168.0.17,,8008,tcp,http,,,2024-04-24 15:01:05.145063
+273,192.168.0.18,,8008,tcp,http,,,2024-04-24 15:01:05.163306
+274,192.168.0.19,,8008,tcp,http,,,2024-04-24 15:01:05.181293
+275,192.168.0.20,,22,tcp,ssh,OpenSSH,CVE-2012-1577	7.5	https://vulners.com/cve/CVE-2012-1577;PRION:CVE-2019-6111	5.8	https://vulners.com/prion/PRION:CVE-2019-6111;CVE-2019-6111	5.8	https://vulners.com/cve/CVE-2019-6111;PRION:CVE-2018-15919	5.0	https://vulners.com/prion/PRION:CVE-2018-15919;PRION:CVE-2018-15473	5.0	https://vulners.com/prion/PRION:CVE-2018-15473;PRION:CVE-2017-15906	5.0	https://vulners.com/prion/PRION:CVE-2017-15906;CVE-2018-15919	5.0	https://vulners.com/cve/CVE-2018-15919;CVE-2018-15473	5.0	https://vulners.com/cve/CVE-2018-15473;CVE-2017-15906	5.0	https://vulners.com/cve/CVE-2017-15906;PRION:CVE-2019-16905	4.4	https://vulners.com/prion/PRION:CVE-2019-16905;CVE-2020-14145	4.3	https://vulners.com/cve/CVE-2020-14145;PRION:CVE-2019-6110	4.0	https://vulners.com/prion/PRION:CVE-2019-6110;PRION:CVE-2019-6109	4.0	https://vulners.com/prion/PRION:CVE-2019-6109;CVE-2019-6110	4.0	https://vulners.com/cve/CVE-2019-6110;CVE-2019-6109	4.0	https://vulners.com/cve/CVE-2019-6109;CVE-2023-51767	3.5	https://vulners.com/cve/CVE-2023-51767;PRION:CVE-2018-20685	2.6	https://vulners.com/prion/PRION:CVE-2018-20685;CVE-2018-20685	2.6	https://vulners.com/cve/CVE-2018-20685,2024-04-24 15:01:05.199786
+276,192.168.0.20,,80,tcp,http,Apache httpd,,2024-04-24 15:01:05.218482
+277,192.168.0.20,,443,tcp,http,Apache httpd,,2024-04-24 15:01:05.236684
+278,192.168.0.20,,8008,tcp,http,,,2024-04-24 15:01:05.254877
+279,192.168.0.20,,10003,tcp,documentum_s,,,2024-04-24 15:01:05.273094
+280,192.168.0.21,,8008,tcp,http,,,2024-04-24 15:01:05.291022
+281,192.168.0.22,,8008,tcp,http,,,2024-04-24 15:01:05.309089
+282,192.168.0.23,,8008,tcp,http,,,2024-04-24 15:01:05.327172
+283,192.168.0.24,,8008,tcp,http,,,2024-04-24 15:01:05.345331
+284,192.168.0.25,,80,tcp,http,Microsoft HTTPAPI httpd,,2024-04-24 15:01:05.363011
+285,192.168.0.25,,135,tcp,msrpc,Microsoft Windows RPC,,2024-04-24 15:01:05.381069
+286,192.168.0.25,,139,tcp,netbios-ssn,Microsoft Windows netbios-ssn,,2024-04-24 15:01:05.399304
+287,192.168.0.25,,445,tcp,microsoft-ds,Microsoft Windows Server 2008 R2 - 2012 microsoft-ds,,2024-04-24 15:01:05.419348
+288,192.168.0.25,,2701,tcp,cmrcservice,Microsoft Configuration Manager Remote Control service,,2024-04-24 15:01:05.437886
+289,192.168.0.25,,3389,tcp,ms-wbt-server,,,2024-04-24 15:01:05.456548
+290,192.168.0.25,,8008,tcp,http,,,2024-04-24 15:01:05.475823
+291,192.168.0.26,,8008,tcp,http,,,2024-04-24 15:01:05.494796
+292,192.168.0.27,,8008,tcp,http,,,2024-04-24 15:01:05.513065
+293,192.168.0.28,,8008,tcp,http,,,2024-04-24 15:01:05.531687
+294,192.168.0.29,,8008,tcp,http,,,2024-04-24 15:01:05.550851
+374,192.168.0.67,,8008,tcp,http,,,2024-04-24 15:01:07.066616
+375,192.168.0.68,,8008,tcp,http,,,2024-04-24 15:01:07.085291
+376,192.168.0.69,,8008,tcp,http,,,2024-04-24 15:01:07.103854
+377,192.168.0.70,,8008,tcp,http,,,2024-04-24 15:01:07.122556
+378,192.168.0.71,,8008,tcp,http,,,2024-04-24 15:01:07.141225
+379,192.168.0.72,,8008,tcp,http,,,2024-04-24 15:01:07.159809
+380,192.168.0.73,,8008,tcp,http,,,2024-04-24 15:01:07.177856
+381,192.168.0.74,,8008,tcp,http,,,2024-04-24 15:01:07.196385
+382,192.168.0.75,,8008,tcp,http,,,2024-04-24 15:01:07.216288
+383,192.168.0.76,,8008,tcp,http,,,2024-04-24 15:01:07.234451
+384,192.168.0.77,,8008,tcp,http,,,2024-04-24 15:01:07.252855
+385,192.168.0.78,,8008,tcp,http,,,2024-04-24 15:01:07.271095
+386,192.168.0.79,,8008,tcp,http,,,2024-04-24 15:01:07.289598
+387,192.168.0.80,,8008,tcp,http,,,2024-04-24 15:01:07.307970
+295,192.168.0.30,,22,tcp,ssh,OpenSSH,CVE-2012-1577	7.5	https://vulners.com/cve/CVE-2012-1577;PRION:CVE-2019-6111	5.8	https://vulners.com/prion/PRION:CVE-2019-6111;CVE-2019-6111	5.8	https://vulners.com/cve/CVE-2019-6111;PRION:CVE-2018-15919	5.0	https://vulners.com/prion/PRION:CVE-2018-15919;PRION:CVE-2018-15473	5.0	https://vulners.com/prion/PRION:CVE-2018-15473;PRION:CVE-2017-15906	5.0	https://vulners.com/prion/PRION:CVE-2017-15906;CVE-2018-15919	5.0	https://vulners.com/cve/CVE-2018-15919;CVE-2018-15473	5.0	https://vulners.com/cve/CVE-2018-15473;CVE-2017-15906	5.0	https://vulners.com/cve/CVE-2017-15906;PRION:CVE-2019-16905	4.4	https://vulners.com/prion/PRION:CVE-2019-16905;CVE-2020-14145	4.3	https://vulners.com/cve/CVE-2020-14145;PRION:CVE-2019-6110	4.0	https://vulners.com/prion/PRION:CVE-2019-6110;PRION:CVE-2019-6109	4.0	https://vulners.com/prion/PRION:CVE-2019-6109;CVE-2019-6110	4.0	https://vulners.com/cve/CVE-2019-6110;CVE-2019-6109	4.0	https://vulners.com/cve/CVE-2019-6109;CVE-2023-51767	3.5	https://vulners.com/cve/CVE-2023-51767;PRION:CVE-2018-20685	2.6	https://vulners.com/prion/PRION:CVE-2018-20685;CVE-2018-20685	2.6	https://vulners.com/cve/CVE-2018-20685,2024-04-24 15:01:05.574252
+296,192.168.0.30,,514,tcp,shell,,,2024-04-24 15:01:05.592570
+297,192.168.0.30,,8008,tcp,http,,,2024-04-24 15:01:05.610620
+298,192.168.0.31,,8008,tcp,http,,,2024-04-24 15:01:05.629246
+299,192.168.0.32,,8008,tcp,http,,,2024-04-24 15:01:05.657777
+300,192.168.0.33,,8008,tcp,http,,,2024-04-24 15:01:05.675822
+301,192.168.0.34,,8008,tcp,http,,,2024-04-24 15:01:05.693827
+302,192.168.0.35,,8008,tcp,http,,,2024-04-24 15:01:05.712455
+303,192.168.0.36,,8008,tcp,http,,,2024-04-24 15:01:05.731063
+304,192.168.0.37,,8008,tcp,http,,,2024-04-24 15:01:05.749903
+305,192.168.0.38,,8008,tcp,http,,,2024-04-24 15:01:05.768374
+306,192.168.0.39,,8008,tcp,http,,,2024-04-24 15:01:05.787818
+307,192.168.0.40,,8008,tcp,http,,,2024-04-24 15:01:05.806344
+308,192.168.0.41,,8008,tcp,http,,,2024-04-24 15:01:05.826510
+309,192.168.0.42,,8008,tcp,http,,,2024-04-24 15:01:05.845094
+310,192.168.0.43,,8008,tcp,http,,,2024-04-24 15:01:05.865265
+311,192.168.0.44,,8008,tcp,http,,,2024-04-24 15:01:05.897114
+312,192.168.0.45,,8008,tcp,http,,,2024-04-24 15:01:05.916129
+313,192.168.0.46,,8008,tcp,http,,,2024-04-24 15:01:05.934826
+314,192.168.0.47,,8008,tcp,http,,,2024-04-24 15:01:05.953082
+315,192.168.0.48,,8008,tcp,http,,,2024-04-24 15:01:05.971806
+316,192.168.0.49,,8008,tcp,http,,,2024-04-24 15:01:05.989884
+317,192.168.0.50,,8008,tcp,http,,,2024-04-24 15:01:06.008370
+318,192.168.0.51,,8008,tcp,http,,,2024-04-24 15:01:06.026507
+319,192.168.0.52,,8008,tcp,http,,,2024-04-24 15:01:06.044506
+320,192.168.0.53,,8008,tcp,http,,,2024-04-24 15:01:06.062342
+321,192.168.0.54,,53,tcp,domain,Simple DNS Plus,,2024-04-24 15:01:06.080557
+322,192.168.0.54,,80,tcp,http,Microsoft HTTPAPI httpd,,2024-04-24 15:01:06.098474
+323,192.168.0.54,,88,tcp,kerberos-sec,Microsoft Windows Kerberos,,2024-04-24 15:01:06.116455
+324,192.168.0.54,,135,tcp,msrpc,Microsoft Windows RPC,,2024-04-24 15:01:06.134967
+325,192.168.0.54,,139,tcp,netbios-ssn,Microsoft Windows netbios-ssn,,2024-04-24 15:01:06.153027
+326,192.168.0.54,,389,tcp,ldap,Microsoft Windows Active Directory LDAP,,2024-04-24 15:01:06.171384
+327,192.168.0.54,,445,tcp,microsoft-ds,Microsoft Windows Server 2008 R2 - 2012 microsoft-ds,,2024-04-24 15:01:06.189672
+328,192.168.0.54,,464,tcp,kpasswd5,,,2024-04-24 15:01:06.207823
+329,192.168.0.54,,593,tcp,ncacn_http,Microsoft Windows RPC over HTTP,,2024-04-24 15:01:06.226341
+330,192.168.0.54,,636,tcp,tcpwrapped,,,2024-04-24 15:01:06.244303
+331,192.168.0.54,,1688,tcp,msrpc,Microsoft Windows RPC,,2024-04-24 15:01:06.262076
+332,192.168.0.54,,2701,tcp,cmrcservice,Microsoft Configuration Manager Remote Control service,,2024-04-24 15:01:06.280145
+333,192.168.0.54,,3268,tcp,ldap,Microsoft Windows Active Directory LDAP,,2024-04-24 15:01:06.298503
+334,192.168.0.54,,3269,tcp,tcpwrapped,,,2024-04-24 15:01:06.316541
+335,192.168.0.54,,3389,tcp,ms-wbt-server,,,2024-04-24 15:01:06.334424
+336,192.168.0.54,,8008,tcp,http,,,2024-04-24 15:01:06.352246
+337,192.168.0.55,,53,tcp,domain,Simple DNS Plus,,2024-04-24 15:01:06.369914
+338,192.168.0.55,,80,tcp,http,Microsoft HTTPAPI httpd,,2024-04-24 15:01:06.387904
+339,192.168.0.55,,88,tcp,kerberos-sec,Microsoft Windows Kerberos,,2024-04-24 15:01:06.405722
+340,192.168.0.55,,135,tcp,msrpc,Microsoft Windows RPC,,2024-04-24 15:01:06.425174
+341,192.168.0.55,,139,tcp,netbios-ssn,Microsoft Windows netbios-ssn,,2024-04-24 15:01:06.447211
+342,192.168.0.55,,389,tcp,ldap,Microsoft Windows Active Directory LDAP,,2024-04-24 15:01:06.466187
+343,192.168.0.55,,445,tcp,microsoft-ds,Microsoft Windows Server 2008 R2 - 2012 microsoft-ds,,2024-04-24 15:01:06.484253
+344,192.168.0.55,,464,tcp,kpasswd5,,,2024-04-24 15:01:06.502459
+345,192.168.0.55,,593,tcp,ncacn_http,Microsoft Windows RPC over HTTP,,2024-04-24 15:01:06.520493
+346,192.168.0.55,,636,tcp,tcpwrapped,,,2024-04-24 15:01:06.538133
+347,192.168.0.55,,2701,tcp,cmrcservice,Microsoft Configuration Manager Remote Control service,,2024-04-24 15:01:06.556028
+348,192.168.0.55,,3268,tcp,ldap,Microsoft Windows Active Directory LDAP,,2024-04-24 15:01:06.573877
+349,192.168.0.55,,3269,tcp,tcpwrapped,,,2024-04-24 15:01:06.591515
+350,192.168.0.55,,3389,tcp,ms-wbt-server,,,2024-04-24 15:01:06.609564
+351,192.168.0.55,,8008,tcp,http,,,2024-04-24 15:01:06.628069
+352,192.168.0.56,,8008,tcp,http,,,2024-04-24 15:01:06.645974
+353,192.168.0.57,,8008,tcp,http,,,2024-04-24 15:01:06.664541
+354,192.168.0.58,,8008,tcp,http,,,2024-04-24 15:01:06.685894
+355,192.168.0.59,,8008,tcp,http,,,2024-04-24 15:01:06.704439
+356,192.168.0.60,,8008,tcp,http,,,2024-04-24 15:01:06.723564
+357,192.168.0.61,,8008,tcp,http,,,2024-04-24 15:01:06.742546
+358,192.168.0.62,,8008,tcp,http,,,2024-04-24 15:01:06.760803
+359,192.168.0.63,,8008,tcp,http,,,2024-04-24 15:01:06.778955
+360,192.168.0.64,,8008,tcp,http,,,2024-04-24 15:01:06.797399
+361,192.168.0.65,,8008,tcp,http,,,2024-04-24 15:01:06.816418
+362,192.168.0.66,,80,tcp,http,Microsoft HTTPAPI httpd,,2024-04-24 15:01:06.834544
+363,192.168.0.66,,135,tcp,msrpc,Microsoft Windows RPC,,2024-04-24 15:01:06.853135
+364,192.168.0.66,,139,tcp,netbios-ssn,Microsoft Windows netbios-ssn,,2024-04-24 15:01:06.871688
+365,192.168.0.66,,443,tcp,https,,,2024-04-24 15:01:06.890738
+366,192.168.0.66,,445,tcp,microsoft-ds,Microsoft Windows Server 2008 R2 - 2012 microsoft-ds,,2024-04-24 15:01:06.910188
+367,192.168.0.66,,2701,tcp,cmrcservice,Microsoft Configuration Manager Remote Control service,,2024-04-24 15:01:06.931573
+368,192.168.0.66,,3389,tcp,ms-wbt-server,Microsoft Terminal Service,,2024-04-24 15:01:06.950066
+369,192.168.0.66,,8008,tcp,http,,,2024-04-24 15:01:06.968455
+370,192.168.0.66,,49152,tcp,msrpc,Microsoft Windows RPC,,2024-04-24 15:01:06.986720
+371,192.168.0.66,,49153,tcp,msrpc,Microsoft Windows RPC,,2024-04-24 15:01:07.005121
+372,192.168.0.66,,49154,tcp,msrpc,Microsoft Windows RPC,,2024-04-24 15:01:07.029477
+373,192.168.0.66,,49155,tcp,msrpc,Microsoft Windows RPC,,2024-04-24 15:01:07.048159
+388,192.168.0.81,,8008,tcp,http,,,2024-04-24 15:01:07.326368
+389,192.168.0.82,,8008,tcp,http,,,2024-04-24 15:01:07.344900
+390,192.168.0.83,,8008,tcp,http,,,2024-04-24 15:01:07.363602
+391,192.168.0.84,,8008,tcp,http,,,2024-04-24 15:01:07.381889
+392,192.168.0.85,,8008,tcp,http,,,2024-04-24 15:01:07.400359
+393,192.168.0.86,,8008,tcp,http,,,2024-04-24 15:01:07.418876
+394,192.168.0.87,,8008,tcp,http,,,2024-04-24 15:01:07.437507
+395,192.168.0.88,,8008,tcp,http,,,2024-04-24 15:01:07.456075
+396,192.168.0.89,,8008,tcp,http,,,2024-04-24 15:01:07.474274
+397,192.168.0.90,,8008,tcp,http,,,2024-04-24 15:01:07.492404
+398,192.168.0.91,,8008,tcp,http,,,2024-04-24 15:01:07.510422
+399,192.168.0.92,,8008,tcp,http,,,2024-04-24 15:01:07.528935
+400,192.168.0.93,,8008,tcp,http,,,2024-04-24 15:01:07.546916
+401,192.168.0.94,,8008,tcp,http,,,2024-04-24 15:01:07.565023
+402,192.168.0.95,,8008,tcp,http,,,2024-04-24 15:01:07.583574
+403,192.168.0.96,,8008,tcp,http,,,2024-04-24 15:01:07.602218
+404,192.168.0.97,,8008,tcp,http,,,2024-04-24 15:01:07.620472
+405,192.168.0.98,,8008,tcp,http,,,2024-04-24 15:01:07.638744
+406,192.168.0.99,,8008,tcp,http,,,2024-04-24 15:01:07.657292
+407,192.168.0.100,,8008,tcp,http,,,2024-04-24 15:01:07.675990
+408,192.168.0.101,,8008,tcp,http,,,2024-04-24 15:01:07.693919
+409,192.168.0.102,,8008,tcp,http,,,2024-04-24 15:01:07.713461
+410,192.168.0.103,,8008,tcp,http,,,2024-04-24 15:01:07.732379
+411,192.168.0.104,,8008,tcp,http,,,2024-04-24 15:01:07.751700
+412,192.168.0.105,,8008,tcp,http,,,2024-04-24 15:01:07.774300
+413,192.168.0.106,,8008,tcp,http,,,2024-04-24 15:01:07.793221
+414,192.168.0.107,,8008,tcp,http,,,2024-04-24 15:01:07.812153
+415,192.168.0.108,,8008,tcp,http,,,2024-04-24 15:01:07.830690
+416,192.168.0.109,,8008,tcp,http,,,2024-04-24 15:01:07.849729
+417,192.168.0.110,,8008,tcp,http,,,2024-04-24 15:01:07.868916
+418,192.168.0.111,,8008,tcp,http,,,2024-04-24 15:01:07.887782
+419,192.168.0.112,,8008,tcp,http,,,2024-04-24 15:01:07.905913
+420,192.168.0.113,,8008,tcp,http,,,2024-04-24 15:01:07.924214
+421,192.168.0.114,,8008,tcp,http,,,2024-04-24 15:01:07.942190
+422,192.168.0.115,,8008,tcp,http,,,2024-04-24 15:01:07.960790
+423,192.168.0.116,mag.itpaero.com,22,tcp,ssh,OpenSSH,CVE-2012-1577	7.5	https://vulners.com/cve/CVE-2012-1577;PRION:CVE-2019-6111	5.8	https://vulners.com/prion/PRION:CVE-2019-6111;CVE-2019-6111	5.8	https://vulners.com/cve/CVE-2019-6111;PRION:CVE-2018-15919	5.0	https://vulners.com/prion/PRION:CVE-2018-15919;CVE-2018-15919	5.0	https://vulners.com/cve/CVE-2018-15919;PRION:CVE-2019-16905	4.4	https://vulners.com/prion/PRION:CVE-2019-16905;CVE-2019-16905	4.4	https://vulners.com/cve/CVE-2019-16905;CVE-2020-14145	4.3	https://vulners.com/cve/CVE-2020-14145;PRION:CVE-2019-6110	4.0	https://vulners.com/prion/PRION:CVE-2019-6110;PRION:CVE-2019-6109	4.0	https://vulners.com/prion/PRION:CVE-2019-6109;CVE-2019-6110	4.0	https://vulners.com/cve/CVE-2019-6110;CVE-2019-6109	4.0	https://vulners.com/cve/CVE-2019-6109;CVE-2023-51767	3.5	https://vulners.com/cve/CVE-2023-51767;PRION:CVE-2018-20685	2.6	https://vulners.com/prion/PRION:CVE-2018-20685;CVE-2018-20685	2.6	https://vulners.com/cve/CVE-2018-20685,2024-04-24 15:01:07.978632
+424,192.168.0.116,mag.itpaero.com,80,tcp,rtsp,,,2024-04-24 15:01:07.996239
+425,192.168.0.116,mag.itpaero.com,443,tcp,https,,,2024-04-24 15:01:08.014208
+426,192.168.0.116,mag.itpaero.com,8008,tcp,http,,,2024-04-24 15:01:08.032518
+427,192.168.0.116,mag.itpaero.com,8080,tcp,rtsp,,,2024-04-24 15:01:08.050793
+428,192.168.0.116,mag.itpaero.com,8443,tcp,https-alt,,,2024-04-24 15:01:08.068813
+429,192.168.0.117,mag.itpaero.com,22,tcp,ssh,OpenSSH,CVE-2012-1577	7.5	https://vulners.com/cve/CVE-2012-1577;PRION:CVE-2019-6111	5.8	https://vulners.com/prion/PRION:CVE-2019-6111;CVE-2019-6111	5.8	https://vulners.com/cve/CVE-2019-6111;PRION:CVE-2018-15919	5.0	https://vulners.com/prion/PRION:CVE-2018-15919;CVE-2018-15919	5.0	https://vulners.com/cve/CVE-2018-15919;PRION:CVE-2019-16905	4.4	https://vulners.com/prion/PRION:CVE-2019-16905;CVE-2019-16905	4.4	https://vulners.com/cve/CVE-2019-16905;CVE-2020-14145	4.3	https://vulners.com/cve/CVE-2020-14145;PRION:CVE-2019-6110	4.0	https://vulners.com/prion/PRION:CVE-2019-6110;PRION:CVE-2019-6109	4.0	https://vulners.com/prion/PRION:CVE-2019-6109;CVE-2019-6110	4.0	https://vulners.com/cve/CVE-2019-6110;CVE-2019-6109	4.0	https://vulners.com/cve/CVE-2019-6109;CVE-2023-51767	3.5	https://vulners.com/cve/CVE-2023-51767;PRION:CVE-2018-20685	2.6	https://vulners.com/prion/PRION:CVE-2018-20685;CVE-2018-20685	2.6	https://vulners.com/cve/CVE-2018-20685,2024-04-24 15:01:08.087070
+430,192.168.0.117,mag.itpaero.com,80,tcp,rtsp,,,2024-04-24 15:01:08.104906
+431,192.168.0.117,mag.itpaero.com,443,tcp,https,,,2024-04-24 15:01:08.122967
+432,192.168.0.117,mag.itpaero.com,8008,tcp,http,,,2024-04-24 15:01:08.140813
+433,192.168.0.117,mag.itpaero.com,8080,tcp,rtsp,,,2024-04-24 15:01:08.158761
+434,192.168.0.117,mag.itpaero.com,8443,tcp,https-alt,,,2024-04-24 15:01:08.176759
+435,192.168.0.118,mdm.itpaero.com,80,tcp,http,Microsoft HTTPAPI httpd,,2024-04-24 15:01:08.194557
+436,192.168.0.118,mdm.itpaero.com,135,tcp,msrpc,Microsoft Windows RPC,,2024-04-24 15:01:08.212408
+437,192.168.0.118,mdm.itpaero.com,139,tcp,netbios-ssn,Microsoft Windows netbios-ssn,,2024-04-24 15:01:08.230699
+438,192.168.0.118,mdm.itpaero.com,443,tcp,rtsp,,,2024-04-24 15:01:08.248524
+439,192.168.0.118,mdm.itpaero.com,445,tcp,microsoft-ds,Microsoft Windows Server 2008 R2 - 2012 microsoft-ds,,2024-04-24 15:01:08.266440
+440,192.168.0.118,mdm.itpaero.com,1025,tcp,msrpc,Microsoft Windows RPC,,2024-04-24 15:01:08.284320
+441,192.168.0.118,mdm.itpaero.com,1026,tcp,msrpc,Microsoft Windows RPC,,2024-04-24 15:01:08.302277
+442,192.168.0.118,mdm.itpaero.com,1027,tcp,msrpc,Microsoft Windows RPC,,2024-04-24 15:01:08.320413
+443,192.168.0.118,mdm.itpaero.com,1028,tcp,msrpc,Microsoft Windows RPC,,2024-04-24 15:01:08.339059
+444,192.168.0.118,mdm.itpaero.com,1030,tcp,msrpc,Microsoft Windows RPC,,2024-04-24 15:01:08.357296
+445,192.168.0.118,mdm.itpaero.com,1035,tcp,msrpc,Microsoft Windows RPC,,2024-04-24 15:01:08.375804
+446,192.168.0.118,mdm.itpaero.com,1037,tcp,msrpc,Microsoft Windows RPC,,2024-04-24 15:01:08.393708
+447,192.168.0.118,mdm.itpaero.com,2701,tcp,cmrcservice,Microsoft Configuration Manager Remote Control service,,2024-04-24 15:01:08.412274
+448,192.168.0.118,mdm.itpaero.com,3389,tcp,ms-wbt-server,Microsoft Terminal Service,,2024-04-24 15:01:08.430311
+449,192.168.0.118,mdm.itpaero.com,8008,tcp,http,,,2024-04-24 15:01:08.448465
+450,192.168.0.119,mdm.itpaero.com,80,tcp,http,Microsoft HTTPAPI httpd,,2024-04-24 15:01:08.466665
+451,192.168.0.119,mdm.itpaero.com,135,tcp,msrpc,Microsoft Windows RPC,,2024-04-24 15:01:08.484635
+452,192.168.0.119,mdm.itpaero.com,139,tcp,netbios-ssn,Microsoft Windows netbios-ssn,,2024-04-24 15:01:08.502889
+453,192.168.0.119,mdm.itpaero.com,443,tcp,rtsp,,,2024-04-24 15:01:08.520943
+454,192.168.0.119,mdm.itpaero.com,445,tcp,microsoft-ds,Microsoft Windows Server 2008 R2 - 2012 microsoft-ds,,2024-04-24 15:01:08.539176
+455,192.168.0.119,mdm.itpaero.com,1025,tcp,msrpc,Microsoft Windows RPC,,2024-04-24 15:01:08.558077
+456,192.168.0.119,mdm.itpaero.com,1026,tcp,msrpc,Microsoft Windows RPC,,2024-04-24 15:01:08.576248
+457,192.168.0.119,mdm.itpaero.com,1027,tcp,msrpc,Microsoft Windows RPC,,2024-04-24 15:01:08.594376
+458,192.168.0.119,mdm.itpaero.com,1028,tcp,msrpc,Microsoft Windows RPC,,2024-04-24 15:01:08.612734
+459,192.168.0.119,mdm.itpaero.com,1031,tcp,msrpc,Microsoft Windows RPC,,2024-04-24 15:01:08.631200
+460,192.168.0.119,mdm.itpaero.com,1036,tcp,msrpc,Microsoft Windows RPC,,2024-04-24 15:01:08.649122
+461,192.168.0.119,mdm.itpaero.com,1038,tcp,msrpc,Microsoft Windows RPC,,2024-04-24 15:01:08.672021
+462,192.168.0.119,mdm.itpaero.com,2701,tcp,cmrcservice,Microsoft Configuration Manager Remote Control service,,2024-04-24 15:01:08.691675
+463,192.168.0.119,mdm.itpaero.com,3389,tcp,ms-wbt-server,Microsoft Terminal Service,,2024-04-24 15:01:08.710460
+464,192.168.0.119,mdm.itpaero.com,8008,tcp,http,,,2024-04-24 15:01:08.729157
+465,192.168.0.120,,8008,tcp,http,,,2024-04-24 15:01:08.748593
+466,192.168.0.121,,8008,tcp,http,,,2024-04-24 15:01:08.767106
+467,192.168.0.122,,8008,tcp,http,,,2024-04-24 15:01:08.785400
+468,192.168.0.123,,8008,tcp,http,,,2024-04-24 15:01:08.804640
+469,192.168.0.124,,8008,tcp,http,,,2024-04-24 15:01:08.823380
+470,192.168.0.125,,8008,tcp,http,,,2024-04-24 15:01:08.842205
+471,192.168.0.126,,8008,tcp,http,,,2024-04-24 15:01:08.861681
+472,192.168.0.127,,8008,tcp,http,,,2024-04-24 15:01:08.883178
+473,192.168.0.128,,8008,tcp,http,,,2024-04-24 15:01:08.901837
+474,192.168.0.129,,8008,tcp,http,,,2024-04-24 15:01:08.921145
+475,192.168.0.130,,8008,tcp,http,,,2024-04-24 15:01:08.940388
+476,192.168.0.131,,8008,tcp,http,,,2024-04-24 15:01:08.959377
+477,192.168.0.132,,8008,tcp,http,,,2024-04-24 15:01:08.977867
+478,192.168.0.133,,8008,tcp,http,,,2024-04-24 15:01:08.996695
+479,192.168.0.134,,8008,tcp,http,,,2024-04-24 15:01:09.015587
+480,192.168.0.135,,8008,tcp,http,,,2024-04-24 15:01:09.034163
+481,192.168.0.136,,8008,tcp,http,,,2024-04-24 15:01:09.052562
+482,192.168.0.137,,8008,tcp,http,,,2024-04-24 15:01:09.071013
+483,192.168.0.138,,8008,tcp,http,,,2024-04-24 15:01:09.089407
+484,192.168.0.139,,8008,tcp,http,,,2024-04-24 15:01:09.107891
+485,192.168.0.140,,8008,tcp,http,,,2024-04-24 15:01:09.126931
+486,192.168.0.141,,8008,tcp,http,,,2024-04-24 15:01:09.145450
+487,192.168.0.142,,8008,tcp,http,,,2024-04-24 15:01:09.163575
+488,192.168.0.143,,8008,tcp,http,,,2024-04-24 15:01:09.182244
+489,192.168.0.144,,8008,tcp,http,,,2024-04-24 15:01:09.200535
+490,192.168.0.145,,8008,tcp,http,,,2024-04-24 15:01:09.219313
+491,192.168.0.146,,8008,tcp,http,,,2024-04-24 15:01:09.237537
+492,192.168.0.147,,8008,tcp,http,,,2024-04-24 15:01:09.255635
+493,192.168.0.148,,8008,tcp,http,,,2024-04-24 15:01:09.273467
+494,192.168.0.149,,8008,tcp,http,,,2024-04-24 15:01:09.291587
+495,192.168.0.150,,8008,tcp,http,,,2024-04-24 15:01:09.309886
+496,192.168.0.151,,8008,tcp,http,,,2024-04-24 15:01:09.328368
+497,192.168.0.152,,8008,tcp,http,,,2024-04-24 15:01:09.346568
+498,192.168.0.153,,8008,tcp,http,,,2024-04-24 15:01:09.365086
+499,192.168.0.154,,8008,tcp,http,,,2024-04-24 15:01:09.383113
+500,192.168.0.155,,80,tcp,http,Microsoft IIS httpd,CVE-2019-0585	9.3	https://vulners.com/cve/CVE-2019-0585;CVE-2018-8628	9.3	https://vulners.com/cve/CVE-2018-8628;CVE-2018-1028	9.3	https://vulners.com/cve/CVE-2018-1028;CVE-2017-8524	7.6	https://vulners.com/cve/CVE-2017-8524;CVE-2017-8522	7.6	https://vulners.com/cve/CVE-2017-8522;CVE-2017-0238	7.6	https://vulners.com/cve/CVE-2017-0238;CVE-2017-0228	7.6	https://vulners.com/cve/CVE-2017-0228;CVE-2014-4078	5.1	https://vulners.com/cve/CVE-2014-4078;CVE-2018-8378	4.3	https://vulners.com/cve/CVE-2018-8378;CVE-2017-8628	4.3	https://vulners.com/cve/CVE-2017-8628;CVE-2017-0231	4.3	https://vulners.com/cve/CVE-2017-0231;CVE-2018-8480	3.5	https://vulners.com/cve/CVE-2018-8480;CVE-2018-8426	3.5	https://vulners.com/cve/CVE-2018-8426;CVE-2024-21390	3.3	https://vulners.com/cve/CVE-2024-21390;CVE-2017-11835	2.1	https://vulners.com/cve/CVE-2017-11835,2024-04-24 15:01:09.401291
+501,192.168.0.155,,135,tcp,msrpc,Microsoft Windows RPC,,2024-04-24 15:01:09.420342
+502,192.168.0.155,,443,tcp,https,,,2024-04-24 15:01:09.438596
+503,192.168.0.155,,445,tcp,microsoft-ds,Microsoft Windows Server 2008 R2 - 2012 microsoft-ds,,2024-04-24 15:01:09.457379
+504,192.168.0.155,,2701,tcp,cmrcservice,Microsoft Configuration Manager Remote Control service,,2024-04-24 15:01:09.476139
+505,192.168.0.155,,3389,tcp,ms-wbt-server,Microsoft Terminal Service,,2024-04-24 15:01:09.494412
+506,192.168.0.155,,8008,tcp,http,,,2024-04-24 15:01:09.512267
+507,192.168.0.155,,49155,tcp,msrpc,Microsoft Windows RPC,,2024-04-24 15:01:09.530774
+508,192.168.0.156,,8008,tcp,http,,,2024-04-24 15:01:09.548989
+509,192.168.0.157,,8008,tcp,http,,,2024-04-24 15:01:09.567573
+510,192.168.0.158,,8008,tcp,http,,,2024-04-24 15:01:09.585981
+511,192.168.0.159,,8008,tcp,http,,,2024-04-24 15:01:09.604279
+512,192.168.0.160,,8008,tcp,http,,,2024-04-24 15:01:09.622209
+513,192.168.0.161,,8008,tcp,http,,,2024-04-24 15:01:09.640801
+514,192.168.0.162,,8008,tcp,http,,,2024-04-24 15:01:09.658922
+515,192.168.0.163,,8008,tcp,http,,,2024-04-24 15:01:09.678612
+516,192.168.0.164,,8008,tcp,http,,,2024-04-24 15:01:09.698236
+517,192.168.0.165,,8008,tcp,http,,,2024-04-24 15:01:09.717370
+518,192.168.0.166,,8008,tcp,http,,,2024-04-24 15:01:09.735209
+519,192.168.0.167,,8008,tcp,http,,,2024-04-24 15:01:09.753505
+520,192.168.0.168,,8008,tcp,http,,,2024-04-24 15:01:09.772008
+521,192.168.0.169,,8008,tcp,http,,,2024-04-24 15:01:09.790435
+522,192.168.0.170,,8008,tcp,http,,,2024-04-24 15:01:09.808543
+523,192.168.0.171,,8008,tcp,http,,,2024-04-24 15:01:09.831616
+524,192.168.0.172,,8008,tcp,http,,,2024-04-24 15:01:09.850000
+525,192.168.0.173,,8008,tcp,http,,,2024-04-24 15:01:09.869025
+526,192.168.0.174,,8008,tcp,http,,,2024-04-24 15:01:09.888959
+527,192.168.0.175,,8008,tcp,http,,,2024-04-24 15:01:09.909310
+528,192.168.0.176,,8008,tcp,http,,,2024-04-24 15:01:09.928020
+529,192.168.0.177,,8008,tcp,http,,,2024-04-24 15:01:09.947004
+530,192.168.0.178,,8008,tcp,http,,,2024-04-24 15:01:09.967234
+531,192.168.0.179,,8008,tcp,http,,,2024-04-24 15:01:09.987411
+532,192.168.0.180,,8008,tcp,http,,,2024-04-24 15:01:10.008150
+533,192.168.0.181,,8008,tcp,http,,,2024-04-24 15:01:10.027624
+534,192.168.0.182,,8008,tcp,http,,,2024-04-24 15:01:10.047110
+535,192.168.0.183,,8008,tcp,http,,,2024-04-24 15:01:10.068067
+536,192.168.0.184,,8008,tcp,http,,,2024-04-24 15:01:10.086784
+537,192.168.0.185,,8008,tcp,http,,,2024-04-24 15:01:10.106119
+538,192.168.0.186,,8008,tcp,http,,,2024-04-24 15:01:10.124734
+539,192.168.0.187,,8008,tcp,http,,,2024-04-24 15:01:10.143368
+540,192.168.0.188,,8008,tcp,http,,,2024-04-24 15:01:10.161469
+541,192.168.0.189,,8008,tcp,http,,,2024-04-24 15:01:10.179628
+542,192.168.0.190,,8008,tcp,http,,,2024-04-24 15:01:10.198164
+543,192.168.0.191,,8008,tcp,http,,,2024-04-24 15:01:10.216930
+544,192.168.0.192,,8008,tcp,http,,,2024-04-24 15:01:10.235355
+545,192.168.0.193,,8008,tcp,http,,,2024-04-24 15:01:10.253705
+546,192.168.0.194,,8008,tcp,http,,,2024-04-24 15:01:10.272172
+547,192.168.0.195,,8008,tcp,http,,,2024-04-24 15:01:10.290764
+548,192.168.0.196,,8008,tcp,http,,,2024-04-24 15:01:10.308960
+549,192.168.0.197,,8008,tcp,http,,,2024-04-24 15:01:10.327448
+550,192.168.0.198,,8008,tcp,http,,,2024-04-24 15:01:10.345710
+551,192.168.0.199,,8008,tcp,http,,,2024-04-24 15:01:10.363955
+552,192.168.0.200,,8008,tcp,http,,,2024-04-24 15:01:10.382507
+553,192.168.0.201,dsip201nspublisher2.sercor.itp.es,22,tcp,ssh,OpenSSH,CVE-2012-1577	7.5	https://vulners.com/cve/CVE-2012-1577;PRION:CVE-2020-15778	6.8	https://vulners.com/prion/PRION:CVE-2020-15778;CVE-2020-15778	6.8	https://vulners.com/cve/CVE-2020-15778;PRION:CVE-2020-12062	5.0	https://vulners.com/prion/PRION:CVE-2020-12062;CVE-2020-12062	5.0	https://vulners.com/cve/CVE-2020-12062;CVE-2010-4816	5.0	https://vulners.com/cve/CVE-2010-4816;PRION:CVE-2021-28041	4.6	https://vulners.com/prion/PRION:CVE-2021-28041;CVE-2021-28041	4.6	https://vulners.com/cve/CVE-2021-28041;PRION:CVE-2021-41617	4.4	https://vulners.com/prion/PRION:CVE-2021-41617;CVE-2021-41617	4.4	https://vulners.com/cve/CVE-2021-41617;PRION:CVE-2020-14145	4.3	https://vulners.com/prion/PRION:CVE-2020-14145;PRION:CVE-2016-20012	4.3	https://vulners.com/prion/PRION:CVE-2016-20012;CVE-2020-14145	4.3	https://vulners.com/cve/CVE-2020-14145;CVE-2016-20012	4.3	https://vulners.com/cve/CVE-2016-20012;CVE-2023-51767	3.5	https://vulners.com/cve/CVE-2023-51767;PRION:CVE-2021-36368	2.6	https://vulners.com/prion/PRION:CVE-2021-36368;CVE-2021-36368	2.6	https://vulners.com/cve/CVE-2021-36368,2024-04-24 15:01:10.401029
+554,192.168.0.201,dsip201nspublisher2.sercor.itp.es,8008,tcp,http,,,2024-04-24 15:01:10.419677
+555,192.168.0.202,dsip202nspublisher1.sercor.itp.es,22,tcp,ssh,OpenSSH,CVE-2012-1577	7.5	https://vulners.com/cve/CVE-2012-1577;PRION:CVE-2020-15778	6.8	https://vulners.com/prion/PRION:CVE-2020-15778;CVE-2020-15778	6.8	https://vulners.com/cve/CVE-2020-15778;PRION:CVE-2020-12062	5.0	https://vulners.com/prion/PRION:CVE-2020-12062;CVE-2020-12062	5.0	https://vulners.com/cve/CVE-2020-12062;CVE-2010-4816	5.0	https://vulners.com/cve/CVE-2010-4816;PRION:CVE-2021-28041	4.6	https://vulners.com/prion/PRION:CVE-2021-28041;CVE-2021-28041	4.6	https://vulners.com/cve/CVE-2021-28041;PRION:CVE-2021-41617	4.4	https://vulners.com/prion/PRION:CVE-2021-41617;CVE-2021-41617	4.4	https://vulners.com/cve/CVE-2021-41617;PRION:CVE-2020-14145	4.3	https://vulners.com/prion/PRION:CVE-2020-14145;PRION:CVE-2016-20012	4.3	https://vulners.com/prion/PRION:CVE-2016-20012;CVE-2020-14145	4.3	https://vulners.com/cve/CVE-2020-14145;CVE-2016-20012	4.3	https://vulners.com/cve/CVE-2016-20012;CVE-2023-51767	3.5	https://vulners.com/cve/CVE-2023-51767;PRION:CVE-2021-36368	2.6	https://vulners.com/prion/PRION:CVE-2021-36368;CVE-2021-36368	2.6	https://vulners.com/cve/CVE-2021-36368,2024-04-24 15:01:10.439515
+556,192.168.0.202,dsip202nspublisher1.sercor.itp.es,8008,tcp,http,,,2024-04-24 15:01:10.458761
+557,192.168.0.203,,8008,tcp,http,,,2024-04-24 15:01:10.477300
+558,192.168.0.204,,8008,tcp,http,,,2024-04-24 15:01:10.496043
+559,192.168.0.205,,8008,tcp,http,,,2024-04-24 15:01:10.514857
+560,192.168.0.206,,8008,tcp,http,,,2024-04-24 15:01:10.533496
+561,192.168.0.207,,8008,tcp,http,,,2024-04-24 15:01:10.552230
+562,192.168.0.208,,8008,tcp,http,,,2024-04-24 15:01:10.570684
+563,192.168.0.209,,8008,tcp,http,,,2024-04-24 15:01:10.588950
+564,192.168.0.210,,8008,tcp,http,,,2024-04-24 15:01:10.607789
+565,192.168.0.211,,8008,tcp,http,,,2024-04-24 15:01:10.626304
+566,192.168.0.212,,8008,tcp,http,,,2024-04-24 15:01:10.650416
+567,192.168.0.213,,8008,tcp,http,,,2024-04-24 15:01:10.668674
+568,192.168.0.214,,8008,tcp,http,,,2024-04-24 15:01:10.700122
+569,192.168.0.215,,8008,tcp,http,,,2024-04-24 15:01:10.718536
+570,192.168.0.216,,8008,tcp,http,,,2024-04-24 15:01:10.736598
+571,192.168.0.217,,8008,tcp,http,,,2024-04-24 15:01:10.754839
+572,192.168.0.218,,8008,tcp,http,,,2024-04-24 15:01:10.777112
+573,192.168.0.219,,8008,tcp,http,,,2024-04-24 15:01:10.795115
+574,192.168.0.220,,8008,tcp,http,,,2024-04-24 15:01:10.813162
+575,192.168.0.221,,8008,tcp,http,,,2024-04-24 15:01:10.831888
+576,192.168.0.222,,8008,tcp,http,,,2024-04-24 15:01:10.850131
+577,192.168.0.223,,8008,tcp,http,,,2024-04-24 15:01:10.868429
+578,192.168.0.224,,8008,tcp,http,,,2024-04-24 15:01:10.886932
+579,192.168.0.225,,8008,tcp,http,,,2024-04-24 15:01:10.907867
+580,192.168.0.226,,8008,tcp,http,,,2024-04-24 15:01:10.926935
+581,192.168.0.227,,8008,tcp,http,,,2024-04-24 15:01:10.945403
+582,192.168.0.228,,8008,tcp,http,,,2024-04-24 15:01:10.963930
+583,192.168.0.229,,8008,tcp,http,,,2024-04-24 15:01:10.982464
+584,192.168.0.230,,8008,tcp,http,,,2024-04-24 15:01:11.001029
+585,192.168.0.231,,8008,tcp,http,,,2024-04-24 15:01:11.019608
+586,192.168.0.232,,8008,tcp,http,,,2024-04-24 15:01:11.037975
+587,192.168.0.233,,8008,tcp,http,,,2024-04-24 15:01:11.056356
+588,192.168.0.234,,8008,tcp,http,,,2024-04-24 15:01:11.075457
+589,192.168.0.235,,8008,tcp,http,,,2024-04-24 15:01:11.094321
+590,192.168.0.236,,8008,tcp,http,,,2024-04-24 15:01:11.112930
+591,192.168.0.237,,8008,tcp,http,,,2024-04-24 15:01:11.132859
+592,192.168.0.238,,8008,tcp,http,,,2024-04-24 15:01:11.151340
+593,192.168.0.239,,8008,tcp,http,,,2024-04-24 15:01:11.169679
+594,192.168.0.240,,8008,tcp,http,,,2024-04-24 15:01:11.188006
+595,192.168.0.241,,8008,tcp,http,,,2024-04-24 15:01:11.206114
+596,192.168.0.242,,8008,tcp,http,,,2024-04-24 15:01:11.224408
+597,192.168.0.243,,8008,tcp,http,,,2024-04-24 15:01:11.242278
+598,192.168.0.244,,8008,tcp,http,,,2024-04-24 15:01:11.260336
+599,192.168.0.245,,8008,tcp,http,,,2024-04-24 15:01:11.278160
+600,192.168.0.246,,8008,tcp,http,,,2024-04-24 15:01:11.296782
+601,192.168.0.247,,8008,tcp,http,,,2024-04-24 15:01:11.314668
+602,192.168.0.248,,8008,tcp,http,,,2024-04-24 15:01:11.332224
+603,192.168.0.249,,8008,tcp,http,,,2024-04-24 15:01:11.349668
+604,192.168.0.250,,8008,tcp,http,,,2024-04-24 15:01:11.367387
+605,192.168.0.251,,8008,tcp,http,,,2024-04-24 15:01:11.385071
+606,192.168.0.252,,8008,tcp,http,,,2024-04-24 15:01:11.403113
+607,192.168.0.253,,8008,tcp,http,,,2024-04-24 15:01:11.421152
+608,192.168.0.254,,8008,tcp,http,,,2024-04-24 15:01:11.439099
