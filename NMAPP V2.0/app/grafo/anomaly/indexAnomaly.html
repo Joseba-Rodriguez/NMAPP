@@ -5,24 +5,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grafo de Escaneo NMAP</title>
     <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
     <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #292929; /* Fondo oscuro */
+            color: #fff;
+            overflow: hidden; /* Oculta barras de desplazamiento */
+        }
+
+        /* Contenedor principal */
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh; /* Toma el 100% del viewport */
+            position: relative;
+        }
+
+        /* Estilos para los elementos de entrada */
+        input, select {
+            padding: 10px;
+            margin: 5px;
+            border-radius: 5px;
+            border: 1px solid #555;
+            background-color: #333;
+            color: #fff;
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+            width: 80%; /* Ancho del 80% del contenedor */
+            max-width: 400px; /* Máximo ancho */
+        }
+
+        /* Estilos para el botón */
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 5px;
+            border: none;
+            background-color: #007bff;
+            color: #fff;
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
         /* Estilos para el tooltip */
         #tooltip {
             font-size: 12px;
-            background-color: white;
-            border: 1px solid black;
+            background-color: #000;
+            border: 1px solid #fff;
             padding: 5px;
             opacity: 0;
-        }
-
-        /* Estilos para la leyenda */
-        #legend {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background-color: #f9f9f9;
-            border: 1px solid #ccc;
-            padding: 10px;
+            color: #fff;
         }
 
         /* Estilos para el SVG */
@@ -30,7 +73,8 @@
             display: block;
             margin: auto;
             width: 100%;
-            height: 100vh; /* 100% del alto de la ventana */
+            height: calc(100vh - 150px); /* Ajuste para ocupar el espacio restante */
+            max-height: 600px; /* Altura máxima */
         }
 
         /* Estilos para la información del nodo */
@@ -38,26 +82,95 @@
             position: absolute;
             top: 10px;
             left: 10px;
-            background-color: #f9f9f9;
-            border: 1px solid #ccc;
+            background-color: rgba(0, 0, 0, 0.5);
+            border: 1px solid #555;
             padding: 10px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+        }
+
+        /* Estilos para la leyenda */
+        #legend {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border: 1px solid #555;
+            padding: 10px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+        }
+
+        #legend h3 {
+            font-size: 20px;
+            color: #fff;
+            margin-top: 0;
+        }
+
+        #legend ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        #legend li {
+            margin-bottom: 3px;
+        }
+
+        #legend span {
+            font-weight: bold;
+        }
+
+        #legend span.ip {
+            color: #1f77b4;
+        }
+
+        #legend span.servicio {
+            color: #2ca02c;
+        }
+
+        #legend span.anomalo {
+            color: #ff0000;
         }
     </style>
 </head>
 <body>
-    <div id="legend">
-        <h3>Leyenda</h3>
-        <ul>
-            <li><span style="color:#1f77b4;">IP</span>: Direcciones IP</li>
-            <li><span style="color:#2ca02c;">Servicio Común</span>: Puertos y servicios comunes</li>
-            <li><span style="color:#ff0000;">Anómalo</span>: Puertos y servicios anómalos</li>
-        </ul>
+    <div class="container">
+        <!-- Contenido -->
+
+        <!-- Búsqueda y filtrado -->
+        <div>
+            <label for="searchInput">Buscar:</label>
+            <input type="text" id="searchInput">
+        </div>
+        <div>
+            <label for="filterSelect">Filtrar por Tipo de Nodo:</label>
+            <select id="filterSelect">
+                <option value="0">Todos</option>
+                <option value="1">IP</option>
+                <option value="2">Servicio Común</option>
+                <option value="3">Anómalo</option>
+            </select>
+        </div>
+
+        <!-- SVG -->
+        <svg></svg>
+
+        <!-- Tooltip e información -->
+        <div id="tooltip"></div>
+        <div id="info"></div>
+
+        <!-- Leyenda -->
+        <div id="legend">
+            <h3>Leyenda</h3>
+            <ul>
+                <li><span class="ip">IP</span>: Direcciones IP</li>
+                <li><span class="servicio">Servicio Común</span>: Puertos y servicios comunes</li>
+                <li><span class="anomalo">Anómalo</span>: Puertos y servicios anómalos</li>
+            </ul>
+        </div>
     </div>
 
-    <svg></svg>
-
-    <div id="tooltip"></div>
-    <div id="info"></div>
     <script src="scriptPorts.js"></script>
 </body>
 </html>

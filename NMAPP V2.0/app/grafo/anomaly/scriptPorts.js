@@ -32,19 +32,22 @@ d3.json('graph_data_anomaly.json').then(function(data) {
             .on('drag', dragged)
             .on('end', dragended))
         .on('mouseover', handleMouseOver) // Manejador para pasar el cursor sobre el nodo
-        .on('mouseout', handleMouseOut);   // Manejador para alejar el cursor del nodo
+        .on('mouseout', handleMouseOut)   // Manejador para alejar el cursor del nodo
+        .on('click', handleClick);        // Manejador para hacer clic en el nodo
 
     node.append('circle')
         .attr('r', 10)
         .attr('fill', d => getNodeColor(d.group))
         .attr('stroke', '#fff')
-        .attr('stroke-width', 2);
+        .attr('stroke-width', 2)
+        .style('cursor', 'pointer');  // Cambiar el cursor al pasar sobre el nodo
 
-    node.append('text')
+        node.append('text')
         .attr('x', 12)
         .attr('dy', '.35em')
         .style('font-size', '12px')
         .style('font-family', 'Arial')
+        .style('fill', d => getNodeColor(d.group)) // Ajustar el color del texto al color del nodo
         .text(d => d.id);
 
     simulation.on('tick', () => {
@@ -118,6 +121,33 @@ d3.json('graph_data_anomaly.json').then(function(data) {
             .attr('opacity', 1);
     }
 
+    function handleClick(event, d) {
+        // Resaltar el nodo y sus conexiones al hacer clic en él
+        const clickedNode = d;
+        
+        // Resaltar nodo y enlaces conectados directamente
+        svg.selectAll('.node')
+            .attr('fill', node => node === clickedNode ? '#ff0000' : '#ddd')
+            .attr('opacity', node => node === clickedNode ? 1 : 0.3);
+
+        svg.selectAll('.link')
+            .attr('stroke', link => link.source === clickedNode || link.target === clickedNode ? '#ffa500' : '#eee')  // Cambiar el color del enlace
+            .attr('opacity', link => link.source === clickedNode || link.target === clickedNode ? 1 : 0.3);  // Cambiar la opacidad del enlace
+
+        // Mostrar información detallada del nodo
+        const totalConnections = data.links.filter(link => link.source === clickedNode || link.target === clickedNode).length;
+        const commonServices = data.links.filter(link => (link.source === clickedNode || link.target === clickedNode) && link.group === 2).length;
+        const anomalyServices = data.links.filter(link => (link.source === clickedNode || link.target === clickedNode) && link.group === 3).length;
+
+        const infoDiv = document.getElementById('info');
+        infoDiv.innerHTML = `
+            <h3>Información detallada de la IP ${clickedNode.id}</h3>
+            <p>Total de conexiones: ${totalConnections}</p>
+            <p>Servicios comunes: ${commonServices}</p>
+            <p>Anomalías: ${anomalyServices}</p>
+        `;
+    }
+
     // Añadir funcionalidad de búsqueda
     const searchInput = document.getElementById('searchInput');
     searchInput.addEventListener('input', function(event) {
@@ -137,6 +167,36 @@ d3.json('graph_data_anomaly.json').then(function(data) {
                 return sourceVisible && targetVisible ? 'inline' : 'none';
             });
     });
-    
-});
 
+    // Añadir funcionalidad de filtrado por tipo de nodo
+    const filterSelect = document.getElementById('filterSelect');
+    filterSelect.addEventListener('change', function(event) {
+        const selectedGroup = parseInt(event.target.value);
+
+        // Filtrar nodos por grupo
+        const filteredNodes = selectedGroup === 0 ? data.nodes : data.nodes.filter(node => node.group === selectedGroup);
+
+        // Mostrar todos los nodos
+        svg.selectAll('.node').style('display', 'inline');
+
+        // Mostrar todos los enlaces
+        svg.selectAll('.link').style('display', 'inline');
+
+        // Si se selecciona "Todos", no necesitamos realizar más filtrado
+        if (selectedGroup === 0) return;
+
+        // Ocultar nodos que no pertenecen al grupo seleccionado
+        svg.selectAll('.node')
+            .transition().duration(500)  // Animación suave
+            .style('display', node => filteredNodes.some(filteredNode => filteredNode.id === node.id) ? 'inline' : 'none');
+
+        // Ocultar enlaces que no están conectados a nodos visibles
+        svg.selectAll('.link')
+            .transition().duration(500)  // Animación suave
+            .style('display', link => {
+                const sourceVisible = filteredNodes.some(filteredNode => filteredNode.id === link.source.id);
+                const targetVisible = filteredNodes.some(filteredNode => filteredNode.id === link.target.id);
+                return sourceVisible && targetVisible ? 'inline' : 'none';
+            });
+    });
+});
