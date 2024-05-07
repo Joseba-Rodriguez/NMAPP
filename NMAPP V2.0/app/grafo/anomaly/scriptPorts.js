@@ -31,15 +31,23 @@ d3.json('graph_data_anomaly.json').then(function(data) {
             .on('start', dragstarted)
             .on('drag', dragged)
             .on('end', dragended))
-        .on('click', handleClick);  // Añadir clic para ampliar nodo y mostrar información
+        .on('mouseover', handleMouseOver) // Manejador para pasar el cursor sobre el nodo
+        .on('mouseout', handleMouseOut)   // Manejador para alejar el cursor del nodo
+        .on('click', handleClick);        // Manejador para hacer clic en el nodo
 
     node.append('circle')
         .attr('r', 10)
-        .attr('fill', d => getNodeColor(d.group));
+        .attr('fill', d => getNodeColor(d.group))
+        .attr('stroke', '#fff')
+        .attr('stroke-width', 2)
+        .style('cursor', 'pointer');  // Cambiar el cursor al pasar sobre el nodo
 
-    node.append('text')
+        node.append('text')
         .attr('x', 12)
         .attr('dy', '.35em')
+        .style('font-size', '12px')
+        .style('font-family', 'Arial')
+        .style('fill', d => getNodeColor(d.group)) // Ajustar el color del texto al color del nodo
         .text(d => d.id);
 
     simulation.on('tick', () => {
@@ -77,79 +85,118 @@ d3.json('graph_data_anomaly.json').then(function(data) {
         d.fy = null;
     }
 
-    function handleClick(event, d) {
-        // Aumentar el tamaño del nodo al hacer clic
-        d3.select(this).select('circle').attr('r', 15);
-
-        // Mostrar información del puerto y servicio
-        const infoDiv = d3.select('#info');
-        infoDiv.html(`
-            <h4>Información del Nodo</h4>
-            <p>ID: ${d.id}</p>
-            <p>Grupo: ${d.group === 1 ? 'IP' : (d.group === 2 ? 'Servicio Común' : 'Anómalo')}</p>
-        `);
-    }
-    function generateReport(data) {
-        const nodesCount = data.nodes.length;
-        const linksCount = data.links.length;
-    
-        // Contar nodos por grupo
-        const groupCounts = {};
-        data.nodes.forEach(node => {
-            if (!groupCounts[node.group]) {
-                groupCounts[node.group] = 0;
-            }
-            groupCounts[node.group]++;
-        });
-    
-        // Nodos más conectados
-        const connectedNodes = {};
+    function handleMouseOver(event, d) {
+        // Resaltar nodo y enlaces conectados directamente
+        const connectedNodes = new Set();
+        const connectedLinks = new Set();
         data.links.forEach(link => {
-            if (!connectedNodes[link.source]) {
-                connectedNodes[link.source] = 0;
-            }
-            if (!connectedNodes[link.target]) {
-                connectedNodes[link.target] = 0;
-            }
-            connectedNodes[link.source]++;
-            connectedNodes[link.target]++;
-        });
-    
-        // Encontrar nodo más conectado
-        let mostConnectedNode = '';
-        let maxConnections = 0;
-        Object.keys(connectedNodes).forEach(nodeId => {
-            if (connectedNodes[nodeId] > maxConnections) {
-                mostConnectedNode = nodeId;
-                maxConnections = connectedNodes[nodeId];
+            if (link.source.id === d.id) {
+                connectedNodes.add(link.target.id);
+                connectedLinks.add(link);
+            } else if (link.target.id === d.id) {
+                connectedNodes.add(link.source.id);
+                connectedLinks.add(link);
             }
         });
-    
-        // Crear el informe
-        const report = `
-            <h2>Informe de Análisis de Datos</h2>
-            <p><strong>Número total de nodos:</strong> ${nodesCount}</p>
-            <p><strong>Número total de enlaces:</strong> ${linksCount}</p>
-            <h3>Nodos por Grupo</h3>
-            <ul>
-                ${Object.keys(groupCounts).map(group => `<li>Grupo ${group}: ${groupCounts[group]} nodos</li>`).join('')}
-            </ul>
-            <h3>Nodo más conectado</h3>
-            <p><strong>ID:</strong> ${mostConnectedNode}</p>
-            <p><strong>Número de conexiones:</strong> ${maxConnections}</p>
-        `;
-    
-        // Mostrar el informe en una ventana o en un elemento HTML
-        const reportWindow = window.open('', '_blank');
-        reportWindow.document.body.innerHTML = report;
+
+        // Cambiar el color de los nodos
+        svg.selectAll('.node')
+            .attr('fill', node => connectedNodes.has(node.id) || node.id === d.id ? getNodeColor(node.group) : '#ddd')
+            .attr('opacity', node => connectedNodes.has(node.id) || node.id === d.id ? 1 : 0.3);
+
+        // Cambiar el color de los enlaces
+        svg.selectAll('.link')
+            .attr('stroke', link => connectedLinks.has(link) ? '#aaa' : '#eee')
+            .attr('opacity', link => connectedLinks.has(link) ? 1 : 0.3);
     }
-    
-    // Botón para generar el informe
-    document.getElementById('generateReportBtn').addEventListener('click', function() {
-        const jsonData = {
-            // Aquí iría el JSON con los datos del grafo
-        };
-        generateReport(jsonData);
+
+    function handleMouseOut() {
+        // Restaurar color y opacidad de todos los nodos y enlaces
+        svg.selectAll('.node')
+            .attr('fill', d => getNodeColor(d.group))
+            .attr('opacity', 1);
+
+        svg.selectAll('.link')
+            .attr('stroke', '#aaa')
+            .attr('opacity', 1);
+    }
+
+    function handleClick(event, d) {
+        // Resaltar el nodo y sus conexiones al hacer clic en él
+        const clickedNode = d;
+        
+        // Resaltar nodo y enlaces conectados directamente
+        svg.selectAll('.node')
+            .attr('fill', node => node === clickedNode ? '#ff0000' : '#ddd')
+            .attr('opacity', node => node === clickedNode ? 1 : 0.3);
+
+        svg.selectAll('.link')
+            .attr('stroke', link => link.source === clickedNode || link.target === clickedNode ? '#ffa500' : '#eee')  // Cambiar el color del enlace
+            .attr('opacity', link => link.source === clickedNode || link.target === clickedNode ? 1 : 0.3);  // Cambiar la opacidad del enlace
+
+        // Mostrar información detallada del nodo
+        const totalConnections = data.links.filter(link => link.source === clickedNode || link.target === clickedNode).length;
+        const commonServices = data.links.filter(link => (link.source === clickedNode || link.target === clickedNode) && link.group === 2).length;
+        const anomalyServices = data.links.filter(link => (link.source === clickedNode || link.target === clickedNode) && link.group === 3).length;
+
+        const infoDiv = document.getElementById('info');
+        infoDiv.innerHTML = `
+            <h3>Información detallada de la IP ${clickedNode.id}</h3>
+            <p>Total de conexiones: ${totalConnections}</p>
+            <p>Servicios comunes: ${commonServices}</p>
+            <p>Anomalías: ${anomalyServices}</p>
+        `;
+    }
+
+    // Añadir funcionalidad de búsqueda
+    const searchInput = document.getElementById('searchInput');
+    searchInput.addEventListener('input', function(event) {
+        const searchText = event.target.value.toLowerCase();
+
+        const filteredNodes = data.nodes.filter(node => node.id.toLowerCase().includes(searchText));
+
+        // Ocultar nodos que no coinciden con el texto de búsqueda
+        svg.selectAll('.node')
+            .style('display', node => filteredNodes.some(filteredNode => filteredNode.id === node.id) ? 'inline' : 'none');
+
+        // Ocultar enlaces que no están conectados a nodos visibles
+        svg.selectAll('.link')
+            .style('display', link => {
+                const sourceVisible = filteredNodes.some(filteredNode => filteredNode.id === link.source.id);
+                const targetVisible = filteredNodes.some(filteredNode => filteredNode.id === link.target.id);
+                return sourceVisible && targetVisible ? 'inline' : 'none';
+            });
     });
-    
+
+    // Añadir funcionalidad de filtrado por tipo de nodo
+    const filterSelect = document.getElementById('filterSelect');
+    filterSelect.addEventListener('change', function(event) {
+        const selectedGroup = parseInt(event.target.value);
+
+        // Filtrar nodos por grupo
+        const filteredNodes = selectedGroup === 0 ? data.nodes : data.nodes.filter(node => node.group === selectedGroup);
+
+        // Mostrar todos los nodos
+        svg.selectAll('.node').style('display', 'inline');
+
+        // Mostrar todos los enlaces
+        svg.selectAll('.link').style('display', 'inline');
+
+        // Si se selecciona "Todos", no necesitamos realizar más filtrado
+        if (selectedGroup === 0) return;
+
+        // Ocultar nodos que no pertenecen al grupo seleccionado
+        svg.selectAll('.node')
+            .transition().duration(500)  // Animación suave
+            .style('display', node => filteredNodes.some(filteredNode => filteredNode.id === node.id) ? 'inline' : 'none');
+
+        // Ocultar enlaces que no están conectados a nodos visibles
+        svg.selectAll('.link')
+            .transition().duration(500)  // Animación suave
+            .style('display', link => {
+                const sourceVisible = filteredNodes.some(filteredNode => filteredNode.id === link.source.id);
+                const targetVisible = filteredNodes.some(filteredNode => filteredNode.id === link.target.id);
+                return sourceVisible && targetVisible ? 'inline' : 'none';
+            });
+    });
 });

@@ -1,102 +1,27 @@
 {
     "nodes": [
         {
-            "id": "80.245.2.142",
+            "id": "8.8.8.8",
             "group": 1
-        },
-        {
-            "id": "http:8008",
-            "group": 3
-        },
-        {
-            "id": "194.30.81.20",
-            "group": 1
-        },
-        {
-            "id": "http:80",
-            "group": 2
         },
         {
             "id": "https:443",
             "group": 2
         },
         {
-            "id": "143.47.40.18",
-            "group": 1
-        },
-        {
             "id": "domain:53",
             "group": 2
-        },
-        {
-            "id": "http:443",
-            "group": 3
         }
     ],
     "links": [
         {
-            "source": "80.245.2.142",
-            "target": "http:8008",
-            "value": 1
-        },
-        {
-            "source": "194.30.81.20",
-            "target": "http:80",
-            "value": 1
-        },
-        {
-            "source": "194.30.81.20",
+            "source": "8.8.8.8",
             "target": "https:443",
             "value": 1
         },
         {
-            "source": "143.47.40.18",
-            "target": "http:80",
-            "value": 1
-        },
-        {
-            "source": "143.47.40.18",
-            "target": "https:443",
-            "value": 1
-        },
-        {
-            "source": "80.245.2.142",
+            "source": "8.8.8.8",
             "target": "domain:53",
-            "value": 1
-        },
-        {
-            "source": "80.245.2.142",
-            "target": "http:80",
-            "value": 1
-        },
-        {
-            "source": "80.245.2.142",
-            "target": "http:443",
-            "value": 1
-        },
-        {
-            "source": "194.30.81.20",
-            "target": "domain:53",
-            "value": 1
-        },
-        {
-            "source": "143.47.40.18",
-            "target": "domain:53",
-            "value": 1
-        },
-        {
-            "source": "80.245.2.142",
-            "target": "domain:53",
-            "value": 1
-        },
-        {
-            "source": "80.245.2.142",
-            "target": "http:80",
-            "value": 1
-        },
-        {
-            "source": "80.245.2.142",
-            "target": "http:443",
             "value": 1
         }
     ]
