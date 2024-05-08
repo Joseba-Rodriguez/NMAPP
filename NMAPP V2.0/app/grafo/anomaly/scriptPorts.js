@@ -37,7 +37,7 @@ d3.json('graph_data_anomaly.json').then(function(data) {
 
     node.append('circle')
         .attr('r', 10)
-        .attr('fill', d => getNodeColor(d.group))
+        .attr('fill', d => getNodeColor(d))
         .attr('stroke', '#fff')
         .attr('stroke-width', 2)
         .style('cursor', 'pointer');  // Cambiar el cursor al pasar sobre el nodo
@@ -47,9 +47,14 @@ d3.json('graph_data_anomaly.json').then(function(data) {
         .attr('dy', '.35em')
         .style('font-size', '12px')
         .style('font-family', 'Arial')
-        .style('fill', d => getNodeColor(d.group)) // Ajustar el color del texto al color del nodo
+        .style('fill', d => {
+            if (d.vulnerabilities && d.vulnerabilities.length > 0) {
+                return '#FF0000'; // Color rojo para alerta de vulnerabilidad
+            } else {
+                return getNodeColor(d); // Obtener el color del nodo
+            }
+        })
         .text(d => d.id);
-
     simulation.on('tick', () => {
         link.attr('x1', d => d.source.x)
             .attr('y1', d => d.source.y)
@@ -59,13 +64,19 @@ d3.json('graph_data_anomaly.json').then(function(data) {
         node.attr('transform', d => `translate(${d.x},${d.y})`);
     });
 
-    function getNodeColor(group) {
+    function getNodeColor(node) {
         const colorMap = {
             1: '#1f77b4',  // Azul para IP
             2: '#2ca02c',  // Verde para Servicio Común
-            3: '#ff0000'   // Rojo para Anómalo
+            3: '#ffcc00'   // Rojo para Anómalo
         };
-        return colorMap[group];
+
+        // Verificar si hay vulnerabilidades asociadas al nodo
+        if (node.vulnerabilities && node.vulnerabilities.length > 0) {
+            return '#'; // Amarillo para alerta de vulnerabilidad
+        }
+        
+        return colorMap[node.group];
     }
 
     function dragstarted(event, d) {
@@ -124,28 +135,41 @@ d3.json('graph_data_anomaly.json').then(function(data) {
     function handleClick(event, d) {
         // Resaltar el nodo y sus conexiones al hacer clic en él
         const clickedNode = d;
-        
+    
         // Resaltar nodo y enlaces conectados directamente
         svg.selectAll('.node')
             .attr('fill', node => node === clickedNode ? '#ff0000' : '#ddd')
             .attr('opacity', node => node === clickedNode ? 1 : 0.3);
-
+    
         svg.selectAll('.link')
-            .attr('stroke', link => link.source === clickedNode || link.target === clickedNode ? '#ffa500' : '#eee')  // Cambiar el color del enlace
-            .attr('opacity', link => link.source === clickedNode || link.target === clickedNode ? 1 : 0.3);  // Cambiar la opacidad del enlace
-
+            .attr('stroke', link => link.source === clickedNode || link.target === clickedNode ? '#ffa500' : '#eee') // Cambiar el color del enlace
+            .attr('opacity', link => link.source === clickedNode || link.target === clickedNode ? 1 : 0.3); // Cambiar la opacidad del enlace
+    
         // Mostrar información detallada del nodo
-        const totalConnections = data.links.filter(link => link.source === clickedNode || link.target === clickedNode).length;
-        const commonServices = data.links.filter(link => (link.source === clickedNode || link.target === clickedNode) && link.group === 2).length;
-        const anomalyServices = data.links.filter(link => (link.source === clickedNode || link.target === clickedNode) && link.group === 3).length;
-
+        let infoHTML = `<h3>Información detallada de la IP ${clickedNode.id}</h3>`;
+        if (clickedNode.vulnerabilities && clickedNode.vulnerabilities.length > 0) {
+            // Si hay vulnerabilidades, mostrarlas como una lista
+            infoHTML += '<p>Vulnerabilidades:</p>';
+            infoHTML += '<ul>';
+            clickedNode.vulnerabilities.forEach(vulnerability => {
+                infoHTML += `<li>${vulnerability}</li>`;
+            });
+            infoHTML += '</ul>';
+        } else {
+            // Si no hay vulnerabilidades, mostrar el total de conexiones, servicios comunes y anomalías
+            const totalConnections = data.links.filter(link => link.source === clickedNode || link.target === clickedNode).length;
+            const commonServices = data.links.filter(link => (link.source === clickedNode || link.target === clickedNode) && link.group === 2).length;
+            const anomalyServices = data.links.filter(link => (link.source === clickedNode || link.target === clickedNode) && link.group === 3).length;
+    
+            infoHTML += `
+                <p>Total de conexiones: ${totalConnections}</p>
+                <p>Servicios comunes: ${commonServices}</p>
+                <p>Anomalías: ${anomalyServices}</p>
+            `;
+        }
+    
         const infoDiv = document.getElementById('info');
-        infoDiv.innerHTML = `
-            <h3>Información detallada de la IP ${clickedNode.id}</h3>
-            <p>Total de conexiones: ${totalConnections}</p>
-            <p>Servicios comunes: ${commonServices}</p>
-            <p>Anomalías: ${anomalyServices}</p>
-        `;
+        infoDiv.innerHTML = infoHTML;
     }
 
     // Añadir funcionalidad de búsqueda
