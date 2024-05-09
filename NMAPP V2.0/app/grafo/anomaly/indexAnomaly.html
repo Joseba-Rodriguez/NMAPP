@@ -5,158 +5,86 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grafo de Escaneo NMAP</title>
     <script src="https://d3js.org/d3.v7.min.js"></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Agregamos Font Awesome para los iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/compromise"></script>
+
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Roboto', sans-serif;
-            background-color: #292929; /* Fondo oscuro */
-            color: #fff;
-            overflow: hidden; /* Oculta barras de desplazamiento */
-        }
+        /* Estilos para el pop-up */
+        .popup {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
 
-        /* Contenedor principal */
-        .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh; /* Toma el 100% del viewport */
-            position: relative;
-        }
-
-        /* Estilos para los elementos de entrada */
-        input, select {
-            padding: 10px;
-            margin: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             border-radius: 5px;
-            border: 1px solid #555;
-            background-color: #333;
-            color: #fff;
-            font-family: 'Roboto', sans-serif;
-            font-size: 16px;
-            width: 80%; /* Ancho del 80% del contenedor */
-            max-width: 100px; /* Máximo ancho */
+            padding: 20px;
+            z-index: 999;
         }
 
-        /* Estilos para el botón */
-        button {
-            padding: 10px 20px;
-            margin: 5px;
-            border-radius: 5px;
-            border: none;
+        .popup-content {
+            max-width: 300px;
+        }
+
+        /* Estilos para el botón de información */
+        .info-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
             background-color: #007bff;
-            color: #fff;
-            font-family: 'Roboto', sans-serif;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        button:hover {
-            background-color: #0056b3;
-        }
-
-        /* Estilos para el tooltip */
-        #tooltip {
-            font-size: 12px;
-            background-color: #000;
-            border: 1px solid #fff;
-            padding: 5px;
-            opacity: 0;
-            color: #fff;
-        }
-
-        /* Estilos para el SVG */
-        svg {
-            display: block;
-            margin: auto;
-            width: 100%;
-            height: calc(100vh - 150px); /* Ajuste para ocupar el espacio restante */
-            max-height: 600px; /* Altura máxima */
-        }
-
-        /* Estilos para la información del nodo */
-        #info {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            background-color: rgba(0, 0, 0, 0.5);
-            border: 1px solid #555;
-            padding: 10px;
-            font-family: 'Roboto', sans-serif;
-            font-size: 16px;
-        }
-
-        /* Estilos para la leyenda */
-        #legend {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background-color: rgba(0, 0, 0, 0.5);
-            border: 1px solid #555;
-            padding: 10px;
-            font-family: 'Roboto', sans-serif;
-            font-size: 16px;
-        }
-
-        #legend h3 {
+            color: white;
             font-size: 20px;
-            color: #fff;
-            margin-top: 0;
-        }
-
-        #legend ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        #legend li {
-            margin-bottom: 3px;
-        }
-
-        #legend span {
-            font-weight: bold;
-        }
-
-        #legend span.ip {
-            color: #1f77b4;
-        }
-
-        #legend span.servicio {
-            color: #2ca02c;
-        }
-
-        #legend span.anomalo {
-            color: #ff0000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 1000;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Búsqueda y filtrado -->
-        <div>
-            <label for="searchInput">Buscar:</label>
-            <input type="text" id="searchInput">
+        <!-- Chatbot -->
+        <div id="chat-container" class="chat-closed">
+            <!-- Botón para expandir o cerrar el chat -->
+            <div id="toggleChatButton" onclick="toggleChat()">
+                <i class="fas fa-robot"></i>
+            </div>
+            <!-- Formulario de entrada de pregunta más grande -->
+            <div id="chat-input">
+                <input type="text" id="input" placeholder="Preguntar al chatbot...">
+                <button onclick="sendMessage()">Enviar</button>
+            </div>
+            <!-- Contenedor para el chat -->
+            <div id="chat-box"></div>
         </div>
-        <div>
-            <label for="filterSelect">Filtrar por Tipo de Nodo:</label>
-            <select id="filterSelect">
-                <option value="0">Todos</option>
-                <option value="1">IP</option>
-                <option value="2">Servicio Común</option>
-                <option value="3">Anómalo</option>
-            </select>
-        </div>
-
         <!-- SVG -->
         <svg></svg>
 
+        <!-- Pop-up de información -->
+        <div class="popup" id="infoPopup">
+            <div class="popup-content">
+                <h3>Preguntas Sugeridas</h3>
+                <button onclick="insertQuestion('¿Cuáles son los nodos en el grupo 1?')">Nodos en grupo 1</button>
+                <button onclick="insertQuestion('Dime información sobre el nodo \'http:443\'.')">Información sobre nodo http:443</button>
+                <button onclick="insertQuestion('¿Qué nodos tienen vulnerabilidades?')">Nodos con vulnerabilidades</button>
+                <button onclick="insertQuestion('¿Cuál es el valor promedio de los enlaces?')">Valor promedio de enlaces</button>
+                <!-- Agrega más preguntas sugeridas aquí -->
+            </div>
+        </div>
+
+        <!-- Botón de información -->
+        <div class="info-button" onclick="toggleInfoPopup()">
+            <i class="fas fa-info"></i>
+        </div>
+
         <!-- Tooltip e información -->
         <div id="tooltip"></div>
-        <div id="info"></div>
 
         <!-- Leyenda -->
         <div id="legend">
@@ -170,5 +98,26 @@
     </div>
 
     <script src="scriptPorts.js"></script>
+    <script src="chatbot.js"></script>
+    <script>
+        function toggleChat() {
+            const chatContainer = document.getElementById('chat-container');
+            chatContainer.classList.toggle('chat-closed');
+
+            const toggleButtonIcon = document.querySelector('#toggleChatButton i');
+            toggleButtonIcon.classList.toggle('fa-robot');
+            toggleButtonIcon.classList.toggle('fa-times');
+        }
+
+        function toggleInfoPopup() {
+            const popup = document.getElementById('infoPopup');
+            popup.style.display = popup.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function insertQuestion(question) {
+            document.getElementById("input").value = question;
+            toggleInfoPopup(); // Cierra el pop-up después de insertar la pregunta
+        }
+    </script>
 </body>
 </html>

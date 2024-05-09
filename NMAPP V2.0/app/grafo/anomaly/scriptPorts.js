@@ -1,7 +1,7 @@
 // Cargar datos desde el archivo JSON
 d3.json('graph_data_anomaly.json').then(function(data) {
     const svg = d3.select('svg')
-        .attr('width', '100%')
+        .attr('width', '150%')
         .attr('height', '100%')
         .call(d3.zoom().on('zoom', function(event) {
             svg.attr('transform', event.transform);
