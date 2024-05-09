@@ -132,45 +132,46 @@ d3.json('graph_data_anomaly.json').then(function(data) {
             .attr('opacity', 1);
     }
 
-    function handleClick(event, d) {
-        // Resaltar el nodo y sus conexiones al hacer clic en él
-        const clickedNode = d;
-    
-        // Resaltar nodo y enlaces conectados directamente
-        svg.selectAll('.node')
-            .attr('fill', node => node === clickedNode ? '#ff0000' : '#ddd')
-            .attr('opacity', node => node === clickedNode ? 1 : 0.3);
-    
-        svg.selectAll('.link')
-            .attr('stroke', link => link.source === clickedNode || link.target === clickedNode ? '#ffa500' : '#eee') // Cambiar el color del enlace
-            .attr('opacity', link => link.source === clickedNode || link.target === clickedNode ? 1 : 0.3); // Cambiar la opacidad del enlace
-    
-        // Mostrar información detallada del nodo
-        let infoHTML = `<h3>Información detallada de la IP ${clickedNode.id}</h3>`;
-        if (clickedNode.vulnerabilities && clickedNode.vulnerabilities.length > 0) {
-            // Si hay vulnerabilidades, mostrarlas como una lista
-            infoHTML += '<p>Vulnerabilidades:</p>';
-            infoHTML += '<ul>';
-            clickedNode.vulnerabilities.forEach(vulnerability => {
-                infoHTML += `<li>${vulnerability}</li>`;
-            });
-            infoHTML += '</ul>';
-        } else {
-            // Si no hay vulnerabilidades, mostrar el total de conexiones, servicios comunes y anomalías
-            const totalConnections = data.links.filter(link => link.source === clickedNode || link.target === clickedNode).length;
-            const commonServices = data.links.filter(link => (link.source === clickedNode || link.target === clickedNode) && link.group === 2).length;
-            const anomalyServices = data.links.filter(link => (link.source === clickedNode || link.target === clickedNode) && link.group === 3).length;
-    
-            infoHTML += `
-                <p>Total de conexiones: ${totalConnections}</p>
-                <p>Servicios comunes: ${commonServices}</p>
-                <p>Anomalías: ${anomalyServices}</p>
-            `;
-        }
-    
-        const infoDiv = document.getElementById('info');
-        infoDiv.innerHTML = infoHTML;
+function handleClick(event, d) {
+    // Resaltar el nodo y sus conexiones al hacer clic en él
+    const clickedNode = d;
+
+    // Resaltar nodo y enlaces conectados directamente
+    svg.selectAll('.node')
+        .attr('fill', node => node === clickedNode ? '#ff0000' : '#ddd')
+        .attr('opacity', node => node === clickedNode ? 1 : 0.3);
+
+    svg.selectAll('.link')
+        .attr('stroke', link => link.source === clickedNode || link.target === clickedNode ? '#ffa500' : '#eee')
+        .attr('opacity', link => link.source === clickedNode || link.target === clickedNode ? 1 : 0.3);
+
+    // Mostrar información detallada del nodo
+    let infoHTML = `<h3>Información detallada de la IP ${clickedNode.id}</h3>`;
+    if (clickedNode.vulnerabilities && clickedNode.vulnerabilities.length > 0) {
+        // Si hay vulnerabilidades, mostrarlas como una lista
+        infoHTML += '<p>Vulnerabilidades:</p>';
+        infoHTML += '<ul>';
+        clickedNode.vulnerabilities.forEach(vulnerability => {
+            infoHTML += `<li>${vulnerability}</li>`;
+        });
+        infoHTML += '</ul>';
     }
+
+    // Calcular el total de conexiones, servicios comunes y anomalías
+    const totalConnections = data.links.filter(link => link.source === clickedNode || link.target === clickedNode).length;
+    const commonServices = data.links.filter(link => (link.source === clickedNode || link.target === clickedNode) && link.group === 2).length;
+    const anomalyServices = data.links.filter(link => (link.source === clickedNode || link.target === clickedNode) && link.group === 3).length;
+
+    infoHTML += `
+        <p>Total de conexiones: ${totalConnections}</p>
+        <p>Servicios comunes: ${commonServices}</p>
+        <p>Anomalías: ${anomalyServices}</p>
+    `;
+
+    const infoDiv = document.getElementById('info');
+    infoDiv.innerHTML = infoHTML;
+}
+
 
     // Añadir funcionalidad de búsqueda
     const searchInput = document.getElementById('searchInput');
