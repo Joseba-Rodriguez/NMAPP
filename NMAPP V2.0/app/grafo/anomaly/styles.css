@@ -7,7 +7,40 @@ body {
     overflow: hidden; /* Oculta barras de desplazamiento */
 }
 
+        /* Estilos para el pop-up */
+        .popup {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
 
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            padding: 20px;
+            z-index: 999;
+        }
+
+        .popup-content {
+            max-width: 300px;
+        }
+
+        /* Estilos para el botón de información */
+        .info-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #007bff;
+            color: white;
+            font-size: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 1000;
+        }
 
 /* Estilos para los elementos de entrada */
 input, select {

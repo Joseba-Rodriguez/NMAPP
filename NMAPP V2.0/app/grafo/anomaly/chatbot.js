@@ -1,5 +1,5 @@
-// Función para cargar los datos del grafo desde un archivo JSON
-function cargarDatos(callback) {
+// Function to load graph data from a JSON file
+function loadData(callback) {
     const xhr = new XMLHttpRequest();
     xhr.overrideMimeType("application/json");
     xhr.open('GET', 'graph_data_anomaly.json', true);
@@ -9,182 +9,245 @@ function cargarDatos(callback) {
                 const data = JSON.parse(xhr.responseText);
                 callback(null, data);
             } else {
-                callback('Error al cargar los datos del grafo', null);
+                callback('Error loading graph data', null);
             }
         }
     };
     xhr.send(null);
 }
 
-// Función para obtener información sobre los grupos de nodos
-function obtenerInfoGrupos(data) {
-    const grupos = {};
+// Function to get information about node groups
+function getGroupInfo(data) {
+    const groups = {};
     data.nodes.forEach(node => {
-        if (!grupos[node.group]) {
-            grupos[node.group] = [];
+        if (!groups[node.group]) {
+            groups[node.group] = [];
         }
-        grupos[node.group].push(node.id);
+        groups[node.group].push(node.id);
     });
-    return grupos;
+    return groups;
 }
 
-// Función para obtener información sobre los valores de los enlaces
-function obtenerInfoValoresEnlaces(data) {
-    const valores = data.links.map(link => link.value);
+// Function to get information about link values
+function getLinkValueInfo(data) {
+    const values = data.links.map(link => link.value);
     return {
-        total: valores.length,
-        promedio: valores.reduce((acc, curr) => acc + curr, 0) / valores.length,
-        maximo: Math.max(...valores),
-        minimo: Math.min(...valores)
+        total: values.length,
+        average: values.reduce((acc, curr) => acc + curr, 0) / values.length,
+        max: Math.max(...values),
+        min: Math.min(...values)
     };
 }
 
-// Función para obtener información sobre las relaciones de un nodo
-function obtenerRelacionesNodo(nodoId, data) {
-    const conexiones = [];
+// Function to get information about node relations
+function getNodeRelations(nodeId, data) {
+    const connections = [];
     data.links.forEach(link => {
-        if (link.source === nodoId) {
-            conexiones.push(link.target);
-        } else if (link.target === nodoId) {
-            conexiones.push(link.source);
+        if (link.source === nodeId) {
+            connections.push(link.target);
+        } else if (link.target === nodeId) {
+            connections.push(link.source);
         }
     });
-    return conexiones;
+    return connections;
 }
 
-// Función para obtener información sobre la topología del grafo
-function obtenerInfoTopologia(data) {
-    const nodosConexiones = {};
+// Function to get information about graph topology
+function getTopologyInfo(data) {
+    const nodeConnections = {};
     data.nodes.forEach(node => {
-        nodosConexiones[node.id] = obtenerRelacionesNodo(node.id, data);
+        nodeConnections[node.id] = getNodeRelations(node.id, data);
     });
-    return nodosConexiones;
+    return nodeConnections;
 }
 
-// Función para procesar la pregunta del usuario utilizando NLP
-function procesarPreguntaNLP(pregunta, data) {
-    // Analizar la pregunta utilizando compromise.js
-    const doc = nlp(pregunta);
+// Function to process user question using NLP
+function processQuestionNLP(question, data) {
+    // Analyze the question using compromise.js
+    console.log("Analyzing the question using compromise.js...");
+    const doc = nlp(question);
     
-    // Obtener la intención de la pregunta
-    const intencion = doc.match('#Verbo').text();
+    // Get the intention of the question
+    console.log("Extracting the intention of the question...");
+    const intention = doc.match('#Verb').text();
+    console.log("Question intention:", intention);
     
-    // Obtener los sustantivos relevantes de la pregunta
-    const sustantivos = doc.nouns().out('array');
+    // Get the relevant nouns from the question
+    console.log("Extracting relevant nouns...");
+    const nouns = doc.nouns().out('array');
+    console.log("Relevant nouns:", nouns);
     
-    // Lógica para identificar la intención de la pregunta y extraer información relevante
-    if (intencion === 'grupos') {
-        return obtenerInfoGrupos(data);
-    } else if (intencion === 'valores') {
-        return obtenerInfoValoresEnlaces(data);
-    } else if (intencion === 'relaciones') {
-        return obtenerRelacionesNodo(sustantivos[0], data);
-    } else if (intencion === 'topologia') {
-        return obtenerInfoTopologia(data);
+    // Logic to identify the question intention and extract relevant information
+    if (intention === 'groups') {
+        console.log("Identified intention: groups");
+        return getGroupInfo(data);
+    } else if (intention === 'values') {
+        console.log("Identified intention: values");
+        return getLinkValueInfo(data);
+    } else if (intention === 'relations') {
+        console.log("Identified intention: relations");
+        return getNodeRelations(nouns[0], data);
+    } else if (intention === 'topology') {
+        console.log("Identified intention: topology");
+        return getTopologyInfo(data);
     } else {
-        // Si la intención no coincide con ninguna conocida, responder de manera genérica
-        return "No estoy seguro de entender tu pregunta. ¿Puedes ser más específico?";
+        // If intention cannot be identified, use NLP information to generate a response
+        const nounsStr = nouns.length > 0 ? nouns.join(', ') : "no nouns";
+        console.log("Could not identify question intention. Showing relevant nouns:", nounsStr);
+        return `I cannot understand the intention of the question, but here are the relevant nouns: ${nounsStr}`;
     }
 }
 
-// Función para obtener información sobre los nodos según los sustantivos relevantes
-function obtenerInfoNodos(sustantivos, data) {
-    // Verificar si se menciona un nodo específico
-    if (sustantivos.length > 0) {
-        const nodo = data.nodes.find(node => node.id.includes(sustantivos[0]));
-        if (nodo) {
-            return `El nodo ${nodo.id} pertenece al grupo ${nodo.group}.`;
+// Function to get information about nodes based on relevant nouns
+function getNodeInfo(nouns, data) {
+    // Check if a specific node is mentioned
+    if (nouns.length > 0) {
+        const node = data.nodes.find(node => node.id.includes(nouns[0]));
+        if (node) {
+            return `Node ${node.id} belongs to group ${node.group}.`;
         } else {
-            return `Lo siento, no encontré información sobre el nodo ${sustantivos[0]}.`;
+            return `Sorry, I couldn't find information about node ${nouns[0]}.`;
         }
     } else {
-        // Si no se especifica un nodo, devolver una lista de todos los nodos
+        // If no node is specified, return a list of all nodes
         return data.nodes.map(node => node.id).join(', ');
     }
 }
 
-// Función para obtener información sobre los enlaces según los sustantivos relevantes
-function obtenerInfoEnlaces(sustantivos, data) {
-    // Verificar si se menciona un enlace específico
-    if (sustantivos.length > 0) {
-        const enlace = data.links.find(link => link.source.includes(sustantivos[0]) || link.target.includes(sustantivos[0]));
-        if (enlace) {
-            return `El enlace ${enlace.source} -> ${enlace.target} tiene un valor de ${enlace.value}.`;
+// Function to get information about links based on relevant nouns
+function getLinkInfo(nouns, data) {
+    // Check if a specific link is mentioned
+    if (nouns.length > 0) {
+        const link = data.links.find(link => link.source.includes(nouns[0]) || link.target.includes(nouns[0]));
+        if (link) {
+            return `Link ${link.source} -> ${link.target} has a value of ${link.value}.`;
         } else {
-            return `Lo siento, no encontré información sobre el enlace ${sustantivos[0]}.`;
+            return `Sorry, I couldn't find information about the link ${nouns[0]}.`;
         }
     } else {
-        // Si no se especifica un enlace, devolver una lista de todos los enlaces
+        // If no link is specified, return a list of all links
         return data.links.map(link => `${link.source} -> ${link.target}`).join(', ');
     }
 }
 
-// Función para obtener información sobre las vulnerabilidades según los sustantivos relevantes
-function obtenerInfoVulnerabilidades(sustantivos, data) {
-    // Verificar si se menciona un nodo con vulnerabilidades
-    const nodosConVulnerabilidades = data.nodes.filter(node => node.vulnerabilities && node.vulnerabilities.length > 0);
-    if (nodosConVulnerabilidades.length > 0) {
-        let infoVulnerabilidades = [];
-        nodosConVulnerabilidades.forEach(node => {
-            if (sustantivos.length === 0 || sustantivos.some(sustantivo => node.id.includes(sustantivo))) {
-                infoVulnerabilidades.push(`Nodo ${node.id}:`);
-                infoVulnerabilidades.push(...node.vulnerabilities);
+// Function to get information about vulnerabilities based on relevant nouns
+function getVulnerabilityInfo(nouns, data) {
+    // Check if a node with vulnerabilities is mentioned
+    const nodesWithVulnerabilities = data.nodes.filter(node => node.vulnerabilities && node.vulnerabilities.length > 0);
+    if (nodesWithVulnerabilities.length > 0) {
+        let vulnerabilityInfo = [];
+        nodesWithVulnerabilities.forEach(node => {
+            if (nouns.length === 0 || nouns.some(noun => node.id.includes(noun))) {
+                vulnerabilityInfo.push(`Node ${node.id}:`);
+                vulnerabilityInfo.push(...node.vulnerabilities);
             }
         });
-        if (infoVulnerabilidades.length > 0) {
-            return infoVulnerabilidades.join('\n');
+        if (vulnerabilityInfo.length > 0) {
+            return vulnerabilityInfo.join('\n');
         } else {
-            return "No encontré información sobre vulnerabilidades para los nodos especificados.";
+            return "I couldn't find information about vulnerabilities for the specified nodes.";
         }
     } else {
-        return "No hay nodos con vulnerabilidades en el grafo.";
+        return "There are no nodes with vulnerabilities in the graph.";
     }
 }
 
-// Función para procesar la pregunta del usuario
-function procesarPregunta(data, userInput) {
-    // Convertir la entrada del usuario a minúsculas para facilitar la comparación
-    userInput = userInput.toLowerCase();
+// Function to process user question using NLP
+function processQuestion(userInput, data) {
+    console.log("Processing user question...");
+    console.log("User input:", userInput);
 
-    // Lógica para procesar diferentes tipos de preguntas
-    if (userInput.includes('nodos') || userInput.includes('nodo')) {
-        // Obtener información sobre los nodos
-        return obtenerInfoNodos([], data);
-    } else if (userInput.includes('enlaces') || userInput.includes('enlace')) {
-        // Obtener información sobre los enlaces
-        return obtenerInfoEnlaces([], data);
-    } else if (userInput.includes('vulnerabilidades') || userInput.includes('vulnerabilidad')) {
-        // Obtener información sobre las vulnerabilidades
-        return obtenerInfoVulnerabilidades([], data);
+    // Analyze the question using compromise.js
+    console.log("Analyzing the question using compromise.js...");
+    const doc = nlp(userInput);
+    
+    // Get the intention of the question
+    console.log("Extracting the intention of the question...");
+    const intention = doc.match('#Verb').text();
+    console.log("Question intention:", intention);
+    
+    // Get the relevant nouns from the question
+    console.log("Extracting relevant nouns...");
+    const nouns = doc.nouns().out('array');
+    console.log("Relevant nouns:", nouns);
+    
+    // Logic to identify the question intention and extract relevant information
+    if (intention === 'groups') {
+        console.log("Identified intention: groups");
+        return getGroupInfo(data);
+    } else if (intention === 'values') {
+        console.log("Identified intention: values");
+        return getLinkValueInfo(data);
+    } else if (intention === 'relations') {
+        console.log("Identified intention: relations");
+        return getNodeRelations(nouns[0], data);
+    } else if (intention === 'topology') {
+        console.log("Identified intention: topology");
+        return getTopologyInfo(data);
     } else {
-        // Si la pregunta no coincide con ninguno de los patrones anteriores, utilizar NLP para comprenderla mejor
-        return procesarPreguntaNLP(userInput, data);
+        // If intention cannot be identified, use NLP information to generate a response
+        console.log("Could not identify question intention. Processing generic question...");
+        return processGenericQuestion(userInput, data);
     }
 }
 
-// Función para enviar el mensaje del usuario y obtener la respuesta del chatbot
+// Function to handle generic questions
+function processGenericQuestion(userInput, data) {
+    // Analyze the question using compromise.js
+    console.log("Analyzing generic question using compromise.js...");
+    const doc = nlp(userInput);
+    
+    // Get the keywords from the question
+    console.log("Extracting keywords from the question...");
+    const keywords = doc.match('(#Verb|#Noun)').out('array');
+    console.log("Keywords:", keywords);
+
+    // Logic to process different types of questions
+    if (keywords.includes('nodes') || keywords.includes('node')) {
+        console.log("Identified intention: nodes");
+        return getNodeInfo([], data);
+    } else if (keywords.includes('links') || keywords.includes('link')) {
+        console.log("Identified intention: links");
+        return getLinkInfo([], data);
+    } else if (keywords.includes('vulnerabilities') || keywords.includes('vulnerability')) {
+        console.log("Identified intention: vulnerabilities");
+        return getVulnerabilityInfo([], data);
+    } else if (keywords.includes('topology')) {
+        console.log("Identified intention: topology");
+        return getTopologyInfo(data);
+    } else if (keywords.includes('relations')) {
+        console.log("Identified intention: relations");
+        return "Please specify a node ID to get its relations.";
+    } else {
+        // If the question doesn't match any patterns above, provide a generic response
+        console.log("Could not identify specific intention. Providing generic response...");
+        return "I couldn't understand your question. Can you please rephrase?";
+    }
+}
+
+// Function to send user message and get chatbot response
 function sendMessage() {
     const userInput = document.getElementById('input').value.trim();
     const chatbox = document.getElementById('chat-box');
 
-    cargarDatos(function(error, data) {
+    loadData(function(error, data) {
         if (error) {
-            // Manejar errores durante la carga de datos
-            console.error('Error al cargar los datos:', error);
-            chatbox.innerHTML += `<div><strong>Chatbot:</strong> Lo siento, ha ocurrido un error.</div>`;
+            // Handle errors during data loading
+            console.error('Error loading data:', error);
+            chatbox.innerHTML += `<div><strong>Chatbot:</strong> Sorry, an error occurred.</div>`;
             return;
         }
 
-        const respuesta = procesarPregunta(data, userInput);
+        const response = processQuestion(userInput, data);
 
-        // Mostrar la pregunta del usuario y la respuesta del chatbot
-        chatbox.innerHTML += `<div><strong>Usuario:</strong> ${userInput}</div>`;
-        chatbox.innerHTML += `<div><strong>Chatbot:</strong> ${respuesta}</div>`;
+        // Show user question and chatbot response
+        chatbox.innerHTML += `<div><strong>User:</strong> ${userInput}</div>`;
+        chatbox.innerHTML += `<div><strong>Chatbot:</strong> ${response}</div>`;
 
-        // Limpiar el campo de entrada
+        // Clear input field
         document.getElementById('input').value = '';
 
-        // Desplazar la ventana de chat al fondo
+        // Scroll chat window to bottom
         chatbox.scrollTop = chatbox.scrollHeight;
     });
 }
