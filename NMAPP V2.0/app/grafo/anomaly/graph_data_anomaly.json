@@ -1,43 +1,27 @@
 {
     "nodes": [
         {
-            "id": "192.168.0.10",
+            "id": "89.248.100.102",
             "group": 1
         },
         {
-            "id": "tcpwrapped:1080",
-            "group": 3
-        },
-        {
-            "id": "tcpwrapped:10001",
-            "group": 3
-        },
-        {
-            "id": "192.168.0.12",
-            "group": 1
-        },
-        {
-            "id": "http:6543",
-            "group": 3
-        },
-        {
-            "id": "192.168.0.13",
-            "group": 1
-        },
-        {
-            "id": "tcpwrapped:53",
-            "group": 3
-        },
-        {
-            "id": "192.168.0.23",
-            "group": 1
-        },
-        {
-            "id": "microsoft-ds:445",
+            "id": "ftp:21",
             "group": 2
         },
         {
-            "id": "192.168.0.1",
+            "id": "imaps:993",
+            "group": 2
+        },
+        {
+            "id": "62.97.141.227",
+            "group": 1
+        },
+        {
+            "id": "smtp:25",
+            "group": 2
+        },
+        {
+            "id": "194.143.194.237",
             "group": 1
         },
         {
@@ -45,43 +29,31 @@
             "group": 2
         },
         {
-            "id": "tcpwrapped:6543",
-            "group": 3
+            "id": "ssh:22",
+            "group": 2,
+            "vulnerabilities": [
+                "CVE-2012-1577\t7.5\thttps://vulners.com/cve/CVE-2012-1577",
+                "PRION:CVE-2019-6111\t5.8\thttps://vulners.com/prion/PRION:CVE-2019-6111",
+                "CVE-2019-6111\t5.8\thttps://vulners.com/cve/CVE-2019-6111",
+                "PRION:CVE-2018-15919\t5.0\thttps://vulners.com/prion/PRION:CVE-2018-15919",
+                "PRION:CVE-2018-15473\t5.0\thttps://vulners.com/prion/PRION:CVE-2018-15473",
+                "PRION:CVE-2017-15906\t5.0\thttps://vulners.com/prion/PRION:CVE-2017-15906",
+                "CVE-2018-15919\t5.0\thttps://vulners.com/cve/CVE-2018-15919",
+                "CVE-2018-15473\t5.0\thttps://vulners.com/cve/CVE-2018-15473",
+                "CVE-2017-15906\t5.0\thttps://vulners.com/cve/CVE-2017-15906",
+                "PRION:CVE-2019-16905\t4.4\thttps://vulners.com/prion/PRION:CVE-2019-16905",
+                "CVE-2020-14145\t4.3\thttps://vulners.com/cve/CVE-2020-14145",
+                "PRION:CVE-2019-6110\t4.0\thttps://vulners.com/prion/PRION:CVE-2019-6110",
+                "PRION:CVE-2019-6109\t4.0\thttps://vulners.com/prion/PRION:CVE-2019-6109",
+                "CVE-2019-6110\t4.0\thttps://vulners.com/cve/CVE-2019-6110",
+                "CVE-2019-6109\t4.0\thttps://vulners.com/cve/CVE-2019-6109",
+                "CVE-2023-51767\t3.5\thttps://vulners.com/cve/CVE-2023-51767",
+                "PRION:CVE-2018-20685\t2.6\thttps://vulners.com/prion/PRION:CVE-2018-20685",
+                "CVE-2018-20685\t2.6\thttps://vulners.com/cve/CVE-2018-20685"
+            ]
         },
         {
-            "id": "192.168.0.11",
-            "group": 1
-        },
-        {
-            "id": "arepa-cas:3030",
-            "group": 2
-        },
-        {
-            "id": "tcpwrapped:8888",
-            "group": 3
-        },
-        {
-            "id": "msrpc:135",
-            "group": 3
-        },
-        {
-            "id": "postgresql:5432",
-            "group": 2
-        },
-        {
-            "id": "https:443",
-            "group": 2
-        },
-        {
-            "id": "socks5:1080",
-            "group": 3
-        },
-        {
-            "id": "scp-config:10001",
-            "group": 2
-        },
-        {
-            "id": "netbios-ssn:139",
+            "id": "pop3s:995",
             "group": 2
         },
         {
@@ -117,109 +89,228 @@
             ]
         },
         {
+            "id": "pop3:110",
+            "group": 2
+        },
+        {
+            "id": "https-alt:8443",
+            "group": 3
+        },
+        {
+            "id": "62.97.141.229",
+            "group": 1
+        },
+        {
+            "id": "imap:143",
+            "group": 2
+        },
+        {
+            "id": "62.97.141.228",
+            "group": 1
+        },
+        {
             "id": "http:443",
-            "group": 3,
-            "vulnerabilities": [
-                "CVE-2024-24824\t6.5\thttps://vulners.com/cve/CVE-2024-24824",
-                "CVE-2017-12171\t6.4\thttps://vulners.com/cve/CVE-2017-12171",
-                "CVE-2024-2406\t5.5\thttps://vulners.com/cve/CVE-2024-2406",
-                "CVE-2023-43622\t5.0\thttps://vulners.com/cve/CVE-2023-43622",
-                "CVE-2023-31122\t5.0\thttps://vulners.com/cve/CVE-2023-31122",
-                "CVE-2024-24823\t3.6\thttps://vulners.com/cve/CVE-2024-24823",
-                "CVE-2016-8612\t3.3\thttps://vulners.com/cve/CVE-2016-8612",
-                "CVE-2023-45802\t2.6\thttps://vulners.com/cve/CVE-2023-45802"
-            ]
+            "group": 3
+        },
+        {
+            "id": "88.18.71.14",
+            "group": 1
+        },
+        {
+            "id": "smtp:587",
+            "group": 3
+        },
+        {
+            "id": "tcpwrapped:106",
+            "group": 3
+        },
+        {
+            "id": "62.97.141.225",
+            "group": 1
+        },
+        {
+            "id": "83.49.107.204",
+            "group": 1
+        },
+        {
+            "id": "62.97.141.226",
+            "group": 1
         }
     ],
     "links": [
         {
-            "source": "192.168.0.10",
-            "target": "tcpwrapped:1080",
+            "source": "89.248.100.102",
+            "target": "ftp:21",
             "value": 1
         },
         {
-            "source": "192.168.0.10",
-            "target": "tcpwrapped:10001",
+            "source": "89.248.100.102",
+            "target": "imaps:993",
             "value": 1
         },
         {
-            "source": "192.168.0.12",
-            "target": "http:6543",
+            "source": "62.97.141.227",
+            "target": "smtp:25",
             "value": 1
         },
         {
-            "source": "192.168.0.13",
-            "target": "tcpwrapped:53",
-            "value": 1
-        },
-        {
-            "source": "192.168.0.23",
-            "target": "microsoft-ds:445",
-            "value": 1
-        },
-        {
-            "source": "192.168.0.1",
+            "source": "194.143.194.237",
             "target": "http:80",
             "value": 1
         },
         {
-            "source": "192.168.0.10",
-            "target": "tcpwrapped:6543",
+            "source": "89.248.100.102",
+            "target": "ssh:22",
             "value": 1
         },
         {
-            "source": "192.168.0.11",
-            "target": "arepa-cas:3030",
+            "source": "89.248.100.102",
+            "target": "pop3s:995",
             "value": 1
         },
         {
-            "source": "192.168.0.12",
-            "target": "tcpwrapped:8888",
-            "value": 1
-        },
-        {
-            "source": "192.168.0.23",
-            "target": "msrpc:135",
-            "value": 1
-        },
-        {
-            "source": "192.168.0.23",
-            "target": "postgresql:5432",
-            "value": 1
-        },
-        {
-            "source": "192.168.0.1",
-            "target": "https:443",
-            "value": 1
-        },
-        {
-            "source": "192.168.0.10",
-            "target": "tcpwrapped:8888",
-            "value": 1
-        },
-        {
-            "source": "192.168.0.12",
-            "target": "socks5:1080",
-            "value": 1
-        },
-        {
-            "source": "192.168.0.12",
-            "target": "scp-config:10001",
-            "value": 1
-        },
-        {
-            "source": "192.168.0.23",
-            "target": "netbios-ssn:139",
-            "value": 1
-        },
-        {
-            "source": "192.168.0.1",
+            "source": "62.97.141.227",
             "target": "domain:53",
             "value": 1
         },
         {
-            "source": "192.168.0.23",
+            "source": "194.143.194.237",
+            "target": "pop3:110",
+            "value": 1
+        },
+        {
+            "source": "89.248.100.102",
+            "target": "smtp:25",
+            "value": 1
+        },
+        {
+            "source": "89.248.100.102",
+            "target": "https-alt:8443",
+            "value": 1
+        },
+        {
+            "source": "62.97.141.229",
+            "target": "smtp:25",
+            "value": 1
+        },
+        {
+            "source": "194.143.194.237",
+            "target": "imap:143",
+            "value": 1
+        },
+        {
+            "source": "89.248.100.102",
+            "target": "domain:53",
+            "value": 1
+        },
+        {
+            "source": "62.97.141.228",
+            "target": "smtp:25",
+            "value": 1
+        },
+        {
+            "source": "62.97.141.229",
+            "target": "domain:53",
+            "value": 1
+        },
+        {
+            "source": "194.143.194.237",
             "target": "http:443",
+            "value": 1
+        },
+        {
+            "source": "89.248.100.102",
+            "target": "http:80",
+            "value": 1
+        },
+        {
+            "source": "62.97.141.228",
+            "target": "domain:53",
+            "value": 1
+        },
+        {
+            "source": "88.18.71.14",
+            "target": "domain:53",
+            "value": 1
+        },
+        {
+            "source": "194.143.194.237",
+            "target": "smtp:587",
+            "value": 1
+        },
+        {
+            "source": "89.248.100.102",
+            "target": "tcpwrapped:106",
+            "value": 1
+        },
+        {
+            "source": "62.97.141.225",
+            "target": "smtp:25",
+            "value": 1
+        },
+        {
+            "source": "83.49.107.204",
+            "target": "domain:53",
+            "value": 1
+        },
+        {
+            "source": "194.143.194.237",
+            "target": "imaps:993",
+            "value": 1
+        },
+        {
+            "source": "89.248.100.102",
+            "target": "pop3:110",
+            "value": 1
+        },
+        {
+            "source": "62.97.141.225",
+            "target": "domain:53",
+            "value": 1
+        },
+        {
+            "source": "194.143.194.237",
+            "target": "ftp:21",
+            "value": 1
+        },
+        {
+            "source": "194.143.194.237",
+            "target": "pop3s:995",
+            "value": 1
+        },
+        {
+            "source": "89.248.100.102",
+            "target": "imap:143",
+            "value": 1
+        },
+        {
+            "source": "62.97.141.226",
+            "target": "smtp:25",
+            "value": 1
+        },
+        {
+            "source": "194.143.194.237",
+            "target": "smtp:25",
+            "value": 1
+        },
+        {
+            "source": "89.248.100.102",
+            "target": "http:443",
+            "value": 1
+        },
+        {
+            "source": "89.248.100.102",
+            "target": "smtp:587",
+            "value": 1
+        },
+        {
+            "source": "62.97.141.226",
+            "target": "domain:53",
+            "value": 1
+        },
+        {
+            "source": "194.143.194.237",
+            "target": "domain:53",
             "value": 1
         }
     ]

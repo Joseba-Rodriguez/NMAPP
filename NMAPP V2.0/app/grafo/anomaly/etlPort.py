@@ -25,30 +25,38 @@ def check_service(service_ports, service_name, port_number):
 
 # Crear el grafo en formato JSON
 def create_graph_data(nmap_data, service_ports):
-    nodes = []
+    nodes = {}
     links = []
     
     for entry in nmap_data:
         ip = entry['ip']
         port = entry['port']
         service = entry['service']
+        vulnerabilities = entry.get('cve_str', None)
         
         # Nodo IP
-        if {'id': ip, 'group': 1} not in nodes:
-            nodes.append({'id': ip, 'group': 1})
+        if ip not in nodes:
+            nodes[ip] = {'id': ip, 'group': 1}
         
         # Nodo puerto y servicio
+        node_id = f"{service}:{port}"
         if check_service(service_ports, service, port):
-            if {'id': f"{service}:{port}", 'group': 2} not in nodes:
-                nodes.append({'id': f"{service}:{port}", 'group': 2})
+            if node_id not in nodes:
+                node_data = {'id': node_id, 'group': 2}
+                if vulnerabilities:
+                    node_data['vulnerabilities'] = vulnerabilities.split(';')
+                nodes[node_id] = node_data
         else:
-            if {'id': f"{service}:{port}", 'group': 3} not in nodes:
-                nodes.append({'id': f"{service}:{port}", 'group': 3})
+            if node_id not in nodes:
+                node_data = {'id': node_id, 'group': 3}
+                if vulnerabilities:
+                    node_data['vulnerabilities'] = vulnerabilities.split(';')
+                nodes[node_id] = node_data
         
         # Enlace entre IP y puerto-servicio
-        links.append({'source': ip, 'target': f"{service}:{port}", 'value': 1})
+        links.append({'source': ip, 'target': node_id, 'value': 1})
     
-    return {'nodes': nodes, 'links': links}
+    return {'nodes': list(nodes.values()), 'links': links}
 
 if __name__ == "__main__":
     nmap_data = read_nmap_file('/usr/src/app/app/grafo/nmapIndividual_Scan.csv')
