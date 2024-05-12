@@ -192,11 +192,12 @@ function processQuestion(userInput, data) {
 }
 
 // Function to handle generic questions
-function processGenericQuestion(userInput, data) {
+async function processGenericQuestion(userInput, data) {
     // Analyze the question using compromise.js
     console.log("Analyzing generic question using compromise.js...");
     const doc = nlp(userInput);
-    
+    const API_KEY = 'sk-proj-i4cwgA80ndx3CdbG4rDOT3BlbkFJmwPIf3H9rJnWBqOYxCO2';
+
     // Get the keywords from the question
     console.log("Extracting keywords from the question...");
     const keywords = doc.match('(#Verb|#Noun)').out('array');
@@ -219,18 +220,49 @@ function processGenericQuestion(userInput, data) {
         console.log("Identified intention: relations");
         return "Please specify a node ID to get its relations.";
     } else {
-        // If the question doesn't match any patterns above, provide a generic response
-        console.log("Could not identify specific intention. Providing generic response...");
-        return "I couldn't understand your question. Can you please rephrase?";
+        // If the question doesn't match any patterns above, use OpenAI GPT-3.5 Turbo as a fallback
+        console.log("Could not identify specific intention. Using OpenAI GPT-3.5 Turbo as fallback...");
+        try {
+            const response = await fetch('https://api.openai.com/v1/chat/completions', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${API_KEY}`,
+                },
+                body: JSON.stringify({
+                    model: 'gpt-3.5-turbo',
+                    messages: [{ role: 'user', content: userInput }],
+                    temperature: 1.0,
+                    top_p: 0.7,
+                    n: 1,
+                    stream: false,
+                    presence_penalty: 0,
+                    frequency_penalty: 0,
+                }),
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                const generatedResponse = data.choices[0].message.content;
+                console.log("Generated response from GPT-3.5 Turbo:", generatedResponse); // Logging the generated response
+                return generatedResponse;
+            } else {
+                return 'Error: Unable to process your request.';
+            }
+        } catch (error) {
+            console.error(error);
+            return 'Error: Unable to process your request.';
+        }
     }
 }
 
+
 // Function to send user message and get chatbot response
-function sendMessage() {
+async function sendMessage() {
     const userInput = document.getElementById('input').value.trim();
     const chatbox = document.getElementById('chat-box');
 
-    loadData(function(error, data) {
+    loadData(async function(error, data) {
         if (error) {
             // Handle errors during data loading
             console.error('Error loading data:', error);
@@ -238,7 +270,7 @@ function sendMessage() {
             return;
         }
 
-        const response = processQuestion(userInput, data);
+        const response = await processQuestion(userInput, data); // Wait for the response promise to resolve
 
         // Show user question and chatbot response
         chatbox.innerHTML += `<div><strong>User:</strong> ${userInput}</div>`;
