@@ -22,6 +22,7 @@
             <div id="chat-input">
                 <input type="text" id="input" placeholder="Preguntar al chatbot...">
                 <button onclick="sendMessage()">Enviar</button>
+                <button onclick="clearChat()">Clear</button> <!-- Botón Clear -->
             </div>
             <!-- Contenedor para el chat -->
             <div id="chat-box"></div>
@@ -33,9 +34,9 @@
         <div class="popup" id="infoPopup">
             <div class="popup-content">
                 <h3>Preguntas Sugeridas</h3>
-                <button onclick="insertQuestion('¿Cuáles son los nodos en el grupo 1?')">Nodos en grupo 1</button>
+                <button onclick="insertQuestion('¿Qué ips tienen vulnerabilidades dentro del grafo?')">Vulnerabilidades</button>
                 <button onclick="insertQuestion('Dime información sobre el nodo \'http:443\'.')">Información sobre nodo http:443</button>
-                <button onclick="insertQuestion('¿Qué nodos tienen vulnerabilidades?')">Nodos con vulnerabilidades</button>
+                <button onclick="insertQuestion('¿Qué servicios y puertos son considerados anómalos dentro del grafo?')">Puertos y servicios</button>
                 <button onclick="insertQuestion('¿Cuál es el valor promedio de los enlaces?')">Valor promedio de enlaces</button>
                 <!-- Agrega más preguntas sugeridas aquí -->
             </div>
@@ -80,6 +81,11 @@
         function insertQuestion(question) {
             document.getElementById("input").value = question;
             toggleInfoPopup(); // Cierra el pop-up después de insertar la pregunta
+        }
+
+        function clearChat() {
+            const chatBox = document.getElementById('chat-box');
+            chatBox.innerHTML = ''; // Borra el contenido del chat-box
         }
     </script>
 </body>
