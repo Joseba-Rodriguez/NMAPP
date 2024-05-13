@@ -1,316 +1,193 @@
 {
     "nodes": [
         {
-            "id": "89.248.100.102",
+            "id": "192.168.0.1",
             "group": 1
         },
         {
-            "id": "ftp:21",
-            "group": 2
+            "id": "upnp:1900",
+            "group": 2,
+            "vulnerabilities": [
+                "CVE-2024-28110\t5.0\thttps://vulners.com/cve/CVE-2024-28110",
+                "CVE-2024-3764\t3.3\thttps://vulners.com/cve/CVE-2024-3764"
+            ]
         },
         {
-            "id": "imaps:993",
-            "group": 2
-        },
-        {
-            "id": "62.97.141.227",
+            "id": "192.168.0.109",
             "group": 1
         },
         {
-            "id": "smtp:25",
+            "id": "msrpc:135",
             "group": 2
         },
         {
-            "id": "194.143.194.237",
-            "group": 1
+            "id": "netbios-ssn:139",
+            "group": 2
         },
         {
-            "id": "http:80",
+            "id": "http:443",
+            "group": 3,
+            "vulnerabilities": [
+                "CVE-2024-24824\t6.5\thttps://vulners.com/cve/CVE-2024-24824",
+                "CVE-2017-12171\t6.4\thttps://vulners.com/cve/CVE-2017-12171",
+                "CVE-2024-2406\t5.5\thttps://vulners.com/cve/CVE-2024-2406",
+                "CVE-2023-43622\t5.0\thttps://vulners.com/cve/CVE-2023-43622",
+                "CVE-2023-31122\t5.0\thttps://vulners.com/cve/CVE-2023-31122",
+                "CVE-2024-24823\t3.6\thttps://vulners.com/cve/CVE-2024-24823",
+                "CVE-2016-8612\t3.3\thttps://vulners.com/cve/CVE-2016-8612",
+                "CVE-2023-45802\t2.6\thttps://vulners.com/cve/CVE-2023-45802"
+            ]
+        },
+        {
+            "id": "microsoft-ds:445",
+            "group": 2
+        },
+        {
+            "id": "postgresql:5432",
+            "group": 2,
+            "vulnerabilities": [
+                "CVE-2019-10164\t9.0\thttps://vulners.com/cve/CVE-2019-10164",
+                "CVE-2020-25696\t7.6\thttps://vulners.com/cve/CVE-2020-25696",
+                "CVE-2022-35942\t7.5\thttps://vulners.com/cve/CVE-2022-35942",
+                "CVE-2019-10211\t7.5\thttps://vulners.com/cve/CVE-2019-10211",
+                "CVE-2018-16850\t7.5\thttps://vulners.com/cve/CVE-2018-16850",
+                "CVE-2017-7546\t7.5\thttps://vulners.com/cve/CVE-2017-7546",
+                "CVE-2015-3166\t7.5\thttps://vulners.com/cve/CVE-2015-3166",
+                "CVE-2015-0244\t7.5\thttps://vulners.com/cve/CVE-2015-0244",
+                "CVE-2020-25694\t6.8\thttps://vulners.com/cve/CVE-2020-25694",
+                "CVE-2018-10936\t6.8\thttps://vulners.com/cve/CVE-2018-10936",
+                "CVE-2022-1552\t6.5\thttps://vulners.com/cve/CVE-2022-1552",
+                "CVE-2021-32027\t6.5\thttps://vulners.com/cve/CVE-2021-32027",
+                "CVE-2020-25695\t6.5\thttps://vulners.com/cve/CVE-2020-25695",
+                "CVE-2019-10208\t6.5\thttps://vulners.com/cve/CVE-2019-10208",
+                "CVE-2018-1058\t6.5\thttps://vulners.com/cve/CVE-2018-1058",
+                "CVE-2015-0243\t6.5\thttps://vulners.com/cve/CVE-2015-0243",
+                "CVE-2015-0242\t6.5\thttps://vulners.com/cve/CVE-2015-0242",
+                "CVE-2015-0241\t6.5\thttps://vulners.com/cve/CVE-2015-0241",
+                "CVE-2018-1115\t6.4\thttps://vulners.com/cve/CVE-2018-1115",
+                "CVE-2022-2625\t6.0\thttps://vulners.com/cve/CVE-2022-2625",
+                "CVE-2018-10915\t6.0\thttps://vulners.com/cve/CVE-2018-10915",
+                "CVE-2023-2454\t5.8\thttps://vulners.com/cve/CVE-2023-2454",
+                "CVE-2023-2455\t5.5\thttps://vulners.com/cve/CVE-2023-2455",
+                "CVE-2018-10925\t5.5\thttps://vulners.com/cve/CVE-2018-10925",
+                "CVE-2021-23214\t5.1\thttps://vulners.com/cve/CVE-2021-23214",
+                "CVE-2017-7486\t5.0\thttps://vulners.com/cve/CVE-2017-7486",
+                "CVE-2017-7484\t5.0\thttps://vulners.com/cve/CVE-2017-7484",
+                "CVE-2015-3167\t5.0\thttps://vulners.com/cve/CVE-2015-3167",
+                "CVE-2020-14349\t4.6\thttps://vulners.com/cve/CVE-2020-14349",
+                "CVE-2020-14350\t4.4\thttps://vulners.com/cve/CVE-2020-14350",
+                "CVE-2020-10733\t4.4\thttps://vulners.com/cve/CVE-2020-10733",
+                "CVE-2021-23222\t4.3\thttps://vulners.com/cve/CVE-2021-23222",
+                "CVE-2019-10127\t4.3\thttps://vulners.com/cve/CVE-2019-10127",
+                "CVE-2017-7485\t4.3\thttps://vulners.com/cve/CVE-2017-7485",
+                "CVE-2019-10128\t4.1\thttps://vulners.com/cve/CVE-2019-10128",
+                "CVE-2021-3677\t4.0\thttps://vulners.com/cve/CVE-2021-3677",
+                "CVE-2021-32029\t4.0\thttps://vulners.com/cve/CVE-2021-32029",
+                "CVE-2021-32028\t4.0\thttps://vulners.com/cve/CVE-2021-32028",
+                "CVE-2021-20229\t4.0\thttps://vulners.com/cve/CVE-2021-20229",
+                "CVE-2019-10130\t4.0\thttps://vulners.com/cve/CVE-2019-10130",
+                "CVE-2019-10129\t4.0\thttps://vulners.com/cve/CVE-2019-10129",
+                "CVE-2018-1052\t4.0\thttps://vulners.com/cve/CVE-2018-1052",
+                "CVE-2017-7548\t4.0\thttps://vulners.com/cve/CVE-2017-7548",
+                "CVE-2017-7547\t4.0\thttps://vulners.com/cve/CVE-2017-7547",
+                "CVE-2014-8161\t4.0\thttps://vulners.com/cve/CVE-2014-8161",
+                "CVE-2021-3393\t3.5\thttps://vulners.com/cve/CVE-2021-3393",
+                "CVE-2020-1720\t3.5\thttps://vulners.com/cve/CVE-2020-1720",
+                "CVE-2019-10209\t3.5\thttps://vulners.com/cve/CVE-2019-10209",
+                "CVE-2018-1053\t3.3\thttps://vulners.com/cve/CVE-2018-1053",
+                "CVE-2022-41862\t2.6\thttps://vulners.com/cve/CVE-2022-41862",
+                "CVE-2019-10210\t1.9\thttps://vulners.com/cve/CVE-2019-10210"
+            ]
+        },
+        {
+            "id": "hotline:5500",
             "group": 2
         },
         {
             "id": "ssh:22",
             "group": 2,
             "vulnerabilities": [
-                "CVE-2012-1577\t7.5\thttps://vulners.com/cve/CVE-2012-1577",
-                "PRION:CVE-2019-6111\t5.8\thttps://vulners.com/prion/PRION:CVE-2019-6111",
-                "CVE-2019-6111\t5.8\thttps://vulners.com/cve/CVE-2019-6111",
-                "PRION:CVE-2018-15919\t5.0\thttps://vulners.com/prion/PRION:CVE-2018-15919",
-                "PRION:CVE-2018-15473\t5.0\thttps://vulners.com/prion/PRION:CVE-2018-15473",
-                "PRION:CVE-2017-15906\t5.0\thttps://vulners.com/prion/PRION:CVE-2017-15906",
-                "CVE-2018-15919\t5.0\thttps://vulners.com/cve/CVE-2018-15919",
-                "CVE-2018-15473\t5.0\thttps://vulners.com/cve/CVE-2018-15473",
-                "CVE-2017-15906\t5.0\thttps://vulners.com/cve/CVE-2017-15906",
-                "PRION:CVE-2019-16905\t4.4\thttps://vulners.com/prion/PRION:CVE-2019-16905",
-                "CVE-2020-14145\t4.3\thttps://vulners.com/cve/CVE-2020-14145",
-                "PRION:CVE-2019-6110\t4.0\thttps://vulners.com/prion/PRION:CVE-2019-6110",
-                "PRION:CVE-2019-6109\t4.0\thttps://vulners.com/prion/PRION:CVE-2019-6109",
-                "CVE-2019-6110\t4.0\thttps://vulners.com/cve/CVE-2019-6110",
-                "CVE-2019-6109\t4.0\thttps://vulners.com/cve/CVE-2019-6109",
-                "CVE-2023-51767\t3.5\thttps://vulners.com/cve/CVE-2023-51767",
-                "PRION:CVE-2018-20685\t2.6\thttps://vulners.com/prion/PRION:CVE-2018-20685",
-                "CVE-2018-20685\t2.6\thttps://vulners.com/cve/CVE-2018-20685"
+                "CVE-2024-24824\t6.5\thttps://vulners.com/cve/CVE-2024-24824",
+                "CVE-2024-2406\t5.5\thttps://vulners.com/cve/CVE-2024-2406",
+                "CVE-2024-24823\t3.6\thttps://vulners.com/cve/CVE-2024-24823"
             ]
         },
         {
-            "id": "pop3s:995",
+            "id": "irc:6666",
             "group": 2
         },
         {
             "id": "domain:53",
-            "group": 2,
-            "vulnerabilities": [
-                "PRION:CVE-2020-25682\t8.3\thttps://vulners.com/prion/PRION:CVE-2020-25682",
-                "PRION:CVE-2020-25681\t8.3\thttps://vulners.com/prion/PRION:CVE-2020-25681",
-                "CVE-2020-25682\t8.3\thttps://vulners.com/cve/CVE-2020-25682",
-                "CVE-2020-25681\t8.3\thttps://vulners.com/cve/CVE-2020-25681",
-                "PRION:CVE-2020-25687\t7.1\thttps://vulners.com/prion/PRION:CVE-2020-25687",
-                "PRION:CVE-2020-25683\t7.1\thttps://vulners.com/prion/PRION:CVE-2020-25683",
-                "CVE-2020-25687\t7.1\thttps://vulners.com/cve/CVE-2020-25687",
-                "CVE-2020-25683\t7.1\thttps://vulners.com/cve/CVE-2020-25683",
-                "PRION:CVE-2023-50387\t5.0\thttps://vulners.com/prion/PRION:CVE-2023-50387",
-                "PRION:CVE-2023-28450\t5.0\thttps://vulners.com/prion/PRION:CVE-2023-28450",
-                "PRION:CVE-2022-0934\t5.0\thttps://vulners.com/prion/PRION:CVE-2022-0934",
-                "PRION:CVE-2017-15107\t5.0\thttps://vulners.com/prion/PRION:CVE-2017-15107",
-                "OSV:CVE-2017-15107\t5.0\thttps://vulners.com/osv/OSV:CVE-2017-15107",
-                "CVE-2023-28450\t5.0\thttps://vulners.com/cve/CVE-2023-28450",
-                "CVE-2022-0934\t5.0\thttps://vulners.com/cve/CVE-2022-0934",
-                "CVE-2017-15107\t5.0\thttps://vulners.com/cve/CVE-2017-15107",
-                "PRION:CVE-2021-3448\t4.3\thttps://vulners.com/prion/PRION:CVE-2021-3448",
-                "PRION:CVE-2020-25686\t4.3\thttps://vulners.com/prion/PRION:CVE-2020-25686",
-                "PRION:CVE-2020-25685\t4.3\thttps://vulners.com/prion/PRION:CVE-2020-25685",
-                "PRION:CVE-2020-25684\t4.3\thttps://vulners.com/prion/PRION:CVE-2020-25684",
-                "PRION:CVE-2019-14834\t4.3\thttps://vulners.com/prion/PRION:CVE-2019-14834",
-                "CVE-2021-3448\t4.3\thttps://vulners.com/cve/CVE-2021-3448",
-                "CVE-2020-25686\t4.3\thttps://vulners.com/cve/CVE-2020-25686",
-                "CVE-2020-25685\t4.3\thttps://vulners.com/cve/CVE-2020-25685",
-                "CVE-2020-25684\t4.3\thttps://vulners.com/cve/CVE-2020-25684",
-                "CVE-2019-14834\t4.3\thttps://vulners.com/cve/CVE-2019-14834"
-            ]
-        },
-        {
-            "id": "pop3:110",
             "group": 2
         },
         {
-            "id": "https-alt:8443",
-            "group": 3
-        },
-        {
-            "id": "62.97.141.229",
-            "group": 1
-        },
-        {
-            "id": "imap:143",
+            "id": "http-proxy:8080",
             "group": 2
         },
         {
-            "id": "62.97.141.228",
-            "group": 1
-        },
-        {
-            "id": "http:443",
-            "group": 3
-        },
-        {
-            "id": "88.18.71.14",
-            "group": 1
-        },
-        {
-            "id": "smtp:587",
-            "group": 3
-        },
-        {
-            "id": "tcpwrapped:106",
-            "group": 3
-        },
-        {
-            "id": "62.97.141.225",
-            "group": 1
-        },
-        {
-            "id": "83.49.107.204",
-            "group": 1
-        },
-        {
-            "id": "62.97.141.226",
-            "group": 1
+            "id": "http:80",
+            "group": 2
         }
     ],
     "links": [
         {
-            "source": "89.248.100.102",
-            "target": "ftp:21",
+            "source": "192.168.0.1",
+            "target": "upnp:1900",
             "value": 1
         },
         {
-            "source": "89.248.100.102",
-            "target": "imaps:993",
+            "source": "192.168.0.109",
+            "target": "msrpc:135",
             "value": 1
         },
         {
-            "source": "62.97.141.227",
-            "target": "smtp:25",
+            "source": "192.168.0.109",
+            "target": "netbios-ssn:139",
             "value": 1
         },
         {
-            "source": "194.143.194.237",
-            "target": "http:80",
+            "source": "192.168.0.109",
+            "target": "http:443",
             "value": 1
         },
         {
-            "source": "89.248.100.102",
+            "source": "192.168.0.109",
+            "target": "microsoft-ds:445",
+            "value": 1
+        },
+        {
+            "source": "192.168.0.109",
+            "target": "postgresql:5432",
+            "value": 1
+        },
+        {
+            "source": "192.168.0.109",
+            "target": "hotline:5500",
+            "value": 1
+        },
+        {
+            "source": "192.168.0.1",
             "target": "ssh:22",
             "value": 1
         },
         {
-            "source": "89.248.100.102",
-            "target": "pop3s:995",
+            "source": "192.168.0.109",
+            "target": "irc:6666",
             "value": 1
         },
         {
-            "source": "62.97.141.227",
+            "source": "192.168.0.1",
             "target": "domain:53",
             "value": 1
         },
         {
-            "source": "194.143.194.237",
-            "target": "pop3:110",
+            "source": "192.168.0.109",
+            "target": "http-proxy:8080",
             "value": 1
         },
         {
-            "source": "89.248.100.102",
-            "target": "smtp:25",
-            "value": 1
-        },
-        {
-            "source": "89.248.100.102",
-            "target": "https-alt:8443",
-            "value": 1
-        },
-        {
-            "source": "62.97.141.229",
-            "target": "smtp:25",
-            "value": 1
-        },
-        {
-            "source": "194.143.194.237",
-            "target": "imap:143",
-            "value": 1
-        },
-        {
-            "source": "89.248.100.102",
-            "target": "domain:53",
-            "value": 1
-        },
-        {
-            "source": "62.97.141.228",
-            "target": "smtp:25",
-            "value": 1
-        },
-        {
-            "source": "62.97.141.229",
-            "target": "domain:53",
-            "value": 1
-        },
-        {
-            "source": "194.143.194.237",
-            "target": "http:443",
-            "value": 1
-        },
-        {
-            "source": "89.248.100.102",
+            "source": "192.168.0.1",
             "target": "http:80",
-            "value": 1
-        },
-        {
-            "source": "62.97.141.228",
-            "target": "domain:53",
-            "value": 1
-        },
-        {
-            "source": "88.18.71.14",
-            "target": "domain:53",
-            "value": 1
-        },
-        {
-            "source": "194.143.194.237",
-            "target": "smtp:587",
-            "value": 1
-        },
-        {
-            "source": "89.248.100.102",
-            "target": "tcpwrapped:106",
-            "value": 1
-        },
-        {
-            "source": "62.97.141.225",
-            "target": "smtp:25",
-            "value": 1
-        },
-        {
-            "source": "83.49.107.204",
-            "target": "domain:53",
-            "value": 1
-        },
-        {
-            "source": "194.143.194.237",
-            "target": "imaps:993",
-            "value": 1
-        },
-        {
-            "source": "89.248.100.102",
-            "target": "pop3:110",
-            "value": 1
-        },
-        {
-            "source": "62.97.141.225",
-            "target": "domain:53",
-            "value": 1
-        },
-        {
-            "source": "194.143.194.237",
-            "target": "ftp:21",
-            "value": 1
-        },
-        {
-            "source": "194.143.194.237",
-            "target": "pop3s:995",
-            "value": 1
-        },
-        {
-            "source": "89.248.100.102",
-            "target": "imap:143",
-            "value": 1
-        },
-        {
-            "source": "62.97.141.226",
-            "target": "smtp:25",
-            "value": 1
-        },
-        {
-            "source": "194.143.194.237",
-            "target": "smtp:25",
-            "value": 1
-        },
-        {
-            "source": "89.248.100.102",
-            "target": "http:443",
-            "value": 1
-        },
-        {
-            "source": "89.248.100.102",
-            "target": "smtp:587",
-            "value": 1
-        },
-        {
-            "source": "62.97.141.226",
-            "target": "domain:53",
-            "value": 1
-        },
-        {
-            "source": "194.143.194.237",
-            "target": "domain:53",
             "value": 1
         }
     ]
