@@ -68,34 +68,31 @@ d3.json('graph_data_anomaly.json').then(function(data) {
         const colorMap = {
             1: '#1f77b4',  // Azul para IP
             2: '#2ca02c',  // Verde para Servicio Común
-            3: '#ffcc00'   // Rojo para Anómalo
+            3: '#FFFF00',// Amarillo para Anómalo
+            4: '#FF0000'  // Rojo para Anómalo
         };
 
         // Verificar si hay vulnerabilidades asociadas al nodo
         if (node.vulnerabilities && node.vulnerabilities.length > 0) {
-            return '#'; // Amarillo para alerta de vulnerabilidad
+            return '#'; // Rojo para alerta de vulnerabilidad
         }
         
         return colorMap[node.group];
     }
-
     function dragstarted(event, d) {
         if (!event.active) simulation.alphaTarget(0.3).restart();
         d.fx = d.x;
         d.fy = d.y;
     }
-
     function dragged(event, d) {
         d.fx = event.x;
         d.fy = event.y;
     }
-
     function dragended(event, d) {
         if (!event.active) simulation.alphaTarget(0);
         d.fx = null;
         d.fy = null;
     }
-
     function handleMouseOver(event, d) {
         // Resaltar nodo y enlaces conectados directamente
         const connectedNodes = new Set();
@@ -120,7 +117,6 @@ d3.json('graph_data_anomaly.json').then(function(data) {
             .attr('stroke', link => connectedLinks.has(link) ? '#aaa' : '#eee')
             .attr('opacity', link => connectedLinks.has(link) ? 1 : 0.3);
     }
-
     function handleMouseOut() {
         // Restaurar color y opacidad de todos los nodos y enlaces
         svg.selectAll('.node')
@@ -131,7 +127,6 @@ d3.json('graph_data_anomaly.json').then(function(data) {
             .attr('stroke', '#aaa')
             .attr('opacity', 1);
     }
-
 function handleClick(event, d) {
     // Resaltar el nodo y sus conexiones al hacer clic en él
     const clickedNode = d;

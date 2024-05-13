@@ -143,7 +143,11 @@ svg {
     color: #2ca02c;
 }
 
-#legend span.anomalo {
+#legend span.servicioAnomalo {
+    color: #fff700;
+}
+
+#legend span.Vulnerabilidad {
     color: #ff0000;
 }
 
