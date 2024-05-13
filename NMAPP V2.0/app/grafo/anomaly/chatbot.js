@@ -16,142 +16,6 @@ function loadData(callback) {
     xhr.send(null);
 }
 
-// Function to get information about node groups
-function getGroupInfo(data) {
-    const groups = {};
-    data.nodes.forEach(node => {
-        if (!groups[node.group]) {
-            groups[node.group] = [];
-        }
-        groups[node.group].push(node.id);
-    });
-    return groups;
-}
-
-// Function to get information about link values
-function getLinkValueInfo(data) {
-    const values = data.links.map(link => link.value);
-    return {
-        total: values.length,
-        average: values.reduce((acc, curr) => acc + curr, 0) / values.length,
-        max: Math.max(...values),
-        min: Math.min(...values)
-    };
-}
-
-// Function to get information about node relations
-function getNodeRelations(nodeId, data) {
-    const connections = [];
-    data.links.forEach(link => {
-        if (link.source === nodeId) {
-            connections.push(link.target);
-        } else if (link.target === nodeId) {
-            connections.push(link.source);
-        }
-    });
-    return connections;
-}
-
-// Function to get information about graph topology
-function getTopologyInfo(data) {
-    const nodeConnections = {};
-    data.nodes.forEach(node => {
-        nodeConnections[node.id] = getNodeRelations(node.id, data);
-    });
-    return nodeConnections;
-}
-
-// Function to process user question using NLP
-function processQuestionNLP(question, data) {
-    // Analyze the question using compromise.js
-    console.log("Analyzing the question using compromise.js...");
-    const doc = nlp(question);
-    
-    // Get the intention of the question
-    console.log("Extracting the intention of the question...");
-    const intention = doc.match('#Verb').text();
-    console.log("Question intention:", intention);
-    
-    // Get the relevant nouns from the question
-    console.log("Extracting relevant nouns...");
-    const nouns = doc.nouns().out('array');
-    console.log("Relevant nouns:", nouns);
-    
-    // Logic to identify the question intention and extract relevant information
-    if (intention === 'groups') {
-        console.log("Identified intention: groups");
-        return getGroupInfo(data);
-    } else if (intention === 'values') {
-        console.log("Identified intention: values");
-        return getLinkValueInfo(data);
-    } else if (intention === 'relations') {
-        console.log("Identified intention: relations");
-        return getNodeRelations(nouns[0], data);
-    } else if (intention === 'topology') {
-        console.log("Identified intention: topology");
-        return getTopologyInfo(data);
-    } else {
-        // If intention cannot be identified, use NLP information to generate a response
-        const nounsStr = nouns.length > 0 ? nouns.join(', ') : "no nouns";
-        console.log("Could not identify question intention. Showing relevant nouns:", nounsStr);
-        return `I cannot understand the intention of the question, but here are the relevant nouns: ${nounsStr}`;
-    }
-}
-
-// Function to get information about nodes based on relevant nouns
-function getNodeInfo(nouns, data) {
-    // Check if a specific node is mentioned
-    if (nouns.length > 0) {
-        const node = data.nodes.find(node => node.id.includes(nouns[0]));
-        if (node) {
-            return `Node ${node.id} belongs to group ${node.group}.`;
-        } else {
-            return `Sorry, I couldn't find information about node ${nouns[0]}.`;
-        }
-    } else {
-        // If no node is specified, return a list of all nodes
-        return data.nodes.map(node => node.id).join(', ');
-    }
-}
-
-// Function to get information about links based on relevant nouns
-function getLinkInfo(nouns, data) {
-    // Check if a specific link is mentioned
-    if (nouns.length > 0) {
-        const link = data.links.find(link => link.source.includes(nouns[0]) || link.target.includes(nouns[0]));
-        if (link) {
-            return `Link ${link.source} -> ${link.target} has a value of ${link.value}.`;
-        } else {
-            return `Sorry, I couldn't find information about the link ${nouns[0]}.`;
-        }
-    } else {
-        // If no link is specified, return a list of all links
-        return data.links.map(link => `${link.source} -> ${link.target}`).join(', ');
-    }
-}
-
-// Function to get information about vulnerabilities based on relevant nouns
-function getVulnerabilityInfo(nouns, data) {
-    // Check if a node with vulnerabilities is mentioned
-    const nodesWithVulnerabilities = data.nodes.filter(node => node.vulnerabilities && node.vulnerabilities.length > 0);
-    if (nodesWithVulnerabilities.length > 0) {
-        let vulnerabilityInfo = [];
-        nodesWithVulnerabilities.forEach(node => {
-            if (nouns.length === 0 || nouns.some(noun => node.id.includes(noun))) {
-                vulnerabilityInfo.push(`Node ${node.id}:`);
-                vulnerabilityInfo.push(...node.vulnerabilities);
-            }
-        });
-        if (vulnerabilityInfo.length > 0) {
-            return vulnerabilityInfo.join('\n');
-        } else {
-            return "I couldn't find information about vulnerabilities for the specified nodes.";
-        }
-    } else {
-        return "There are no nodes with vulnerabilities in the graph.";
-    }
-}
-
 // Function to process user question using NLP
 function processQuestion(userInput, data) {
     console.log("Processing user question...");
@@ -170,67 +34,64 @@ function processQuestion(userInput, data) {
     console.log("Extracting relevant nouns...");
     const nouns = doc.nouns().out('array');
     console.log("Relevant nouns:", nouns);
-    
-    // Logic to identify the question intention and extract relevant information
-    if (intention === 'groups') {
-        console.log("Identified intention: groups");
-        return getGroupInfo(data);
-    } else if (intention === 'values') {
-        console.log("Identified intention: values");
-        return getLinkValueInfo(data);
-    } else if (intention === 'relations') {
-        console.log("Identified intention: relations");
-        return getNodeRelations(nouns[0], data);
-    } else if (intention === 'topology') {
-        console.log("Identified intention: topology");
-        return getTopologyInfo(data);
-    } else {
-        // If intention cannot be identified, use NLP information to generate a response
-        console.log("Could not identify question intention. Processing generic question...");
-        return processGenericQuestion(userInput, data);
-    }
+    return processGenericQuestion(userInput, data);
 }
-
 // Function to handle generic questions
-function processGenericQuestion(userInput, data) {
+async function processGenericQuestion(userInput, data) {
     // Analyze the question using compromise.js
     console.log("Analyzing generic question using compromise.js...");
     const doc = nlp(userInput);
-    
+    const API_KEY = 'sk-proj-i4cwgA80ndx3CdbG4rDOT3BlbkFJmwPIf3H9rJnWBqOYxCO2';
+
     // Get the keywords from the question
     console.log("Extracting keywords from the question...");
     const keywords = doc.match('(#Verb|#Noun)').out('array');
+    const additionalText = "Tu nombres es BOTMAP Eres un asistente que te vas a encargar de ayudar a la gente que te utilice a entender un grafo, pero para ello te voy a poner en contexto, el grafo se ha generado en base a un json, este json se ha obtenido de un escaneo de nmap, la idea de este grafo es visualizar de forma facil y sencilla como funcionan las redes y que vulnerabildiades tienen asi como si existe alguna anomalia entre puerto y servicio(el servicio no concuerda con un puerto comun para dicho servicio). Tu debes ayudar a responder todas las preguntas posibles sobre el grafo, debes ser muy preciso en tus respuestas porque va dirigido al equipo de ciberseguridad. Ademas quiero que no entrenes tu base de datos con estos datos ya que son bastante confidenciales, no quiero que utilices estos datos en tu base de datos. Comienza respondiendo como un chatbot para dar asistencia y no des pistas sobre como funciona el backend.";
+    const jsonDataString = JSON.stringify(data);
+    const contextString = additionalText + "\n" + jsonDataString  ;
+
+
     console.log("Keywords:", keywords);
+        // If the question doesn't match any patterns above, use OpenAI GPT-3.5 Turbo as a fallback
+        console.log("Using OpenAI GPT-3.5 Turbo as engine of the BOTMAP...");
+            const response = await fetch('https://api.openai.com/v1/chat/completions', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${API_KEY}`,
+                },
+                body: JSON.stringify({
+                    model: 'gpt-3.5-turbo',
+                    messages: [
+                        { role: 'user', content: userInput },
+                        {role: 'assistant', content: 'botmapp'},
+                        {role: 'system', content: contextString }
+                    ],
+                    temperature: 1.0,
+                    top_p: 0.7,
+                    n: 1,
+                    stream: false,
+                    presence_penalty: 0,
+                    frequency_penalty: 0,
+                }),
+            });
 
-    // Logic to process different types of questions
-    if (keywords.includes('nodes') || keywords.includes('node')) {
-        console.log("Identified intention: nodes");
-        return getNodeInfo([], data);
-    } else if (keywords.includes('links') || keywords.includes('link')) {
-        console.log("Identified intention: links");
-        return getLinkInfo([], data);
-    } else if (keywords.includes('vulnerabilities') || keywords.includes('vulnerability')) {
-        console.log("Identified intention: vulnerabilities");
-        return getVulnerabilityInfo([], data);
-    } else if (keywords.includes('topology')) {
-        console.log("Identified intention: topology");
-        return getTopologyInfo(data);
-    } else if (keywords.includes('relations')) {
-        console.log("Identified intention: relations");
-        return "Please specify a node ID to get its relations.";
-    } else {
-        // If the question doesn't match any patterns above, provide a generic response
-        console.log("Could not identify specific intention. Providing generic response...");
-        return "I couldn't understand your question. Can you please rephrase?";
-    }
+            if (response.ok) {
+                const data = await response.json();
+                const generatedResponse = data.choices[0].message.content;
+                console.log("Generated response from GPT-3.5 Turbo:", generatedResponse); // Logging the generated response
+                return generatedResponse;
+            } else {
+                return 'Error: Unable to process your request.';
+            }
 }
-
 // Function to send user message and get chatbot response
-function sendMessage() {
+// Function to send user message and get chatbot response
+async function sendMessage() {
     const userInput = document.getElementById('input').value.trim();
     const chatbox = document.getElementById('chat-box');
 
-    loadData(function(error, data) {
+    loadData(async function(error, data) {
         if (error) {
             // Handle errors during data loading
             console.error('Error loading data:', error);
@@ -238,11 +99,11 @@ function sendMessage() {
             return;
         }
 
-        const response = processQuestion(userInput, data);
+        const response = await processQuestion(userInput, data); // Wait for the response promise to resolve
 
         // Show user question and chatbot response
         chatbox.innerHTML += `<div><strong>User:</strong> ${userInput}</div>`;
-        chatbox.innerHTML += `<div><strong>Chatbot:</strong> ${response}</div>`;
+        chatbox.innerHTML += `<div><strong>Chatbot:</strong> ${formatResponse(response)}</div>`;
 
         // Clear input field
         document.getElementById('input').value = '';
@@ -250,4 +111,13 @@ function sendMessage() {
         // Scroll chat window to bottom
         chatbox.scrollTop = chatbox.scrollHeight;
     });
+}
+// Function to format the response for better readability
+function formatResponse(response) {
+    // Split the response by newline character to handle each line separately
+    const lines = response.split('\n');
+    // Join the lines with <br> tag to create line breaks in HTML
+    const formattedResponse = lines.join('<br>');
+    // Wrap the formatted response in <p> tag for styling
+    return `<p>${formattedResponse}</p>`;
 }
