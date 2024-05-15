@@ -82,9 +82,6 @@
         <button onclick="window.location.href='./grafo/anomaly/indexAnomaly.html'" class="btn btn-primary text-uppercase me-2">
           Anomaly graph
       </button>
-      <button onclick="window.location.href='./grafo/network/indexgraph.html'" class="btn btn-primary text-uppercase me-2">
-         Subnet Graph
-      </button>
       </div>
       <div class="row">
         <div class="col-4">
