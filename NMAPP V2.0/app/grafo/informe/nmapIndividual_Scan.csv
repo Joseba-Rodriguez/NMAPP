@@ -1,0 +1,21 @@
+idnmapindividual,ip,hostname,port,protocol,service,version,cve_str,ts
+930,192.168.0.1,,53,tcp,domain,dnsmasq,PRION:CVE-2020-25682	8.3	https://vulners.com/prion/PRION:CVE-2020-25682;PRION:CVE-2020-25681	8.3	https://vulners.com/prion/PRION:CVE-2020-25681;CVE-2020-25682	8.3	https://vulners.com/cve/CVE-2020-25682;CVE-2020-25681	8.3	https://vulners.com/cve/CVE-2020-25681;PRION:CVE-2020-25687	7.1	https://vulners.com/prion/PRION:CVE-2020-25687;PRION:CVE-2020-25683	7.1	https://vulners.com/prion/PRION:CVE-2020-25683;CVE-2020-25687	7.1	https://vulners.com/cve/CVE-2020-25687;CVE-2020-25683	7.1	https://vulners.com/cve/CVE-2020-25683;PRION:CVE-2023-50387	5.0	https://vulners.com/prion/PRION:CVE-2023-50387;PRION:CVE-2023-28450	5.0	https://vulners.com/prion/PRION:CVE-2023-28450;PRION:CVE-2022-0934	5.0	https://vulners.com/prion/PRION:CVE-2022-0934;PRION:CVE-2017-15107	5.0	https://vulners.com/prion/PRION:CVE-2017-15107;OSV:CVE-2017-15107	5.0	https://vulners.com/osv/OSV:CVE-2017-15107;CVE-2023-28450	5.0	https://vulners.com/cve/CVE-2023-28450;CVE-2022-0934	5.0	https://vulners.com/cve/CVE-2022-0934;CVE-2017-15107	5.0	https://vulners.com/cve/CVE-2017-15107;PRION:CVE-2021-3448	4.3	https://vulners.com/prion/PRION:CVE-2021-3448;PRION:CVE-2020-25686	4.3	https://vulners.com/prion/PRION:CVE-2020-25686;PRION:CVE-2020-25685	4.3	https://vulners.com/prion/PRION:CVE-2020-25685;PRION:CVE-2020-25684	4.3	https://vulners.com/prion/PRION:CVE-2020-25684;PRION:CVE-2019-14834	4.3	https://vulners.com/prion/PRION:CVE-2019-14834;CVE-2021-3448	4.3	https://vulners.com/cve/CVE-2021-3448;CVE-2020-25686	4.3	https://vulners.com/cve/CVE-2020-25686;CVE-2020-25685	4.3	https://vulners.com/cve/CVE-2020-25685;CVE-2020-25684	4.3	https://vulners.com/cve/CVE-2020-25684;CVE-2019-14834	4.3	https://vulners.com/cve/CVE-2019-14834,2024-05-14 22:59:08.908564
+940,192.168.0.12,,8888,tcp,tcpwrapped,,,2024-05-14 22:59:09.072303
+931,192.168.0.1,,80,tcp,http,,,2024-05-14 22:59:08.924942
+941,192.168.0.12,,10001,tcp,scp-config,,,2024-05-14 22:59:09.088516
+932,192.168.0.1,,443,tcp,https,,,2024-05-14 22:59:08.942607
+942,192.168.0.13,,53,tcp,tcpwrapped,,,2024-05-14 22:59:09.104593
+933,192.168.0.10,,1080,tcp,tcpwrapped,,,2024-05-14 22:59:08.959021
+943,192.168.0.23,,135,tcp,msrpc,Microsoft Windows RPC,,2024-05-14 22:59:09.120679
+934,192.168.0.10,,6543,tcp,tcpwrapped,,,2024-05-14 22:59:08.975331
+944,192.168.0.23,,139,tcp,netbios-ssn,Microsoft Windows netbios-ssn,,2024-05-14 22:59:09.137109
+935,192.168.0.10,,8888,tcp,tcpwrapped,,,2024-05-14 22:59:08.991442
+945,192.168.0.23,,443,tcp,http,Apache httpd,CVE-2023-43622	5.0	https://vulners.com/cve/CVE-2023-43622;CVE-2023-31122	5.0	https://vulners.com/cve/CVE-2023-31122;CVE-2023-45802	2.6	https://vulners.com/cve/CVE-2023-45802,2024-05-14 22:59:09.153477
+936,192.168.0.10,,10001,tcp,tcpwrapped,,,2024-05-14 22:59:09.007665
+946,192.168.0.23,,445,tcp,microsoft-ds,,,2024-05-14 22:59:09.169469
+937,192.168.0.11,,3030,tcp,arepa-cas,,,2024-05-14 22:59:09.023979
+947,192.168.0.23,,5432,tcp,postgresql,PostgreSQL DB,,2024-05-14 22:59:09.185455
+938,192.168.0.12,,1080,tcp,socks5,,,2024-05-14 22:59:09.039937
+948,192.168.0.23,,6666,tcp,irc,,,2024-05-14 22:59:09.202546
+939,192.168.0.12,,6543,tcp,http,Cisco Meraki firewall httpd,,2024-05-14 22:59:09.056102
+949,192.168.0.23,,8080,tcp,http-proxy,,,2024-05-14 22:59:09.218760
