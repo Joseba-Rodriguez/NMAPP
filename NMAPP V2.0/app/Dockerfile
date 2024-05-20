@@ -13,6 +13,7 @@ RUN apt-get install -y apache2
 RUN apt-get install -y python3-psycopg2
 RUN apt-get install -y python3-schedule
 RUN apt-get install -y postgresql-server-dev-all
+RUN apt-get install -y npm
 
 
 RUN a2enmod ssl 
