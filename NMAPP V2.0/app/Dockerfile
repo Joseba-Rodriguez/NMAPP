@@ -13,8 +13,6 @@ RUN apt-get install -y apache2
 RUN apt-get install -y python3-psycopg2
 RUN apt-get install -y python3-schedule
 RUN apt-get install -y postgresql-server-dev-all
-RUN apt-get install -y npm
-RUN npm install compromise
 
 RUN a2enmod ssl 
 COPY default-ssl.conf /etc/apache2/sites-available/default-ssl.conf 
