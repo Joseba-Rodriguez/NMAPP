@@ -4,6 +4,8 @@ RUN apt-get -y update && apt-get -y upgrade
 
 RUN apt-get install -y nmap
 RUN apt-get install -y apache2
+RUN apt-get install -y npm
+RUN npm install -y compromise
 
 RUN pip install psycopg2
 RUN pip install schedule
@@ -12,6 +14,8 @@ RUN pip install FPDF
 RUN pip install secure-smtplib
 RUN pip install mime
 RUN pip install openpyxl
+
+
 
 WORKDIR /usr/src/app
 
