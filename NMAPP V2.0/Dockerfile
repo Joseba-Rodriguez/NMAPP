@@ -12,6 +12,9 @@ RUN pip install FPDF
 RUN pip install secure-smtplib
 RUN pip install mime
 RUN pip install openpyxl
+RUN pip install dash
+RUN pip install geoip2
+RUN pip install folium
 
 WORKDIR /usr/src/app
 
@@ -19,6 +22,8 @@ COPY ./app/programmer.py .
 COPY ./app/storer.py .
 
 EXPOSE 587
+EXPOSE 8050
 
 CMD [ "python", "./app/programmer.py" ]
 
+ 

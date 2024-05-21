@@ -14,7 +14,6 @@ RUN apt-get install -y python3-psycopg2
 RUN apt-get install -y python3-schedule
 RUN apt-get install -y postgresql-server-dev-all
 
-
 RUN a2enmod ssl 
 COPY default-ssl.conf /etc/apache2/sites-available/default-ssl.conf 
 RUN a2ensite default-ssl.conf
