@@ -12,10 +12,10 @@ d3.json('graph_data_anomaly.json').then(function(data) {
     const height = window.innerHeight;
 
     const simulation = d3.forceSimulation(data.nodes)
-        .force('link', d3.forceLink(data.links).id(d => d.id).distance(100))
-        .force('charge', d3.forceManyBody().strength(-200))
-        .force('center', d3.forceCenter(width / 2, height / 2));
-
+        .force('link', d3.forceLink(data.links).id(d => d.id).distance(50))
+        .force('charge', d3.forceManyBody().strength(-50))
+        .force('center', d3.forceCenter(width / 3, height / 3));
+        
     const link = svg.selectAll('.link')
         .data(data.links)
         .enter().append('line')
