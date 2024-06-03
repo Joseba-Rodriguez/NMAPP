@@ -7,42 +7,69 @@ body {
     overflow: hidden; /* Oculta barras de desplazamiento */
 }
 
-        /* Estilos para el pop-up */
-        .popup {
-            display: none;
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
+/* Estilos para el contenedor de filtros */
+.filters-container {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 1001; /* Asegurarse de que los botones están delante del grafo */
+}
 
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 5px;
-            padding: 20px;
-            z-index: 999;
-        }
+/* Estilos para los botones de filtro */
+.filters-container button {
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
 
-        .popup-content {
-            max-width: 300px;
-        }
+.filters-container button:hover {
+    background-color: #0056b3;
+}
 
-        /* Estilos para el botón de información */
-        .info-button {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: #007bff;
-            color: white;
-            font-size: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            z-index: 1000;
-        }
+/* Restante de los estilos */
+.popup {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    padding: 20px;
+    z-index: 999;
+}
 
-/* Estilos para los elementos de entrada */
+.popup-content {
+    max-width: 300px;
+}
+
+.info-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #007bff;
+    color: white;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 1000;
+}
+
 input, select {
     padding: 10px;
     margin: 5px;
@@ -56,7 +83,6 @@ input, select {
     max-width: 100px; /* Máximo ancho */
 }
 
-/* Estilos para el botón */
 button {
     padding: 10px 20px;
     margin: 5px;
@@ -74,7 +100,6 @@ button:hover {
     background-color: #0056b3;
 }
 
-/* Estilos para el tooltip */
 #tooltip {
     font-size: 12px;
     background-color: #000;
@@ -91,6 +116,7 @@ svg {
     width: 100vw; /* Ancho de la ventana */
     height: 100vh; /* Alto de la ventana */
 }
+
 /* Estilos para la información del nodo */
 #info {
     position: absolute;
@@ -103,16 +129,15 @@ svg {
     font-size: 16px;
 }
 
-/* Estilos para la leyenda */
 #legend {
     position: absolute;
     top: 10px;
-    right: 10px;
+    right: 5px;
     background-color: rgba(0, 0, 0, 0.5);
     border: 1px solid #555;
     padding: 10px;
     font-family: 'Roboto', sans-serif;
-    font-size: 16px;
+    font-size:11px;
 }
 
 #legend h3 {
@@ -151,7 +176,6 @@ svg {
     color: #ff0000;
 }
 
-/* chatbot.css */
 #chat-container {
     position: fixed;
     bottom: 20px;
@@ -167,4 +191,3 @@ svg {
 .chat-closed {
     transform: translateY(100%);
 }
-

@@ -12,7 +12,15 @@
 </head>
 <body>
     <div class="container">
-        <!-- Chatbot -->
+        <!-- Filtros -->
+        <div id="filters" class="filters-container">
+            <button onclick="filterGraph('all')">Todos</button>
+            <button onclick="filterGraph('ip')">IPs</button>
+            <button onclick="filterGraph('common')">Servicios Comunes</button>
+            <button onclick="filterGraph('anomalous')">Servicios Anómalos</button>
+            <button onclick="filterGraph('vulnerable')">Vulnerabilidades</button>
+        </div>
+        <!-- Chatbot y otros elementos -->
         <div id="chat-container" class="chat-closed">
             <!-- Botón para expandir o cerrar el chat -->
             <div id="toggleChatButton" onclick="toggleChat()">
@@ -29,7 +37,7 @@
         </div>
         <!-- SVG -->
         <svg width="100%" height="100%"></svg>
-
+    
         <div id="info"></div>
         <!-- Pop-up de información -->
         <div class="popup" id="infoPopup">
