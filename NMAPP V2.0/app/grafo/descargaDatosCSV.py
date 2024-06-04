@@ -2,13 +2,6 @@ import os
 import psycopg2
 import csv
 
-# Ruta del archivo JSON
-json_file_path = '/usr/src/app/app/grafo/data.json'
-
-# Borrar el archivo JSON si existe
-if os.path.exists(json_file_path):
-    os.remove(json_file_path)
-    print(f"El archivo '{json_file_path}' ha sido eliminado.")
 
 def download_data():
     # Datos de conexión

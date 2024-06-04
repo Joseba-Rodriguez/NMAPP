@@ -181,4 +181,4 @@ def raw_parser(NUM):
 raw_parser(NUM)
 
 os.system("python3 ./app/grafo/descargaDatosCSV.py")
-
+os.system("python3 ./app/grafo/descargaDatosCSVInformeHistorico.py")
