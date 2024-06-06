@@ -1,24 +1,13 @@
 FROM python:3
 
-RUN apt-get -y update && apt-get -y upgrade
+RUN apt-get -y update && apt-get -y upgrade \
+    && apt-get install -y nmap apache2 npm \
+    && npm install -g npm@latest \
+    && npm cache clean --force
 
-RUN apt-get install -y nmap
-RUN apt-get install -y apache2
-RUN apt-get install -y npm
-RUN npm install -y compromise
+RUN npm install -g compromise
 
-RUN pip install psycopg2
-RUN pip install schedule
-RUN pip install pandas
-RUN pip install FPDF
-RUN pip install secure-smtplib
-RUN pip install mime
-RUN pip install openpyxl
-RUN pip install dash
-RUN pip install geoip2
-RUN pip install folium
-
-
+RUN pip install psycopg2 schedule pandas FPDF secure-smtplib mime openpyxl dash geoip2 folium
 
 WORKDIR /usr/src/app
 
@@ -28,6 +17,4 @@ COPY ./app/storer.py .
 EXPOSE 587
 EXPOSE 8050
 
-CMD [ "python", "./app/programmer.py" ]
-
- 
+CMD ["python", "./programmer.py"]
