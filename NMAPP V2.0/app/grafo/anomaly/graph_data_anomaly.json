@@ -1,7 +1,7 @@
 {
     "nodes": [
         {
-            "id": "192.168.0.1",
+            "id": "8.8.8.8",
             "group": 1
         },
         {
@@ -10,229 +10,46 @@
             "vulnerabilities": [
                 "PRION:CVE-2020-25682\t8.3\thttps://vulners.com/prion/PRION:CVE-2020-25682",
                 "PRION:CVE-2020-25681\t8.3\thttps://vulners.com/prion/PRION:CVE-2020-25681",
-                "CVE-2020-25682\t8.3\thttps://vulners.com/cve/CVE-2020-25682",
-                "CVE-2020-25681\t8.3\thttps://vulners.com/cve/CVE-2020-25681",
+                "CVE-2020-25682\t8.1\thttps://vulners.com/cve/CVE-2020-25682",
+                "CVE-2020-25681\t8.1\thttps://vulners.com/cve/CVE-2020-25681",
+                "CVE-2023-28450\t7.5\thttps://vulners.com/cve/CVE-2023-28450",
+                "CVE-2022-0934\t7.5\thttps://vulners.com/cve/CVE-2022-0934",
+                "CVE-2017-15107\t7.5\thttps://vulners.com/cve/CVE-2017-15107",
                 "PRION:CVE-2020-25687\t7.1\thttps://vulners.com/prion/PRION:CVE-2020-25687",
                 "PRION:CVE-2020-25683\t7.1\thttps://vulners.com/prion/PRION:CVE-2020-25683",
-                "CVE-2020-25687\t7.1\thttps://vulners.com/cve/CVE-2020-25687",
-                "CVE-2020-25683\t7.1\thttps://vulners.com/cve/CVE-2020-25683",
+                "CVE-2020-25687\t5.9\thttps://vulners.com/cve/CVE-2020-25687",
+                "CVE-2020-25683\t5.9\thttps://vulners.com/cve/CVE-2020-25683",
                 "PRION:CVE-2023-50387\t5.0\thttps://vulners.com/prion/PRION:CVE-2023-50387",
                 "PRION:CVE-2023-28450\t5.0\thttps://vulners.com/prion/PRION:CVE-2023-28450",
                 "PRION:CVE-2022-0934\t5.0\thttps://vulners.com/prion/PRION:CVE-2022-0934",
                 "PRION:CVE-2017-15107\t5.0\thttps://vulners.com/prion/PRION:CVE-2017-15107",
                 "OSV:CVE-2017-15107\t5.0\thttps://vulners.com/osv/OSV:CVE-2017-15107",
-                "CVE-2023-28450\t5.0\thttps://vulners.com/cve/CVE-2023-28450",
-                "CVE-2022-0934\t5.0\thttps://vulners.com/cve/CVE-2022-0934",
-                "CVE-2017-15107\t5.0\thttps://vulners.com/cve/CVE-2017-15107",
                 "PRION:CVE-2021-3448\t4.3\thttps://vulners.com/prion/PRION:CVE-2021-3448",
                 "PRION:CVE-2020-25686\t4.3\thttps://vulners.com/prion/PRION:CVE-2020-25686",
                 "PRION:CVE-2020-25685\t4.3\thttps://vulners.com/prion/PRION:CVE-2020-25685",
                 "PRION:CVE-2020-25684\t4.3\thttps://vulners.com/prion/PRION:CVE-2020-25684",
                 "PRION:CVE-2019-14834\t4.3\thttps://vulners.com/prion/PRION:CVE-2019-14834",
-                "CVE-2021-3448\t4.3\thttps://vulners.com/cve/CVE-2021-3448",
-                "CVE-2020-25686\t4.3\thttps://vulners.com/cve/CVE-2020-25686",
-                "CVE-2020-25685\t4.3\thttps://vulners.com/cve/CVE-2020-25685",
-                "CVE-2020-25684\t4.3\thttps://vulners.com/cve/CVE-2020-25684",
-                "CVE-2019-14834\t4.3\thttps://vulners.com/cve/CVE-2019-14834"
+                "CVE-2021-3448\t4.0\thttps://vulners.com/cve/CVE-2021-3448",
+                "CVE-2020-25686\t3.7\thttps://vulners.com/cve/CVE-2020-25686",
+                "CVE-2020-25685\t3.7\thttps://vulners.com/cve/CVE-2020-25685",
+                "CVE-2020-25684\t3.7\thttps://vulners.com/cve/CVE-2020-25684",
+                "CVE-2019-14834\t3.7\thttps://vulners.com/cve/CVE-2019-14834"
             ]
-        },
-        {
-            "id": "192.168.0.12",
-            "group": 1
-        },
-        {
-            "id": "tcpwrapped:8888",
-            "group": 3
-        },
-        {
-            "id": "http:80",
-            "group": 2
-        },
-        {
-            "id": "scp-config:10001",
-            "group": 2
         },
         {
             "id": "https:443",
-            "group": 2
-        },
-        {
-            "id": "192.168.0.13",
-            "group": 1
-        },
-        {
-            "id": "tcpwrapped:53",
-            "group": 3
-        },
-        {
-            "id": "192.168.0.10",
-            "group": 1
-        },
-        {
-            "id": "tcpwrapped:1080",
-            "group": 3
-        },
-        {
-            "id": "192.168.0.23",
-            "group": 1
-        },
-        {
-            "id": "msrpc:135",
-            "group": 2
-        },
-        {
-            "id": "tcpwrapped:6543",
-            "group": 3
-        },
-        {
-            "id": "netbios-ssn:139",
-            "group": 2
-        },
-        {
-            "id": "http:443",
-            "group": 3,
-            "vulnerabilities": [
-                "CVE-2023-43622\t5.0\thttps://vulners.com/cve/CVE-2023-43622",
-                "CVE-2023-31122\t5.0\thttps://vulners.com/cve/CVE-2023-31122",
-                "CVE-2023-45802\t2.6\thttps://vulners.com/cve/CVE-2023-45802"
-            ]
-        },
-        {
-            "id": "tcpwrapped:10001",
-            "group": 3
-        },
-        {
-            "id": "microsoft-ds:445",
-            "group": 2
-        },
-        {
-            "id": "192.168.0.11",
-            "group": 1
-        },
-        {
-            "id": "arepa-cas:3030",
-            "group": 2
-        },
-        {
-            "id": "postgresql:5432",
-            "group": 2
-        },
-        {
-            "id": "socks5:1080",
-            "group": 3
-        },
-        {
-            "id": "irc:6666",
-            "group": 2
-        },
-        {
-            "id": "http:6543",
-            "group": 3
-        },
-        {
-            "id": "http-proxy:8080",
             "group": 2
         }
     ],
     "links": [
         {
-            "source": "192.168.0.1",
+            "source": "8.8.8.8",
             "target": "domain:53",
             "value": 1
         },
         {
-            "source": "192.168.0.12",
-            "target": "tcpwrapped:8888",
-            "value": 1
-        },
-        {
-            "source": "192.168.0.1",
-            "target": "http:80",
-            "value": 1
-        },
-        {
-            "source": "192.168.0.12",
-            "target": "scp-config:10001",
-            "value": 1
-        },
-        {
-            "source": "192.168.0.1",
+            "source": "8.8.8.8",
             "target": "https:443",
-            "value": 1
-        },
-        {
-            "source": "192.168.0.13",
-            "target": "tcpwrapped:53",
-            "value": 1
-        },
-        {
-            "source": "192.168.0.10",
-            "target": "tcpwrapped:1080",
-            "value": 1
-        },
-        {
-            "source": "192.168.0.23",
-            "target": "msrpc:135",
-            "value": 1
-        },
-        {
-            "source": "192.168.0.10",
-            "target": "tcpwrapped:6543",
-            "value": 1
-        },
-        {
-            "source": "192.168.0.23",
-            "target": "netbios-ssn:139",
-            "value": 1
-        },
-        {
-            "source": "192.168.0.10",
-            "target": "tcpwrapped:8888",
-            "value": 1
-        },
-        {
-            "source": "192.168.0.23",
-            "target": "http:443",
-            "value": 1
-        },
-        {
-            "source": "192.168.0.10",
-            "target": "tcpwrapped:10001",
-            "value": 1
-        },
-        {
-            "source": "192.168.0.23",
-            "target": "microsoft-ds:445",
-            "value": 1
-        },
-        {
-            "source": "192.168.0.11",
-            "target": "arepa-cas:3030",
-            "value": 1
-        },
-        {
-            "source": "192.168.0.23",
-            "target": "postgresql:5432",
-            "value": 1
-        },
-        {
-            "source": "192.168.0.12",
-            "target": "socks5:1080",
-            "value": 1
-        },
-        {
-            "source": "192.168.0.23",
-            "target": "irc:6666",
-            "value": 1
-        },
-        {
-            "source": "192.168.0.12",
-            "target": "http:6543",
-            "value": 1
-        },
-        {
-            "source": "192.168.0.23",
-            "target": "http-proxy:8080",
             "value": 1
         }
     ]
