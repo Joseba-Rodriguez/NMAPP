@@ -60,15 +60,22 @@ vulnerability_summary = [
 top_ports_services = df.groupby(['port', 'service']).size().reset_index(name='count').sort_values(by='count', ascending=False).head(10)
 
 # Calcular las CVEs más frecuentes y su criticidad
-cve_counts = df['cve_list'].explode().dropna().apply(pd.Series).rename(columns={0: 'cve', 1: 'score', 2: 'link'})
-cve_counts['score'] = cve_counts['score'].astype(float)
+if df['cve_list'].explode().dropna().empty:
+    cve_counts = pd.DataFrame(columns=['cve', 'score', 'link'])
+else:
+    cve_counts = df['cve_list'].explode().dropna().apply(pd.Series)
+    cve_counts.columns = ['cve', 'score', 'link']
+    cve_counts['score'] = cve_counts['score'].astype(float)
+
 top_cves = cve_counts['cve'].value_counts().reset_index()
 top_cves.columns = ['cve', 'count']
-top_cves = top_cves.merge(cve_counts[['cve', 'score']].drop_duplicates(), on='cve').sort_values(by='count', ascending=False).head(10)
+if not cve_counts.empty:
+    top_cves = top_cves.merge(cve_counts[['cve', 'score']].drop_duplicates(), on='cve').sort_values(by='count', ascending=False).head(10)
+else:
+    top_cves = pd.DataFrame(columns=['cve', 'count', 'score'])
 
 # Calcular los puertos con más vulnerabilidades
 port_vulns = df.explode('cve_list').groupby('port').size().reset_index(name='count').sort_values(by='count', ascending=False).head(10)
-
 
 # Calcular las IPs con más conexiones abiertas
 ip_connections = df['ip'].value_counts().head(10).reset_index()
@@ -90,7 +97,10 @@ def get_color(score):
         return 'green'
 
 # Aplicar colores según la criticidad
-top_cves['color'] = top_cves['score'].apply(get_color)
+if not top_cves.empty:
+    top_cves['color'] = top_cves['score'].apply(get_color)
+else:
+    top_cves['color'] = []
 
 # Inicializar la aplicación Dash
 app = dash.Dash(__name__)
