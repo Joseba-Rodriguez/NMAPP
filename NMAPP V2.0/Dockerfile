@@ -15,6 +15,6 @@ COPY ./app/programmer.py .
 COPY ./app/storer.py .
 
 EXPOSE 587  
-EXPOSE 8050
+EXPOSE 80
 
 CMD ["python", "./app/programmer.py"]
