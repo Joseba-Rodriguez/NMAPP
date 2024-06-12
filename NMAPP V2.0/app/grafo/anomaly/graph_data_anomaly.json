@@ -1,55 +1,45 @@
 {
     "nodes": [
         {
-            "id": "8.8.8.8",
+            "id": "80.245.2.142",
             "group": 1
         },
         {
-            "id": "domain:53",
-            "group": 2,
-            "vulnerabilities": [
-                "PRION:CVE-2020-25682\t8.3\thttps://vulners.com/prion/PRION:CVE-2020-25682",
-                "PRION:CVE-2020-25681\t8.3\thttps://vulners.com/prion/PRION:CVE-2020-25681",
-                "CVE-2020-25682\t8.1\thttps://vulners.com/cve/CVE-2020-25682",
-                "CVE-2020-25681\t8.1\thttps://vulners.com/cve/CVE-2020-25681",
-                "CVE-2023-28450\t7.5\thttps://vulners.com/cve/CVE-2023-28450",
-                "CVE-2022-0934\t7.5\thttps://vulners.com/cve/CVE-2022-0934",
-                "CVE-2017-15107\t7.5\thttps://vulners.com/cve/CVE-2017-15107",
-                "PRION:CVE-2020-25687\t7.1\thttps://vulners.com/prion/PRION:CVE-2020-25687",
-                "PRION:CVE-2020-25683\t7.1\thttps://vulners.com/prion/PRION:CVE-2020-25683",
-                "CVE-2020-25687\t5.9\thttps://vulners.com/cve/CVE-2020-25687",
-                "CVE-2020-25683\t5.9\thttps://vulners.com/cve/CVE-2020-25683",
-                "PRION:CVE-2023-50387\t5.0\thttps://vulners.com/prion/PRION:CVE-2023-50387",
-                "PRION:CVE-2023-28450\t5.0\thttps://vulners.com/prion/PRION:CVE-2023-28450",
-                "PRION:CVE-2022-0934\t5.0\thttps://vulners.com/prion/PRION:CVE-2022-0934",
-                "PRION:CVE-2017-15107\t5.0\thttps://vulners.com/prion/PRION:CVE-2017-15107",
-                "OSV:CVE-2017-15107\t5.0\thttps://vulners.com/osv/OSV:CVE-2017-15107",
-                "PRION:CVE-2021-3448\t4.3\thttps://vulners.com/prion/PRION:CVE-2021-3448",
-                "PRION:CVE-2020-25686\t4.3\thttps://vulners.com/prion/PRION:CVE-2020-25686",
-                "PRION:CVE-2020-25685\t4.3\thttps://vulners.com/prion/PRION:CVE-2020-25685",
-                "PRION:CVE-2020-25684\t4.3\thttps://vulners.com/prion/PRION:CVE-2020-25684",
-                "PRION:CVE-2019-14834\t4.3\thttps://vulners.com/prion/PRION:CVE-2019-14834",
-                "CVE-2021-3448\t4.0\thttps://vulners.com/cve/CVE-2021-3448",
-                "CVE-2020-25686\t3.7\thttps://vulners.com/cve/CVE-2020-25686",
-                "CVE-2020-25685\t3.7\thttps://vulners.com/cve/CVE-2020-25685",
-                "CVE-2020-25684\t3.7\thttps://vulners.com/cve/CVE-2020-25684",
-                "CVE-2019-14834\t3.7\thttps://vulners.com/cve/CVE-2019-14834"
-            ]
+            "id": "tcpwrapped:53",
+            "group": 3
         },
         {
-            "id": "https:443",
-            "group": 2
+            "id": "tcpwrapped:80",
+            "group": 3
+        },
+        {
+            "id": "tcpwrapped:443",
+            "group": 3
+        },
+        {
+            "id": "tcpwrapped:8008",
+            "group": 3
         }
     ],
     "links": [
         {
-            "source": "8.8.8.8",
-            "target": "domain:53",
+            "source": "80.245.2.142",
+            "target": "tcpwrapped:53",
             "value": 1
         },
         {
-            "source": "8.8.8.8",
-            "target": "https:443",
+            "source": "80.245.2.142",
+            "target": "tcpwrapped:80",
+            "value": 1
+        },
+        {
+            "source": "80.245.2.142",
+            "target": "tcpwrapped:443",
+            "value": 1
+        },
+        {
+            "source": "80.245.2.142",
+            "target": "tcpwrapped:8008",
             "value": 1
         }
     ]

@@ -14,7 +14,7 @@ WORKDIR /usr/src/app
 COPY ./app/programmer.py .
 COPY ./app/storer.py .
 
-EXPOSE 587
+EXPOSE 587  
 EXPOSE 8050
 
 CMD ["python", "./app/programmer.py"]

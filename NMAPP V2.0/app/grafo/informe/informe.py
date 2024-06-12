@@ -244,7 +244,7 @@ app.layout = html.Div([
                     )
                 ],
                 layout=go.Layout(
-                    title="Vulnerabilidades por Hora",
+                    title="Timeline de Vulnerabilidades",
                     paper_bgcolor='black',
                     plot_bgcolor='black',
                     font=dict(color='white')
