@@ -86,6 +86,13 @@ ip_connections.columns = ['ip', 'count']
 df['ts'] = pd.to_datetime(df['ts'])
 vulns_by_hour = df.resample('h', on='ts').size().reset_index(name='count')
 
+# Calcular el porcentaje de IPs con vulnerabilidad y sin vulnerabilidad
+ips_with_vulnerabilities = df[df['cve_str'].str.contains('CVE')]['ip'].nunique()
+ips_without_vulnerabilities = df[~df['cve_str'].str.contains('CVE')]['ip'].nunique()
+total_ips = df['ip'].nunique()
+percent_with_vulns = (ips_with_vulnerabilities / total_ips) * 100
+percent_without_vulns = (ips_without_vulnerabilities / total_ips) * 100
+
 # Función para asignar colores según la criticidad de la CVE
 def get_color(score):
     if score >= 8.0:
@@ -106,11 +113,6 @@ else:
 # Inicializar la aplicación Dash
 app = dash.Dash(__name__)
 app.title = "Análisis de Vulnerabilidades de Red con Nmap"
-
-# Definir el estilo general del dashboard
-app.css.append_css({
-    'external_url': 'https://codepen.io/chriddyp/pen/bWLwgP.css'
-})
 
 # Definir el estilo general del dashboard
 app.layout = html.Div([
@@ -154,7 +156,7 @@ app.layout = html.Div([
                 page_size=10,
                 page_action='native'
             ),
-        ], style={'float': 'left', 'width': '30%', 'display': 'inline-block', 'verticalAlign': 'top', 'padding': '30px', 'backgroundColor': '#2E2E2E', 'borderRadius': '10px', 'boxShadow': '0 4px 8px rgba(0, 0, 0, 0.2)'}),
+        ], style={'float': 'left', 'width': '45%', 'display': 'inline-block', 'verticalAlign': 'top', 'padding': '30px', 'backgroundColor': '#2E2E2E', 'borderRadius': '10px', 'boxShadow': '0 4px 8px rgba(0, 0, 0, 0.2)'}),
 
         html.Div([
             html.H2("CVEs por IP", style={
@@ -162,178 +164,171 @@ app.layout = html.Div([
                 'backgroundColor': '#2E2E2E', 'padding': '10px', 'borderRadius': '10px'
             }),
             dash_table.DataTable(
-                id='cves-by-ip-table',
+                id='ip-cves-table',
                 columns=[
                     {'name': 'IP', 'id': 'ip'},
-                    {'name': 'CVEs', 'id': 'cve_str', 'presentation': 'markdown'}
+                    {'name': 'CVEs', 'id': 'cve_str'}
                 ],
-                data=df[['ip', 'cve_str']].to_dict('records'),
-                style_table={'width': '100%', 'margin': 'auto', 'overflowX': 'auto'},
+                data=[],
+                style_table={'width': '100%', 'margin': 'auto'},
+                style_header={'backgroundColor': '#2E2E2E', 'color': '#FFFFFF'},
+                style_cell={'backgroundColor': '#1E1E1E', 'color': '#FFFFFF'},
+                page_size=10,
+                page_action='native'
+            )
+        ], style={'float': 'right', 'width': '45%', 'display': 'inline-block', 'verticalAlign': 'top', 'padding': '30px', 'backgroundColor': '#2E2E2E', 'borderRadius': '10px', 'boxShadow': '0 4px 8px rgba(0, 0, 0, 0.2)'})
+    ], style={'display': 'flex', 'justifyContent': 'space-between', 'width': '90%', 'margin': 'auto', 'marginTop': '20px'}),
+
+    html.Div([
+        html.Div([
+            html.H2("Top 10 Puertos y Servicios", style={
+                'color': '#FFFFFF', 'textAlign': 'center', 'fontFamily': 'Arial, sans-serif', 'fontSize': '24px', 'fontWeight': 'bold',
+                'backgroundColor': '#2E2E2E', 'padding': '10px', 'borderRadius': '10px'
+            }),
+            dash_table.DataTable(
+                id='ports-services-table',
+                columns=[
+                    {'name': 'Puerto', 'id': 'port'},
+                    {'name': 'Servicio', 'id': 'service'},
+                    {'name': 'Conexiones', 'id': 'count'}
+                ],
+                data=top_ports_services.to_dict('records'),
+                style_table={'width': '100%', 'margin': 'auto'},
                 style_header={'backgroundColor': '#2E2E2E', 'color': '#FFFFFF'},
                 style_cell={'backgroundColor': '#1E1E1E', 'color': '#FFFFFF'},
                 page_size=10,
                 page_action='native'
             ),
-        ], style={'float': 'left', 'width': '30%', 'display': 'inline-block', 'verticalAlign': 'top', 'padding': '30px', 'backgroundColor': '#2E2E2E', 'borderRadius': '10px', 'boxShadow': '0 4px 8px rgba(0, 0, 0, 0.2)'}),
+        ], style={'float': 'left', 'width': '45%', 'display': 'inline-block', 'verticalAlign': 'top', 'padding': '30px', 'backgroundColor': '#2E2E2E', 'borderRadius': '10px', 'boxShadow': '0 4px 8px rgba(0, 0, 0, 0.2)'}),
 
         html.Div([
-            html.H2("Resumen de Vulnerabilidades", style={
+            html.H2("Top 10 CVEs", style={
                 'color': '#FFFFFF', 'textAlign': 'center', 'fontFamily': 'Arial, sans-serif', 'fontSize': '24px', 'fontWeight': 'bold',
                 'backgroundColor': '#2E2E2E', 'padding': '10px', 'borderRadius': '10px'
             }),
             dash_table.DataTable(
-                id='vulnerability-summary-table',
+                id='top-cves-table',
                 columns=[
-                    {'name': 'Categoría', 'id': 'category'},
-                    {'name': 'Valor', 'id': 'value'}
+                    {'name': 'CVE', 'id': 'cve'},
+                    {'name': 'Frecuencia', 'id': 'count'},
+                    {'name': 'Puntuación', 'id': 'score'}
                 ],
-                data=vulnerability_summary,
+                data=top_cves.to_dict('records'),
                 style_table={'width': '100%', 'margin': 'auto'},
                 style_header={'backgroundColor': '#2E2E2E', 'color': '#FFFFFF'},
-                style_cell={'backgroundColor': '#1E1E1E', 'color': '#FFFFFF'}
-            ),
-        ], style={'float': 'left', 'width': '30%', 'display': 'inline-block', 'verticalAlign': 'top', 'padding': '30px', 'backgroundColor': '#2E2E2E', 'borderRadius': '10px', 'boxShadow': '0 4px 8px rgba(0, 0, 0, 0.2)'}),
-    ], style={'margin': '20px auto', 'width': '90%', 'backgroundColor': '#2E2E2E', 'borderRadius': '10px', 'padding': '20px', 'boxShadow': '0 4px 8px rgba(0, 0, 0, 0.2)'}),
-
-    html.Div([
-        html.Div([
-            dcc.Graph(
-                id='common-ports-graph',
-                style={'backgroundColor': '#1E1E1E'}
+                style_cell={'backgroundColor': '#1E1E1E', 'color': '#FFFFFF'},
+                page_size=10,
+                page_action='native',
+                style_data_conditional=[
+                    {
+                        'if': {'column_id': 'score', 'filter_query': '{score} >= 8'},
+                        'backgroundColor': 'red',
+                        'color': 'white'
+                    },
+                    {
+                        'if': {'column_id': 'score', 'filter_query': '{score} >= 7 && {score} < 8'},
+                        'backgroundColor': 'orange',
+                        'color': 'white'
+                    },
+                    {
+                        'if': {'column_id': 'score', 'filter_query': '{score} >= 4 && {score} < 7'},
+                        'backgroundColor': 'yellow',
+                        'color': 'black'
+                    },
+                    {
+                        'if': {'column_id': 'score', 'filter_query': '{score} < 4'},
+                        'backgroundColor': 'green',
+                        'color': 'white'
+                    }
+                ]
             )
-        ], style={'width': '50%', 'display': 'inline-block', 'verticalAlign': 'top', 'padding': '30px', 'backgroundColor': '#2E2E2E', 'borderRadius': '10px', 'boxShadow': '0 4px 8px rgba(0, 0, 0, 0.2)'}),
-
-        html.Div([
-            dcc.Graph(
-                id='ports-vulnerabilities-graph',
-                style={'backgroundColor': '#1E1E1E'}
-            )
-        ], style={'width': '50%', 'display': 'inline-block', 'verticalAlign': 'top', 'padding': '30px', 'backgroundColor': '#2E2E2E', 'borderRadius': '10px', 'boxShadow': '0 4px 8px rgba(0, 0, 0, 0.2)'}),
-    ], style={'margin': '20px auto', 'width': '90%', 'backgroundColor': '#2E2E2E', 'borderRadius': '10px', 'padding': '20px', 'boxShadow': '0 4px 8px rgba(0, 0, 0, 0.2)'}),
+        ], style={'float': 'right', 'width': '45%', 'display': 'inline-block', 'verticalAlign': 'top', 'padding': '30px', 'backgroundColor': '#2E2E2E', 'borderRadius': '10px', 'boxShadow': '0 4px 8px rgba(0, 0, 0, 0.2)'})
+    ], style={'display': 'flex', 'justifyContent': 'space-between', 'width': '90%', 'margin': 'auto', 'marginTop': '20px'}),
 
     html.Div([
+        html.H2("Vulnerabilidades por Hora", style={
+            'color': '#FFFFFF', 'textAlign': 'center', 'fontFamily': 'Arial, sans-serif', 'fontSize': '24px', 'fontWeight': 'bold',
+            'backgroundColor': '#2E2E2E', 'padding': '10px', 'borderRadius': '10px'
+        }),
         dcc.Graph(
-            id='cves-frequency-graph',
-            style={'backgroundColor': '#1E1E1E'}
+            id='vulns-by-hour-graph',
+            figure={
+                'data': [
+                    go.Scatter(
+                        x=vulns_by_hour['ts'],
+                        y=vulns_by_hour['count'],
+                        mode='lines+markers',
+                        marker={'color': 'red'}
+                    )
+                ],
+                'layout': go.Layout(
+                    title='Número de Vulnerabilidades por Hora',
+                    xaxis={'title': 'Hora'},
+                    yaxis={'title': 'Número de Vulnerabilidades'},
+                    plot_bgcolor='#2E2E2E',
+                    paper_bgcolor='#2E2E2E',
+                    font={'color': '#FFFFFF'}
+                )
+            }
         )
-    ], style={'width': '90%', 'display': 'inline-block', 'verticalAlign': 'top', 'padding': '30px', 'backgroundColor': '#2E2E2E', 'borderRadius': '10px', 'boxShadow': '0 4px 8px rgba(0, 0, 0, 0.2)', 'margin': '20px auto'}),
+    ], style={'width': '90%', 'margin': '20px auto'}),
 
     html.Div([
-        dcc.Graph(
-            id='vulnerabilities-timeline-graph',
-            style={'backgroundColor': '#1E1E1E'}
+        html.H2("Resumen de Vulnerabilidades", style={
+            'color': '#FFFFFF', 'textAlign': 'center', 'fontFamily': 'Arial, sans-serif', 'fontSize': '24px', 'fontWeight': 'bold',
+            'backgroundColor': '#2E2E2E', 'padding': '10px', 'borderRadius': '10px'
+        }),
+        dash_table.DataTable(
+            id='vulnerability-summary-table',
+            columns=[
+                {'name': 'Categoría', 'id': 'category'},
+                {'name': 'Valor', 'id': 'value'}
+            ],
+            data=vulnerability_summary,
+            style_table={'width': '100%', 'margin': 'auto'},
+            style_header={'backgroundColor': '#2E2E2E', 'color': '#FFFFFF'},
+            style_cell={'backgroundColor': '#1E1E1E', 'color': '#FFFFFF'},
+            page_size=10,
+            page_action='native'
         )
-    ], style={'width': '90%', 'display': 'inline-block', 'verticalAlign': 'top', 'padding': '30px', 'backgroundColor': '#2E2E2E', 'borderRadius': '10px', 'boxShadow': '0 4px 8px rgba(0, 0, 0, 0.2)', 'margin': '20px auto'})
-], style={'backgroundColor': '#1E1E1E', 'fontFamily': 'Arial, sans-serif', 'padding': '20px'})
+    ], style={'width': '90%', 'margin': '20px auto'}),
 
+    html.Div([
+        html.H2("Porcentaje de IPs con y sin Vulnerabilidades", style={
+            'color': '#FFFFFF', 'textAlign': 'center', 'fontFamily': 'Arial, sans-serif', 'fontSize': '24px', 'fontWeight': 'bold',
+            'backgroundColor': '#2E2E2E', 'padding': '10px', 'borderRadius': '10px'
+        }),
+        dcc.Graph(
+            id='ip-vulns-pie-chart',
+            figure={
+                'data': [
+                    go.Pie(
+                        labels=['Con Vulnerabilidad', 'Sin Vulnerabilidad'],
+                        values=[percent_with_vulns, percent_without_vulns],
+                        marker={'colors': ['red', 'green']}
+                    )
+                ],
+                'layout': go.Layout(
+                    title='Porcentaje de IPs con y sin Vulnerabilidades',
+                    plot_bgcolor='#2E2E2E',
+                    paper_bgcolor='#2E2E2E',
+                    font={'color': '#FFFFFF'}
+                )
+            }
+        )
+    ], style={'width': '90%', 'margin': '20px auto'})
+])
+
+# Callback para actualizar la tabla de CVEs por IP cuando se selecciona una IP
 @app.callback(
-    [
-        Output('ip-connections-table', 'data'),
-        Output('cves-by-ip-table', 'data'),
-        Output('vulnerability-summary-table', 'data'),
-        Output('common-ports-graph', 'figure'),
-        Output('ports-vulnerabilities-graph', 'figure'),
-        Output('cves-frequency-graph', 'figure'),
-        Output('vulnerabilities-timeline-graph', 'figure')
-    ],
+    Output('ip-cves-table', 'data'),
     [Input('ip-dropdown', 'value')]
 )
-def update_dashboard(selected_ip):
-    if selected_ip:
-        filtered_df = df[df['ip'] == selected_ip]
-    else:
-        filtered_df = df
-
-    ip_connections_data = ip_connections if not selected_ip else filtered_df['ip'].value_counts().head(10).reset_index().rename(columns={'index': 'ip', 'ip': 'count'})
-    cves_by_ip_data = filtered_df[['ip', 'cve_str']].to_dict('records')
-    vulnerability_summary_data = vulnerability_summary if not selected_ip else [
-        {'category': 'Total Conexiones', 'value': len(filtered_df)},
-        {'category': 'Total Vulnerabilidades', 'value': sum([len(cves) for cves in filtered_df['cve_list']])},
-        {'category': 'Vulnerabilidades Críticas', 'value': sum([sum([float(cve[1]) >= 7.0 for cve in cves]) for cves in filtered_df['cve_list']])}
-    ]
-
-    ips_summary_data = ip_connections_data.to_dict('records')
-
-    common_ports_figure = go.Figure(
-        data=[
-            go.Bar(
-                x=top_ports_services['port'].astype(str) + " (" + top_ports_services['service'] + ")",
-                y=top_ports_services['count'],
-                marker_color='rgb(26, 118, 255)'
-            )
-        ],
-        layout=go.Layout(
-            title="Top 10 Puertos Más Comunes y sus Servicios",
-            paper_bgcolor='#1E1E1E',
-            plot_bgcolor='#1E1E1E',
-            font=dict(color='white')
-        )
-    )
-
-    ports_vulnerabilities_figure = go.Figure(
-        data=[
-            go.Bar(
-                x=port_vulns['port'].astype(str),
-                y=port_vulns['count'],
-                marker_color='rgb(55, 83, 109)'
-            )
-        ],
-        layout=go.Layout(
-            title="Top 10 Puertos con Más Vulnerabilidades",
-            paper_bgcolor='#1E1E1E',
-            plot_bgcolor='#1E1E1E',
-            font=dict(color='white')
-        )
-    )
-
-    cves_frequency_figure = go.Figure(
-        data=[
-            go.Bar(
-                x=top_cves['cve'],
-                y=top_cves['count'],
-                marker=dict(color=top_cves['color']),
-                name='Cantidad',
-                hoverinfo='text',
-                text=top_cves['score'],
-            )
-        ],
-        layout=go.Layout(
-            title="Top 10 CVEs Más Frecuentes con Criticidad",
-            paper_bgcolor='#1E1E1E',
-            plot_bgcolor='#1E1E1E',
-            font=dict(color='white'),
-            barmode='stack',
-            xaxis={'title': 'CVE'},
-            yaxis={'title': 'Cantidad'},
-        )
-    )
-
-    vulnerabilities_timeline_figure = go.Figure(
-        data=[
-            go.Scatter(
-                x=vulns_by_hour['ts'],
-                y=vulns_by_hour['count'],
-                mode='lines',
-                line=dict(color='rgb(26, 118, 255)')
-            )
-        ],
-        layout=go.Layout(
-            title="Timeline de Vulnerabilidades",
-            paper_bgcolor='#1E1E1E',
-            plot_bgcolor='#1E1E1E',
-            font=dict(color='white')
-        )
-    )
-
-    return (
-        ip_connections_data.to_dict('records'),
-        cves_by_ip_data,
-        vulnerability_summary_data,
-        common_ports_figure,
-        ports_vulnerabilities_figure,
-        cves_frequency_figure,
-        vulnerabilities_timeline_figure
-    )
+def update_ip_cves_table(selected_ip):
+    if selected_ip is None:
+        return []
+    ip_data = df[df['ip'] == selected_ip][['ip', 'cve_str']].to_dict('records')
+    return ip_data
 
 if __name__ == '__main__':
-    app.run_server(debug=True, host='0.0.0.0', port=80)
+    app.run_server(debug=True, host='0.0.0.0', port=8050)
