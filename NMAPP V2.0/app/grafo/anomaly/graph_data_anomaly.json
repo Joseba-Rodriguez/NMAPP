@@ -43,6 +43,10 @@
         {
             "id": "http:443",
             "group": 3
+        },
+        {
+            "id": "http:8008",
+            "group": 2
         }
     ],
     "links": [
@@ -59,6 +63,11 @@
         {
             "source": "80.245.2.142",
             "target": "http:443",
+            "value": 1
+        },
+        {
+            "source": "80.245.2.142",
+            "target": "http:8008",
             "value": 1
         }
     ]

@@ -170,7 +170,7 @@ app.layout = html.Div([
                     {'name': 'CVEs', 'id': 'cve_str'}
                 ],
                 data=[],
-                style_table={'width': '100%', 'margin': 'auto'},
+                style_table={'width': '100%', 'margin': 'auto', 'overflowY': 'scroll', 'maxHeight': '300px'},
                 style_header={'backgroundColor': '#2E2E2E', 'color': '#FFFFFF'},
                 style_cell={'backgroundColor': '#1E1E1E', 'color': '#FFFFFF'},
                 page_size=10,
