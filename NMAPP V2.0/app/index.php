@@ -79,7 +79,7 @@
         </div>
       </div>
       <div class="row">
-        <button onclick="window.location.href='./grafo/anomaly/indexAnomaly.html'" class="btn btn-primary text-uppercase me-2">
+        <button onclick="window.location.href='./indexAnomaly.php'" class="btn btn-primary text-uppercase me-2">
           Anomaly graph
       </button>
       </div>

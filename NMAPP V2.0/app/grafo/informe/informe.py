@@ -246,7 +246,7 @@ app.layout = html.Div([
     ], style={'display': 'flex', 'justifyContent': 'space-between', 'width': '90%', 'margin': 'auto', 'marginTop': '20px'}),
 
     html.Div([
-        html.H2("Vulnerabilidades por Hora", style={
+        html.H2("Timeline de conexiones", style={
             'color': '#FFFFFF', 'textAlign': 'center', 'fontFamily': 'Arial, sans-serif', 'fontSize': '24px', 'fontWeight': 'bold',
             'backgroundColor': '#2E2E2E', 'padding': '10px', 'borderRadius': '10px'
         }),
@@ -262,9 +262,7 @@ app.layout = html.Div([
                     )
                 ],
                 'layout': go.Layout(
-                    title='Número de Vulnerabilidades por Hora',
-                    xaxis={'title': 'Hora'},
-                    yaxis={'title': 'Número de Vulnerabilidades'},
+                    title='Número de conexiones',
                     plot_bgcolor='#2E2E2E',
                     paper_bgcolor='#2E2E2E',
                     font={'color': '#FFFFFF'}

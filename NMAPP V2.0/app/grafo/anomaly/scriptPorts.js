@@ -1,5 +1,5 @@
 // Cargar datos desde el archivo JSON
-d3.json('graph_data_anomaly.json').then(function(data) {
+d3.json('./grafo/anomaly/graph_data_anomaly.json').then(function(data) {
     const svg = d3.select('svg')
         .attr('width', '150%')
         .attr('height', '100%')

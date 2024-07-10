@@ -2,7 +2,7 @@
 function loadData(callback) {
     const xhr = new XMLHttpRequest();
     xhr.overrideMimeType("application/json");
-    xhr.open('GET', 'graph_data_anomaly.json', true);
+    xhr.open('GET', './grafo/anomaly/graph_data_anomaly.json', true);
     xhr.onreadystatechange = function() {
         if (xhr.readyState === 4) {
             if (xhr.status === 200) {
