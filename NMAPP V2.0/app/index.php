@@ -39,6 +39,13 @@
                   </li>
                   <li class="nav-item">
                     <form>
+                      <a class="nav-link" href="/grafo/informe/dashboard.php"
+                        ><b>Informe</b></a
+                      >
+                    </form>
+                  </li>
+                  <li class="nav-item">
+                    <form>
                       <a class="nav-link" href="Discovery.php"
                         ><b>Descubrimientos</b></a
                       >
