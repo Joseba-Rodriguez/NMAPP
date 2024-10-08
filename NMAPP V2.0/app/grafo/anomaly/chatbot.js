@@ -17,11 +17,11 @@ function loadData(callback) {
 }
 
 // Function to handle user question directly with ChatGPT
-async function processQuestion(userInput, data, retries = 3) {
+async function processQuestion(userInput, data, retries = 1) {
     console.log("Processing user question...");
     console.log("User input:", userInput);
 
-    const API_KEY = 'sk-proj-i4cwgA80ndx3CdbG4rDOT3BlbkFJmwPIf3H9rJnWBqOYxCO2';
+    const API_KEY = '';
     const additionalText = "Tu nombres es BOTMAP. Eres un asistente que te vas a encargar de ayudar a la gente que te utilice a entender un grafo, pero para ello te voy a poner en contexto, el grafo se ha generado en base a un json, este json se ha obtenido de un escaneo de nmap, la idea de este grafo es visualizar de forma fácil y sencilla cómo funcionan las redes y qué vulnerabilidades tienen así como si existe alguna anomalía entre puerto y servicio (el servicio no concuerda con un puerto común para dicho servicio). Debes ayudar a responder todas las preguntas posibles sobre el grafo, debes ser muy preciso en tus respuestas porque va dirigido al equipo de ciberseguridad. Además, quiero que no entrenes tu base de datos con estos datos ya que son bastante confidenciales, no quiero que utilices estos datos en tu base de datos. Comienza respondiendo como un chatbot para dar asistencia y no des pistas sobre cómo funciona el backend.";
     const jsonDataString = JSON.stringify(data);
     const contextString = additionalText + "\n" + jsonDataString;
