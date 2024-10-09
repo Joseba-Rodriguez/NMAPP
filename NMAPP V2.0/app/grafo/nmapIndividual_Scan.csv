@@ -1,5 +1,55 @@
 idnmapindividual,ip,hostname,port,protocol,service,version,cve_str,ts
-427,80.245.2.142,santurtzi.net,53,tcp,domain,dnsmasq,PRION:CVE-2020-25682	8.3	https://vulners.com/prion/PRION:CVE-2020-25682;PRION:CVE-2020-25681	8.3	https://vulners.com/prion/PRION:CVE-2020-25681;CVE-2020-25682	8.1	https://vulners.com/cve/CVE-2020-25682;CVE-2020-25681	8.1	https://vulners.com/cve/CVE-2020-25681;CVE-2023-28450	7.5	https://vulners.com/cve/CVE-2023-28450;CVE-2022-0934	7.5	https://vulners.com/cve/CVE-2022-0934;CVE-2017-15107	7.5	https://vulners.com/cve/CVE-2017-15107;PRION:CVE-2020-25687	7.1	https://vulners.com/prion/PRION:CVE-2020-25687;PRION:CVE-2020-25683	7.1	https://vulners.com/prion/PRION:CVE-2020-25683;CVE-2020-25687	5.9	https://vulners.com/cve/CVE-2020-25687;CVE-2020-25683	5.9	https://vulners.com/cve/CVE-2020-25683;PRION:CVE-2023-50387	5.0	https://vulners.com/prion/PRION:CVE-2023-50387;PRION:CVE-2023-28450	5.0	https://vulners.com/prion/PRION:CVE-2023-28450;PRION:CVE-2022-0934	5.0	https://vulners.com/prion/PRION:CVE-2022-0934;PRION:CVE-2017-15107	5.0	https://vulners.com/prion/PRION:CVE-2017-15107;OSV:CVE-2017-15107	5.0	https://vulners.com/osv/OSV:CVE-2017-15107;PRION:CVE-2021-3448	4.3	https://vulners.com/prion/PRION:CVE-2021-3448;PRION:CVE-2020-25686	4.3	https://vulners.com/prion/PRION:CVE-2020-25686;PRION:CVE-2020-25685	4.3	https://vulners.com/prion/PRION:CVE-2020-25685;PRION:CVE-2020-25684	4.3	https://vulners.com/prion/PRION:CVE-2020-25684;PRION:CVE-2019-14834	4.3	https://vulners.com/prion/PRION:CVE-2019-14834;CVE-2021-3448	4.0	https://vulners.com/cve/CVE-2021-3448;CVE-2020-25686	3.7	https://vulners.com/cve/CVE-2020-25686;CVE-2020-25685	3.7	https://vulners.com/cve/CVE-2020-25685;CVE-2020-25684	3.7	https://vulners.com/cve/CVE-2020-25684;CVE-2019-14834	3.7	https://vulners.com/cve/CVE-2019-14834,2024-06-18 16:03:35.428344
-428,80.245.2.142,santurtzi.net,80,tcp,http,Microsoft IIS httpd,,2024-06-18 16:03:35.439777
-429,80.245.2.142,santurtzi.net,443,tcp,http,Microsoft IIS httpd,,2024-06-18 16:03:35.452116
-430,80.245.2.142,santurtzi.net,8008,tcp,http,,,2024-06-18 16:03:35.464198
+109,81.145.136.227,,53,tcp,domain,,,2024-10-09 10:51:27.369569
+110,81.145.136.228,,53,tcp,domain,,,2024-10-09 10:51:27.377243
+111,81.145.136.231,,80,tcp,http,Apache httpd,,2024-10-09 10:51:27.384755
+112,81.145.136.231,,443,tcp,http,Apache httpd,,2024-10-09 10:51:27.390947
+113,81.145.136.248,,443,tcp,https,,,2024-10-09 10:51:27.397029
+114,148.244.194.2,,443,tcp,https,,,2024-10-09 10:51:27.403500
+115,193.22.165.2,,21,tcp,ftp,,,2024-10-09 10:51:27.410005
+116,193.22.165.2,,2000,tcp,cisco-sccp,,,2024-10-09 10:51:27.416087
+117,193.22.165.2,,5060,tcp,sip,,,2024-10-09 10:51:27.424024
+118,193.22.165.2,,8008,tcp,http,,,2024-10-09 10:51:27.430527
+119,193.22.165.10,,443,tcp,https,,,2024-10-09 10:51:27.436826
+120,193.22.165.14,,25,tcp,smtp,Microsoft Exchange smtpd,,2024-10-09 10:51:27.443074
+121,193.22.165.14,,443,tcp,http,Microsoft IIS httpd,,2024-10-09 10:51:27.449345
+122,193.22.165.27,,80,tcp,http-proxy,F5 BIG-IP load balancer http proxy,,2024-10-09 10:51:27.455881
+123,193.22.165.28,,5269,tcp,xmpp-server,,,2024-10-09 10:51:27.462120
+124,193.22.165.54,,443,tcp,http-proxy,F5 BIG-IP load balancer http proxy,,2024-10-09 10:51:27.469632
+125,193.22.165.55,,443,tcp,https,BigIP,,2024-10-09 10:51:27.478229
+126,193.22.165.56,,443,tcp,http-proxy,F5 BIG-IP load balancer http proxy,,2024-10-09 10:51:27.490352
+127,193.22.165.66,,443,tcp,https,,,2024-10-09 10:51:27.496585
+128,193.22.165.98,,443,tcp,https,BigIP,,2024-10-09 10:51:27.502774
+129,193.22.165.99,,443,tcp,https,,,2024-10-09 10:51:27.510221
+130,193.22.165.103,,443,tcp,ssl,,,2024-10-09 10:51:27.517182
+131,193.22.165.103,,2020,tcp,tcpwrapped,,,2024-10-09 10:51:27.523415
+132,193.22.165.103,,8443,tcp,https-alt,,,2024-10-09 10:51:27.529500
+133,193.22.165.114,,443,tcp,http,Cisco ASA SSL VPN,,2024-10-09 10:51:27.535990
+134,193.22.165.203,,443,tcp,http-proxy,F5 BIG-IP load balancer http proxy,,2024-10-09 10:51:27.542117
+135,193.22.165.204,,443,tcp,http-proxy,F5 BIG-IP load balancer http proxy,,2024-10-09 10:51:27.548487
+136,193.22.165.205,,443,tcp,https,BigIP,,2024-10-09 10:51:27.554569
+137,193.22.165.206,,443,tcp,http-proxy,F5 BIG-IP load balancer http proxy,,2024-10-09 10:51:27.561016
+138,193.22.165.207,,443,tcp,http-proxy,F5 BIG-IP load balancer http proxy,,2024-10-09 10:51:27.570769
+139,193.22.165.212,,443,tcp,https,BigIP,,2024-10-09 10:51:27.577173
+140,193.22.165.213,,443,tcp,http,Apache httpd,,2024-10-09 10:51:27.583563
+141,193.22.165.216,,443,tcp,rtsp,,,2024-10-09 10:51:27.590220
+142,193.22.165.223,,443,tcp,https,BigIP,,2024-10-09 10:51:27.597331
+143,183.82.50.66,183.82.50.66.actcorp.in,179,tcp,tcpwrapped,,,2024-10-09 10:51:27.603607
+144,138.4.115.70,,21,tcp,ftp,,,2024-10-09 10:51:27.610241
+145,138.4.115.70,,25,tcp,smtp,,,2024-10-09 10:51:27.616739
+146,138.4.115.70,,80,tcp,http,,,2024-10-09 10:51:27.623272
+147,138.4.115.70,,110,tcp,pop3,,,2024-10-09 10:51:27.629552
+148,138.4.115.70,,143,tcp,imap,,,2024-10-09 10:51:27.635825
+149,138.4.115.70,,179,tcp,tcpwrapped,,,2024-10-09 10:51:27.642196
+150,138.4.115.70,,443,tcp,https,,,2024-10-09 10:51:27.648715
+151,138.4.115.70,,2000,tcp,cisco-sccp,,,2024-10-09 10:51:27.654922
+152,138.4.115.70,,5060,tcp,sip,,,2024-10-09 10:51:27.661368
+153,46.27.14.111,static-111-14-27-46.ipcom.comunitel.net,179,tcp,tcpwrapped,,,2024-10-09 10:51:27.667625
+154,77.227.38.205,static-205-38-227-77.ipcom.comunitel.net,179,tcp,tcpwrapped,,,2024-10-09 10:51:27.673806
+155,46.27.1.197,static-197-1-27-46.ipcom.comunitel.net,22,tcp,ssh,Cisco SSH,,2024-10-09 10:51:27.682962
+156,200.53.35.90,ip-200-53-35-90-mx.marcatel.net.mx,179,tcp,tcpwrapped,,,2024-10-09 10:51:27.689160
+157,212.222.206.169,,22,tcp,ssh,Cisco SSH,,2024-10-09 10:51:27.695305
+158,212.222.206.169,,23,tcp,telnet,Cisco router telnetd,,2024-10-09 10:51:27.704109
+159,212.222.206.170,,179,tcp,tcpwrapped,,,2024-10-09 10:51:27.711088
+160,212.222.87.214,,179,tcp,tcpwrapped,,,2024-10-09 10:51:27.717207
+161,212.222.190.46,mse46.mse.biotronik-erlangen.de,179,tcp,tcpwrapped,,,2024-10-09 10:51:27.725993
+162,212.222.205.226,,179,tcp,tcpwrapped,,,2024-10-09 10:51:27.732363

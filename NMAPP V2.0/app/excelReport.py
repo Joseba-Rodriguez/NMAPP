@@ -59,8 +59,8 @@ conn.close()
 msg = MIMEMultipart()
 
 #Enter the email "From" and "To" you want to send the report
-msg['From'] = ""
-msg['To'] = ""
+msg['From'] = "bshadowyt@gmail.com"
+msg['To'] = "itsecurity@itpaero.com"
 msg['Subject'] = "NMAPP - Reporte de nuevos puertos encontrados"
 
 msg.attach(MIMEText(

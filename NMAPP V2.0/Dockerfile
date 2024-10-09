@@ -1,13 +1,9 @@
-FROM python:3
+FROM python:3.10
 
 RUN apt-get -y update && apt-get -y upgrade \
-    && apt-get install -y nmap apache2 npm \
-    && npm install -g npm@latest \
-    && npm cache clean --force
+    && apt-get install -y nmap apache2 
 
-RUN npm install -g compromise
-
-RUN pip install psycopg2 schedule pandas FPDF secure-smtplib mime openpyxl dash geoip2 folium
+RUN pip install psycopg2-binary schedule pandas FPDF secure-smtplib mime openpyxl dash geoip2 folium
 
 WORKDIR /usr/src/app
 
