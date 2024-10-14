@@ -326,16 +326,6 @@ def update_ip_cves_table(selected_ip):
     ip_data = df[df['ip'] == selected_ip][['ip', 'cve_str']].to_dict('records')
     return ip_data
 
-@server.route('/login')
-def login():
-    return "Página de login aquí"  # Redirige a tu página de inicio de sesión
-
-@server.before_request
-def before_request():
-    # Verifica si hay una sesión activa
-    if not request.cookies.get('PHPSESSID'):  # Cambia esto al nombre de tu cookie de sesión
-        return redirect('/login')
-
 if __name__ == '__main__':
     app.run_server(debug=True, host='0.0.0.0', port=80, ssl_context=('/usr/src/app/certs/server.crt', '/usr/src/app/certs/server.key'))
 

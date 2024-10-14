@@ -14,6 +14,6 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
   <title>Dashboard</title>
 </head>
 <body>
-  <iframe src="https://localhost:80" style="width: 100%; height: 100vh; border: none;"></iframe>
+  <iframe src="https://172.25.191.4:80" style="width: 100%; height: 100vh; border: none;"></iframe>
 </body>
 </html>
