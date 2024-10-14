@@ -1,4 +1,4 @@
-import os
+import os 
 import subprocess
 
 # This is the main command of nmap
